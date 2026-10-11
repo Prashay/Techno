@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+	================================================== -->
+  <meta charset="utf-8">
+  <title> Techno Interview</title>
+
+  <!-- Mobile Specific Metas
+	================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Construction Html5 Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Prashant jha">
+  <meta name="generator" content=" Techno Interview">
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon-16x16.png" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body>
+  <!-- preloader start -->
+  <div class="preloader">
+    <img src="images/preloader.gif" alt="preloader">
+  </div>
+  <!-- preloader end -->
+
+<!-- header -->
+<header class="fixed-top header">
+  
+  <!-- navbar -->
+  <div class="navigation w-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark p-0">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item @@home">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="backend.html">Backend</a>
+              </li>
+            <li class="nav-item @@courses">
+              <a class="nav-link" href="frontend.html">Frontend</a>
+            </li>
+            <li class="nav-item @@events">
+              <a class="nav-link" href="cloud.html">Cloud</a>
+            </li>
+            <li class="nav-item @@blog">
+              <a class="nav-link" href="database.html">Database</a>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Interview program
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="ArrayPrograms.html">Array</a></li>
+                <li><a class="dropdown-item" href="numberprograms.html">Numbers</a></li>
+                <li><a class="dropdown-item" href="Stringprograms.html">String</a></li>
+                <li><a class="dropdown-item" href="java8programs.html">Java8 Programs</a></li>
+                <li><a class="dropdown-item" href="topicwiseprogram.html">Topicwise Programs</a></li>
+              </ul>
+            </li>
+            <li class="nav-item @@contact">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- /header -->
+<!-- page title -->
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb mb-2">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="corejava.html">Core java Interview</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted">Multithreading</li>
+        </ul>
+        <p class="text-lighten mb-0">All multi-threading level questions such as thread ,process,synchronization ,join,thread priorities covered.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+<!-- section -->
+<section class="section-sm">
+  <div class="container">
+    <!-- course info -->
+    <div class="row align-items-center mb-5">
+      <div class="col-xl-3 order-1 col-sm-6 mb-4 mb-xl-0">
+        <h2>Multithreading</h2>
+      </div>
+      <div class="col-xl-6 order-sm-3 order-xl-2 col-12 order-2">
+        <ul class="list-inline text-xl-center">
+          <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-book text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">COURSES</h6>
+                <p class="mb-0">04 Month</p>
+              </div>
+            </div>
+          </li>
+          <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-alarm-clock text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">DURATION</h6>
+                <p class="mb-0">03 Hours</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- border -->
+      <div class="col-12 mt-4 order-4">
+        <div class="border-bottom border-primary"></div>
+      </div>
+    </div>
+    <!-- course details -->
+    <div class="row">
+    
+      <div class="col-12 mb-4">
+        <p>Multi Threading is a process of running multiple thread at a same time consuming less memory and high performance.</p>
+        <h3 class="mb-3">what do you mean by Thread?</h3>
+        <P>Thread is subset of process or lightweight sub-process
+            <br/>
+            or
+            <br/>
+            Threads can be used to perform complicated tasks in the background without interrupting the main program.</P>
+      </div>
+      <div class="col-12 mb-4">
+        <h3>Difference between Thread and Process?</h3>
+        <div class="poly">
+            <table>
+              <thead>
+                <tr>
+                  <th>Thread</th>
+                  <th>Process </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Thread is small subset of process</td>
+                  <td>Process is execution of program</td>
+                  
+                </tr>
+                <tr>
+                  <td>Thread does not requires system
+                    resources</td>
+                  <td>Process requires system resources</td>
+                 
+                </tr>
+                <tr>
+                    <td>Inter Thread communication is faster as
+                        they are dependent upon eachother</td>
+                    <td>Inter process communication is slow as they are independent</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      <div class="col-12 mb-4">
+        <h3>How to create Thread in application? Define different way of creating it?</h3>
+        <p>Thread can be created in to two ways:</p>
+        <div class="col-12 px-0">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-styled">
+                  <li>extends Thread class</li>
+                  <li>implements Runnable interface </li>   
+                 </ul>
+              </div>
+            </div>
+          </div>
+          <h4>Extends Thread class</h4>
+          <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; overflow: auto;'><span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> CreatingThread <span style='font-weight:bold;color:#7B0052;'>extends</span> Thread<span style='font-weight:bold;color:#D3171B'>{</span>
+            <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> run() <span style='font-weight:bold;color:#D3171B'>{</span>
+              System.out.println(<span style='color:#2A00FF'>"Run Method using Thread class"</span>);
+            <span style='font-weight:bold;color:#D3171B'>}</span>
+           
+           <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>static</span> <span style='font-weight:bold;color:#7B0052;'>void</span> main(String[] args) <span style='font-weight:bold;color:#D3171B'>{</span>
+             CreatingThread thread = <span style='font-weight:bold;color:#7B0052;'>new</span> CreatingThread();
+             thread.start();
+           <span style='font-weight:bold;color:#D3171B'>}</span>
+         <span style='font-weight:bold;color:#D3171B'>}</span></pre>
+         <h4>Implements Runnable interface</h4>
+         <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px;  overflow: auto;'><span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> CreatingThread <span style='font-weight:bold;color:#7B0052;'>implements</span> Runnable <span style='font-weight:bold;color:#D3171B'>{</span>
+          <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> run() <span style='font-weight:bold;color:#D3171B'>{</span>
+              System.out.println(<span style='color:#2A00FF'>"Run Method implements Runnable"</span>);
+          <span style='font-weight:bold;color:#D3171B'>}</span>
+          <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>static</span> <span style='font-weight:bold;color:#7B0052;'>void</span> main(String[] args) <span style='font-weight:bold;color:#D3171B'>{</span>
+              CreatingThread thread = <span style='font-weight:bold;color:#7B0052;'>new</span> CreatingThread();
+              Thread th = <span style='font-weight:bold;color:#7B0052;'>new</span> Thread(thread);
+              th.start();
+          <span style='font-weight:bold;color:#D3171B'>}</span>
+      <span style='font-weight:bold;color:#D3171B'>}</span></pre>
+        </div>
+      <div class="col-12 mb-4">
+        <h3>How extend thread and implements Runnable are difference from each other?</h3>
+        <div class="poly">
+            <table>
+              <thead>
+                <tr>
+                  <th>Extends Thread</th>
+                  <th>implements Runnable</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>further extends not possible</td>
+                  <td>further extends is possible</td>
+                  
+                </tr>
+                <tr>
+                  <td>Tightly coupled</td>
+                  <td>Loosely coupled</td>
+                 
+                </tr>
+                <tr>
+                  <td>Code Reusability is not possible</td>
+                  <td>Code Reusability is possible</td>
+                </tr>
+                <tr>
+                    <td>execution will be slow</td>
+                    <td>execution is fast</td>
+                  </tr>
+                  <tr>
+                    <td>Multiple inheritance is not support</td>
+                    <td>Multiple inheritance is support</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>    
+    </div>
+    <div class="col-12 mb-4">
+        <h3>Difference between User thread and Demon thread?</h3>
+        <div class="poly">
+            <table>
+              <thead>
+                <tr>
+                  <th>User Thread</th>
+                  <th>Demon Thread</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Created by the application</td>
+                  <td>Created by the JVM</td>
+                </tr>
+                <tr>
+                  <td>JVM waits</td>
+                  <td>JVM does not wait as created by JVM</td>
+                </tr>
+                <tr>
+                  <td>Have high priority</td>
+                  <td>Have lowest priority</td>
+                </tr>
+                <tr>
+                    <td>designed for specific task</td>
+                    <td>designed for support other thread</td>
+                  </tr>
+                 
+              </tbody>
+            </table>
+          </div>    
+    </div>
+    <div class="col-12 mb-4">
+        <h3>How to create Demon thread?</h3>
+        <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; overflow: auto;'><span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> DemonNew <span style='font-weight:bold;color:#7B0052;'>extends</span> Thread <span style='font-weight:bold;color:#D3171B'>{</span>
+          <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> run() <span style='font-weight:bold;color:#D3171B'>{</span>
+              <span style='font-weight:bold;color:#7B0052;'>if</span> (Thread.currentThread().isDaemon() == <span style='font-weight:bold;color:#7B0052;'>true</span>) <span style='font-weight:bold;color:#D3171B'>{</span>
+                  System.out.println(<span style='color:#2A00FF'>"Demon Thread"</span>);
+              <span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>else</span> <span style='font-weight:bold;color:#D3171B'>{</span>
+                  System.out.println(<span style='color:#2A00FF'>"User Thread"</span>);
+              <span style='font-weight:bold;color:#D3171B'>}</span>
+          <span style='font-weight:bold;color:#D3171B'>}</span>
+          <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>static</span> <span style='font-weight:bold;color:#7B0052;'>void</span> main(String[] args) <span style='font-weight:bold;color:#D3171B'>{</span>
+              DemonNew t1 = <span style='font-weight:bold;color:#7B0052;'>new</span> DemonNew();
+              DemonNew t2 = <span style='font-weight:bold;color:#7B0052;'>new</span> DemonNew();
+              t1.setDaemon(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+              t1.start();
+              t2.start();
+          <span style='font-weight:bold;color:#D3171B'>}</span>
+      <span style='font-weight:bold;color:#D3171B'>}</span></pre>
+    </div>
+    <div class="col-12 mb-4">
+        <h3>Define Thread Scheduler?</h3>
+        <p>Thread Scheduler is a component of Java that decides which thread to run or execute and which thread to wait.
+
+            Every thread have priority of its own ,if there is more than one thread in the runnable state, it is up to the thread scheduler to pick one of the threads and ignore the other ones.
+            
+            There are two factors for scheduling a thread i.e. Priority and Time of arrival.<br/>
+            Priority: Priority of each thread lies between 1 to 10. Default priority of the thread is 5
+
+            If a thread has a higher priority, it means that thread has got a better chance of getting picked up by the thread scheduler.</p>
+        <div class="col-12 px-0">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-styled">
+                  <li><b>public static int MIN_PRIORITY: </b>It is the maximum priority of a thread. value of it is 1.</li>
+                  <li><b>public static int NORM_PRIORITY: </b>It is the normal priority of a thread. value of it is 5.</li>   
+                   <li><b>public static int MAX_PRIORITY: </b>It is the minimum priority of a thread. value of it is 10</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <p>it can be changed any time after creation.
+
+            We can check it by getPriority() method or setPriority() method for getting and setting the priority.
+            <br/>
+            <b>Time of Arrival:</b> Suppose two threads of the same priority enter the runnable state, then priority cannot be the factor to pick a thread from these two threads. In such a case, arrival time of thread is considered by the thread scheduler. A thread that arrived first gets the preference over the other threads.</p>
+        </div>
+
+
+    <div class="col-12 mb-4">
+        <h3>Difference between Preemptive scheduling and Time Slicing?</h3>
+        <div class="poly">
+            <table>
+              <thead>
+                <tr>
+                  <th>Preemptive scheduling</th>
+                  <th>Time Slicing</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> Under Preemptive scheduling high
+                    priority task executes until it enters the wait or dead states</td>
+                  <td>Under Time Slicing mechanism to
+                    divide the time into slice until re enter
+                    to ready task.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+      <div class="col-12 mb-4">
+        <h3>Difference Stage of Thread life Cycle?</h3>
+        <p>Thread life Cycle have different Stage :</p>
+        <div class="col-12 px-0">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-styled">
+                  <li>New</li>
+                  <li>Runnable</li>
+                  <li>Running</li>   
+                  <li>Waiting/Block</li>
+                  <li>Sleep</li>
+                  <li>Dead/Terminate</li>
+                 </ul>
+              </div>
+            </div>
+          </div>
+          <p><b>New:</b> when thread is created ,it is in new state until thread call start() method.
+            <br/>
+            <b>Runnable :</b> After starting thread will be in Runnable state until thread scheduler assign priority.
+            <br/>
+            <b>Running: </b>After thread scheduler select thread for running i.e thread is selected for the execution by thread scheduler
+            <br/>
+           <b>Waiting/Block : </b> State of thread is in waiting or block stage for monitor lock .Thread will be in this stage till notify() or notifyAll() method is called
+            <br/>
+           <b> Sleep : </b>In this state thread is waiting at specific time allocated until timeout completed.
+            <br/>
+           <b>Terminated/Dead : </b>  Thread after execution completed will be moved to this state.</p>
+        </div>
+
+        
+        <div class="col-12 mb-4">
+          <h3>Difference between Start() and Run() method?</h3>
+          <div class="poly">
+              <table>
+                <thead>
+                  <tr>
+                    
+                    <th>Run()</th>
+                    <th>Start()</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>run() is a method of Runnable <br/> interface and also define <br/>in java.lang package</td>
+                    <td>start() method is defined<br/> in thread class and <br/>its package is java.lang.</td>
+                  </tr>
+                  <tr>
+                    <td>run() method do not
+                      throws  <br/>any type of exception called <br/>more than once</td>
+                    <td>start() method can’t be invoked<br/> 
+                      more than once on same object</td>
+                  </tr>
+                  
+                  <tr>
+                    <td>multiple call is possible in case <br/>of run method.</td>
+                    <td>otherwise it will <br/>  throw java. <br/>lang run<br/>IllegalThread<br/>StateException</td>
+                  </tr>
+                  <tr>
+                    <td>On other hand run method<br/> executed by start method or<br/> get called directly if we implement<br/> Runnable interface and call run method.</td>
+                      <td>As thread class implements Runnable<br/>
+                        interface ,start method <br/>internally
+                        called run method<br/> after creating a new thread.</td>
+                  </tr>
+                  <tr>
+                    <td>Defined in java.lang.Runnable interface<br/> and must be overridden in <br/>the implementing class.</td>
+                     
+                    <td>Defined in java.lang.Thread class.</td>
+                    </tr>
+                    
+                </tbody>
+              </table>
+            </div>    
+      </div>
+        <div class="col-12 mb-4">
+            <h3>Difference between Wait() and Sleep() method?</h3>
+            <div class="poly">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Wait()</th>
+                      <th>Sleep()</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>The Wait() method is related to the
+                        Object class.</td>
+                      <td>The Sleep () method is related to the
+                        Thread class.</td>
+                    </tr>
+                    <tr>
+                      <td>It is not a static method.</td>
+                      <td>	It is a static method.</td>
+                    </tr>
+                    <tr>
+                      <td>The Wait () method release the lock on the object during Synchronization</td>
+                      <td>The Sleep () method does not release the lock on the object during Synchronization.</td>
+                    </tr>
+                    <tr>
+                        <td>The Wait() method has three
+                            overloaded methods </td>
+                        <td>The Sleep() method has two overloaded methods</td>
+                      </tr>
+                      <tr>
+                        <td>
+                            <ul class="list-styled">
+                                <li>Wait()</li>
+                                <li>wait(long timeout, int nanoseconds)</li>
+                                <li>wait(long timeout)</li>   
+                               </ul>
+                        </td>
+                        <td>
+                            <ul class="list-styled">
+                                <li> sleep(long milliseconds, int nanoseconds)</li>
+                                <li>sleep(long milliseconds)</li>
+                                 
+                               </ul>
+                        </td>
+                        
+                      </tr>
+                  </tbody>
+                </table>
+              </div>    
+        </div>
+
+              <div class="col-12 mb-4">
+                <h3>Can a thread called twice?</h3>
+                <p>Thread can not be started twice once started can be executed till dead state. If called twice compiler produces runtime exception i.e. IlligalThreadStateException .</p>
+              </div>
+                <div class="col-12 mb-4">
+                    <h3>Define Join() method ?</h3>
+                    <p>Join() method is part of java.lang package.
+                        <br/>
+                        Java allows one thread to wait until another thread completes its execution. In simpler words, it means it waits for the other thread to die. It has a void type and throws InterruptedException.
+                        <br/>
+                        Joining threads in Java has three functions namely,</p>
+                    <div class="col-12 px-0">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <ul class="list-styled">
+                              <li>join()</li>
+                              <li>join(long millis)</li>
+                              <li>join(long millis, int nanos)</li>   
+                             </ul>
+                             <h6>Syntax:</h6>
+                             <ul class="list-styled">
+                                <li> public final void join()</li>
+                                <li>public final void join(long millis, int nanos)</li>
+                                <li>public final void join(long millis)</li>   
+                               </ul>
+                          </div>
+                        </div>
+                      </div>
+               </div>
+               <div class="col-12 mb-4">
+                <h3>Define Synchronization in Multithreading?</h3>
+                <p>Synchronization is capability of control the access of multiple thread to any shared object resource in order to avoid data inconsistency.
+             <br/>
+                Java Synchronization is better option where we want to allow only one thread to access the shared resource</p>   
+            </div>
+            <div class="col-12 mb-4">
+                <h3>Why use Synchronization?</h3>
+                <p>The synchronization is mainly used to</p>
+                <div class="col-12 px-0">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <ul class="list-styled">
+                          <li>To prevent thread interference.</li>
+                          <li>To prevent consistency problem.</li>  
+                         </ul>
+                         <h3>Types of Synchronization</h3>
+                         <ul class="list-styled">
+                            <li> Process Synchronization</li>
+                            <li>Thread Synchronization</li>  
+                           </ul>
+                      </div>
+                    </div>
+                  </div>
+           </div>
+           <div class="col-12 mb-4">
+            <h3>Define Deadlock in multithreading?</h3>
+            <p>Deadlock is a situation in which all thread in waiting state are waiting for resource object but non of them get executed .Create universal waiting state and break the code at runtime.</p>
+            <div class="col-12 px-0">
+                <div class="row">
+                  <div class="col-md-6">
+                   
+                     <h5>To Avoid Deadlock:</h5>
+                     <ul class="list-styled">
+                        <li>use Join() method</li>
+                        <li>Avoid the nested lock ()</li>
+                        <li>Avoid the circular dependency</li>  
+                        <li>use Synchronization</li>
+                       </ul>
+                  </div>
+                </div>
+              </div>
+       </div>
+       <div class="col-12 mb-4">
+        <h3>Define between notify() and notifyAll()?</h3>
+        <div class="poly">
+            <table>
+              <thead>
+                <tr>
+                  <th>notify()</th>
+                  <th>notifyAll()</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>notify only one thread at a time</td>
+                  <td>notify multiple thread at a time</td>
+                </tr>
+                <tr>
+                  <td>faster in execution since only one
+                    thread release at a time</td>
+                  <td>Slower in execution since multiple thread release at a time</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>    
+    </div>
+    <div class="col-12 mb-4">
+        <h3>Why Wait() ,notify() and notifyAll() present in Object class?</h3>
+        <p>If wait() and notify() were on the Thread instead then each thread would have to know the status of every other thread and there is no way to know thread1 that thread2 was waiting for any resource to access. Hence, notify, wait, notifyAll methods are defined in object class in Java</p>   
+    </div>
+    <div class="col-12 mb-4">
+        <h3>why Sleep() and Yeild() method are static by nature ?</h3>
+        <p>Sleep() and Yeild() method are static because it work on currently executing thread, rather than any specific thread – you don’t have to specify which thread is currently running to free up the processor.</p>
+        </div>
+               
+    </div>
+  </div>
+</section>
+<!-- /section -->
+
+<!-- related course -->
+<section class="section pt-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title">Related Course</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <!-- course item -->
+      <div class="col-lg-4 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-9.jpg" alt="course thumb">
+          <div class="card-body">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2024</li>
+              <li class="list-inline-item"><a class="text-color" href="#">Basic Java</a></li>
+            </ul>
+            <a href="#">
+              <h4 class="card-title">Basic Java</h4>
+            </a>
+            <p class="card-text mb-4"> All basic level question for java covered in this section for any one either experienced or fresher</p>
+            <a href="basicjava.html" class="btn btn-primary btn-sm">Visit</a>
+          </div>
+        </div>
+      </div>
+      <!-- course item -->
+      <div class="col-lg-4 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-10.jpg" alt="course thumb">
+          <div class="card-body">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2024</li>
+              <li class="list-inline-item"><a class="text-color" href="#">OOP Concept</a></li>
+            </ul>
+            <a href="#">
+              <h4 class="card-title">OOP Concept</h4>
+            </a>
+            <p class="card-text mb-4">Inheritance,Polimorphism,Abstraction and Encapsulation</p>
+            <a href="oopsconcept.html" class="btn btn-primary btn-sm">Visit</a>
+          </div>
+        </div>
+      </div>
+      <!-- course item -->
+      <div class="col-lg-4 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-4.jpg" alt="course thumb">
+          <div class="card-body">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2024</li>
+              <li class="list-inline-item"><a class="text-color" href="#">Exception handling</a></li>
+            </ul>
+            <a href="#">
+              <h4 class="card-title">Exception handling</h4>
+            </a>
+            <p class="card-text mb-4">Exception handling ,it type ,error vs Exception </p>
+            <a href="exception.html" class="btn btn-primary btn-sm">Visit</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- /related course -->
+
+<!-- footer -->
+<footer>
+  <!-- newsletter -->
+  <div class="newsletter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 ml-auto bg-primary py-5 newsletter-block">
+          <h3 class="text-white">Subscribe Now</h3>
+          <form action="#">
+            <div class="input-wrapper">
+              <input type="email" class="form-control border-0" id="newsletter" name="newsletter" placeholder="Enter Your Email...">
+              <button type="submit" value="send" class="btn btn-primary">Join</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- footer content -->
+  <div class="footer bg-footer section border-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-8 mb-5 mb-lg-0">
+          <!-- logo -->
+          <a class="logo-footer" href="index.html"><img class="img-fluid mb-4" src="images/logo.png" alt="logo"></a>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a class="text-color" href="#"><i class="ti-face-smile mr-2"></i>  - Prashant Kumar Jha</li>
+            <li class="mb-2"><a class="text-color" href="tel:+91-7749994892"><i class="ti-mobile mr-2"></i>+91-7749994892</li>
+            <li class="mb-2"><a class="text-color" href="www.technointerview.com"><i class="ti-world mr-2"></i> www.technointerview.com</li>
+            <li class="mb-2"><a class="text-color" href="mailto:jhaprash29@gmail.com"><i class="ti-email mr-2"></i>jhaprash29@gmail.com</a></li>
+        
+          </ul>
+        </div>
+        <!-- company -->
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">BACKEND</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="corejava.html">Core java</a></li>
+            <li class="mb-3"><a class="text-color" href="java8theory.html">Java8</a></li>
+            <li class="mb-3"><a class="text-color" href="springboot.html">SpringBoot</a></li>
+            <li class="mb-3"><a class="text-color" href="microservice.html">MicroService</a></li>
+            <li class="mb-3"><a class="text-color" href="hibernate.html">Hibernet</a></li>
+            <li class="mb-3"><a class="text-color" href="docker.html">Docker</a></li>
+          </ul>
+        </div>
+        <!-- links -->
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">FRONTEND</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="angular.html">Angular</a></li>
+            <li class="mb-3"><a class="text-color" href="reactjs.html">Reactjs</a></li>
+          </ul>
+        </div>
+        <!-- support -->
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">CLOUDS</h4>
+          <ul class="list-unstyled">
+             <li class="mb-3"><a class="text-color" href="aws.html">AWS</a></li>
+            <li class="mb-3"><a class="text-color" href="gcp.html">GCP</a></li>
+          </ul>
+        </div>
+        <!-- support -->
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">INTERVIEW PROGRAMS</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="Stringprograms.html">String</a></li>
+            <li class="mb-3"><a class="text-color" href="ArrayPrograms.html">Array</a></li>
+            <li class="mb-3"><a class="text-color" href="numberprograms.html">Number</a></li>
+            <li class="mb-3"><a class="text-color" href="java8programs.html">java8 Programs</a></li>
+            <li class="mb-3"><a class="text-color" href="topicwiseprogram.html">Topicwise Programs</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- copyright -->
+  <div class="copyright py-4 bg-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 text-sm-left text-center">
+          <p class="mb-0">Copyright &copy;
+            <script>
+              var CurrentYear = new Date().getFullYear()
+              document.write(CurrentYear)
+            </script> 
+            , designed & developed by <a href="https://jprashant.in/" class="text-muted">Prashant jha</a>
+          </p>
+        </div>
+        <div class="col-sm-5 text-sm-right text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://facebook.com/Prashant jha/"><i class="ti-facebook text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://twitter.com/Prashant jha"><i class="ti-twitter-alt text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://github.com/Prashant jha"><i class="ti-github text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://instagram.com/Prashant jha/"><i class="ti-instagram text-primary"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- filter -->
+<script src="plugins/filterizr/jquery.filterizr.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
