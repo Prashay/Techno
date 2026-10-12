@@ -205,7 +205,15 @@
       </div>
     </div>
     <!-- course details -->
-    <div class="row">       
+    <div class="row">
+        <!-- SECTION 1: BASIC & CORE -->
+        <div class="col-12 mb-4">
+          <div class="level-badge basic"><i class="ti-bookmark mr-1"></i> PART 1: CORE &amp; FOUNDATIONAL QUESTIONS</div>
+          <h2 class="level-heading">Microservice Fundamentals <span class="badge badge-primary font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Basic &bull; Developer</span></h2>
+          <p class="text-secondary">Core architectural tenets, service discovery, API gateway patterns, and base communication mechanisms.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+       
     <div class="col-12 mb-4">
         <h3>New features of Java 8?</h3>
         <h6>Following are new introduces features of java8</h6>
@@ -748,6 +756,137 @@
                         System.out.println(referenceFunction.apply(<span style='color:#2A00FF'>"12"</span>));
                     <span style='font-weight:bold;color:#D3171B'>}</span>
                 <span style='font-weight:bold;color:#D3171B'>}</span></pre>  
+        </div>
+
+    
+        <!-- ========================================================================== -->
+        <!-- SECTION 2: ADVANCED & TECH LEAD (2026 EDITION) -->
+        <!-- ========================================================================== -->
+        <div class="col-12 my-5 pt-4">
+          <div class="level-badge advance mb-2"><i class="ti-star mr-1"></i> PART 2: ADVANCED &amp; 2026 INTERVIEW SPECS</div>
+          <h2 class="level-heading">Advanced Microservice Architecture &amp; Lead Systems <span class="badge badge-success font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Senior &bull; Tech Lead &bull; 2026</span></h2>
+          <p class="text-secondary">Distributed transactions (Saga), outbox CDC patterns, zero-trust security, distributed rate limiting, and zero-downtime canary rollouts.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Distributed Transactions &bull; Architecture</span>
+            <h3 class="text-dark font-weight-bold mb-3">1. How do you handle distributed transactions across microservices? Compare Orchestration Saga vs Choreography Saga.</h3>
+            <p>In distributed microservices with independent databases, traditional <strong>Two-Phase Commit (2PC)</strong> is an anti-pattern because it locks distributed resources across network boundaries, introducing single points of failure and catastrophic latency under high concurrency. Modern architectures use the <strong>Saga Pattern</strong> (eventual consistency):</p>
+            <div class="poly">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Dimension</th>
+                    <th>Choreography Saga</th>
+                    <th>Orchestration Saga</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Control Model</strong></td>
+                    <td>Decentralized: Each service publishes events (e.g. OrderCreated &rarr; PaymentCharged &rarr; StockDeducted)</td>
+                    <td>Centralized: Dedicated Orchestrator orchestrates calls and handles state transitions</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Coupling</strong></td>
+                    <td>Loose coupling; services only know domain events</td>
+                    <td>Services are coupled to the orchestrator interface</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Failure &amp; Compensation</strong></td>
+                    <td>Harder to trace; cascading compensating events across many Kafka topics</td>
+                    <td><strong>Clear compensating workflow</strong>: orchestrator explicitly executes rollback actions on failure</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Ideal For</strong></td>
+                    <td>Simple workflows with 2-4 services</td>
+                    <td><strong>Complex, mission-critical workflows (e-commerce checkout, payment processing)</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="mt-3"><strong>Key Tech Lead Insight:</strong> Every compensating transaction <em>must be strictly idempotent</em>. If a compensation fails midway due to network timeout, the saga manager must safely retry without corrupting state.</p>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Dual-Write Problem &bull; CDC</span>
+            <h3 class="text-dark font-weight-bold mb-3">2. Explain the Dual-Write Problem and how the Transactional Outbox Pattern with Debezium CDC solves it.</h3>
+            <p><strong>The Dual-Write Problem:</strong> When a service updates its database (e.g., saves an Order) and publishes an event to Apache Kafka within the same method, failure can happen at step 2 (Kafka broker down, network partition). This creates an irreconcilable distributed inconsistency: the DB committed, but downstream services never received the event.</p>
+            <h5 class="font-weight-bold text-dark mt-3">The Transactional Outbox Solution:</h5>
+            <ul class="list-styled pl-4">
+              <li><strong>Local Atomic Commit:</strong> Within the <em>same local database transaction</em>, write the business entity to <code>orders</code> table AND write the event payload to an <code>outbox</code> table.</li>
+              <li><strong>Change Data Capture (CDC):</strong> <strong>Debezium</strong> (via Kafka Connect) tails the database transaction log (PostgreSQL WAL, MySQL binlog). It reads committed outbox entries asynchronously and writes them to the target Kafka topic with at-least-once guarantee.</li>
+              <li><strong>Zero Dual-Write Hazard:</strong> The business write and event capture succeed or fail together atomically, eliminating two-phase distributed locks.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Zero Trust &bull; API Security</span>
+            <h3 class="text-dark font-weight-bold mb-3">3. How do you architect Zero-Trust Security across microservices? Compare JWTs vs Reference Tokens and mTLS.</h3>
+            <p>In modern 2026 enterprise microservices, perimeter-only firewall security is obsolete. A <strong>Zero-Trust Architecture</strong> enforces security inside and between services:</p>
+            <ul class="list-styled pl-4">
+              <li><strong>Edge Authentication:</strong> Public clients present opaque reference tokens to the API Gateway. The Gateway exchanges them with Keycloak/Auth0 or validates short-lived signed JWTs.</li>
+              <li><strong>Context Propagation:</strong> The API Gateway down-scopes permissions and passes user claims (tenantId, userId, roles) downstream in cryptographically signed, short-lived JWT headers or gRPC metadata.</li>
+              <li><strong>Service-to-Service mTLS (Mutual TLS):</strong> Service Mesh (Istio / Envoy) injects sidecar proxies that automatically authenticate inter-service connections using SPIFFE/SPIRE x509 certificates with automated cryptographic rotation every 24 hours.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Gateway &bull; Distributed Rate Limiting</span>
+            <h3 class="text-dark font-weight-bold mb-3">4. How do you design high-throughput Distributed Rate Limiting using the Token Bucket algorithm and Redis?</h3>
+            <p>To defend against DDoS and noisy neighbors without creating in-memory synchronization bottlenecks across multiple API Gateway instances, use a <strong>Distributed Token Bucket</strong> implemented with Redis Lua scripts:</p>
+            <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 14px; font-size: 13px; overflow: auto;'>-- Redis Lua Script: Atomic Token Bucket Rate Limiter
+local key = KEYS[1]
+local limit = tonumber(ARGV[1])
+local current = tonumber(redis.call('get', key) or "0")
+
+if current + 1 &gt; limit then
+    return 0 -- Rate limit exceeded (HTTP 429)
+else
+    redis.call("INCRBY", key, 1)
+    if current == 0 then
+        redis.call("EXPIRE", key, tonumber(ARGV[2])) -- TTL window in seconds
+    end
+    return 1 -- Request allowed
+end</pre>
+            <p class="mt-2"><strong>Tech Lead Best Practice:</strong> Return standard IETF headers: <code>RateLimit-Limit</code>, <code>RateLimit-Remaining</code>, and <code>Retry-After</code> on HTTP 429 to enable intelligent client exponential backoff with jitter.</p>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Data Architecture &bull; CQRS</span>
+            <h3 class="text-dark font-weight-bold mb-3">5. With Database-per-Service, how do you handle complex Cross-Service Joins and Distributed Reporting?</h3>
+            <p>Under Database-per-Service, joining tables across databases over HTTP (distributed in-memory join) causes $O(N)$ network roundtrips, cascading latency, and tight operational coupling.</p>
+            <h5 class="font-weight-bold text-dark mt-3">Architectural Solutions:</h5>
+            <ul class="list-styled pl-4">
+              <li><strong>CQRS (Command Query Responsibility Segregation):</strong> The write services emit domain events (OrderPlaced, CustomerAddressUpdated). A dedicated Read Model service consumes these events and updates a denormalized, read-optimized data store (PostgreSQL materialized view, Elasticsearch, or MongoDB). Queries execute against the materialized view with $O(1)$ single-table lookups.</li>
+              <li><strong>GraphQL Federation (Apollo Router):</strong> Clients query a unified schema; the federation router executes sub-queries in parallel and merges JSON fragments.</li>
+              <li><strong>Enterprise Analytics:</strong> CDC pipes event streams directly into BigQuery / Snowflake data lakes for analytical batch processing.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Zero Downtime &bull; SRE / DevOps</span>
+            <h3 class="text-dark font-weight-bold mb-3">6. As a Tech Lead, how do you execute Zero-Downtime Canary Deployments with Istio and automated rollback?</h3>
+            <p>Canary releases minimize blast radius by exposing a new version to a controlled slice of production traffic before global rollout:</p>
+            <ul class="list-styled pl-4">
+              <li><strong>Traffic Splitting (Istio VirtualService):</strong> Route 95% of traffic to <code>v1</code> (baseline) and 5% to <code>v2</code> (canary) based on percentage weights or specific HTTP request headers (internal testers / beta users).</li>
+              <li><strong>Automated Metric Analysis:</strong> Prometheus and Argo Rollouts evaluate Golden Signals (HTTP 5xx rate, P99 response latency, error budget burn rate).</li>
+              <li><strong>Automated Rollback:</strong> If the 5xx error rate on canary exceeds 1% during a 10-minute observation window, the traffic split instantly reverts to 100% baseline with zero manual human intervention.</li>
+              <li><strong>Database Schema Migration (Expand &amp; Contract):</strong> Never rename or drop DB columns in a single release. <em>Step 1 (Expand):</em> Add new nullable column, deploy code writing to both. <em>Step 2:</em> Backfill data. <em>Step 3 (Contract):</em> Deploy code reading only from new column, then drop old column.</li>
+            </ul>
+          </div>
         </div>
 
     </div>

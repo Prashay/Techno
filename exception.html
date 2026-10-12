@@ -206,6 +206,14 @@
     </div>
     <!-- course details -->
     <div class="row">
+        <!-- SECTION 1: BASIC & CORE -->
+        <div class="col-12 mb-4">
+          <div class="level-badge basic"><i class="ti-bookmark mr-1"></i> PART 1: CORE &amp; FOUNDATIONAL QUESTIONS</div>
+          <h2 class="level-heading">Exception Handling Fundamentals <span class="badge badge-primary font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Basic &bull; Developer</span></h2>
+          <p class="text-secondary">Try, catch, finally blocks, throw vs throws, Exception hierarchy, and Custom Exceptions.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+
     
       <div class="col-12 mb-4">
         <h3>Define different type of Exception and its example?</h3>
@@ -482,6 +490,129 @@
         <h3>What happen if exception throws by main method ?</h3>
         <p>When exception I thrown by main () method it will terminate the program at runtime and print exception method at console. If file not founded filenotfoundexception thrown.</p> 
     </div>     
+    
+        <!-- ========================================================================== -->
+        <!-- SECTION 2: ADVANCED & TECH LEAD (2026 EDITION) -->
+        <!-- ========================================================================== -->
+        <div class="col-12 my-5 pt-4">
+          <div class="level-badge advance mb-2"><i class="ti-star mr-1"></i> PART 2: ADVANCED &amp; 2026 INTERVIEW SPECS</div>
+          <h2 class="level-heading">Advanced Exception Handling &amp; Distributed Fault Contracts (2026) <span class="badge badge-success font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Senior &bull; Tech Lead &bull; 2026</span></h2>
+          <p class="text-secondary">RFC 7807 Problem Details, asynchronous/reactive error handling, suppressed exceptions, retriable vs fatal failure classification, and distributed trace correlation.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">RFC 7807 &bull; Modern API Standards</span>
+            <h3 class="text-dark font-weight-bold mb-3">1. RFC 7807 Problem Details in Spring Boot 3 &amp; Modern Microservices Error Contracts.</h3>
+            <p>In modern REST APIs, returning non-standard JSON error responses (e.g., <code>{"status": "error", "msg": "failed"}</code>) makes cross-service client error parsing brittle. <strong>RFC 7807 (Problem Details for HTTP APIs)</strong> standardizes error reporting across the industry and is supported natively in Spring Boot 3 via <code>ProblemDetail</code>:</p>
+            <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 14px; font-size: 13px; overflow: auto;'>{
+  "type": "https://api.technointerview.com/errors/insufficient-balance",
+  "title": "Insufficient Account Balance",
+  "status": 400,
+  "detail": "Account balance of $25.00 is insufficient for transaction of $50.00",
+  "instance": "/accounts/acc_12345/transactions",
+  "timestamp": "2026-10-12T10:30:00Z",
+  "traceId": "4bf92f3577b34da6a3ce929d0e0e4736"
+}</pre>
+            <p class="mt-2">Spring Boot 3 enables this globally with <code>spring.mvc.problemdetails.enabled=true</code>, automatically mapping validation failures (<code>MethodArgumentNotValidException</code>) and framework exceptions to standardized Problem Details.</p>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Async Pipelines &bull; Reactive</span>
+            <h3 class="text-dark font-weight-bold mb-3">2. Exception Handling in Asynchronous &amp; Reactive Pipelines (CompletableFuture &amp; Project Reactor).</h3>
+            <p>Standard <code>try-catch</code> blocks cannot catch exceptions in asynchronous or reactive code because execution occurs on worker threads outside the caller's call stack frame.</p>
+            <h5 class="font-weight-bold text-dark mt-3">CompletableFuture Error Handling:</h5>
+            <ul class="list-styled pl-4">
+              <li><code>exceptionally(fn)</code>: Recovers from errors by returning a fallback value if the stage throws an exception.</li>
+              <li><code>handle(BiFunction)</code>: Receives both the result and throwable, allowing unified handling whether the stage succeeded or failed.</li>
+              <li><code>whenComplete(BiConsumer)</code>: Executes side-effects (e.g. logging/metrics) without altering the downstream result or exception.</li>
+            </ul>
+            <h5 class="font-weight-bold text-dark mt-3">Project Reactor / WebFlux:</h5>
+            <ul class="list-styled pl-4">
+              <li><code>onErrorResume(fallbackPublisher)</code>: Switches to a secondary reactive stream on error.</li>
+              <li><code>retryWhen(Retry.backoff(3, Duration.ofSeconds(1)).jitter(0.5))</code>: Production-grade exponential backoff with randomized jitter to prevent thundering herd problems.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Language Mechanics &bull; AutoCloseable</span>
+            <h3 class="text-dark font-weight-bold mb-3">3. Suppressed Exceptions in Try-With-Resources: Preserving root cause diagnostic traces.</h3>
+            <p>In legacy Java, if a <code>try</code> block threw an exception and the corresponding <code>finally</code> block's <code>close()</code> also threw an exception, the <code>finally</code> exception <strong>masked and erased</strong> the original business exception!</p>
+            <h5 class="font-weight-bold text-dark mt-3">How Try-With-Resources Solves This:</h5>
+            <p>The original exception thrown inside the <code>try</code> block is preserved as the primary exception. Any secondary exceptions thrown while closing <code>AutoCloseable</code> resources are attached to the primary exception as <strong>Suppressed Exceptions</strong>:</p>
+            <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 12px; font-size: 13px; overflow: auto;'>try (var connection = dataSource.getConnection()) {
+    throw new BusinessException("Payment failed");
+} catch (Exception ex) {
+    // Primary exception is BusinessException
+    for (Throwable suppressed : ex.getSuppressed()) {
+        log.error("Suppressed resource closure failure: ", suppressed);
+    }
+}</pre>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Resilience &bull; Failure Classification</span>
+            <h3 class="text-dark font-weight-bold mb-3">4. Exception Classification in Distributed Systems: Transient Retriable vs Fatal Domain Errors.</h3>
+            <p>A major cause of cascading failure in microservices is retrying the wrong errors. Microservices must strictly classify exceptions into two categories:</p>
+            <div class="poly">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Examples</th>
+                    <th>Handling Strategy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Transient / Retriable</strong></td>
+                    <td><code>ConnectTimeoutException</code>, <code>SocketTimeoutException</code>, HTTP 503 Service Unavailable, database deadlock</td>
+                    <td><strong>Retry with Exponential Backoff + Jitter</strong>. Tripped in Circuit Breaker if failure rate persists.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Fatal / Non-Retriable</strong></td>
+                    <td><code>ConstraintViolationException</code>, <code>BadCredentialsException</code>, HTTP 400 Bad Request, HTTP 404 Not Found</td>
+                    <td><strong>Fail Immediately (Fast-fail)</strong>. Must be excluded from Circuit Breaker error counts using <code>ignoreExceptions</code>!</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Modern Consensus &bull; Clean Architecture</span>
+            <h3 class="text-dark font-weight-bold mb-3">5. Checked vs Unchecked Exceptions: Why modern Java frameworks abandoned Checked Exceptions.</h3>
+            <p>Java is the only mainstream programming language with checked exceptions (C#, Kotlin, TypeScript, Go, and Python have none). In modern enterprise architecture, checked exceptions are widely considered an anti-pattern:</p>
+            <ul class="list-styled pl-4">
+              <li><strong>Violation of Open/Closed Principle:</strong> Declaring <code>throws SQLException</code> on a repository leaks storage details into business service interfaces. Changing an implementation to MongoDB forces signature changes across 10 layers.</li>
+              <li><strong>Incompatibility with Functional Programming:</strong> Java 8+ functional interfaces (<code>Function&lt;T, R&gt;</code>, <code>Consumer&lt;T&gt;</code>, <code>Predicate&lt;T&gt;</code>) do not declare checked exceptions, requiring clumsy try-catch wrappers inside Lambdas.</li>
+              <li><strong>Modern Best Practice:</strong> Use unchecked (runtime) exceptions for technical/infrastructure faults, and return explicit Result types or <code>Optional</code> for expected domain alternatives.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Observability &bull; SRE Troubleshooting</span>
+            <h3 class="text-dark font-weight-bold mb-3">6. Correlating Distributed Exceptions using OpenTelemetry, MDC, and Automated Alerts.</h3>
+            <p>When an unhandled exception occurs in production across a chain of 6 microservices, finding the root cause manually through SSH logs is impossible. Senior engineering teams implement <strong>Unified Trace Correlation</strong>:</p>
+            <ul class="list-styled pl-4">
+              <li><strong>Automatic MDC Injection:</strong> Spring Boot 3 Observation extracts the OpenTelemetry <code>traceId</code> and injects it into SLF4J MDC before any controller or listener executes.</li>
+              <li><strong>Global ControllerAdvice Capture:</strong> When an unhandled exception reaches the controller, the exception handler extracts <code>tracer.currentSpan().context().traceId()</code> and includes it in both the log entry and the RFC 7807 response body.</li>
+              <li><strong>Instant Troubleshooting:</strong> On-call engineers copy the <code>traceId</code> from customer tickets directly into Grafana Tempo / Jaeger, displaying the exact microservice, class, method, and database query that failed in under 15 seconds.</li>
+            </ul>
+          </div>
+        </div>
+
     </div>
   </div>
 </section>

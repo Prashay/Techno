@@ -229,7 +229,54 @@
     </div>
     <!-- course details -->
     <div class="row">
-    </div>
+
+      <!-- SECTION 1: BASIC & CORE -->
+      <div class="col-12 mb-4">
+        <div class="level-badge basic"><i class="ti-bookmark mr-1"></i> PART 1: CORE &amp; FOUNDATIONAL QUESTIONS</div>
+        <h2 class="level-heading">Cloud &amp; DevOps Fundamentals <span class="badge badge-primary font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Basic &bull; Developer</span></h2>
+        <p class="text-secondary">Core cloud computing models, virtualization, CI/CD automation, and cloud networking basics.</p>
+        <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+      </div>
+
+      <div class="col-12 mb-4">
+        <h3>1. IaaS vs PaaS vs SaaS: Key differences and shared responsibility model</h3>
+        <p><strong>IaaS (Infrastructure as a Service):</strong> Cloud provider manages hardware and virtualization; customer manages OS, runtime, and app (e.g. AWS EC2, GCP GCE). <strong>PaaS (Platform as a Service):</strong> Provider manages OS and runtime; customer manages app code (e.g. Cloud Run, Elastic Beanstalk). <strong>SaaS (Software as a Service):</strong> Fully managed end-user application (e.g. Gmail, Salesforce).</p>
+      </div>
+
+      <div class="col-12 mb-4">
+        <h3>2. Virtual Machines (Hypervisors) vs Containers</h3>
+        <p>Virtual Machines virtualize the hardware layer via a Hypervisor (Type 1 or Type 2), running a complete guest OS with separate kernel per VM. Containers share the host Linux kernel, isolating user space via namespaces and cgroups, booting in milliseconds with negligible overhead.</p>
+      </div>
+
+      <!-- SECTION 2: ADVANCED & TECH LEAD (2026 EDITION) -->
+      <div class="col-12 my-5 pt-4">
+        <div class="level-badge advance mb-2"><i class="ti-star mr-1"></i> PART 2: ADVANCED &amp; 2026 INTERVIEW SPECS</div>
+        <h2 class="level-heading">Advanced Cloud Architecture &amp; Enterprise DevOps <span class="badge badge-success font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Senior &bull; Tech Lead &bull; 2026</span></h2>
+        <p class="text-secondary">Multi-region active-active disaster recovery, FinOps cost governance, Karpenter autoscaling, and Chaos Engineering.</p>
+        <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+      </div>
+
+      <div class="col-12 mb-4">
+        <div class="interview-section-card advance-card">
+          <span class="advance-tag">High Availability &bull; Disaster Recovery</span>
+          <h3 class="text-dark font-weight-bold mb-3">1. Multi-Region Active-Active Architecture: RPO, RTO, and Data Synchronization.</h3>
+          <ul class="list-styled pl-4">
+            <li><strong>RPO (Recovery Point Objective):</strong> Maximum acceptable data loss duration during an outage.</li>
+            <li><strong>RTO (Recovery Time Objective):</strong> Maximum acceptable downtime duration to restore service.</li>
+            <li><strong>Active-Active Architecture:</strong> Traffic routed to both regions via Anycast DNS (Route 53 latency-based routing or Cloudflare). Databases use multi-region active-active replication (Aurora Global Database or Cloud Spanner) with automatic conflict resolution.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-12 mb-4">
+        <div class="interview-section-card advance-card">
+          <span class="advance-tag">Cloud Financial Engineering &bull; FinOps</span>
+          <h3 class="text-dark font-weight-bold mb-3">2. FinOps: Cloud Cost Optimization and Unit Economics.</h3>
+          <p>As a Tech Lead, managing cloud expenditure requires: 1) Utilizing Spot Instances / Preemptible VMs for stateless workloads; 2) Right-sizing container CPU/memory requests based on Prometheus P95 metrics; 3) Storage lifecycle policies transitioning S3/GCS to Glacier/Archive; 4) Purchasing Savings Plans for baseline continuous compute.</p>
+        </div>
+      </div>
+
+</div>
   </div>
 </section>
 <!-- /section -->

@@ -206,6 +206,14 @@
     </div>
     <!-- course details -->
     <div class="row">
+        <!-- SECTION 1: BASIC & CORE -->
+        <div class="col-12 mb-4">
+          <div class="level-badge basic"><i class="ti-bookmark mr-1"></i> PART 1: CORE &amp; FOUNDATIONAL QUESTIONS</div>
+          <h2 class="level-heading">Java Collection Fundamentals <span class="badge badge-primary font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Basic &bull; Developer</span></h2>
+          <p class="text-secondary">List, Set, Map hierarchies, ArrayList vs LinkedList, HashMap vs Hashtable, and basic iterators.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+
       
       <div class="col-12 mb-4">
         <p>Collection is combination of different type of objects in a single entity.<br/>
@@ -775,6 +783,132 @@
                                                   </div>
                                                 </div>    
     
+
+    
+        <!-- ========================================================================== -->
+        <!-- SECTION 2: ADVANCED & TECH LEAD (2026 EDITION) -->
+        <!-- ========================================================================== -->
+        <div class="col-12 my-5 pt-4">
+          <div class="level-badge advance mb-2"><i class="ti-star mr-1"></i> PART 2: ADVANCED &amp; 2026 INTERVIEW SPECS</div>
+          <h2 class="level-heading">Advanced Collections, Concurrency &amp; Memory (2026) <span class="badge badge-success font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Senior &bull; Tech Lead &bull; 2026</span></h2>
+          <p class="text-secondary">ConcurrentHashMap CAS internals, CopyOnWrite performance, Java 21 Sequenced Collections, hash-flooding DoS defenses, and modern Caffeine caching.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Concurrent Collections &bull; Internals</span>
+            <h3 class="text-dark font-weight-bold mb-3">1. ConcurrentHashMap Deep Dive: CAS, synchronizing on bucket head nodes, and concurrent resizing.</h3>
+            <p><code>ConcurrentHashMap</code> in modern Java abandons the legacy Java 7 Segment locks (which had fixed concurrency level) in favor of fine-grained bucket-level concurrency:</p>
+            <ul class="list-styled pl-4">
+              <li><strong>Lock-Free CAS on Empty Buckets:</strong> When inserting into an empty bucket, it uses lock-free hardware <code>Compare-And-Swap</code> (<code>Unsafe / VarHandle.compareAndSetReference</code>). If multiple threads compete to insert into the same empty slot, only one CAS succeeds; the loser retries or acquires the bucket lock.</li>
+              <li><strong>Bucket-Head Synchronization:</strong> When a bucket already contains nodes (linked list or Red-Black tree), <code>put()</code> synchronizes <em>only on the first node (head) of that specific bin</em> using <code>synchronized(firstNode)</code>. Reads (<code>get()</code>) remain 100% lock-free via volatile field reads.</li>
+              <li><strong>Treeification Thresholds:</strong> When a single bin reaches 8 nodes and table capacity $ge 64$, the bucket is converted to a <code>TreeBin</code> (Red-Black tree) reducing worst-case search from $O(N)$ to $O(\log N)$.</li>
+              <li><strong>Concurrent Resizing:</strong> Multiple threads assist in resizing simultaneously! When a resizing is underway, transferring threads insert special <code>ForwardingNode</code> markers into completed buckets so readers forward transparently to the new table.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Concurrency &bull; Trade-offs</span>
+            <h3 class="text-dark font-weight-bold mb-3">2. <code>CopyOnWriteArrayList</code> vs <code>Collections.synchronizedList()</code> vs <code>ConcurrentLinkedQueue</code>: Performance &amp; GC impact.</h3>
+            <div class="poly">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Collection</th>
+                    <th>Concurrency Mechanism</th>
+                    <th>Read Performance</th>
+                    <th>Write Performance</th>
+                    <th>Ideal Use Case</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong><code>CopyOnWriteArrayList</code></strong></td>
+                    <td>Clones entire backing array on write; reads are lock-free on volatile snapshot</td>
+                    <td><strong>Extremely fast $O(1)$ lock-free</strong></td>
+                    <td>Very expensive $O(N)$ copy + high GC churn</td>
+                    <td>Read-heavy listener registries (e.g. 99% reads, 1% writes)</td>
+                  </tr>
+                  <tr>
+                    <td><strong><code>Collections.synchronizedList</code></strong></td>
+                    <td>Coarse-grained mutex lock on the entire collection object</td>
+                    <td>Slow under contention (readers block readers)</td>
+                    <td>Slow under contention</td>
+                    <td>Legacy collections; generally avoided in modern high-concurrency systems</td>
+                  </tr>
+                  <tr>
+                    <td><strong><code>ConcurrentLinkedQueue</code></strong></td>
+                    <td>Unbounded, lock-free queue using CAS (Michael-Scott algorithm)</td>
+                    <td>High throughput non-blocking</td>
+                    <td>High throughput non-blocking</td>
+                    <td>High-performance producer-consumer pipelines without backpressure blocking</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Java 21 Feature &bull; JEP 431</span>
+            <h3 class="text-dark font-weight-bold mb-3">3. Java 21 Sequenced Collections: Unifying encounter order across List, Set, and Map.</h3>
+            <p>Prior to Java 21, collections with a defined encounter order lacked a common super-interface. Accessing the first or last element required inconsistent idioms (<code>list.get(list.size() - 1)</code> vs <code>deque.getLast()</code> vs <code>set.iterator().next()</code>). <strong>JEP 431</strong> introduced unified interfaces:</p>
+            <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 14px; font-size: 13px; overflow: auto;'><span style='color: #38bdf8;'>SequencedCollection&lt;String&gt;</span> seq = new ArrayList&lt;&gt;();
+seq.addFirst(<span style='color: #fde047;'>"Alpha"</span>);
+seq.addLast(<span style='color: #fde047;'>"Omega"</span>);
+String first = seq.getFirst(); // "Alpha"
+String last = seq.getLast();   // "Omega"
+
+// Reverse-order view without creating expensive copies or streams!
+SequencedCollection&lt;String&gt; reversed = seq.reversed();</pre>
+            <p class="mt-2">This hierarchy spans <code>SequencedCollection</code>, <code>SequencedSet</code> (LinkedHashSet, SortedSet), and <code>SequencedMap</code> (LinkedHashMap, SortedMap) with <code>firstEntry()</code>, <code>lastEntry()</code>, and <code>reversed()</code>.</p>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Security &bull; Hash Flooding DoS</span>
+            <h3 class="text-dark font-weight-bold mb-3">4. How HashMap defends against Hash-Flooding Denial-of-Service attacks: Treeification &amp; Hysteresis.</h3>
+            <p><strong>Hash Flooding Attack:</strong> Attackers crafted millions of malicious HTTP form parameter keys with identical hash codes. In Java 7, this collapsed <code>HashMap</code> into a single linked list, degrading lookup from $O(1)$ to $O(N)$ and causing 100% CPU lockup.</p>
+            <h5 class="font-weight-bold text-dark mt-3">The Java 8+ Treeification Defense:</h5>
+            <ul class="list-styled pl-4">
+              <li><strong>Mathematical Probability:</strong> Under a well-distributed hash function, the probability of a single bin receiving 8 collisions follows a Poisson distribution and is less than 1 in 10 million ($P(8) &lt; 10^{-7}$).</li>
+              <li><strong>Tree Conversion:</strong> If a bucket receives $ge 8$ entries, the bucket automatically transforms into a Red-Black tree (<code>TreeNode</code>), capping worst-case search at $O(\log N)$.</li>
+              <li><strong>Hysteresis Gap:</strong> When entries are deleted, the tree reverts to a linked list only when the count drops to <strong>6</strong> (<code>UNTREEIFY_THRESHOLD</code>). This 2-node gap prevents rapid, expensive thrashing between list and tree structures during alternating add/remove operations.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">High-Throughput Queues &bull; Hardware Cache</span>
+            <h3 class="text-dark font-weight-bold mb-3">5. <code>ArrayBlockingQueue</code> vs <code>LinkedBlockingQueue</code>: False sharing, lock contention, and memory allocation.</h3>
+            <p>Choosing between blocking queues in high-throughput microservices requires understanding CPU cache lines and memory allocation:</p>
+            <ul class="list-styled pl-4">
+              <li><strong><code>ArrayBlockingQueue</code>:</strong> Backed by a single contiguous array. Uses a <strong>single <code>ReentrantLock</code></strong> shared by both producers and consumers (put and take lock each other out). However, it pre-allocates memory upfront, creating <strong>zero GC allocation churn</strong> during runtime enqueue/dequeue operations.</li>
+              <li><strong><code>LinkedBlockingQueue</code>:</strong> Uses <strong>two separate locks</strong> (<code>takeLock</code> and <code>putLock</code>), allowing producers and consumers to operate concurrently without blocking each other. However, every <code>put()</code> allocates a new <code>Node</code> object on the heap, generating massive Garbage Collection overhead and CPU cache-line misses under millions of operations/sec.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Caching &bull; Modern Algorithms</span>
+            <h3 class="text-dark font-weight-bold mb-3">6. Building high-performance In-Memory Caches: Why Caffeine Cache outperforms <code>LinkedHashMap(accessOrder=true)</code>.</h3>
+            <p><code>LinkedHashMap</code> with <code>accessOrder=true</code> and <code>removeEldestEntry()</code> is the traditional textbook LRU cache. However, in concurrent production systems, it suffers from a fatal flaw:</p>
+            <p><strong>The Mutex Bottleneck:</strong> Because LRU ordering updates the internal doubly-linked list on every cache hit, <em>reading from the cache requires mutating the list</em>. Wrapping it in <code>Collections.synchronizedMap()</code> means concurrent readers block each other completely, destroying throughput on multi-core servers.</p>
+            <h5 class="font-weight-bold text-dark mt-3">Why Caffeine Cache Dominates in 2026:</h5>
+            <ul class="list-styled pl-4">
+              <li><strong>Window TinyLFU (W-TinyLFU):</strong> Achieves higher hit rates than plain LRU/LFU by combining a small admission window with a frequency sketch (CountMinSketch).</li>
+              <li><strong>Lock-Free Reads:</strong> Reads execute lock-free using volatile memory reads and record cache access asynchronously into thread-local ring buffers.</li>
+              <li><strong>Asynchronous Maintenance:</strong> Eviction and buffer draining occur on background worker threads without stalling client request threads.</li>
+            </ul>
+          </div>
+        </div>
 
     </div>
   </div>

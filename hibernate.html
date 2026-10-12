@@ -207,7 +207,15 @@
       </div>
     </div>
     <!-- course details -->
-    <div class="row">       
+    <div class="row">
+        <!-- SECTION 1: BASIC & CORE -->
+        <div class="col-12 mb-4">
+          <div class="level-badge basic"><i class="ti-bookmark mr-1"></i> PART 1: CORE &amp; FOUNDATIONAL QUESTIONS</div>
+          <h2 class="level-heading">Hibernate &amp; JPA Fundamentals <span class="badge badge-primary font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Basic &bull; Developer</span></h2>
+          <p class="text-secondary">ORM architecture, Hibernate Configuration, Session &amp; SessionFactory, Entity lifecycle, and HQL basics.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+       
     
         <div class="col-12 mb-4">
             <h3>Difference between Hibernate and JPA</h3>
@@ -677,6 +685,132 @@
       </div>
     </div>
 </div>
+    
+        <!-- ========================================================================== -->
+        <!-- SECTION 2: ADVANCED & TECH LEAD (2026 EDITION) -->
+        <!-- ========================================================================== -->
+        <div class="col-12 my-5 pt-4">
+          <div class="level-badge advance mb-2"><i class="ti-star mr-1"></i> PART 2: ADVANCED &amp; 2026 INTERVIEW SPECS</div>
+          <h2 class="level-heading">Advanced Hibernate, Caching &amp; Performance Engineering (2026) <span class="badge badge-success font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Senior &bull; Tech Lead &bull; 2026</span></h2>
+          <p class="text-secondary">N+1 query solutions, Second-Level caching with Redis, Optimistic vs Pessimistic locking, Hibernate 6 SQM architecture, batching, and @Transactional pitfalls.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Performance &bull; Query Optimization</span>
+            <h3 class="text-dark font-weight-bold mb-3">1. Solving the N+1 Select Problem: JOIN FETCH vs JPA EntityGraph vs <code>@BatchSize</code>.</h3>
+            <p>The <strong>N+1 Query Problem</strong> occurs when loading 1 parent entity query triggers $N$ additional sub-queries to fetch lazy child associations (e.g., 100 orders trigger 100 separate queries for customer details).</p>
+            <div class="poly">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Strategy</th>
+                    <th>Mechanism</th>
+                    <th>Pros</th>
+                    <th>Cons &amp; Pitfalls</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong><code>JOIN FETCH</code></strong></td>
+                    <td>Generates a single SQL query using an inner/left join in JPQL</td>
+                    <td>Single database roundtrip</td>
+                    <td>Cannot fetch multiple <code>List</code> collections simultaneously (Cartesian Product / <code>MultipleBagFetchException</code>)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>JPA <code>@EntityGraph</code></strong></td>
+                    <td>Declarative graph of attributes to fetch eagerly at runtime</td>
+                    <td>Dynamic: can use different fetch plans for different repository methods</td>
+                    <td>Same Cartesian product limitation if multiple subgraphs are eagerly fetched</td>
+                  </tr>
+                  <tr>
+                    <td><strong><code>@BatchSize(size=50)</code></strong></td>
+                    <td>Executes sub-queries using <code>WHERE id IN (?, ?, ...)</code></td>
+                    <td><strong>Safely handles multiple collections without Cartesian explosion</strong></td>
+                    <td>Requires multiple SQL statements (1 parent query + $\lceil N/50 \rceil$ batch queries)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Caching Architecture &bull; Second-Level</span>
+            <h3 class="text-dark font-weight-bold mb-3">2. Hibernate Multi-Level Caching: First-Level, Second-Level (Redis/Hazelcast), and Query Cache.</h3>
+            <ul class="list-styled pl-4">
+              <li><strong>First-Level Cache (Session Cache):</strong> Mandatory and tied to the lifecycle of the current <code>EntityManager</code> / <code>Session</code>. Acts as an Identity Map and dirty-checking buffer. Automatically discarded when transaction ends.</li>
+              <li><strong>Second-Level Cache (SessionFactory Cache):</strong> Shared across all sessions and application nodes (using Redis via Redisson, or Hazelcast). Stores <em>dehydrated entity state</em> (arrays of primitive values, not managed entity objects).</li>
+              <li><strong>Query Cache:</strong> Stores query parameter hashes mapping to <em>entity primary keys</em> (IDs). <strong>Production Warning:</strong> Any insert, update, or delete on the target table invalidates the entire query cache region! Only use for read-heavy, almost static tables.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Concurrency &bull; Data Integrity</span>
+            <h3 class="text-dark font-weight-bold mb-3">3. Optimistic Locking (<code>@Version</code>) vs Pessimistic Locking (<code>PESSIMISTIC_WRITE</code>) in Financial Workflows.</h3>
+            <p>When multiple concurrent transactions update the same entity (e.g. deducting account balance or purchasing warehouse stock), concurrency control is mandatory:</p>
+            <ul class="list-styled pl-4">
+              <li><strong>Optimistic Locking (<code>@Version</code>):</strong> Adds an integer/timestamp column. Updates execute: <code>UPDATE account SET balance = ?, version = version + 1 WHERE id = ? AND version = ?</code>. If another transaction updated the row first, 0 rows are affected and Hibernate throws <code>OptimisticLockException</code>.
+                <br/><em>Best for:</em> High-concurrency reads with low conflict rates; clients retry on failure.
+              </li>
+              <li><strong>Pessimistic Locking (<code>LockModeType.PESSIMISTIC_WRITE</code>):</strong> Issues a database-level row lock: <code>SELECT ... FOR UPDATE</code>. All other transactions reading or writing the row block until the transaction commits.
+                <br/><em>Best for:</em> High-contention financial transactions where retries are too expensive. Must use lock timeouts (e.g. <code>javax.persistence.lock.timeout = 3000</code>) to prevent distributed database deadlocks.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Spring Boot 3 &bull; Hibernate 6.x</span>
+            <h3 class="text-dark font-weight-bold mb-3">4. Hibernate 6.x Architectural Evolution: Semantic Query Model (SQM) &amp; Performance Boosts.</h3>
+            <p>Hibernate 6 (the foundation of Spring Boot 3 / Spring Data JPA 3) represents the biggest internal rewrite in Hibernate history:</p>
+            <ul class="list-styled pl-4">
+              <li><strong>Semantic Query Model (SQM):</strong> Completely replaced the ancient ANTLR 2 HQL parser. HQL and Criteria queries now compile to a single unified semantic tree (SQM), allowing identical optimizations and native SQL tree translation.</li>
+              <li><strong>Direct JDBC Read/Write:</strong> Bypasses legacy reflection and object array boxing during result set hydration. Queries read typed columns directly from JDBC <code>ResultSet</code>, boosting query execution performance by 15-30%.</li>
+              <li><strong>Native JSON and Array Types:</strong> Native support for PostgreSQL/MySQL JSON and Array columns via <code>@JdbcTypeCode(SqlTypes.JSON)</code> without needing external third-party Hibernate Types libraries.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">High Volume &bull; Batch Processing</span>
+            <h3 class="text-dark font-weight-bold mb-3">5. Processing 500,000 Records Without OutOfMemoryError: JDBC Batching vs <code>StatelessSession</code>.</h3>
+            <p>Inserting or updating 500,000 records using standard <code>repository.save()</code> crashes the JVM with <code>OutOfMemoryError</code> because Hibernate's First-Level Cache retains every entity in memory for dirty checking.</p>
+            <h5 class="font-weight-bold text-dark mt-3">Production Strategies:</h5>
+            <ul class="list-styled pl-4">
+              <li><strong>Strategy A: Flush &amp; Clear in Batches:</strong>
+                <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 12px; font-size: 13px; overflow: auto;'>for (int i = 0; i &lt; items.size(); i++) {
+    entityManager.persist(items.get(i));
+    if (i % 50 == 0) {
+        entityManager.flush(); // Sends JDBC batch to database
+        entityManager.clear(); // Empties first-level cache to reclaim heap!
+    }
+}</pre>
+                Enable in <code>application.properties</code>: <code>spring.jpa.properties.hibernate.jdbc.batch_size=50</code> and <code>spring.jpa.properties.hibernate.order_inserts=true</code>.
+              </li>
+              <li><strong>Strategy B: Hibernate <code>StatelessSession</code>:</strong> A lightweight, command-oriented session that bypasses the First-Level Cache, dirty-checking, cascades, and interceptors completely. Streams raw JDBC operations directly with near-zero heap overhead.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Transactions &bull; Common Traps</span>
+            <h3 class="text-dark font-weight-bold mb-3">6. Subtle Traps of <code>@Transactional</code>: Self-invocation, Checked Exception rollbacks, and Connection Pool exhaustion.</h3>
+            <ul class="list-styled pl-4">
+              <li><strong>Self-Invocation Proxy Bypass:</strong> Spring manages <code>@Transactional</code> via CGLIB dynamic proxies. Calling a <code>@Transactional</code> method from another method <em>within the same class</em> calls <code>this.method()</code> directly, bypassing the Spring proxy! Transaction boundaries are ignored and no transaction is opened.</li>
+              <li><strong>Checked Exception Rollback Defaults:</strong> By default, Spring rolls back transactions <em>only on <code>RuntimeException</code> and <code>Error</code></em>! If a method throws a checked exception (e.g. <code>IOException</code>, <code>SQLException</code>), Spring commits the transaction! Fix: always specify <code>@Transactional(rollbackFor = Exception.class)</code>.</li>
+              <li><strong><code>Propagation.REQUIRES_NEW</code> Pool Exhaustion:</strong> When a method with <code>REQUIRES_NEW</code> is called from an existing transaction, Spring suspends the first transaction (holding its database connection) and borrows a <strong>second database connection</strong> from HikariCP. Under high concurrent load, this causes mutual connection starvation and application deadlock.</li>
+            </ul>
+          </div>
+        </div>
+
     </div>
   </div>
 </section>

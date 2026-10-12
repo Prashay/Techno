@@ -210,7 +210,61 @@
     </div>
     <!-- course details -->
     <div class="row">
-    </div>
+
+      <!-- SECTION 1: BASIC & CORE -->
+      <div class="col-12 mb-4">
+        <div class="level-badge basic"><i class="ti-bookmark mr-1"></i> PART 1: CORE &amp; FOUNDATIONAL QUESTIONS</div>
+        <h2 class="level-heading">Database Systems Fundamentals <span class="badge badge-primary font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Basic &bull; Developer</span></h2>
+        <p class="text-secondary">Core relational principles, NoSQL models, ACID transactions, and indexing basics.</p>
+        <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+      </div>
+
+      <div class="col-12 mb-4">
+        <h3>1. Relational (SQL) vs NoSQL: Architectural Decision Matrix</h3>
+        <p><strong>Relational (PostgreSQL/MySQL):</strong> Best for structured data, multi-table transactions, strict foreign-key integrity, and financial ledgers.<br/>
+        <strong>NoSQL (MongoDB/DynamoDB):</strong> Best for flexible unstructured document schemas, horizontal partition scaling, high-frequency IoT streaming, and rapid schema evolution.</p>
+      </div>
+
+      <div class="col-12 mb-4">
+        <h3>2. The ACID Properties in Database Transactions</h3>
+        <ul class="list-styled pl-4">
+          <li><strong>Atomicity:</strong> All operations in a transaction succeed, or the entire transaction rolls back.</li>
+          <li><strong>Consistency:</strong> The database transitions from one valid state to another, upholding all constraints.</li>
+          <li><strong>Isolation:</strong> Concurrent transactions execute without interfering with each other (Read Committed, Repeatable Read, Serializable).</li>
+          <li><strong>Durability:</strong> Once committed, updates persist permanently even during sudden power failure (via Write-Ahead Log).</li>
+        </ul>
+      </div>
+
+      <!-- SECTION 2: ADVANCED & TECH LEAD (2026 EDITION) -->
+      <div class="col-12 my-5 pt-4">
+        <div class="level-badge advance mb-2"><i class="ti-star mr-1"></i> PART 2: ADVANCED &amp; 2026 INTERVIEW SPECS</div>
+        <h2 class="level-heading">Advanced Database Architecture &amp; Distributed Systems <span class="badge badge-success font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Senior &bull; Tech Lead &bull; 2026</span></h2>
+        <p class="text-secondary">Sharding, Read Replicas, CAP/PACELC theorems, Connection Pooling, and Zero-Downtime Schema Migrations.</p>
+        <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+      </div>
+
+      <div class="col-12 mb-4">
+        <div class="interview-section-card advance-card">
+          <span class="advance-tag">Scalability &bull; High Availability</span>
+          <h3 class="text-dark font-weight-bold mb-3">1. Database Sharding vs Read Replication: Trade-offs &amp; Pitfalls.</h3>
+          <ul class="list-styled pl-4">
+            <li><strong>Read Replication:</strong> One master node handles writes and streams logs to multiple read replicas. <em>Pitfall:</em> Replication Lag causes dirty reads (user saves profile, refreshes immediately, and sees old data). Solution: Route writes and reads-after-write to the primary node for 5 seconds.</li>
+            <li><strong>Sharding:</strong> Horizontally partitions data rows across multiple independent database servers based on a shard key. <em>Pitfall:</em> Cross-shard transactions and cross-shard queries become slow and complex.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-12 mb-4">
+        <div class="interview-section-card advance-card">
+          <span class="advance-tag">Distributed Systems &bull; Theory</span>
+          <h3 class="text-dark font-weight-bold mb-3">2. CAP Theorem vs PACELC Theorem in Modern Distributed Data Stores.</h3>
+          <p>The CAP Theorem (Consistency, Availability, Partition Tolerance) only describes behavior <em>during network partitions</em>. The <strong>PACELC Theorem</strong> extends it to describe normal operating latency:</p>
+          <p class="font-italic text-secondary">"If there is a <strong>Partition (P)</strong>, trade off <strong>Availability (A)</strong> vs <strong>Consistency (C)</strong>; <strong>Else (E)</strong>, trade off <strong>Latency (L)</strong> vs <strong>Consistency (C)</strong>."</p>
+          <p>Examples: MongoDB is <code>PC/EC</code> (prefers consistency in both partition and normal states); DynamoDB is <code>PA/EL</code> (prefers availability and low latency over strict consistency).</p>
+        </div>
+      </div>
+
+</div>
   </div>
 </section>
 <!-- /section -->
@@ -224,47 +278,49 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      
-  
-      <!-- course item -->
-      <div class="col-lg-4 col-sm-6 mb-5">
-        <div class="card p-0 border-primary rounded-0 hover-shadow">
-          <img class="card-img-top rounded-0" src="images/courses/course-2.jpg" alt="course thumb">
-          <div class="card-body">
-            <ul class="list-inline mb-2">
-              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
-              <li class="list-inline-item"><a class="text-color" href="sql.html">SQL</a></li>
-            </ul>
-            <a href="sql.html">
-              <h4 class="card-title">SQL</h4>
-            </a>
-            <p class="card-text mb-4">Most asked sql query are added here in this  section</p>
-            <a href="sql.html" class="btn btn-primary btn-sm">Visit</a>
-          </div>
-        </div>
-      </div>
-      <!-- course item -->
-      <div class="col-lg-4 col-sm-6 mb-5">
-        <div class="card p-0 border-primary rounded-0 hover-shadow">
-          <img class="card-img-top rounded-0" src="images/courses/course-3.jpg" alt="course thumb">
-          <div class="card-body">
-            <ul class="list-inline mb-2">
-              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
-              <li class="list-inline-item"><a class="text-color" href="mongodb.html">MongoDB</a></li>
-            </ul>
-            <a href="mongodb.html">
-              <h4 class="card-title">MongoDB</h4>
-            </a>
-            <p class="card-text mb-4">All mongo db commands and
 
-                collection are added here
-                
-                for reference</p>
-            <a href="mongodb.html" class="btn btn-primary btn-sm">Visit</a>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-2.jpg" alt="SQL">
+          <div class="card-body">
+            <h4 class="card-title">SQL</h4>
+            <p class="card-text mb-4">Queries, Window Functions, Indexing, and EXPLAIN plans.</p>
+            <a href="sql.html" class="btn btn-primary btn-sm">Visit Track</a>
           </div>
         </div>
       </div>
-    </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-5.jpg" alt="PostgreSQL">
+          <div class="card-body">
+            <h4 class="card-title">PostgreSQL</h4>
+            <p class="card-text mb-4">MVCC, Vacuum, JSONB, GIN/BRIN indexes, and PgBouncer.</p>
+            <a href="postgresql.html" class="btn btn-primary btn-sm">Visit Track</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-3.jpg" alt="MongoDB">
+          <div class="card-body">
+            <h4 class="card-title">MongoDB</h4>
+            <p class="card-text mb-4">Replica sets, Sharding, WiredTiger, and Aggregations.</p>
+            <a href="mongodb.html" class="btn btn-primary btn-sm">Visit Track</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-6.jpg" alt="Elasticsearch">
+          <div class="card-body">
+            <h4 class="card-title">Elasticsearch</h4>
+            <p class="card-text mb-4">Inverted index, Lucene segments, ILM, and search_after.</p>
+            <a href="elasticsearch.html" class="btn btn-primary btn-sm">Visit Track</a>
+          </div>
+        </div>
+      </div>
+
+</div>
   </div>
 </section>
 <!-- /related course -->

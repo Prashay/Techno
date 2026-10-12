@@ -214,7 +214,86 @@
     </div>
     <!-- course details -->
     <div class="row">
-    </div>
+
+      <!-- SECTION 1: BASIC & CORE -->
+      <div class="col-12 mb-4">
+        <div class="level-badge basic"><i class="ti-bookmark mr-1"></i> PART 1: CORE &amp; FOUNDATIONAL QUESTIONS</div>
+        <h2 class="level-heading">Frontend Engineering Fundamentals <span class="badge badge-primary font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Basic &bull; Developer</span></h2>
+        <p class="text-secondary">Core browser mechanisms, CSS layout models, DOM event handling, and HTTP security policies.</p>
+        <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+      </div>
+
+      <div class="col-12 mb-4">
+        <h3>1. Critical Rendering Path: How browsers turn HTML/CSS/JS into pixels</h3>
+        <p>The browser parses HTML to construct the <strong>DOM Tree</strong> and CSS to construct the <strong>CSSOM Tree</strong>. It combines them into a <strong>Render Tree</strong>, computes layout geometry (Layout/Reflow), and paints visual elements (Paint), followed by Compositing on the GPU.</p>
+      </div>
+
+      <div class="col-12 mb-4">
+        <h3>2. Event Bubbling, Event Capturing, and Event Delegation</h3>
+        <p>Events traverse in 3 phases: 1) Capturing (window down to target), 2) Target, 3) Bubbling (target up to window). <strong>Event Delegation</strong> attaches a single listener to a parent element to handle events from hundreds of dynamic child elements using <code>event.target</code>.</p>
+      </div>
+
+      <div class="col-12 mb-4">
+        <h3>3. Core Web Vitals: LCP, INP, and CLS Explained</h3>
+        <ul class="list-styled pl-4">
+          <li><strong>Largest Contentful Paint (LCP):</strong> Measures loading performance (&le; 2.5s).</li>
+          <li><strong>Interaction to Next Paint (INP):</strong> Replaced FID; measures responsiveness to user interactions (&le; 200ms).</li>
+          <li><strong>Cumulative Layout Shift (CLS):</strong> Measures visual stability of elements during page load (&le; 0.1).</li>
+        </ul>
+      </div>
+
+      <div class="col-12 mb-4">
+        <h3>4. CORS (Cross-Origin Resource Sharing) and Preflight <code>OPTIONS</code> requests</h3>
+        <p>Browsers enforce Same-Origin Policy. When making cross-origin requests with custom headers or non-simple HTTP methods (PUT/DELETE), the browser automatically sends an <code>OPTIONS</code> preflight request to verify server <code>Access-Control-Allow-Origin</code> and headers.</p>
+      </div>
+
+      <!-- SECTION 2: ADVANCED & TECH LEAD (2026 EDITION) -->
+      <div class="col-12 my-5 pt-4">
+        <div class="level-badge advance mb-2"><i class="ti-star mr-1"></i> PART 2: ADVANCED &amp; 2026 INTERVIEW SPECS</div>
+        <h2 class="level-heading">Advanced Frontend Architecture &amp; Lead Systems <span class="badge badge-success font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Senior &bull; Tech Lead &bull; 2026</span></h2>
+        <p class="text-secondary">Micro-Frontends, Module Federation, Hydration vs Resumability, Web Workers, and browser memory leak profiling.</p>
+        <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+      </div>
+
+      <div class="col-12 mb-4">
+        <div class="interview-section-card advance-card">
+          <span class="advance-tag">Micro-Frontends &bull; Module Federation</span>
+          <h3 class="text-dark font-weight-bold mb-3">1. Micro-Frontends Architecture: Webpack 5 Module Federation vs Iframes.</h3>
+          <p><strong>Webpack Module Federation</strong> allows separate builds to dynamically share code and dependencies at runtime without rebuilding host applications:</p>
+          <ul class="list-styled pl-4">
+            <li><strong>Shared Dependencies:</strong> Deduplicates shared libraries (e.g. React 19) so the user does not download multiple framework instances.</li>
+            <li><strong>Independent Deployment:</strong> Team Checkout deploys their micro-frontend independently without coordinating with Team Product Catalog.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-12 mb-4">
+        <div class="interview-section-card advance-card">
+          <span class="advance-tag">Rendering Models &bull; Resumability</span>
+          <h3 class="text-dark font-weight-bold mb-3">2. SSR vs SSG vs ISR vs Island Architecture &amp; Resumability.</h3>
+          <div class="poly">
+            <table>
+              <thead><tr><th>Model</th><th>When HTML Generated</th><th>Trade-offs</th></tr></thead>
+              <tbody>
+                <tr><td><strong>SSG (Static Site Generation)</strong></td><td>Build time</td><td>Fastest TTFB via CDN; stale data requires rebuild</td></tr>
+                <tr><td><strong>ISR (Incremental Static Regen)</strong></td><td>On-demand with TTL</td><td>Best of both: CDN caching + background re-validation</td></tr>
+                <tr><td><strong>SSR (Server-Side Rendering)</strong></td><td>On every request</td><td>Always fresh data; higher server CPU cost</td></tr>
+                <tr><td><strong>Resumability (Qwik / Astro Islands)</strong></td><td>Serialized into HTML</td><td><strong>Zero client hydration overhead!</strong> Resumes instantly on interaction</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 mb-4">
+        <div class="interview-section-card advance-card">
+          <span class="advance-tag">Multi-Threading &bull; Web Workers</span>
+          <h3 class="text-dark font-weight-bold mb-3">3. Offloading CPU-heavy computations via Web Workers and <code>SharedArrayBuffer</code>.</h3>
+          <p>JavaScript is single-threaded on the main UI thread. Running heavy encryption, large CSV parsing, or image processing on the main thread freezes the browser. <strong>Web Workers</strong> execute scripts in background worker threads, communicating via <code>postMessage()</code> or high-throughput zero-copy <code>SharedArrayBuffer</code> with <code>Atomics</code> synchronization.</p>
+        </div>
+      </div>
+
+</div>
   </div>
 </section>
 <!-- /section -->

@@ -270,6 +270,14 @@
     </div>
     <!-- course details -->
     <div class="row">
+        <!-- SECTION 1: BASIC & CORE -->
+        <div class="col-12 mb-4">
+          <div class="level-badge basic"><i class="ti-bookmark mr-1"></i> PART 1: CORE &amp; FOUNDATIONAL QUESTIONS</div>
+          <h2 class="level-heading">OOP Fundamentals <span class="badge badge-primary font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Basic &bull; Developer</span></h2>
+          <p class="text-secondary">Inheritance, Polymorphism, Abstraction, Encapsulation, Classes, and Objects.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+
     
       <div class="col-12 mb-4">
         <h3 class="mb-3">Explain OOPs concept in java?</h3>
@@ -548,6 +556,133 @@
                     </table>
                   </div>
               </div>
+    
+        <!-- ========================================================================== -->
+        <!-- SECTION 2: ADVANCED & TECH LEAD (2026 EDITION) -->
+        <!-- ========================================================================== -->
+        <div class="col-12 my-5 pt-4">
+          <div class="level-badge advance mb-2"><i class="ti-star mr-1"></i> PART 2: ADVANCED &amp; 2026 INTERVIEW SPECS</div>
+          <h2 class="level-heading">Advanced OOP, Architecture &amp; System Modeling <span class="badge badge-success font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Senior &bull; Tech Lead &bull; 2026</span></h2>
+          <p class="text-secondary">Composition over inheritance, SOLID in microservices, Diamond problem resolution, synthetic bridge methods, and DDD Value Objects.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Design Principles &bull; Architecture</span>
+            <h3 class="text-dark font-weight-bold mb-3">1. Why do senior architects advocate "Composition over Inheritance"? Explain the Fragile Base Class problem.</h3>
+            <p>While inheritance represents an <em>IS-A</em> relationship, it violates encapsulation because subclasses depend on the internal implementation details of the parent class (tight coupling).</p>
+            <h5 class="font-weight-bold text-dark mt-3">The Fragile Base Class Problem:</h5>
+            <p>Consider a subclass <code>CustomCountingSet</code> inheriting from <code>HashSet</code> that overrides <code>add()</code> and <code>addAll()</code> to count inserted items. If the superclass's <code>addAll()</code> internally calls <code>add()</code>, every item gets counted twice! A benign internal refactor in the parent library silently breaks subclass invariants.</p>
+            <p><strong>The Composition Solution:</strong> Use composition and interface forwarding (Delegator/Decorator pattern). Wrap the instance in a private field and delegate calls cleanly. This allows replacing behavior at runtime, enforces clear boundaries, and prevents unwanted methods from leaking into the public API.</p>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">SOLID in Distributed Systems</span>
+            <h3 class="text-dark font-weight-bold mb-3">2. How do the SOLID principles apply to modern Microservices and Distributed Architecture?</h3>
+            <ul class="list-styled pl-4">
+              <li><strong>Single Responsibility Principle (SRP):</strong> A microservice should map to a single Domain-Driven Design (DDD) Bounded Context. If an order service also handles invoice PDF generation and SMS sending, it violates distributed SRP.</li>
+              <li><strong>Open/Closed Principle (OCP):</strong> APIs and event schemas must be open for extension, closed for modification. Use protobuf/Avro schema registries with backward-compatible field additions; never introduce breaking REST payload changes without URL/header versioning.</li>
+              <li><strong>Liskov Substitution Principle (LSP):</strong> Microservice contract testing (Pact / Spring Cloud Contract). Any replacement service or provider version must fulfill consumer contracts without altering business preconditions or postconditions.</li>
+              <li><strong>Interface Segregation Principle (ISP):</strong> Instead of giant monolithic REST endpoints returning 50-field JSON payloads, provide granular, client-specific BFF endpoints or GraphQL schemas tailored strictly to client needs.</li>
+              <li><strong>Dependency Inversion Principle (DIP):</strong> Hexagonal Architecture (Ports and Adapters). Core business domain logic must never depend directly on databases, Kafka, or third-party SDKs; it defines interfaces (Ports) that infrastructure adapters implement.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Language Internals &bull; Diamond Problem</span>
+            <h3 class="text-dark font-weight-bold mb-3">3. How does Java resolve the Diamond Problem with multiple interface default methods?</h3>
+            <p>Since Java 8 introduced <code>default</code> methods in interfaces, a class can inherit conflicting method implementations from multiple interfaces. The Java compiler resolves conflicts using 3 strict rules:</p>
+            <ol class="pl-4 text-secondary">
+              <li><strong>1. Classes beat Interfaces:</strong> A method declaration in a superclass or abstract class always takes precedence over any default method in an interface.</li>
+              <li><strong>2. Sub-interfaces beat Super-interfaces:</strong> If interface B extends interface A and both provide a default method, B's method takes precedence (most specific wins).</li>
+              <li><strong>3. Explicit Disambiguation:</strong> If two unrelated interfaces (e.g. <code>InterfaceA</code> and <code>InterfaceB</code>) declare identical default method signatures, the compiler throws a compile-time error: <em>"class inherits unrelated defaults"</em>. The developer must override the method explicitly:
+                <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 12px; font-size: 13px; overflow: auto;'>public void print() {
+    InterfaceA.super.print(); // Explicit disambiguation
+}</pre>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">JVM Bytecode &bull; Covariant Returns</span>
+            <h3 class="text-dark font-weight-bold mb-3">4. What are Covariant Return Types, and why does the JVM compiler generate synthetic Bridge Methods?</h3>
+            <p><strong>Covariant Return:</strong> When an overriding method in a child class returns a narrower subtype of the type declared in the parent class:</p>
+            <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 12px; font-size: 13px; overflow: auto;'>class Producer { public Number get() { return 1; } }
+class IntegerProducer extends Producer { @Override public Integer get() { return 1; } }</pre>
+            <p><strong>Synthetic Bridge Methods:</strong> In Java bytecode, method descriptors include the return type (<code>()Ljava/lang/Number;</code> vs <code>()Ljava/lang/Integer;</code>). To maintain polymorphic binary compatibility with callers compiled against the superclass, the Java compiler automatically synthesizes a hidden <strong>bridge method</strong> with the superclass signature that delegates to the specialized child method:</p>
+            <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 12px; font-size: 13px; overflow: auto;'>// Generated by compiler:
+public synthetic bridge Number get() {
+    return this.get(); // calls Integer get()
+}</pre>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Domain-Driven Design &bull; Value Objects</span>
+            <h3 class="text-dark font-weight-bold mb-3">5. Entities vs Value Objects in DDD: Designing immutable Domain Value Objects with Java Records.</h3>
+            <p>In Domain-Driven Design (DDD), clean domain separation between Entities and Value Objects prevents bugs and race conditions:</p>
+            <div class="poly">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Characteristic</th>
+                    <th>Domain Entity</th>
+                    <th>Domain Value Object</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Identity</strong></td>
+                    <td>Has unique identity (UUID / ID) that persists across state mutations</td>
+                    <td><strong>No identity</strong>; defined entirely by the combination of its attributes</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Mutability</strong></td>
+                    <td>State transitions over time (e.g. Order: PENDING &rarr; SHIPPED)</td>
+                    <td><strong>Strictly Immutable</strong>; replacing a value means creating a new instance</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Equality</strong></td>
+                    <td>Based on ID equality (<code>e1.id == e2.id</code>)</td>
+                    <td>Based on structural attribute equality (<code>Money(10, "USD") == Money(10, "USD")</code>)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="mt-3"><strong>Implementation with Java Records:</strong> Use compact constructors to enforce invariant validation upfront:</p>
+            <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 12px; font-size: 13px; overflow: auto;'>public record Money(BigDecimal amount, Currency currency) {
+    public Money { // Compact constructor
+        Objects.requireNonNull(currency, "Currency cannot be null");
+        if (amount == null || amount.compareTo(BigDecimal.ZERO) &lt; 0) {
+            throw new IllegalArgumentException("Amount cannot be negative");
+        }
+    }
+}</pre>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Architecture Metrics &bull; Coupling</span>
+            <h3 class="text-dark font-weight-bold mb-3">6. As a Tech Lead, how do you measure and govern Loose Coupling and High Cohesion? (Afferent vs Efferent Metrics).</h3>
+            <p>Architectural modularity is measured mathematically using Robert C. Martin's Package Coupling Metrics:</p>
+            <ul class="list-styled pl-4">
+              <li><strong>Afferent Coupling ($C_a$):</strong> Number of classes/modules outside this package that depend on classes inside it (incoming dependencies / responsibility).</li>
+              <li><strong>Efferent Coupling ($C_e$):</strong> Number of classes inside this package that depend on classes outside it (outgoing dependencies).</li>
+              <li><strong>Instability ($I$):</strong> Calculated as $I = \frac{C_e}{C_a + C_e}$. A value of $I = 0$ means maximally stable (core domain / shared libraries); $I = 1$ means maximally volatile (UI / controllers).</li>
+              <li><strong>Stable Abstractions Principle:</strong> Highly stable packages ($I \approx 0$) must be abstract (interfaces), so they can be extended without requiring frequent re-compilations. Tools like ArchUnit automate these architecture rules in CI/CD pipelines.</li>
+            </ul>
+          </div>
+        </div>
+
     </div>
   </div>
 </section>

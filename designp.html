@@ -205,7 +205,15 @@
       </div>
     </div>
     <!-- course details -->
-    <div class="row">       
+    <div class="row">
+        <!-- SECTION 1: BASIC & CORE -->
+        <div class="col-12 mb-4">
+          <div class="level-badge basic"><i class="ti-bookmark mr-1"></i> PART 1: CORE &amp; FOUNDATIONAL QUESTIONS</div>
+          <h2 class="level-heading">Design Pattern Fundamentals <span class="badge badge-primary font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Basic &bull; Developer</span></h2>
+          <p class="text-secondary">Creational, Structural, and Behavioral Gang of Four (GoF) patterns with Java code examples.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+       
     <div class="col-12 mb-4">
         <h3>Different type of Design patterns :</h3>
             <div class="col-12 px-0">
@@ -355,6 +363,145 @@
                 <span style='font-weight:bold;color:#D3171B'>}</span>
             <span style='font-weight:bold;color:#D3171B'>}</span></pre>
     </div>
+    
+        <!-- ========================================================================== -->
+        <!-- SECTION 2: ADVANCED & TECH LEAD (2026 EDITION) -->
+        <!-- ========================================================================== -->
+        <div class="col-12 my-5 pt-4">
+          <div class="level-badge advance mb-2"><i class="ti-star mr-1"></i> PART 2: ADVANCED &amp; 2026 INTERVIEW SPECS</div>
+          <h2 class="level-heading">Advanced Design Patterns, Cloud-Native Architecture &amp; Enterprise Systems (2026) <span class="badge badge-success font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Senior &bull; Tech Lead &bull; 2026</span></h2>
+          <p class="text-secondary">CQRS &amp; Event Sourcing, defense-in-depth resiliency, Spring dynamic Strategy factories, Kubernetes Sidecar/Ambassador patterns, and Strangler Fig migrations.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Cloud-Native &bull; Event Sourcing</span>
+            <h3 class="text-dark font-weight-bold mb-3">1. CQRS (Command Query Responsibility Segregation) &amp; Event Sourcing Architecture.</h3>
+            <p>In high-scale enterprise systems, traditional CRUD models where the same relational schema handles both complex business writes and reporting queries suffer from contention, indexing trade-offs, and lock saturation.</p>
+            <h5 class="font-weight-bold text-dark mt-3">CQRS + Event Sourcing Architecture:</h5>
+            <ul class="list-styled pl-4">
+              <li><strong>Command Model (Write Side):</strong> Optimized for business logic invariants. Validates domain rules and appends immutable events (e.g. <code>OrderCreatedEvent</code>, <code>ItemAddedEvent</code>) to an append-only <strong>Event Store</strong>. Current state is never overwritten; it is reconstructed by replaying events.</li>
+              <li><strong>Query Model (Read Side):</strong> Asynchronous event projectors consume events from the Event Store and populate denormalized, purpose-built read databases (e.g., Elasticsearch for text search, Redis for key-value lookups, PostgreSQL for relational views).</li>
+              <li><strong>Trade-offs:</strong> Introduces <em>Eventual Consistency</em> (read models reflect writes with slight millisecond replication lag), event schema evolution challenges (upcasting), and snapshotting requirements for entities with thousands of events.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Resiliency Patterns &bull; Stability</span>
+            <h3 class="text-dark font-weight-bold mb-3">2. Defense-in-Depth Resiliency: Circuit Breaker, Bulkhead, Rate Limiter, and Retry Patterns.</h3>
+            <p>Cascading failures in distributed systems happen when a slow or failing downstream dependency causes upstream callers to wait, exhausting threads and toppling the entire platform. Senior architects combine 4 orthogonal patterns:</p>
+            <div class="poly">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Pattern</th>
+                    <th>Failure Mode Addressed</th>
+                    <th>Core Mechanism</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Circuit Breaker</strong></td>
+                    <td>Persistent downstream outage or high error rate</td>
+                    <td>Fails fast immediately (State: OPEN) to protect downstream and preserve caller latency</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Bulkhead</strong></td>
+                    <td>Slow downstream service consuming all server threads</td>
+                    <td>Isolates thread pools or semaphores so Service A failure cannot exhaust threads needed for Service B</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Rate Limiter</strong></td>
+                    <td>Traffic spikes, noisy neighbors, and DDoS attacks</td>
+                    <td>Enforces maximum calls per time window, rejecting excess traffic with HTTP 429</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Retry with Backoff</strong></td>
+                    <td>Transient network glitches and momentary blips</td>
+                    <td>Retries failed requests using exponential backoff with randomized jitter to prevent thundering herds</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Spring Boot Design &bull; Clean Code</span>
+            <h3 class="text-dark font-weight-bold mb-3">3. Modern Strategy &amp; Factory Patterns via Spring Boot Dynamic Dependency Injection.</h3>
+            <p>Senior Java developers eliminate brittle <code>switch-case</code> statements and <code>if-else</code> chains by leveraging Spring's built-in container injection:</p>
+            <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 14px; font-size: 13px; overflow: auto;'>public interface PaymentStrategy {
+    PaymentType getType();
+    PaymentResponse pay(PaymentRequest request);
+}
+
+@Service
+public class PaymentFactory {
+    private final Map&lt;PaymentType, PaymentStrategy&gt; strategyMap;
+
+    // Spring automatically injects ALL beans implementing PaymentStrategy!
+    public PaymentFactory(List&lt;PaymentStrategy&gt; strategies) {
+        this.strategyMap = strategies.stream()
+            .collect(Collectors.toMap(PaymentStrategy::getType, Function.identity()));
+    }
+
+    public PaymentStrategy getStrategy(PaymentType type) {
+        return Optional.ofNullable(strategyMap.get(type))
+            .orElseThrow(() -&gt; new UnsupportedOperationException("No strategy for: " + type));
+    }
+}</pre>
+            <p class="mt-2">Adding a new payment provider (e.g. ApplePay) requires creating a new <code>@Component</code> implementing <code>PaymentStrategy</code>. <strong>Zero modifications to existing classes (Pure Open/Closed Principle)</strong>.</p>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Kubernetes Patterns &bull; Mesh</span>
+            <h3 class="text-dark font-weight-bold mb-3">4. Cloud-Native Pod Patterns: Sidecar, Ambassador, and Adapter Patterns in Kubernetes.</h3>
+            <p>In containerized Kubernetes environments, multi-container pods implement three classic structural patterns:</p>
+            <ul class="list-styled pl-4">
+              <li><strong>Sidecar Pattern:</strong> Extends or enhances the main application container without modifying application source code. Example: Envoy proxy sidecar in Istio injecting mutual TLS (mTLS), Prometheus metric scraping, and distributed tracing headers.</li>
+              <li><strong>Ambassador Pattern:</strong> Acts as a local proxy that abstracts connections to external services. The application talks to <code>localhost:6379</code>; the ambassador proxy handles sharding, failover, and routing to remote Redis clusters.</li>
+              <li><strong>Adapter Pattern:</strong> Standardizes heterogeneous application interfaces. Example: an adapter container that reads proprietary log formats or metrics from the primary application container and exposes them in Prometheus standard format.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Reliable Messaging &bull; Kafka</span>
+            <h3 class="text-dark font-weight-bold mb-3">5. Transactional Outbox Pattern &amp; Idempotent Consumer Pattern in Event-Driven Architecture.</h3>
+            <p>Asynchronous microservice communication requires guaranteed delivery and processing without duplicates:</p>
+            <ul class="list-styled pl-4">
+              <li><strong>The Outbox Pattern:</strong> Eliminates the dual-write bug when saving to database and publishing to Apache Kafka. The event is persisted into an <code>outbox</code> database table inside the same local ACID transaction. A Debezium CDC pipeline tails the transaction log to stream messages to Kafka.</li>
+              <li><strong>The Idempotent Consumer Pattern:</strong> Because network partitions cause brokers to deliver messages more than once (At-Least-Once delivery), consumers must be strictly idempotent:
+                <br/>1. Unique message ID check against an <code>idempotency_keys</code> table.
+                <br/>2. Conditional database updates (e.g. <code>UPDATE orders SET status = 'PAID' WHERE id = ? AND status = 'PENDING'</code>).
+                <br/>3. Natural idempotency: setting a state rather than incrementing a balance.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Legacy Migration &bull; Zero Downtime</span>
+            <h3 class="text-dark font-weight-bold mb-3">6. The Strangler Fig Pattern: Incrementally Migrating Monoliths to Microservices Without Big-Bang Risk.</h3>
+            <p>Big-Bang rewrites of multi-million-line legacy systems fail over 80% of the time. The <strong>Strangler Fig Pattern</strong> (inspired by the Australian strangler fig tree that envelops and replaces its host tree) migrates systems iteratively over 12-24 months:</p>
+            <ol class="pl-4 text-secondary">
+              <li><strong>Phase 1 (Interception):</strong> Place an API Gateway (Envoy/Kong) in front of the legacy monolith. All user traffic flows through the gateway to the monolith unchanged.</li>
+              <li><strong>Phase 2 (Carve Out):</strong> Select a discrete business domain (e.g., Notification or Inventory). Build a modern microservice implementing this domain.</li>
+              <li><strong>Phase 3 (Data Synchronization):</strong> Use CDC (Change Data Capture) or dual-writing to synchronize data bi-directionally between monolith and microservice databases.</li>
+              <li><strong>Phase 4 (Traffic Shift):</strong> Route 5% &rarr; 50% &rarr; 100% of the target API path (e.g. <code>/api/notifications/*</code>) to the new microservice via the Gateway.</li>
+              <li><strong>Phase 5 (Decommission):</strong> Once verified in production, delete the legacy code from the monolith. Repeat for the next domain until the monolith disappears.</li>
+            </ol>
+          </div>
+        </div>
+
     </div>
   </div>
 </section>

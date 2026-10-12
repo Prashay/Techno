@@ -206,6 +206,14 @@
     </div>
     <!-- course details -->
     <div class="row">
+        <!-- SECTION 1: BASIC & CORE -->
+        <div class="col-12 mb-4">
+          <div class="level-badge basic"><i class="ti-bookmark mr-1"></i> PART 1: CORE &amp; FOUNDATIONAL QUESTIONS</div>
+          <h2 class="level-heading">Core Java Fundamentals <span class="badge badge-primary font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Basic &bull; Developer</span></h2>
+          <p class="text-secondary">Platform independence, JVM/JRE/JDK differences, primitive types, loops, and marker interfaces.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+
       <div class="col-12 mb-4">
         <h3>Is Java Platform independent?</h3>
         <p>Yes java is platform independent we can write code in one platform and run any platform
@@ -701,6 +709,178 @@
                 <br/>  //marker interface <br/>}
          </p>
     </div>
+    
+        <!-- ========================================================================== -->
+        <!-- SECTION 2: ADVANCED & TECH LEAD (2026 EDITION) -->
+        <!-- ========================================================================== -->
+        <div class="col-12 my-5 pt-4">
+          <div class="level-badge advance mb-2"><i class="ti-star mr-1"></i> PART 2: ADVANCED &amp; 2026 INTERVIEW SPECS</div>
+          <h2 class="level-heading">Advanced Java Core &amp; JVM Internals (2026) <span class="badge badge-success font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Senior &bull; Tech Lead &bull; 2026</span></h2>
+          <p class="text-secondary">Virtual threads vs platform threads, Java Memory Model (JMM), modern Algebraic Data Types, Generational ZGC, and Metaspace classloader dynamics.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">JVM Internals &bull; Java 21 Loom</span>
+            <h3 class="text-dark font-weight-bold mb-3">1. Java 21 Virtual Threads vs Platform Threads: Deep dive into heap memory, stack frames, and scheduling.</h3>
+            <p>Virtual Threads (Project Loom, Java 21) revolutionize Java concurrency by decoupling user-mode threads from operating system kernel threads:</p>
+            <div class="poly">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>OS Platform Thread</th>
+                    <th>Virtual Thread (Java 21+)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Memory Footprint</strong></td>
+                    <td>~1MB to 2MB fixed OS stack memory</td>
+                    <td><strong>~few hundred bytes</strong> initially; dynamically grows on JVM heap</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Creation Cost</strong></td>
+                    <td>Expensive system call to OS kernel</td>
+                    <td>Cheap Java object allocation on heap ($O(1)$)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Thread Capacity</strong></td>
+                    <td>Few thousands max before crashing with <code>OutOfMemoryError</code></td>
+                    <td><strong>Millions of concurrent threads</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Scheduling</strong></td>
+                    <td>Preemptive OS kernel scheduler</td>
+                    <td>Cooperative user-mode scheduler running on a <code>ForkJoinPool</code> carrier pool</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Blocking I/O</strong></td>
+                    <td>Blocks OS kernel thread in waiting state</td>
+                    <td>Unmounts virtual thread from carrier thread; carrier runs other tasks</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="mt-3"><strong>When NOT to use Virtual Threads:</strong> CPU-bound tasks (cryptographic hashing, video transcoding, in-memory ML matrix operations). Virtual threads do not make CPU calculations faster; they only scale I/O-bound concurrency.</p>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Memory Model &bull; Concurrency</span>
+            <h3 class="text-dark font-weight-bold mb-3">2. Explain the Java Memory Model (JMM), the Happens-Before relationship, and hardware cache coherency.</h3>
+            <p>Modern multi-core CPUs maintain L1/L2/L3 hardware caches. Without memory synchronization, writes to a variable by CPU Core 1 reside in its local store buffer/cache and may never be seen by Core 2.</p>
+            <ul class="list-styled pl-4">
+              <li><strong>The <code>volatile</code> Keyword:</strong> Instructs the compiler and CPU to generate <strong>Memory Barriers</strong> (LoadLoad, StoreStore, StoreLoad). Ensures that all reads read directly from main memory and writes flush immediately to main memory.</li>
+              <li><strong>Instruction Reordering:</strong> Compilers and CPU out-of-order execution engines reorder instructions for performance. <code>volatile</code> forbids reordering across the memory barrier.</li>
+              <li><strong>Happens-Before Rules:</strong>
+                <br/>1. <em>Program Order Rule:</em> Each action in a thread happens-before every subsequent action in that thread.
+                <br/>2. <em>Volatile Variable Rule:</em> A write to a volatile field happens-before every subsequent read of that same field.
+                <br/>3. <em>Monitor Lock Rule:</em> An unlock on a monitor happens-before every subsequent lock on the same monitor.
+                <br/>4. <em>Transitivity Rule:</em> If A happens-before B, and B happens-before C, then A happens-before C.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Language Evolution &bull; Java 17-21</span>
+            <h3 class="text-dark font-weight-bold mb-3">3. How do Records, Sealed Classes, and Pattern Matching enable Algebraic Data Types (ADT) in modern Java?</h3>
+            <p>Modern Java allows developers to build robust, compiler-enforced domain models using <strong>Algebraic Data Types</strong>:</p>
+            <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 14px; font-size: 13px; overflow: auto;'><span style='color: #38bdf8;'>public sealed interface</span> PaymentMethod permits CreditCard, Upi, BankTransfer {}
+
+<span style='color: #38bdf8;'>public record</span> CreditCard(String cardNumber, String cvv, YearMonth expiry) implements PaymentMethod {}
+<span style='color: #38bdf8;'>public record</span> Upi(String vpa) implements PaymentMethod {}
+<span style='color: #38bdf8;'>public record</span> BankTransfer(String accountNumber, String ifsc) implements PaymentMethod {}
+
+<span style='color: #38bdf8;'>public String</span> processPayment(PaymentMethod method) {
+    return switch (method) {
+        case CreditCard c -&gt; "Charging CC ending in " + c.cardNumber().substring(12);
+        case Upi u        -&gt; "Sending UPI collect request to " + u.vpa();
+        case BankTransfer b -&gt; "Initiating NEFT transfer to " + b.accountNumber();
+    }; // NO 'default' branch needed! Compiler guarantees exhaustiveness!
+}</pre>
+            <p class="mt-2">If a new payment type is added to the <code>sealed interface</code>, the compiler immediately flags errors on all unhandled switch expressions across the entire codebase!</p>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Garbage Collection &bull; Performance</span>
+            <h3 class="text-dark font-weight-bold mb-3">4. Modern Garbage Collectors: G1GC vs Generational ZGC vs Shenandoah on multi-terabyte heaps.</h3>
+            <p>In high-scale enterprise Java, choosing and tuning the Garbage Collector is critical for meeting P99 latency Service Level Objectives (SLOs):</p>
+            <div class="poly">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>G1GC (Default)</th>
+                    <th>Generational ZGC (Java 21+)</th>
+                    <th>Shenandoah GC</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Pause Times</strong></td>
+                    <td>10ms - 200ms (configurable target)</td>
+                    <td><strong>Sub-millisecond (&lt; 1ms) guaranteed</strong></td>
+                    <td>&lt; 10ms</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Heap Size Range</strong></td>
+                    <td>4GB - 64GB</td>
+                    <td><strong>16MB up to 16 Terabytes</strong></td>
+                    <td>4GB - 100GB+</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Core Mechanism</strong></td>
+                    <td>Region-based, incremental, Stop-The-World copying pauses</td>
+                    <td><strong>Colored Pointers + Load Barriers</strong>; concurrent marking, evacuation &amp; relocation</td>
+                    <td>Brooks Pointers / Load-Reference Barriers</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Generational Support</strong></td>
+                    <td>Yes (Young vs Old regions)</td>
+                    <td><strong>Yes in Java 21+ (JEP 439)</strong>: massive throughput boost over ZGC single-gen</td>
+                    <td>Generational Shenandoah (Java 21 experimental)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Memory Management &bull; String Internals</span>
+            <h3 class="text-dark font-weight-bold mb-3">5. How does the JVM optimize String memory via Compact Strings, and what are the dangers of <code>String.intern()</code>?</h3>
+            <ul class="list-styled pl-4">
+              <li><strong>Compact Strings (Java 9+):</strong> Strings historically stored <code>char[]</code> (2 bytes per character). Compact Strings store <code>byte[]</code> + a <code>coder</code> byte flag. If all characters fit into ISO-8859-1 (Latin-1), only 1 byte per character is allocated, slashing heap consumption by ~45% in typical web applications.</li>
+              <li><strong>G1 String Deduplication:</strong> G1 GC identifies distinct <code>String</code> objects that share identical character arrays and points them to the same underlying <code>byte[]</code> without changing object identity. Enabled via <code>-XX:+UseStringDeduplication</code>.</li>
+              <li><strong>Dangers of <code>String.intern()</code>:</strong> The String Pool is a native JVM hash table located in native memory. Calling <code>intern()</code> on user-supplied strings (e.g., incoming request IDs or tokens) causes severe hash collision bucket degradation, Metaspace/native memory bloat, and Stop-The-World GC latency spikes. Never intern unbounded dynamic input!</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">ClassLoading &bull; Metaspace Leakage</span>
+            <h3 class="text-dark font-weight-bold mb-3">6. Explain the ClassLoader Delegation Hierarchy and how custom ClassLoaders cause Metaspace OutOfMemoryError.</h3>
+            <p><strong>Delegation Hierarchy:</strong> Bootstrap ClassLoader (C++ native JVM core) &rarr; Platform/Extension ClassLoader &rarr; Application (System) ClassLoader &rarr; Custom / WebApp ClassLoader. Class loading follows parent-first delegation.</p>
+            <h5 class="font-weight-bold text-dark mt-3">The Hot-Deploy Metaspace Memory Leak:</h5>
+            <p>A loaded class can only be garbage-collected if its <code>ClassLoader</code> is garbage-collected. A ClassLoader can only be garbage-collected if:</p>
+            <ol class="pl-4 text-secondary">
+              <li>No instances of any class loaded by that ClassLoader exist.</li>
+              <li>No static references point to those classes.</li>
+              <li>No threads are currently executing code loaded by that ClassLoader.</li>
+            </ol>
+            <p>If an application registers a <code>ThreadLocal</code>, an unclosed JDBC driver, or a static logger that retains an object reference during undeployment, the entire <code>WebAppClassLoader</code> and hundreds of metadata classes remain pinned in memory, leading inevitably to <code>java.lang.OutOfMemoryError: Metaspace</code> after 3-4 hot reloads.</p>
+          </div>
+        </div>
+
     </div>
   </div>
 </section>

@@ -206,6 +206,14 @@
     </div>
     <!-- course details -->
     <div class="row">
+        <!-- SECTION 1: BASIC & CORE -->
+        <div class="col-12 mb-4">
+          <div class="level-badge basic"><i class="ti-bookmark mr-1"></i> PART 1: CORE &amp; FOUNDATIONAL QUESTIONS</div>
+          <h2 class="level-heading">Multithreading Fundamentals <span class="badge badge-primary font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Basic &bull; Developer</span></h2>
+          <p class="text-secondary">Thread life cycle, Runnable vs Thread, synchronization, wait/notify, join, and thread priorities.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+
     
       <div class="col-12 mb-4">
         <p>Multi Threading is a process of running multiple thread at a same time consuming less memory and high performance.</p>
@@ -654,6 +662,123 @@
         <p>Sleep() and Yeild() method are static because it work on currently executing thread, rather than any specific thread – you don’t have to specify which thread is currently running to free up the processor.</p>
         </div>
                
+    
+        <!-- ========================================================================== -->
+        <!-- SECTION 2: ADVANCED & TECH LEAD (2026 EDITION) -->
+        <!-- ========================================================================== -->
+        <div class="col-12 my-5 pt-4">
+          <div class="level-badge advance mb-2"><i class="ti-star mr-1"></i> PART 2: ADVANCED &amp; 2026 INTERVIEW SPECS</div>
+          <h2 class="level-heading">Advanced Concurrency, Threading Models &amp; Hardware (2026) <span class="badge badge-success font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Senior &bull; Tech Lead &bull; 2026</span></h2>
+          <p class="text-secondary">Structured Concurrency (Loom), Scoped Values, StampedLock optimistic reads, AQS internal mechanics, False Sharing, and production thread pool tuning.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Java 21 Loom &bull; Concurrency</span>
+            <h3 class="text-dark font-weight-bold mb-3">1. Structured Concurrency (JEP 453): Eliminating orphan thread leaks and resource hazards.</h3>
+            <p>In traditional unstructured concurrency (using <code>ExecutorService</code> or <code>CompletableFuture</code>), tasks run as independent, disconnected units. If Task A fails or times out, Task B continues running aimlessly in the background, consuming CPU, memory, and database connections.</p>
+            <h5 class="font-weight-bold text-dark mt-3">Structured Concurrency with <code>StructuredTaskScope</code>:</h5>
+            <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 14px; font-size: 13px; overflow: auto;'>try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+    Supplier&lt;User&gt; userSubtask = scope.fork(() -&gt; fetchUser(userId));
+    Supplier&lt;Orders&gt; orderSubtask = scope.fork(() -&gt; fetchOrders(userId));
+
+    scope.join();           // Wait for both subtasks concurrently
+    scope.throwIfFailed();  // If ANY subtask fails, cancel siblings and rethrow!
+
+    return new DashboardResponse(userSubtask.get(), orderSubtask.get());
+}</pre>
+            <p class="mt-2"><strong>Tech Lead Advantage:</strong> The lexical code block enforces thread lifetime boundaries. If <code>fetchUser()</code> throws an exception, <code>fetchOrders()</code> is immediately cancelled via thread interruption. Stack traces preserve the complete hierarchical parent-child context.</p>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Java 21 Feature &bull; Memory Optimization</span>
+            <h3 class="text-dark font-weight-bold mb-3">2. Scoped Values (JEP 446) vs <code>ThreadLocal</code>: Eliminating memory leaks in Virtual Thread architectures.</h3>
+            <p><code>ThreadLocal</code> was designed for a world with hundreds of long-lived platform threads. In modern architectures with <strong>millions of Virtual Threads</strong>, <code>ThreadLocal</code> introduces severe architectural problems:</p>
+            <ul class="list-styled pl-4">
+              <li><strong>Unbounded Mutability:</strong> Any method in a call chain can mutate <code>ThreadLocal.set()</code>, making data flow unpredictable and hard to test.</li>
+              <li><strong>Memory Retention &amp; Leaks:</strong> Failing to call <code>remove()</code> keeps references alive indefinitely in thread pool carrier threads.</li>
+              <li><strong>Inheritance Overhead:</strong> <code>InheritableThreadLocal</code> copies the entire hash map on thread creation, creating massive memory overhead when spawning 50,000 virtual threads.</li>
+            </ul>
+            <p class="mt-2"><strong>Scoped Values Solution:</strong> Scoped Values are <em>immutable</em> and strictly bounded to a lexical scope. Child threads inherit scoped values via direct shared pointer references without map copying:</p>
+            <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 12px; font-size: 13px; overflow: auto;'>private static final ScopedValue&lt;SecurityContext&gt; CONTEXT = ScopedValue.newInstance();
+
+ScopedValue.where(CONTEXT, userSecurityContext).run(() -&gt; {
+    paymentService.process(); // Safely reads CONTEXT.get()
+}); // Automatically cleaned up when block exits!</pre>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Locking Internals &bull; High Performance</span>
+            <h3 class="text-dark font-weight-bold mb-3">3. <code>StampedLock</code> vs <code>ReentrantReadWriteLock</code>: Optimistic Read Locks &amp; Writer Starvation.</h3>
+            <p><code>ReentrantReadWriteLock</code> (RRWL) allows multiple concurrent readers, but has two performance drawbacks under heavy load: 1) readers write to a shared internal state counter, causing CPU cache-line bouncing; 2) continuous read traffic can starve writers indefinitely.</p>
+            <h5 class="font-weight-bold text-dark mt-3">The StampedLock Optimistic Read Pattern:</h5>
+            <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 14px; font-size: 13px; overflow: auto;'>private final StampedLock lock = new StampedLock();
+private double x, y;
+
+public double distanceFromOrigin() {
+    long stamp = lock.tryOptimisticRead(); // Non-blocking! Acquires NO lock!
+    double currentX = x, currentY = y;
+    if (!lock.validate(stamp)) { // Check if a writer intervened during read
+        stamp = lock.readLock(); // Fallback to pessimistic read lock
+        try {
+            currentX = x; currentY = y;
+        } finally {
+            lock.unlockRead(stamp);
+        }
+    }
+    return Math.sqrt(currentX * currentX + currentY * currentY);
+}</pre>
+            <p class="mt-2"><strong>Trade-off:</strong> <code>StampedLock</code> is <em>not reentrant</em> (acquiring the same lock on the same thread causes deadlock) and does not support <code>Condition</code> objects.</p>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">AQS &bull; Core Synchronization</span>
+            <h3 class="text-dark font-weight-bold mb-3">4. AQS (AbstractQueuedSynchronizer) Deep Dive: State variable, CLH queue, and LockSupport.</h3>
+            <p><strong>AQS</strong> is the backbone of Java's <code>java.util.concurrent</code> synchronizers (<code>ReentrantLock</code>, <code>Semaphore</code>, <code>CountDownLatch</code>, <code>CyclicBarrier</code>):</p>
+            <ul class="list-styled pl-4">
+              <li><strong>Volatile State:</strong> An atomic 32-bit integer (<code>state</code>) manipulated via CAS (<code>compareAndSetState</code>). In <code>ReentrantLock</code>, <code>state = 0</code> is unlocked; <code>state &gt; 0</code> represents the reentrancy hold count. In <code>Semaphore</code>, it represents available permits.</li>
+              <li><strong>CLH Waiting Queue:</strong> A doubly linked FIFO queue of <code>Node</code> objects. Threads that fail to acquire the lock are enqueued at the tail using CAS.</li>
+              <li><strong>LockSupport.park() &amp; unpark():</strong> Threads wait inside <code>LockSupport.park()</code> (a native OS thread suspension call). When the owner unlocks, it unparks the head node's thread, transferring execution smoothly without busy-waiting CPU spins.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Hardware Concurrency &bull; Low Latency</span>
+            <h3 class="text-dark font-weight-bold mb-3">5. False Sharing and CPU Cache Line Padding: How <code>@Contended</code> prevents cache ping-pong.</h3>
+            <p>Modern CPUs transfer data between main memory and CPU caches in <strong>64-byte chunks called Cache Lines</strong>:</p>
+            <ul class="list-styled pl-4">
+              <li><strong>The Problem:</strong> If Thread 1 on Core A modifies variable <code>x</code> and Thread 2 on Core B modifies independent variable <code>y</code>, but both variables happen to reside within the <em>same 64-byte cache line</em>, modifying <code>x</code> invalidates the entire cache line on Core B. The cores waste hundreds of cycles invalidating and reloading data over the interconnect bus (Cache Line Bouncing / False Sharing).</li>
+              <li><strong>The Solution (<code>@Contended</code>):</strong> Introduced in JEP 142 and used by <code>LongAdder</code> and the LMAX Disruptor. Injects 128 bytes of padding before and after critical volatile fields, guaranteeing that independent variables occupy distinct hardware cache lines.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Thread Pool Tuning &bull; Production</span>
+            <h3 class="text-dark font-weight-bold mb-3">6. ThreadPoolExecutor Sizing Formula, Queue Sizing, and Rejection Policy Selection.</h3>
+            <p>Sizing thread pools blindly in production leads to either thread starvation or memory exhaustion:</p>
+            <h5 class="font-weight-bold text-dark mt-3">The Goetz Formula:</h5>
+            <p>$N_{\text{threads}} = N_{\text{CPU}} \times U_{\text{CPU}} \times \left(1 + \frac{W}{C}\right)$</p>
+            <p>where $N_{\text{CPU}}$ is CPU cores, $U_{\text{CPU}}$ is target CPU utilization (0.0 to 1.0), and $\frac{W}{C}$ is the ratio of Wait time (I/O) to Compute time (CPU). For CPU-bound tasks, $N_{\text{threads}} = N_{\text{CPU}} + 1$. For I/O-bound tasks with 90% wait time, sizing is substantially higher.</p>
+            <h5 class="font-weight-bold text-dark mt-3">Rejection Policies:</h5>
+            <ul class="list-styled pl-4">
+              <li><strong><code>AbortPolicy</code> (Default):</strong> Throws <code>RejectedExecutionException</code>. Good for fail-fast APIs.</li>
+              <li><strong><code>CallerRunsPolicy</code>:</strong> Forces the submitting thread (e.g. Tomcat worker) to execute the task directly. <strong>Provides automatic backpressure</strong> by slowing down incoming request intake!</li>
+              <li><strong><code>DiscardOldestPolicy</code>:</strong> Drops the oldest queued task to make room for newer requests. Useful in real-time telemetry tracking.</li>
+            </ul>
+          </div>
+        </div>
+
     </div>
   </div>
 </section>

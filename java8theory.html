@@ -205,7 +205,15 @@
       </div>
     </div>
     <!-- course details -->
-    <div class="row">       
+    <div class="row">
+        <!-- SECTION 1: BASIC & CORE -->
+        <div class="col-12 mb-4">
+          <div class="level-badge basic"><i class="ti-bookmark mr-1"></i> PART 1: CORE &amp; FOUNDATIONAL QUESTIONS</div>
+          <h2 class="level-heading">Java 8 Core Theory <span class="badge badge-primary font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Basic &bull; Developer</span></h2>
+          <p class="text-secondary">Functional interfaces, Lambda syntax, default methods, Stream API, and Method References.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+       
     <div class="col-12 mb-4">
         <h3>New features of Java 8?</h3>
         <h6>Following are new introduces features of java8</h6>
@@ -748,6 +756,147 @@
                         System.out.println(referenceFunction.apply(<span style='color:#2A00FF'>"12"</span>));
                     <span style='font-weight:bold;color:#D3171B'>}</span>
                 <span style='font-weight:bold;color:#D3171B'>}</span></pre>  
+        </div>
+
+    
+        <!-- ========================================================================== -->
+        <!-- SECTION 2: ADVANCED & TECH LEAD (2026 EDITION) -->
+        <!-- ========================================================================== -->
+        <div class="col-12 my-5 pt-4">
+          <div class="level-badge advance mb-2"><i class="ti-star mr-1"></i> PART 2: ADVANCED &amp; 2026 INTERVIEW SPECS</div>
+          <h2 class="level-heading">Advanced Functional Java, Streams Internals &amp; Asynchronous Pipelines (2026) <span class="badge badge-success font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Senior &bull; Tech Lead &bull; 2026</span></h2>
+          <p class="text-secondary">Stream Spliterators and Sink pipeline execution, ForkJoin common pool hazards, Collectors.teeing, invokedynamic bytecode, and CompletableFuture pipelines.</p>
+          <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Streams Internals &bull; Pipeline Execution</span>
+            <h3 class="text-dark font-weight-bold mb-3">1. Java Streams Internals: Spliterators, Sink chains, Loop Fusion, and Lazy Evaluation.</h3>
+            <p>Java Streams do NOT store data. A Stream is an on-demand computational pipeline that executes via <strong>Loop Fusion</strong>:</p>
+            <ul class="list-styled pl-4">
+              <li><strong>Sink Pipeline Stages:</strong> Intermediate operations (<code>filter()</code>, <code>map()</code>, <code>sorted()</code>) create a doubly-linked list of <code>Sink</code> objects wrapping each other.</li>
+              <li><strong>Lazy Evaluation:</strong> No data processing occurs when intermediate operations are declared. Processing begins <em>only when a terminal operation</em> (e.g. <code>collect()</code>, <code>findFirst()</code>, <code>count()</code>) is invoked.</li>
+              <li><strong>Loop Fusion:</strong> Instead of making multiple passes over the collection (one pass for filter, one for map), elements are pushed through the entire Sink chain <em>one element at a time in a single pass</em>.</li>
+              <li><strong>Spliterator:</strong> The parallel engine of streams. Provides <code>trySplit()</code> to partition data chunks recursively across worker threads, and <code>characteristics()</code> (e.g. <code>ORDERED</code>, <code>SIZED</code>, <code>DISTINCT</code>) to skip redundant operations (e.g., skipping sort if source is already sorted).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Concurrency Hazards &bull; ForkJoinPool</span>
+            <h3 class="text-dark font-weight-bold mb-3">2. Why using <code>parallelStream()</code> in Enterprise Web Services is dangerous: CommonPool Starvation.</h3>
+            <p>Calling <code>list.parallelStream()</code> executes tasks on the shared, JVM-wide <strong><code>ForkJoinPool.commonPool()</code></strong>, which has a thread count equal to CPU cores minus 1.</p>
+            <h5 class="font-weight-bold text-dark mt-3">The Production Starvation Trap:</h5>
+            <p>If an HTTP request thread triggers a parallel stream that executes blocking I/O (e.g., calling an external REST API or database), those worker threads block inside the common pool. Because the common pool is JVM-wide, this starvates unrelated parallel streams across the entire application, causing widespread request timeouts and latency spikes.</p>
+            <p><strong>Senior Engineer Rule:</strong> Reserve <code>parallelStream()</code> strictly for CPU-intensive, in-memory computations. For concurrent I/O operations, use <strong>Java 21 Virtual Threads</strong> or dedicated <code>ExecutorService</code> instances.</p>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Advanced Collectors &bull; Modern Java</span>
+            <h3 class="text-dark font-weight-bold mb-3">3. Advanced Collectors: <code>Collectors.teeing()</code>, multi-level <code>groupingBy()</code>, and downstream aggregation.</h3>
+            <p>Introduced in Java 12, <code>Collectors.teeing()</code> merges the results of two independent downstream collectors in a <strong>single pass over the stream</strong>:</p>
+            <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 14px; font-size: 13px; overflow: auto;'><span style='color: #38bdf8;'>record</span> Summary(double average, long totalCount) {}
+
+<span style='color: #38bdf8;'>Summary</span> summary = transactions.stream()
+    .collect(Collectors.teeing(
+        Collectors.averagingDouble(Transaction::amount),
+        Collectors.counting(),
+        Summary::new // Merges the two results together in 1 pass!
+    ));</pre>
+            <p class="mt-2"><strong>Multi-Level Grouping:</strong> Grouping employees by department and calculating the highest salary in each department using downstream reduction:</p>
+            <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 12px; font-size: 13px; overflow: auto;'>Map&lt;Department, Optional&lt;Employee&gt;&gt; topEarners = employees.stream()
+    .collect(Collectors.groupingBy(
+        Employee::department,
+        Collectors.maxBy(Comparator.comparing(Employee::salary))
+    ));</pre>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">JVM Bytecode &bull; invokedynamic</span>
+            <h3 class="text-dark font-weight-bold mb-3">4. Lambdas vs Anonymous Inner Classes at the Bytecode Level: <code>invokedynamic</code> &amp; LambdaMetafactory.</h3>
+            <p>Lambda expressions are NOT syntax sugar for Anonymous Inner Classes. The architectural differences at runtime and bytecode level are significant:</p>
+            <div class="poly">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>Anonymous Inner Class</th>
+                    <th>Lambda Expression</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Generated Class Files</strong></td>
+                    <td>Generates a separate disk class file (<code>MyClass</div>
+  </div>
+</section>
+<!-- /section -->.class</code>) for every occurrence</td>
+                    <td><strong>Zero extra class files generated on disk</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Bytecode Instruction</strong></td>
+                    <td>Compiles to <code>new MyClass</div>
+  </div>
+</section>
+<!-- /section -->()</code> + <code>invokespecial</code></td>
+                    <td>Compiles to an <strong><code>invokedynamic</code> (indy)</strong> instruction</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Memory Allocation</strong></td>
+                    <td>Allocates a new object on heap on every invocation unless manually cached</td>
+                    <td>Translates to a private method via <code>LambdaMetafactory</code>; non-capturing lambdas are cached as singletons!</td>
+                  </tr>
+                  <tr>
+                    <td><strong><code>this</code> Scope</strong></td>
+                    <td>Refers to the inner class instance</td>
+                    <td>Refers to the enclosing outer class instance</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Clean Code &bull; Anti-Patterns</span>
+            <h3 class="text-dark font-weight-bold mb-3">5. <code>java.util.Optional</code>: Production Best Practices &amp; High-Frequency Anti-Patterns.</h3>
+            <ul class="list-styled pl-4">
+              <li><strong>Intended Purpose:</strong> <code>Optional</code> was designed strictly as a <strong>method return type</strong> to indicate that a result might be absent without returning <code>null</code>.</li>
+              <li><strong>Anti-Pattern 1: <code>Optional</code> as Field or Parameter:</strong> <code>Optional</code> is NOT <code>Serializable</code>. Using it as a class field breaks serialization frameworks (Jackson, Java serialization) and adds an extra 16-24 byte pointer overhead on the heap.</li>
+              <li><strong>Anti-Pattern 2: <code>Optional.get()</code> without <code>isPresent()</code>:</strong> Defeats the purpose of <code>Optional</code> and throws <code>NoSuchElementException</code>. Use <code>orElseThrow()</code> with descriptive custom exceptions or <code>map().orElse()</code>.</li>
+              <li><strong>Anti-Pattern 3: <code>orElse()</code> vs <code>orElseGet()</code>:</strong> <code>orElse(expensiveCalculation())</code> executes the fallback method <em>every time</em>, even if the Optional contains a value! Always use <code>orElseGet(() -&gt; expensiveCalculation())</code> to defer evaluation lazily.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 mb-4">
+          <div class="interview-section-card advance-card">
+            <span class="advance-tag">Asynchronous Composition &bull; Futures</span>
+            <h3 class="text-dark font-weight-bold mb-3">6. Complex <code>CompletableFuture</code> Orchestration: Chaining, Timeouts, and Error Recovery.</h3>
+            <p>Senior engineers construct non-blocking asynchronous pipelines using monadic composition:</p>
+            <pre style='background: #1e293b; color: #f8fafc; border-radius: 8px; padding: 14px; font-size: 13px; overflow: auto;'>CompletableFuture&lt;OrderSummary&gt; pipeline = CompletableFuture
+    .supplyAsync(() -&gt; orderClient.getOrder(orderId), customExecutor)
+    .thenCompose(order -&gt; 
+        CompletableFuture.supplyAsync(() -&gt; inventoryClient.reserve(order))
+            .thenCombine(
+                CompletableFuture.supplyAsync(() -&gt; paymentClient.charge(order)),
+                (inv, pay) -&gt; new OrderSummary(order, inv, pay)
+            )
+    )
+    .orTimeout(3, TimeUnit.SECONDS) // Java 9+ timeout support!
+    .exceptionallyCompose(ex -&gt; {
+        log.error("Pipeline failed: {}", ex.getMessage());
+        return CompletableFuture.completedFuture(OrderSummary.failed(orderId));
+    });</pre>
+            <p class="mt-2"><strong>Key Insight:</strong> <code>thenApply</code> is for synchronous value transformation ($T \to U$), while <code>thenCompose</code> is monadic flatMap ($T \to \text{CompletableFuture}\langle U\rangle$), preventing nested <code>CompletableFuture&lt;CompletableFuture&lt;T&gt;&gt;</code> types.</p>
+          </div>
         </div>
 
     </div>

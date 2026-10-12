@@ -1,0 +1,315 @@
+const fs = require('fs');
+
+// Helper function to create standard page HTML structure
+function createStandardPage(config) {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>${config.title} - Techno Interview</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="${config.metaDesc || 'Techno Interview Preparation'}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Prashant jha">
+  <meta name="generator" content="Techno Interview">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Plugins -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/modern-opening.css" rel="stylesheet">
+
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon-16x16.png" type="image/x-icon">
+</head>
+
+<body>
+  <!-- preloader start -->
+  <div class="preloader">
+    <div class="ai-loader-container">
+      <div class="ai-loader-orb">
+        <div class="ai-ring ai-ring-1"></div>
+        <div class="ai-ring ai-ring-2"></div>
+        <div class="ai-core">
+          <svg class="ai-spark-svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+            <path d="M12 2L14.2 9.8L22 12L14.2 14.2L12 22L9.8 14.2L2 12L9.8 9.8L12 2Z" fill="url(#aiGrad)"/>
+            <defs>
+              <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0284c7"/>
+                <stop offset="50%" stop-color="#6366f1"/>
+                <stop offset="100%" stop-color="#f59e0b"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+      <div class="ai-loader-title">
+        <span class="ai-sparkle">✦</span> TechnoInterview <span class="ai-badge">AI GUIDE</span>
+      </div>
+      <div class="ai-loader-bar">
+        <div class="ai-loader-bar-fill"></div>
+      </div>
+      <div class="ai-loader-sub">Curating Tech Interview Notes &bull; 2026</div>
+    </div>
+  </div>
+  <!-- preloader end -->
+<script>
+  (function(){
+    function dismissAiLoader(){
+      var p = document.querySelector('.preloader');
+      if (p) {
+        p.classList.add('loaded');
+        p.style.opacity = '0';
+        p.style.pointerEvents = 'none';
+        setTimeout(function(){ if (p && p.parentNode) p.parentNode.removeChild(p); }, 350);
+      }
+    }
+    if (document.readyState === 'complete') {
+      setTimeout(dismissAiLoader, 300);
+    } else {
+      window.addEventListener('load', function(){ setTimeout(dismissAiLoader, 300); });
+      setTimeout(dismissAiLoader, 800);
+    }
+  })();
+</script>
+
+<!-- header -->
+<header class="fixed-top header">
+  <div class="navigation w-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark p-0">
+        <a class="navbar-brand" href="index.html"><img class="site-logo" src="images/logo.svg" alt="Techno Interview"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item ${config.activeNav === 'backend' ? 'active' : ''}"><a class="nav-link" href="backend.html">Backend</a></li>
+            <li class="nav-item ${config.activeNav === 'frontend' ? 'active' : ''}"><a class="nav-link" href="frontend.html">Frontend</a></li>
+            <li class="nav-item ${config.activeNav === 'cloud' ? 'active' : ''}"><a class="nav-link" href="cloud.html">Cloud</a></li>
+            <li class="nav-item ${config.activeNav === 'database' ? 'active' : ''}"><a class="nav-link" href="database.html">Database</a></li>
+            <li class="nav-item"><a class="nav-link" href="ai.html">AI</a></li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Interview program
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="ArrayPrograms.html">Array</a></li>
+                <li><a class="dropdown-item" href="numberprograms.html">Numbers</a></li>
+                <li><a class="dropdown-item" href="Stringprograms.html">String</a></li>
+                <li><a class="dropdown-item" href="java8programs.html">Java8 Programs</a></li>
+                <li><a class="dropdown-item" href="topicwiseprogram.html">Topicwise Programs</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- /header -->
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb mb-2">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="${config.parentHref}">${config.parentTitle}</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted">${config.title}</li>
+        </ul>
+        <p class="text-lighten mb-0">${config.subtitle}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+<!-- section -->
+<section class="section-sm">
+  <div class="container">
+    <!-- course info -->
+    <div class="row align-items-center mb-5">
+      <div class="col-xl-3 order-1 col-sm-6 mb-4 mb-xl-0">
+        <h2>${config.title}</h2>
+      </div>
+      <div class="col-xl-6 order-sm-3 order-xl-2 col-12 order-2">
+        <ul class="list-inline text-xl-center">
+          <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-book text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">TRACK</h6>
+                <p class="mb-0">${config.track || 'Interview Prep'}</p>
+              </div>
+            </div>
+          </li>
+          <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-alarm-clock text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">TARGET</h6>
+                <p class="mb-0">2026 Developer &bull; Lead</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 mt-4 order-4">
+        <div class="border-bottom border-primary"></div>
+      </div>
+    </div>
+
+    <!-- course details -->
+    <div class="row">
+      <!-- SECTION 1: BASIC & CORE -->
+      <div class="col-12 mb-4">
+        <div class="level-badge basic"><i class="ti-bookmark mr-1"></i> PART 1: CORE &amp; FOUNDATIONAL QUESTIONS</div>
+        <h2 class="level-heading">${config.part1Heading} <span class="badge badge-primary font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Basic &bull; Developer</span></h2>
+        <p class="text-secondary">${config.part1Desc}</p>
+        <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+      </div>
+
+      ${config.part1Questions}
+
+      <!-- SECTION 2: ADVANCED & TECH LEAD (2026 EDITION) -->
+      <div class="col-12 my-5 pt-4">
+        <div class="level-badge advance mb-2"><i class="ti-star mr-1"></i> PART 2: ADVANCED &amp; 2026 INTERVIEW SPECS</div>
+        <h2 class="level-heading">${config.part2Heading} <span class="badge badge-success font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Senior &bull; Tech Lead &bull; 2026</span></h2>
+        <p class="text-secondary">${config.part2Desc}</p>
+        <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+      </div>
+
+      ${config.part2Questions}
+    </div>
+  </div>
+</section>
+<!-- /section -->
+
+<!-- related course -->
+<section class="section pt-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title">Related Tracks</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      ${config.relatedCards}
+    </div>
+  </div>
+</section>
+<!-- /related course -->
+
+<!-- footer -->
+<footer>
+  <div class="newsletter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 ml-auto bg-primary py-5 newsletter-block">
+          <h3 class="text-white">Subscribe Now</h3>
+          <form action="#">
+            <div class="input-wrapper">
+              <input type="email" class="form-control border-0" id="newsletter" name="newsletter" placeholder="Enter Your Email...">
+              <button type="submit" value="send" class="btn btn-primary">Join</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer bg-footer section border-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-8 mb-5 mb-lg-0">
+          <a class="logo-footer" href="index.html"><img class="img-fluid mb-4 site-logo" src="images/logo.svg" alt="Techno Interview"></a>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a class="text-color" href="about.html"><i class="ti-face-smile mr-2"></i> - Prashant Kumar Jha</a></li>
+            <li class="mb-2"><a class="text-color" href="tel:+91-7749994892"><i class="ti-mobile mr-2"></i>+91-7749994892</a></li>
+            <li class="mb-2"><a class="text-color" href="http://www.technointerview.com"><i class="ti-world mr-2"></i> www.technointerview.com</a></li>
+            <li class="mb-2"><a class="text-color" href="mailto:jhaprash29@gmail.com"><i class="ti-email mr-2"></i>jhaprash29@gmail.com</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">BACKEND</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="corejava.html">Core java</a></li>
+            <li class="mb-3"><a class="text-color" href="java8theory.html">Java8</a></li>
+            <li class="mb-3"><a class="text-color" href="springboot.html">SpringBoot</a></li>
+            <li class="mb-3"><a class="text-color" href="microservice.html">MicroService</a></li>
+            <li class="mb-3"><a class="text-color" href="hibernate.html">Hibernate</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">FRONTEND</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="angular.html">Angular</a></li>
+            <li class="mb-3"><a class="text-color" href="reactjs.html">Reactjs</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">DATABASE</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="sql.html">SQL</a></li>
+            <li class="mb-3"><a class="text-color" href="postgresql.html">PostgreSQL</a></li>
+            <li class="mb-3"><a class="text-color" href="mongodb.html">MongoDB</a></li>
+            <li class="mb-3"><a class="text-color" href="elasticsearch.html">Elasticsearch</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">CLOUDS</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="aws.html">AWS</a></li>
+            <li class="mb-3"><a class="text-color" href="gcp.html">GCP</a></li>
+            <li class="mb-3"><a class="text-color" href="docker.html">Docker</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright py-4 bg-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 text-sm-left text-center">
+          <p class="mb-0">Copyright &copy; 2026, designed & developed by <a href="about.html" class="text-muted">Prashant jha</a></p>
+        </div>
+        <div class="col-sm-5 text-sm-right text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-facebook text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-twitter-alt text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-github text-primary"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="plugins/jQuery/jquery.min.js"></script>
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<script src="plugins/slick/slick.min.js"></script>
+<script src="plugins/aos/aos.js"></script>
+<script src="plugins/venobox/venobox.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>`;
+}
+
+module.exports = { createStandardPage };
