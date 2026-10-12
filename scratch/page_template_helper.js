@@ -1,14 +1,141 @@
 const fs = require('fs');
 
-// Helper function to create standard page HTML structure
+function renderCard(sec) {
+  const isAdvance = sec.type === 'advance';
+  return `
+      <div class="col-12 mb-4">
+        <div class="interview-section-card ${isAdvance ? 'advance-card' : ''}">
+          ${isAdvance 
+            ? `<span class="advance-tag"><i class="ti-star mr-1"></i> ${sec.category || 'Advance &bull; 2026 Interview Spec'}</span>` 
+            : `<span class="badge badge-primary mb-2 py-1 px-2" style="font-size: 11px;"><i class="ti-bookmark mr-1"></i> ${sec.category || 'Core Question'}</span>`}
+          <h3 class="text-dark font-weight-bold mb-3">${sec.question}</h3>
+          <div class="answer-content">
+            ${sec.answer}
+          </div>
+        </div>
+      </div>
+  `;
+}
+
+function getDefaultRelatedCards() {
+  return `
+      <div class="col-lg-4 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-4.jpg" alt="String Programs">
+          <div class="card-body">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
+              <li class="list-inline-item"><a class="text-color" href="Stringprograms.html">String</a></li>
+            </ul>
+            <a href="Stringprograms.html"><h4 class="card-title">String Programs</h4></a>
+            <p class="card-text mb-4">Anagrams, Sliding Window, Palindromic substrings, and compression.</p>
+            <a href="Stringprograms.html" class="btn btn-primary btn-sm">Practice</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-5.jpg" alt="Number Programs">
+          <div class="card-body">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
+              <li class="list-inline-item"><a class="text-color" href="numberprograms.html">Number</a></li>
+            </ul>
+            <a href="numberprograms.html"><h4 class="card-title">Number Programs</h4></a>
+            <p class="card-text mb-4">Two Sum, Bit Manipulation, Primes, Reversals, and Math algorithms.</p>
+            <a href="numberprograms.html" class="btn btn-primary btn-sm">Practice</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-6.jpg" alt="Java8 Programs">
+          <div class="card-body">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
+              <li class="list-inline-item"><a class="text-color" href="java8programs.html">Java 8</a></li>
+            </ul>
+            <a href="java8programs.html"><h4 class="card-title">Java 8 Streams</h4></a>
+            <p class="card-text mb-4">Stream API, Collectors, Lambdas, GroupingBy, and Virtual Threads.</p>
+            <a href="java8programs.html" class="btn btn-primary btn-sm">Practice</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-7.jpg" alt="Topicwise Programs">
+          <div class="card-body">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
+              <li class="list-inline-item"><a class="text-color" href="topicwiseprogram.html">DSA</a></li>
+            </ul>
+            <a href="topicwiseprogram.html"><h4 class="card-title">Topicwise Programs</h4></a>
+            <p class="card-text mb-4">LinkedList, Trees BFS/DFS, LRU Cache, Heap, and Dynamic Programming.</p>
+            <a href="topicwiseprogram.html" class="btn btn-primary btn-sm">Practice</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-2.jpg" alt="Spring Boot">
+          <div class="card-body">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
+              <li class="list-inline-item"><a class="text-color" href="springboot.html">SpringBoot</a></li>
+            </ul>
+            <a href="springboot.html"><h4 class="card-title">Spring Boot Coding</h4></a>
+            <p class="card-text mb-4">Custom Validators, Global Exception Handlers, Rate Limiters, REST.</p>
+            <a href="springboot.html" class="btn btn-primary btn-sm">Practice</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-3.jpg" alt="Array Programs">
+          <div class="card-body">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
+              <li class="list-inline-item"><a class="text-color" href="ArrayPrograms.html">Array</a></li>
+            </ul>
+            <a href="ArrayPrograms.html"><h4 class="card-title">Array Programs</h4></a>
+            <p class="card-text mb-4">Rotations, Subarray Sums, Sorting, and Two-pointer array algorithms.</p>
+            <a href="ArrayPrograms.html" class="btn btn-primary btn-sm">Practice</a>
+          </div>
+        </div>
+      </div>
+  `;
+}
+
 function createStandardPage(config) {
+  let part1Html = '';
+  let part2Html = '';
+
+  if (config.sections && Array.isArray(config.sections)) {
+    const p1 = config.sections.filter(s => s.type === 'basic');
+    const p2 = config.sections.filter(s => s.type === 'advance');
+    part1Html = p1.map(renderCard).join('\n');
+    part2Html = p2.map(renderCard).join('\n');
+  } else {
+    part1Html = config.part1Questions || '';
+    part2Html = config.part2Questions || '';
+  }
+
+  const p1Heading = config.part1Heading || (config.title + ' - Core & Foundational Coding Programs');
+  const p1Desc = config.part1Desc || 'Essential coding questions, optimal algorithmic techniques, and runnable solutions for software engineering interviews.';
+  const p2Heading = config.part2Heading || (config.title + ' - Advanced & 2026 Lead Specs');
+  const p2Desc = config.part2Desc || 'High-frequency complex interview programs asked in recent FAANG / Tier-1 tech interviews with time & space complexity analysis.';
+  const relatedCardsHtml = config.relatedCards || getDefaultRelatedCards();
+  const parentHref = config.parentHref || 'programmin.html';
+  const parentTitle = config.parentTitle || 'Interview Programs';
+  const subtitle = config.subtitle || config.bannerDesc || 'Comprehensive programming solutions with runnable in-place compiler.';
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>${config.title} - Techno Interview</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="${config.metaDesc || 'Techno Interview Preparation'}">
+  <meta name="description" content="${config.metaDesc || config.title + ' Interview Preparation'}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="author" content="Prashant jha">
   <meta name="generator" content="Techno Interview">
@@ -98,13 +225,12 @@ function createStandardPage(config) {
         <div class="collapse navbar-collapse" id="navigation">
           <ul class="navbar-nav ml-auto text-center">
             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item ${config.activeNav === 'backend' ? 'active' : ''}"><a class="nav-link" href="backend.html">Backend</a></li>
-            <li class="nav-item ${config.activeNav === 'frontend' ? 'active' : ''}"><a class="nav-link" href="frontend.html">Frontend</a></li>
-            <li class="nav-item ${config.activeNav === 'cloud' ? 'active' : ''}"><a class="nav-link" href="cloud.html">Cloud</a></li>
-            <li class="nav-item ${config.activeNav === 'database' ? 'active' : ''}"><a class="nav-link" href="database.html">Database</a></li>
-            <li class="nav-item"><a class="nav-link" href="ai.html">AI</a></li>
-            <li class="nav-item dropdown view">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item"><a class="nav-link" href="backend.html">Backend</a></li>
+            <li class="nav-item"><a class="nav-link" href="frontend.html">Frontend</a></li>
+            <li class="nav-item"><a class="nav-link" href="cloud.html">Cloud</a></li>
+            <li class="nav-item"><a class="nav-link" href="database.html">Database</a></li>
+            <li class="nav-item dropdown view active">
+              <a class="nav-link dropdown-toggle" href="programmin.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Interview program
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -130,10 +256,10 @@ function createStandardPage(config) {
     <div class="row">
       <div class="col-md-8">
         <ul class="list-inline custom-breadcrumb mb-2">
-          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="${config.parentHref}">${config.parentTitle}</a></li>
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="${parentHref}">${parentTitle}</a></li>
           <li class="list-inline-item text-white h3 font-secondary nasted">${config.title}</li>
         </ul>
-        <p class="text-lighten mb-0">${config.subtitle}</p>
+        <p class="text-lighten mb-0">${subtitle}</p>
       </div>
     </div>
   </div>
@@ -145,7 +271,7 @@ function createStandardPage(config) {
   <div class="container">
     <!-- course info -->
     <div class="row align-items-center mb-5">
-      <div class="col-xl-3 order-1 col-sm-6 mb-4 mb-xl-0">
+      <div class="col-xl-4 order-1 col-sm-6 mb-4 mb-xl-0">
         <h2>${config.title}</h2>
       </div>
       <div class="col-xl-6 order-sm-3 order-xl-2 col-12 order-2">
@@ -155,7 +281,7 @@ function createStandardPage(config) {
               <i class="ti-book text-primary icon-md mr-2"></i>
               <div class="text-left">
                 <h6 class="mb-0">TRACK</h6>
-                <p class="mb-0">${config.track || 'Interview Prep'}</p>
+                <p class="mb-0">${config.track || 'Interview Coding'}</p>
               </div>
             </div>
           </li>
@@ -164,7 +290,16 @@ function createStandardPage(config) {
               <i class="ti-alarm-clock text-primary icon-md mr-2"></i>
               <div class="text-left">
                 <h6 class="mb-0">TARGET</h6>
-                <p class="mb-0">2026 Developer &bull; Lead</p>
+                <p class="mb-0">${config.target || '2026 Developer &bull; Lead'}</p>
+              </div>
+            </div>
+          </li>
+          <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-pulse text-success icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">COMPILER</h6>
+                <p class="mb-0">Interactive &bull; Editable</p>
               </div>
             </div>
           </li>
@@ -179,23 +314,23 @@ function createStandardPage(config) {
     <div class="row">
       <!-- SECTION 1: BASIC & CORE -->
       <div class="col-12 mb-4">
-        <div class="level-badge basic"><i class="ti-bookmark mr-1"></i> PART 1: CORE &amp; FOUNDATIONAL QUESTIONS</div>
-        <h2 class="level-heading">${config.part1Heading} <span class="badge badge-primary font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Basic &bull; Developer</span></h2>
-        <p class="text-secondary">${config.part1Desc}</p>
+        <div class="level-badge basic"><i class="ti-bookmark mr-1"></i> PART 1: CORE &amp; FOUNDATIONAL INTERVIEW PROGRAMS</div>
+        <h2 class="level-heading">${p1Heading} <span class="badge badge-primary font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Basic &bull; Developer</span></h2>
+        <p class="text-secondary">${p1Desc}</p>
         <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
       </div>
 
-      ${config.part1Questions}
+      ${part1Html}
 
       <!-- SECTION 2: ADVANCED & TECH LEAD (2026 EDITION) -->
       <div class="col-12 my-5 pt-4">
-        <div class="level-badge advance mb-2"><i class="ti-star mr-1"></i> PART 2: ADVANCED &amp; 2026 INTERVIEW SPECS</div>
-        <h2 class="level-heading">${config.part2Heading} <span class="badge badge-success font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Senior &bull; Tech Lead &bull; 2026</span></h2>
-        <p class="text-secondary">${config.part2Desc}</p>
+        <div class="level-badge advance mb-2"><i class="ti-star mr-1"></i> PART 2: ADVANCED &amp; RECENTLY ASKED (2026 EDITION)</div>
+        <h2 class="level-heading">${p2Heading} <span class="badge badge-success font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Senior &bull; Tech Lead &bull; 2026</span></h2>
+        <p class="text-secondary">${p2Desc}</p>
         <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
       </div>
 
-      ${config.part2Questions}
+      ${part2Html}
     </div>
   </div>
 </section>
@@ -206,11 +341,11 @@ function createStandardPage(config) {
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h2 class="section-title">Related Tracks</h2>
+        <h2 class="section-title">Related Programming Tracks</h2>
       </div>
     </div>
     <div class="row justify-content-center">
-      ${config.relatedCards}
+      ${relatedCardsHtml}
     </div>
   </div>
 </section>
@@ -218,17 +353,31 @@ function createStandardPage(config) {
 
 <!-- footer -->
 <footer>
-  <div class="newsletter">
+  <!-- newsletter (compact modern design) -->
+  <div class="newsletter-compact-section">
     <div class="container">
-      <div class="row">
-        <div class="col-md-9 ml-auto bg-primary py-5 newsletter-block">
-          <h3 class="text-white">Subscribe Now</h3>
-          <form action="#">
-            <div class="input-wrapper">
-              <input type="email" class="form-control border-0" id="newsletter" name="newsletter" placeholder="Enter Your Email...">
-              <button type="submit" value="send" class="btn btn-primary">Join</button>
+      <div class="newsletter-compact-card">
+        <div class="row align-items-center">
+          <div class="col-lg-6 col-md-5 mb-3 mb-md-0">
+            <div class="newsletter-brand-wrap">
+              <span class="newsletter-sparkle">✦</span>
+              <div>
+                <h4 class="newsletter-title mb-1">Subscribe to Tech Digests</h4>
+                <p class="newsletter-sub mb-0">Get weekly 2026 tech interview questions &amp; system designs</p>
+              </div>
             </div>
-          </form>
+          </div>
+          <div class="col-lg-6 col-md-7">
+            <form class="newsletter-compact-form" action="#" onsubmit="event.preventDefault(); var btn=this.querySelector('button'); btn.innerHTML='<i class=\'ti-check mr-1\'></i> Joined!'; setTimeout(function(){ btn.innerHTML='<span>Join</span> <i class=\'ti-arrow-right ml-1\'></i>'; }, 3000);">
+              <div class="newsletter-compact-input-group">
+                <i class="ti-email newsletter-mail-icon"></i>
+                <input type="email" required placeholder="Enter work email..." class="newsletter-compact-input" aria-label="Email Address">
+                <button type="submit" class="newsletter-compact-btn">
+                  <span>Join</span> <i class="ti-arrow-right ml-1"></i>
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -308,6 +457,8 @@ function createStandardPage(config) {
 <script src="plugins/aos/aos.js"></script>
 <script src="plugins/venobox/venobox.min.js"></script>
 <script src="js/script.js"></script>
+<script src="js/online-compiler.js"></script>
+<script src="js/jarvis-ai.js"></script>
 </body>
 </html>`;
 }

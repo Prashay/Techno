@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Topic-wise Coding Challenges & Data Structures - Techno Interview</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Topic-wise Coding Challenges & Data Structures Interview Preparation">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Prashant jha">
+  <meta name="generator" content="Techno Interview">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Plugins -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/modern-opening.css" rel="stylesheet">
+
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon-16x16.png" type="image/x-icon">
+</head>
+
+<body>
+  <!-- preloader start -->
+  <div class="preloader">
+    <div class="ai-loader-container">
+      <div class="ai-loader-orb">
+        <div class="ai-ring ai-ring-1"></div>
+        <div class="ai-ring ai-ring-2"></div>
+        <div class="ai-core">
+          <svg class="ai-spark-svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+            <path d="M12 2L14.2 9.8L22 12L14.2 14.2L12 22L9.8 14.2L2 12L9.8 9.8L12 2Z" fill="url(#aiGrad)"/>
+            <defs>
+              <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0284c7"/>
+                <stop offset="50%" stop-color="#6366f1"/>
+                <stop offset="100%" stop-color="#f59e0b"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+      <div class="ai-loader-title">
+        <span class="ai-sparkle">✦</span> TechnoInterview <span class="ai-badge">AI GUIDE</span>
+      </div>
+      <div class="ai-loader-bar">
+        <div class="ai-loader-bar-fill"></div>
+      </div>
+      <div class="ai-loader-sub">Curating Tech Interview Notes &bull; 2026</div>
+    </div>
+  </div>
+  <!-- preloader end -->
+<script>
+  (function(){
+    function dismissAiLoader(){
+      var p = document.querySelector('.preloader');
+      if (p) {
+        p.classList.add('loaded');
+        p.style.opacity = '0';
+        p.style.pointerEvents = 'none';
+        setTimeout(function(){ if (p && p.parentNode) p.parentNode.removeChild(p); }, 350);
+      }
+    }
+    if (document.readyState === 'complete') {
+      setTimeout(dismissAiLoader, 300);
+    } else {
+      window.addEventListener('load', function(){ setTimeout(dismissAiLoader, 300); });
+      setTimeout(dismissAiLoader, 800);
+    }
+  })();
+</script>
+
+<!-- header -->
+<header class="fixed-top header">
+  <div class="navigation w-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark p-0">
+        <a class="navbar-brand" href="index.html"><img class="site-logo" src="images/logo.svg" alt="Techno Interview"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="backend.html">Backend</a></li>
+            <li class="nav-item"><a class="nav-link" href="frontend.html">Frontend</a></li>
+            <li class="nav-item"><a class="nav-link" href="cloud.html">Cloud</a></li>
+            <li class="nav-item"><a class="nav-link" href="database.html">Database</a></li>
+            <li class="nav-item dropdown view active">
+              <a class="nav-link dropdown-toggle" href="programmin.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Interview program
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="ArrayPrograms.html">Array</a></li>
+                <li><a class="dropdown-item" href="numberprograms.html">Numbers</a></li>
+                <li><a class="dropdown-item" href="Stringprograms.html">String</a></li>
+                <li><a class="dropdown-item" href="java8programs.html">Java8 Programs</a></li>
+                <li><a class="dropdown-item" href="topicwiseprogram.html">Topicwise Programs</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- /header -->
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb mb-2">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="programmin.html">Interview Programs</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted">Topic-wise Coding Challenges & Data Structures</li>
+        </ul>
+        <p class="text-lighten mb-0">LinkedList, Trees, Binary Search, Stacks, LRU Cache & Dynamic Programming in Java.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+<!-- section -->
+<section class="section-sm">
+  <div class="container">
+    <!-- course info -->
+    <div class="row align-items-center mb-5">
+      <div class="col-xl-4 order-1 col-sm-6 mb-4 mb-xl-0">
+        <h2>Topic-wise Coding Challenges & Data Structures</h2>
+      </div>
+      <div class="col-xl-6 order-sm-3 order-xl-2 col-12 order-2">
+        <ul class="list-inline text-xl-center">
+          <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-book text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">TRACK</h6>
+                <p class="mb-0">Interview Coding</p>
+              </div>
+            </div>
+          </li>
+          <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-alarm-clock text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">TARGET</h6>
+                <p class="mb-0">Developer &bull; Lead 2026</p>
+              </div>
+            </div>
+          </li>
+          <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-pulse text-success icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">COMPILER</h6>
+                <p class="mb-0">Interactive &bull; Editable</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 mt-4 order-4">
+        <div class="border-bottom border-primary"></div>
+      </div>
+    </div>
+
+    <!-- course details -->
+    <div class="row">
+      <!-- SECTION 1: BASIC & CORE -->
+      <div class="col-12 mb-4">
+        <div class="level-badge basic"><i class="ti-bookmark mr-1"></i> PART 1: CORE &amp; FOUNDATIONAL INTERVIEW PROGRAMS</div>
+        <h2 class="level-heading">Essential Data Structure Coding Programs <span class="badge badge-primary font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Basic &bull; Developer</span></h2>
+        <p class="text-secondary">Cycle detection, valid parentheses with stacks, binary search, and linked lists.</p>
+        <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+      </div>
+
+      
+      <div class="col-12 mb-4">
+        <div class="interview-section-card ">
+          <span class="badge badge-primary mb-2 py-1 px-2" style="font-size: 11px;"><i class="ti-bookmark mr-1"></i> LinkedList & Pointers</span>
+          <h3 class="text-dark font-weight-bold mb-3">Program 1: Detect and Return Cycle Entry Node in LinkedList (Floyd's Algorithm)</h3>
+          <div class="answer-content">
+            <p>Detects if a linked list has a cycle and locates the exact entry point in $O(N)$ time and $O(1)$ memory (LeetCode 142).</p>
+<pre><code class="language-java">public class LinkedListCycle {
+    static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) { val = x; }
+    }
+
+    public static ListNode detectCycle(ListNode head) {
+        if (head == null || head.next == null) return null;
+        ListNode slow = head, fast = head;
+        
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                ListNode finder = head;
+                while (finder != slow) {
+                    finder = finder.next;
+                    slow = slow.next;
+                }
+                return finder;
+            }
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        ListNode n1 = new ListNode(3);
+        ListNode n2 = new ListNode(2);
+        ListNode n3 = new ListNode(0);
+        ListNode n4 = new ListNode(-4);
+        n1.next = n2; n2.next = n3; n3.next = n4; n4.next = n2; // cycle to n2
+        
+        ListNode start = detectCycle(n1);
+        System.out.println("Cycle entry node value: " + (start != null ? start.val : "No cycle"));
+    }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+  
+
+      <div class="col-12 mb-4">
+        <div class="interview-section-card ">
+          <span class="badge badge-primary mb-2 py-1 px-2" style="font-size: 11px;"><i class="ti-bookmark mr-1"></i> Stack Evaluation</span>
+          <h3 class="text-dark font-weight-bold mb-3">Program 2: Valid Parentheses Evaluation using Stack (LeetCode 20)</h3>
+          <div class="answer-content">
+            <p>Verifies bracket syntax matching for <code>()</code>, <code>{}</code>, and <code>[]</code> in $O(N)$ time.</p>
+<pre><code class="language-java">import java.util.*;
+
+public class ValidParentheses {
+    public static boolean isValid(String s) {
+        Deque<Character> stack = new ArrayDeque<>();
+        for (char c : s.toCharArray()) {
+            if (c == '(') stack.push(')');
+            else if (c == '{') stack.push('}');
+            else if (c == '[') stack.push(']');
+            else if (stack.isEmpty() || stack.pop() != c) return false;
+        }
+        return stack.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        System.out.println("()[]{} valid? " + isValid("()[]{}"));
+        System.out.println("([)] valid? " + isValid("([)]"));
+        System.out.println("{[]} valid? " + isValid("{[]}"));
+    }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+  
+
+      <div class="col-12 mb-4">
+        <div class="interview-section-card ">
+          <span class="badge badge-primary mb-2 py-1 px-2" style="font-size: 11px;"><i class="ti-bookmark mr-1"></i> Tree Breadth-First Search</span>
+          <h3 class="text-dark font-weight-bold mb-3">Program 3: Binary Tree Level Order Traversal (BFS via Queue) (LeetCode 102)</h3>
+          <div class="answer-content">
+            <p>Traverses tree level-by-level using a FIFO queue in $O(N)$ time.</p>
+<pre><code class="language-java">import java.util.*;
+
+public class LevelOrderTraversal {
+    static class TreeNode {
+        int val;
+        TreeNode left, right;
+        TreeNode(int v) { val = v; }
+    }
+
+    public static List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null) return result;
+        
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+            List<Integer> currentLevel = new ArrayList<>();
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode node = queue.poll();
+                currentLevel.add(node.val);
+                if (node.left != null) queue.offer(node.left);
+                if (node.right != null) queue.offer(node.right);
+            }
+            result.add(currentLevel);
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(9);
+        root.right = new TreeNode(20);
+        root.right.left = new TreeNode(15);
+        root.right.right = new TreeNode(7);
+        
+        System.out.println("Level Order Traversal: " + levelOrder(root));
+    }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+  
+
+      <!-- SECTION 2: ADVANCED & TECH LEAD (2026 EDITION) -->
+      <div class="col-12 my-5 pt-4">
+        <div class="level-badge advance mb-2"><i class="ti-star mr-1"></i> PART 2: ADVANCED &amp; RECENTLY ASKED (2026 EDITION)</div>
+        <h2 class="level-heading">Advanced Algorithms & System Coding (2026) <span class="badge badge-success font-weight-normal text-white" style="font-size: 13px; vertical-align: middle;">Senior &bull; Tech Lead &bull; 2026</span></h2>
+        <p class="text-secondary">Production LRU Cache design, Binary Tree BFS/LCA, and Dynamic Programming.</p>
+        <div class="border-bottom border-primary mb-4" style="opacity: 0.25;"></div>
+      </div>
+
+      
+      <div class="col-12 mb-4">
+        <div class="interview-section-card advance-card">
+          <span class="advance-tag"><i class="ti-star mr-1"></i> Cache System Design</span>
+          <h3 class="text-dark font-weight-bold mb-3">Advance Q1 (2026): Production-Ready LRU Cache with O(1) Get and Put (LeetCode 146)</h3>
+          <div class="answer-content">
+            <p>Combines a Doubly Linked List with a HashMap to guarantee strict $O(1)$ recency promotion and eviction.</p>
+<pre><code class="language-java">import java.util.*;
+
+public class LRUCache {
+    class Node {
+        int key, value;
+        Node prev, next;
+        Node(int k, int v) { key = k; value = v; }
+    }
+
+    private final int capacity;
+    private final Map<Integer, Node> map = new HashMap<>();
+    private final Node head = new Node(0, 0), tail = new Node(0, 0);
+
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+        head.next = tail;
+        tail.prev = head;
+    }
+
+    public int get(int key) {
+        if (!map.containsKey(key)) return -1;
+        Node node = map.get(key);
+        remove(node);
+        insert(node);
+        return node.value;
+    }
+
+    public void put(int key, int value) {
+        if (map.containsKey(key)) {
+            remove(map.get(key));
+        }
+        if (map.size() == capacity) {
+            remove(tail.prev);
+        }
+        insert(new Node(key, value));
+    }
+
+    private void remove(Node node) {
+        map.remove(node.key);
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+    }
+
+    private void insert(Node node) {
+        map.put(node.key, node);
+        node.next = head.next;
+        node.next.prev = node;
+        head.next = node;
+        node.prev = head;
+    }
+
+    public static void main(String[] args) {
+        LRUCache lru = new LRUCache(2);
+        lru.put(1, 100);
+        lru.put(2, 200);
+        System.out.println("Get 1: " + lru.get(1)); // 100
+        lru.put(3, 300); // evicts key 2
+        System.out.println("Get 2 (evicted): " + lru.get(2)); // -1
+        System.out.println("Get 3: " + lru.get(3)); // 300
+    }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+  
+
+      <div class="col-12 mb-4">
+        <div class="interview-section-card advance-card">
+          <span class="advance-tag"><i class="ti-star mr-1"></i> Dynamic Programming</span>
+          <h3 class="text-dark font-weight-bold mb-3">Advance Q2 (2026): Coin Change Problem - Minimum Coins via Bottom-Up DP (LeetCode 322)</h3>
+          <div class="answer-content">
+            <p>Solves fewest number of coins to make total amount in $O(A 	imes C)$ where $A$ is amount and $C$ is coin denomination count.</p>
+<pre><code class="language-java">import java.util.Arrays;
+
+public class CoinChange {
+    public static int coinChange(int[] coins, int amount) {
+        int max = amount + 1;
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, max);
+        dp[0] = 0;
+        
+        for (int i = 1; i <= amount; i++) {
+            for (int coin : coins) {
+                if (coin <= i) {
+                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+                }
+            }
+        }
+        return dp[amount] > amount ? -1 : dp[amount];
+    }
+
+    public static void main(String[] args) {
+        int[] coins = {1, 2, 5};
+        int amount = 11;
+        System.out.println("Min coins for amount " + amount + ": " + coinChange(coins, amount)); // 3 (5+5+1)
+    }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+</section>
+<!-- /section -->
+
+<!-- related course -->
+<section class="section pt-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title">Related Programming Tracks</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      
+      <div class="col-lg-4 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-4.jpg" alt="String Programs">
+          <div class="card-body">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
+              <li class="list-inline-item"><a class="text-color" href="Stringprograms.html">String</a></li>
+            </ul>
+            <a href="Stringprograms.html"><h4 class="card-title">String Programs</h4></a>
+            <p class="card-text mb-4">Anagrams, Sliding Window, Palindromic substrings, and compression.</p>
+            <a href="Stringprograms.html" class="btn btn-primary btn-sm">Practice</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-5.jpg" alt="Number Programs">
+          <div class="card-body">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
+              <li class="list-inline-item"><a class="text-color" href="numberprograms.html">Number</a></li>
+            </ul>
+            <a href="numberprograms.html"><h4 class="card-title">Number Programs</h4></a>
+            <p class="card-text mb-4">Two Sum, Bit Manipulation, Primes, Reversals, and Math algorithms.</p>
+            <a href="numberprograms.html" class="btn btn-primary btn-sm">Practice</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-6.jpg" alt="Java8 Programs">
+          <div class="card-body">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
+              <li class="list-inline-item"><a class="text-color" href="java8programs.html">Java 8</a></li>
+            </ul>
+            <a href="java8programs.html"><h4 class="card-title">Java 8 Streams</h4></a>
+            <p class="card-text mb-4">Stream API, Collectors, Lambdas, GroupingBy, and Virtual Threads.</p>
+            <a href="java8programs.html" class="btn btn-primary btn-sm">Practice</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-7.jpg" alt="Topicwise Programs">
+          <div class="card-body">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
+              <li class="list-inline-item"><a class="text-color" href="topicwiseprogram.html">DSA</a></li>
+            </ul>
+            <a href="topicwiseprogram.html"><h4 class="card-title">Topicwise Programs</h4></a>
+            <p class="card-text mb-4">LinkedList, Trees BFS/DFS, LRU Cache, Heap, and Dynamic Programming.</p>
+            <a href="topicwiseprogram.html" class="btn btn-primary btn-sm">Practice</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-2.jpg" alt="Spring Boot">
+          <div class="card-body">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
+              <li class="list-inline-item"><a class="text-color" href="springboot.html">SpringBoot</a></li>
+            </ul>
+            <a href="springboot.html"><h4 class="card-title">Spring Boot Coding</h4></a>
+            <p class="card-text mb-4">Custom Validators, Global Exception Handlers, Rate Limiters, REST.</p>
+            <a href="springboot.html" class="btn btn-primary btn-sm">Practice</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-5">
+        <div class="card p-0 border-primary rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="images/courses/course-3.jpg" alt="Array Programs">
+          <div class="card-body">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
+              <li class="list-inline-item"><a class="text-color" href="ArrayPrograms.html">Array</a></li>
+            </ul>
+            <a href="ArrayPrograms.html"><h4 class="card-title">Array Programs</h4></a>
+            <p class="card-text mb-4">Rotations, Subarray Sums, Sorting, and Two-pointer array algorithms.</p>
+            <a href="ArrayPrograms.html" class="btn btn-primary btn-sm">Practice</a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+</section>
+<!-- /related course -->
+
+<!-- footer -->
+<footer>
+    <!-- newsletter (compact modern design) -->
+  <div class="newsletter-compact-section">
+    <div class="container">
+      <div class="newsletter-compact-card">
+        <div class="row align-items-center">
+          <div class="col-lg-6 col-md-5 mb-3 mb-md-0">
+            <div class="newsletter-brand-wrap">
+              <span class="newsletter-sparkle">✦</span>
+              <div>
+                <h4 class="newsletter-title mb-1">Subscribe to Tech Digests</h4>
+                <p class="newsletter-sub mb-0">Get weekly 2026 tech interview questions &amp; system designs</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-7">
+            <form class="newsletter-compact-form" action="#" onsubmit="event.preventDefault(); var btn=this.querySelector('button'); btn.innerHTML='<i class=\'ti-check mr-1\'></i> Joined!'; setTimeout(function(){ btn.innerHTML='<span>Join</span> <i class=\'ti-arrow-right ml-1\'></i>'; }, 3000);">
+              <div class="newsletter-compact-input-group">
+                <i class="ti-email newsletter-mail-icon"></i>
+                <input type="email" required placeholder="Enter work email..." class="newsletter-compact-input" aria-label="Email Address">
+                <button type="submit" class="newsletter-compact-btn">
+                  <span>Join</span> <i class="ti-arrow-right ml-1"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer bg-footer section border-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-8 mb-5 mb-lg-0">
+          <a class="logo-footer" href="index.html"><img class="img-fluid mb-4 site-logo" src="images/logo.svg" alt="Techno Interview"></a>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a class="text-color" href="about.html"><i class="ti-face-smile mr-2"></i> - Prashant Kumar Jha</a></li>
+            <li class="mb-2"><a class="text-color" href="tel:+91-7749994892"><i class="ti-mobile mr-2"></i>+91-7749994892</a></li>
+            <li class="mb-2"><a class="text-color" href="http://www.technointerview.com"><i class="ti-world mr-2"></i> www.technointerview.com</a></li>
+            <li class="mb-2"><a class="text-color" href="mailto:jhaprash29@gmail.com"><i class="ti-email mr-2"></i>jhaprash29@gmail.com</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">BACKEND</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="corejava.html">Core java</a></li>
+            <li class="mb-3"><a class="text-color" href="java8theory.html">Java8</a></li>
+            <li class="mb-3"><a class="text-color" href="springboot.html">SpringBoot</a></li>
+            <li class="mb-3"><a class="text-color" href="microservice.html">MicroService</a></li>
+            <li class="mb-3"><a class="text-color" href="hibernate.html">Hibernate</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">FRONTEND</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="angular.html">Angular</a></li>
+            <li class="mb-3"><a class="text-color" href="reactjs.html">Reactjs</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">DATABASE</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="sql.html">SQL</a></li>
+            <li class="mb-3"><a class="text-color" href="postgresql.html">PostgreSQL</a></li>
+            <li class="mb-3"><a class="text-color" href="mongodb.html">MongoDB</a></li>
+            <li class="mb-3"><a class="text-color" href="elasticsearch.html">Elasticsearch</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">CLOUDS</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="aws.html">AWS</a></li>
+            <li class="mb-3"><a class="text-color" href="gcp.html">GCP</a></li>
+            <li class="mb-3"><a class="text-color" href="docker.html">Docker</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright py-4 bg-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 text-sm-left text-center">
+          <p class="mb-0">Copyright &copy; 2026, designed & developed by <a href="about.html" class="text-muted">Prashant jha</a></p>
+        </div>
+        <div class="col-sm-5 text-sm-right text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-facebook text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-twitter-alt text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-github text-primary"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="plugins/jQuery/jquery.min.js"></script>
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<script src="plugins/slick/slick.min.js"></script>
+<script src="plugins/aos/aos.js"></script>
+<script src="plugins/venobox/venobox.min.js"></script>
+<script src="js/script.js"></script>
+<script src="js/online-compiler.js"></script>
+<script src="js/jarvis-ai.js"></script>
+</body>
+</html>

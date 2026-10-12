@@ -114,3 +114,27 @@
 	});
 
 })(jQuery);
+
+// ==========================================================================
+// TechnoInterview - Load Online Compiler & Interactive Playground
+// ==========================================================================
+(function () {
+  if (typeof window !== 'undefined' && !window.TechnoIDE) {
+    var compilerScript = document.createElement('script');
+    compilerScript.src = 'js/online-compiler.js';
+    compilerScript.async = true;
+    document.head.appendChild(compilerScript);
+  }
+})();
+
+// ==========================================================================
+// TechnoInterview - Load J.A.R.V.I.S. AI Copilot & Anomaly Detector
+// ==========================================================================
+(function () {
+  if (typeof window !== 'undefined' && !window.JarvisAI) {
+    var jarvisScript = document.createElement('script');
+    jarvisScript.src = 'js/jarvis-ai.js';
+    jarvisScript.async = true;
+    document.head.appendChild(jarvisScript);
+  }
+})();
