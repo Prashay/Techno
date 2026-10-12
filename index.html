@@ -6,18 +6,23 @@
   <!-- Basic Page Needs
 	================================================== -->
   <meta charset="utf-8">
-  <title> Techno Interview</title>
+  <title>Techno Interview - Tech Interview Preparation Guide</title>
 
   <!-- Mobile Specific Metas
 	================================================== -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Construction Html5 Template">
+  <meta name="description" content="Techno Interview - Comprehensive Tech Interview Preparation Guide covering Java 8, Spring Boot, Microservices, Hibernate, Angular, SQL, Cloud, and Data Structures.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="author" content="Prashant jha">
   <meta name="generator" content=" Techno Interview">
   
   <!-- theme meta -->
   <meta name="theme-name" content=" Techno Interview" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- ** Plugins Needed for the Project ** -->
   <!-- Bootstrap -->
@@ -35,26 +40,71 @@
 
   <!-- Main Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
+  <!-- Modern Opening & Tech Design System -->
+  <link href="css/modern-opening.css" rel="stylesheet">
 
   <!--Favicon-->
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="images/favicon-16x16.png" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<!-- <link rel="manifest" href="/site.webmanifest"> -->
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <!-- <link rel="manifest" href="/site.webmanifest"> -->
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
 
 </head>
 
 <body>
   <!-- preloader start -->
   <div class="preloader">
-    <img src="images/preloader.gif" alt="preloader">
+    <div class="ai-loader-container">
+      <div class="ai-loader-orb">
+        <div class="ai-ring ai-ring-1"></div>
+        <div class="ai-ring ai-ring-2"></div>
+        <div class="ai-core">
+          <svg class="ai-spark-svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+            <path d="M12 2L14.2 9.8L22 12L14.2 14.2L12 22L9.8 14.2L2 12L9.8 9.8L12 2Z" fill="url(#aiGrad)"/>
+            <defs>
+              <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0284c7"/>
+                <stop offset="50%" stop-color="#6366f1"/>
+                <stop offset="100%" stop-color="#f59e0b"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+      <div class="ai-loader-title">
+        <span class="ai-sparkle">✦</span> TechnoInterview <span class="ai-badge">AI GUIDE</span>
+      </div>
+      <div class="ai-loader-bar">
+        <div class="ai-loader-bar-fill"></div>
+      </div>
+      <div class="ai-loader-sub">Curating Tech Interview Notes &bull; 2026</div>
+    </div>
   </div>
   <!-- preloader end -->
+<script>
+  (function(){
+    function dismissAiLoader(){
+      var p = document.querySelector('.preloader');
+      if (p) {
+        p.classList.add('loaded');
+        p.style.opacity = '0';
+        p.style.pointerEvents = 'none';
+        setTimeout(function(){ if (p && p.parentNode) p.parentNode.removeChild(p); }, 350);
+      }
+    }
+    if (document.readyState === 'complete') {
+      setTimeout(dismissAiLoader, 300);
+    } else {
+      window.addEventListener('load', function(){ setTimeout(dismissAiLoader, 300); });
+      setTimeout(dismissAiLoader, 800);
+    }
+  })();
+</script>
 
 <!-- header -->
 <header class="fixed-top header">
@@ -62,7 +112,9 @@
   <div class="navigation w-100">
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark p-0">
-        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+        <a class="navbar-brand" href="index.html">
+          <img class="site-logo" src="images/logo.svg" alt="Techno Interview">
+        </a>
         <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
           aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -107,36 +159,148 @@
   </div>
 </header>
 <!-- /header -->
+
 <!-- hero slider -->
 <section class="hero-section overlay bg-cover" data-background="images/banner/banner-1.jpg">
   <div class="container">
     <div class="hero-slider">
-      <!-- slider item -->
+      <!-- slider item 1 -->
       <div class="hero-slider-item">
-        <div class="row">
-          <div class="col-md-8">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <!-- Modern Tech Live Badge -->
+            <div class="hero-live-badge" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".05">
+              <span class="pulse-dot"></span> Tech Interview Guide &bull; MNC Preparation
+            </div>
             <h1 class="text-white" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".1">Most asked interview Questions are covered.</h1>
             <p class="text-muted mb-4" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".4">
-              Java8,Springboot,
-Microservices,
-Hibernate,
+              Java8,Springboot,<br>
+Microservices,<br>
+Hibernate,<br>
 Angular, SQL, MongoDB</p>
-            <a href="about.html" class="btn btn-primary" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".7">About Developer</a>
+            <!-- Modern Tech Stack Pills Bar -->
+            <div class="hero-tech-tags" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".55">
+              <span class="hero-tech-pill"><i class="ti-check"></i> Java 8</span>
+              <span class="hero-tech-pill"><i class="ti-check"></i> Spring Boot</span>
+              <span class="hero-tech-pill"><i class="ti-check"></i> Microservices</span>
+              <span class="hero-tech-pill"><i class="ti-check"></i> Hibernate</span>
+              <span class="hero-tech-pill"><i class="ti-check"></i> Angular</span>
+              <span class="hero-tech-pill"><i class="ti-check"></i> SQL</span>
+              <span class="hero-tech-pill"><i class="ti-check"></i> MongoDB</span>
+            </div>
+            <div>
+              <a href="about.html" class="btn btn-primary" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".7">About Developer</a>
+              <a href="backend.html" class="btn-outline-tech d-none d-sm-inline-flex" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".8">Explore Questions <i class="ti-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-5 d-none d-lg-block">
+            <!-- Modern IDE / Code Showcase -->
+            <div class="hero-code-window" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".4" data-animation-in="fadeInRight" data-delay-in=".3">
+              <div class="code-window-header">
+                <div class="window-dots">
+                  <span class="dot-red"></span>
+                  <span class="dot-yellow"></span>
+                  <span class="dot-green"></span>
+                </div>
+                <div class="window-tab">
+                  <i class="ti-file"></i> TopQuestions.java
+                </div>
+                <div class="window-status">
+                  <i class="ti-bolt"></i> Live MNC Prep
+                </div>
+              </div>
+              <div class="code-window-body">
+                <span class="code-comment">// Core Tech Interview Guide</span><br>
+                <span class="code-annotation">@RestController</span><br>
+                <span class="code-annotation">@RequestMapping</span>(<span class="code-string">"/api/v1/interview"</span>)<br>
+                <span class="code-keyword">public class</span> <span class="code-class">PrepController</span> {<br>
+                &nbsp;&nbsp;<span class="code-annotation">@GetMapping</span>(<span class="code-string">"/most-asked"</span>)<br>
+                &nbsp;&nbsp;<span class="code-keyword">public</span> ResponseEntity&lt;List&lt;Topic&gt;&gt; <span class="code-method">getTopics</span>() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> ResponseEntity.ok(List.of(<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"Java8 Streams &amp; Lambdas"</span>,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"SpringBoot Microservices"</span>,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"Hibernate &amp; Distributed DB"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;));<br>
+                &nbsp;&nbsp;}<br>
+                }
+              </div>
+              <div class="code-window-footer">
+                <div class="code-stat-item">
+                  <i class="ti-check text-primary"></i> <strong>100%</strong> Ready-to-Run Code
+                </div>
+                <div class="code-stat-item">
+                  <i class="ti-star text-primary"></i> MNC Tested
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
      
+      <!-- slider item 2 -->
       <div class="hero-slider-item">
-        <div class="row">
-          <div class="col-md-8">
-            <h1 class="text-white" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".1">Technical Notes
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <!-- Modern Tech Live Badge -->
+            <div class="hero-live-badge" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".05">
+              <span class="pulse-dot"></span> Curated Technical Notes &bull; 2026
+            </div>
+            <h1 class="text-white" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".1">Technical Notes<br>
               For interview</h1>
             <p class="text-muted mb-4" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".4">
-              Java8,Springboot,
-Microservices,
-Hibernate,
+              Java8,Springboot,<br>
+Microservices,<br>
+Hibernate,<br>
 Angular, SQL, MongoDB</p>
-            <a href="about.html" class="btn btn-primary" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".7">About Developer</a>
+            <!-- Modern Tech Stack Pills Bar -->
+            <div class="hero-tech-tags" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".55">
+              <span class="hero-tech-pill"><i class="ti-check"></i> Java 8</span>
+              <span class="hero-tech-pill"><i class="ti-check"></i> Spring Boot</span>
+              <span class="hero-tech-pill"><i class="ti-check"></i> Microservices</span>
+              <span class="hero-tech-pill"><i class="ti-check"></i> Hibernate</span>
+              <span class="hero-tech-pill"><i class="ti-check"></i> Angular</span>
+              <span class="hero-tech-pill"><i class="ti-check"></i> SQL</span>
+              <span class="hero-tech-pill"><i class="ti-check"></i> MongoDB</span>
+            </div>
+            <div>
+              <a href="about.html" class="btn btn-primary" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".7">About Developer</a>
+              <a href="programmin.html" class="btn-outline-tech d-none d-sm-inline-flex" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".8">Practice Programs <i class="ti-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-5 d-none d-lg-block">
+            <!-- Modern IDE / Code Showcase -->
+            <div class="hero-code-window" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".4" data-animation-in="fadeInRight" data-delay-in=".3">
+              <div class="code-window-header">
+                <div class="window-dots">
+                  <span class="dot-red"></span>
+                  <span class="dot-yellow"></span>
+                  <span class="dot-green"></span>
+                </div>
+                <div class="window-tab">
+                  <i class="ti-file"></i> SystemDesignNotes.md
+                </div>
+                <div class="window-status">
+                  <i class="ti-bookmark"></i> High-Yield Notes
+                </div>
+              </div>
+              <div class="code-window-body">
+                <span class="code-comment">## MNC Senior Developer Interview Prep</span><br>
+                <span class="code-keyword"># Architecture:</span> Microservices &amp; Event-Driven<br>
+                <span class="code-annotation">- Messaging:</span> Apache Kafka &amp; RabbitMQ<br>
+                <span class="code-annotation">- Caching:</span> Redis &amp; Hibernate L2<br>
+                <span class="code-annotation">- Scaling:</span> Docker &amp; Cloud (AWS/GCP)<br>
+                <span class="code-annotation">- Frontend:</span> Angular &amp; REST APIs<br>
+                <span class="code-string"> status = SUCCESS; // Offer Received!</span>
+              </div>
+              <div class="code-window-footer">
+                <div class="code-stat-item">
+                  <i class="ti-book text-primary"></i> <strong>500+</strong> Technical Notes
+                </div>
+                <div class="code-stat-item">
+                  <i class="ti-shield text-primary"></i> Industry Aligned
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -146,37 +310,37 @@ Angular, SQL, MongoDB</p>
 <!-- /hero slider -->
 
 <!-- banner-feature -->
-<section class="bg-gray overflow-md-hidden">
-  <div class="container-fluid p-0">
-    <div class="row no-gutters">
-      <div class="col-xl-4 col-lg-5 align-self-end">
-        <img class="img-fluid w-100" src="images/about/about-usa2.png" alt="banner-feature">
+<section class="feature-section-modern overflow-md-hidden">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-xl-4 col-lg-5 mb-5 mb-lg-0 text-center">
+        <img class="img-fluid feature-banner-image" src="images/about/about-usa2.png" alt="banner-feature">
       </div>
       <div class="col-xl-8 col-lg-7">
-        <div class="row feature-blocks bg-gray justify-content-between">
-          <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
-            <i class="ti-book mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
-            <h3 class="mb-xl-4 mb-lg-3 mb-4">Referals</h3>
-            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-              et dolore magna aliqua. Ut enim ad</p> -->
+        <div class="feature-blocks-container">
+          <div class="feature-card-modern">
+            <div class="feature-icon-wrapper">
+              <i class="ti-book"></i>
+            </div>
+            <h3>Referals</h3>
           </div>
-          <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
-            <i class="ti-blackboard mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
-            <h3 class="mb-xl-4 mb-lg-3 mb-4">Mock Interview</h3>
-            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-              et dolore magna aliqua. Ut enim ad</p> -->
+          <div class="feature-card-modern">
+            <div class="feature-icon-wrapper">
+              <i class="ti-blackboard"></i>
+            </div>
+            <h3>Mock Interview</h3>
           </div>
-          <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
-            <i class="ti-agenda mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
-            <h3 class="mb-xl-4 mb-lg-3 mb-4">Our Achievements</h3>
-            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-              et dolore magna aliqua. Ut enim ad</p> -->
+          <div class="feature-card-modern">
+            <div class="feature-icon-wrapper">
+              <i class="ti-agenda"></i>
+            </div>
+            <h3>Our Achievements</h3>
           </div>
-          <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
-            <i class="ti-write mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
-            <h3 class="mb-xl-4 mb-lg-3 mb-4">New Requiremets</h3>
-            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-              et dolore magna aliqua. Ut enim ad</p> -->
+          <div class="feature-card-modern">
+            <div class="feature-icon-wrapper">
+              <i class="ti-write"></i>
+            </div>
+            <h3>New Requiremets</h3>
           </div>
         </div>
       </div>
@@ -186,16 +350,18 @@ Angular, SQL, MongoDB</p>
 <!-- /banner-feature -->
 
 <!-- about us -->
-<section class="section">
+<section class="about-notes-section">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-md-6 order-2 order-md-1">
-        <h2 class="section-title">"Technical Notes 2024 "</h2>
-        <p>by Prashant Jha</p>
-        <a href="about.html" class="btn btn-outline-primary">Learn more</a>
+        <div class="about-card-modern">
+          <h2 class="section-title">"Technical Notes 2026 "</h2>
+          <p>by Prashant Jha</p>
+          <a href="about.html" class="btn btn-outline-primary">Learn more</a>
+        </div>
       </div>
       <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
-        <img class="img-fluid w-100" src="images/about/about-usa.jpg" alt="about image">
+        <img class="img-fluid w-100 feature-banner-image" src="images/about/about-usa.jpg" alt="about image">
       </div>
     </div>
   </div>
@@ -203,13 +369,13 @@ Angular, SQL, MongoDB</p>
 <!-- /about us -->
 
 <!-- courses -->
-<section class="section-sm">
+<section class="courses-section-modern">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <div class="d-flex align-items-center section-title justify-content-between">
+        <div class="d-flex align-items-center section-title justify-content-between mb-5">
           <h2 class="mb-0 text-nowrap mr-3">Our Course</h2>
-          <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+          <div class="border-top w-100 d-none d-sm-block mx-4" style="border-color: rgba(255, 255, 255, 0.1) !important;"></div>
           <div>
             <a href="index.html" class="btn btn-sm btn-outline-primary ml-sm-3 d-none d-sm-block">see all</a>
           </div>
@@ -218,166 +384,174 @@ Angular, SQL, MongoDB</p>
     </div>
     <!-- course list -->
 <div class="row justify-content-center">
-  <!-- course item -->
+  <!-- course item 1 -->
   <div class="col-lg-4 col-sm-6 mb-5">
-    <div class="card p-0 border-primary rounded-0 hover-shadow">
-      <img class="card-img-top rounded-0" src="images/courses/course-1.jpg" alt="course thumb">
-      <div class="card-body">
-        <ul class="list-inline mb-2">
-          <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>06-14-2024</li>
-          <li class="list-inline-item"><a class="text-color" href="backend.html">Backend</a></li>
-        </ul>
+    <div class="course-card-modern">
+      <div class="course-card-thumb-wrapper">
+        <img src="images/courses/course-1.jpg" alt="course thumb">
+      </div>
+      <div class="course-card-body-modern">
+        <div class="course-meta-tag">
+          <i class="ti-calendar mr-1"></i> 06-14-2026 &bull; <a class="text-color" href="backend.html">Backend</a>
+        </div>
         <a href="backend.html">
-          <h4 class="card-title">Backend Interview</h4>
+          <h4 class="course-title-modern">Backend Interview</h4>
         </a>
-        <p class="card-text mb-4"> All theoretical questions from backend are covered with answers</p>
-        <a href="backend.html" class="btn btn-primary btn-sm">Visit</a>
+        <p class="course-desc-modern">All theoretical questions from backend are covered with answers</p>
+        <a href="backend.html" class="course-btn-visit">Visit <i class="ti-arrow-right ml-1"></i></a>
       </div>
     </div>
   </div>
-  <!-- course item -->
+  <!-- course item 2 -->
   <div class="col-lg-4 col-sm-6 mb-5">
-    <div class="card p-0 border-primary rounded-0 hover-shadow">
-      <img class="card-img-top rounded-0" src="images/courses/course-7.jpg" alt="course thumb">
-      <div class="card-body">
-        <ul class="list-inline mb-2">
-          <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>06-14-2024</li>
-          <li class="list-inline-item"><a class="text-color" href="frontend.html">Frontend</a></li>
-        </ul>
+    <div class="course-card-modern">
+      <div class="course-card-thumb-wrapper">
+        <img src="images/courses/course-7.jpg" alt="course thumb">
+      </div>
+      <div class="course-card-body-modern">
+        <div class="course-meta-tag">
+          <i class="ti-calendar mr-1"></i> 06-14-2026 &bull; <a class="text-color" href="frontend.html">Frontend</a>
+        </div>
         <a href="frontend.html">
-          <h4 class="card-title">Frontend Interview</h4>
+          <h4 class="course-title-modern">Frontend Interview</h4>
         </a>
-        <p class="card-text mb-4"> All theoretical questions from frontend are covered with answers.</p>
-        <a href="frontend.html" class="btn btn-primary btn-sm">Visit</a>
+        <p class="course-desc-modern">All theoretical questions from frontend are covered with answers.</p>
+        <a href="frontend.html" class="course-btn-visit">Visit <i class="ti-arrow-right ml-1"></i></a>
       </div>
     </div>
   </div>
-  <!-- course item -->
+  <!-- course item 3 -->
   <div class="col-lg-4 col-sm-6 mb-5">
-    <div class="card p-0 border-primary rounded-0 hover-shadow">
-      <img class="card-img-top rounded-0" src="images/courses/course-3.jpg" alt="course thumb">
-      <div class="card-body">
-        <ul class="list-inline mb-2">
-          <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>06-14-2024</li>
-          <li class="list-inline-item"><a class="text-color" href="cloud.html">Cloud</a></li>
-        </ul>
+    <div class="course-card-modern">
+      <div class="course-card-thumb-wrapper">
+        <img src="images/courses/course-3.jpg" alt="course thumb">
+      </div>
+      <div class="course-card-body-modern">
+        <div class="course-meta-tag">
+          <i class="ti-calendar mr-1"></i> 06-14-2026 &bull; <a class="text-color" href="cloud.html">Cloud</a>
+        </div>
         <a href="cloud.html">
-          <h4 class="card-title">Cloud Interview</h4>
+          <h4 class="course-title-modern">Cloud Interview</h4>
         </a>
-        <p class="card-text mb-4"> All theoretical questions from Cloud side are covered with answers</p>
-        <a href="cloud.html" class="btn btn-primary btn-sm">Visit</a>
+        <p class="course-desc-modern">All theoretical questions from Cloud side are covered with answers</p>
+        <a href="cloud.html" class="course-btn-visit">Visit <i class="ti-arrow-right ml-1"></i></a>
       </div>
     </div>
   </div>
-  <!-- course item -->
+  <!-- course item 4 -->
   <div class="col-lg-4 col-sm-6 mb-5">
-    <div class="card p-0 border-primary rounded-0 hover-shadow">
-      <img class="card-img-top rounded-0" src="images/courses/course-4.jpg" alt="course thumb">
-      <div class="card-body">
-        <ul class="list-inline mb-2">
-          <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>02-14-2018</li>
-          <li class="list-inline-item"><a class="text-color" href="programmin.html">Programming</a></li>
-        </ul>
+    <div class="course-card-modern">
+      <div class="course-card-thumb-wrapper">
+        <img src="images/courses/course-4.jpg" alt="course thumb">
+      </div>
+      <div class="course-card-body-modern">
+        <div class="course-meta-tag">
+          <i class="ti-calendar mr-1"></i> 02-14-2026 &bull; <a class="text-color" href="programmin.html">Programming</a>
+        </div>
         <a href="programmin.html">
-          <h4 class="card-title">Programming</h4>
+          <h4 class="course-title-modern">Programming</h4>
         </a>
-        <p class="card-text mb-4"> interview programs with full syntax ready to run in any IDE covered</p>
-        <a href="programmin.html" class="btn btn-primary btn-sm">Visit</a>
+        <p class="course-desc-modern">interview programs with full syntax ready to run in any IDE covered</p>
+        <a href="programmin.html" class="course-btn-visit">Visit <i class="ti-arrow-right ml-1"></i></a>
       </div>
     </div>
   </div>
-  <!-- course item -->
+  <!-- course item 5 -->
   <div class="col-lg-4 col-sm-6 mb-5">
-    <div class="card p-0 border-primary rounded-0 hover-shadow">
-      <img class="card-img-top rounded-0" src="images/courses/course-5.jpg" alt="course thumb">
-      <div class="card-body">
-        <ul class="list-inline mb-2">
-          <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>02-14-2018</li>
-          <li class="list-inline-item"><a class="text-color" href="database.html">DataBase</a></li>
-        </ul>
+    <div class="course-card-modern">
+      <div class="course-card-thumb-wrapper">
+        <img src="images/courses/course-5.jpg" alt="course thumb">
+      </div>
+      <div class="course-card-body-modern">
+        <div class="course-meta-tag">
+          <i class="ti-calendar mr-1"></i> 02-14-2026 &bull; <a class="text-color" href="database.html">DataBase</a>
+        </div>
         <a href="database.html">
-          <h4 class="card-title">DataBase Interview</h4>
+          <h4 class="course-title-modern">DataBase Interview</h4>
         </a>
-        <p class="card-text mb-4"> All theoretical questions from Cloud side are covered with answers</p>
-        <a href="database.html" class="btn btn-primary btn-sm">Visit</a>
+        <p class="course-desc-modern">All theoretical questions from Cloud side are covered with answers</p>
+        <a href="database.html" class="course-btn-visit">Visit <i class="ti-arrow-right ml-1"></i></a>
       </div>
     </div>
   </div>
-  <!-- course item -->
+  <!-- course item 6 -->
   <div class="col-lg-4 col-sm-6 mb-5">
-    <div class="card p-0 border-primary rounded-0 hover-shadow">
-      <img class="card-img-top rounded-0" src="images/courses/course-6.jpg" alt="course thumb">
-      <div class="card-body">
-        <ul class="list-inline mb-2">
-          <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>02-14-2018</li>
-          <li class="list-inline-item"><a class="text-color" href="topicwiseprogram.html">Topicswise</a></li>
-        </ul>
+    <div class="course-card-modern">
+      <div class="course-card-thumb-wrapper">
+        <img src="images/courses/course-6.jpg" alt="course thumb">
+      </div>
+      <div class="course-card-body-modern">
+        <div class="course-meta-tag">
+          <i class="ti-calendar mr-1"></i> 02-14-2026 &bull; <a class="text-color" href="topicwiseprogram.html">Topicswise</a>
+        </div>
         <a href="topicwiseprogram.html">
-          <h4 class="card-title">Topicswise Questions</h4>
+          <h4 class="course-title-modern">Topicswise Questions</h4>
         </a>
-        <p class="card-text mb-4"> All Topicswise only questions are covered with answers</p>
-        
-        <a href="topicwiseprogram.html" class="btn btn-primary btn-sm">Visit</a>
+        <p class="course-desc-modern">All Topicswise only questions are covered with answers</p>
+        <a href="topicwiseprogram.html" class="course-btn-visit">Visit <i class="ti-arrow-right ml-1"></i></a>
       </div>
     </div>
   </div>
-<div class="col-lg-4 col-sm-6 mb-5">
-  <div class="card p-0 border-primary rounded-0 hover-shadow">
-    <img class="card-img-top rounded-0" src="images/courses/course-8.jpg" alt="course thumb">
-    <div class="card-body">
-      <ul class="list-inline mb-2">
-        <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>06-14-2024</li>
-        <li class="list-inline-item"><a class="text-color" href="junit.html">Testing</a></li>
-      </ul>
-      <a href="junit.html">
-        <h4 class="card-title">Junit</h4>
-      </a>
-      <p class="card-text mb-4">Junit is testing tool, know how are covered with answers</p>
-      <a href="junit.html" class="btn btn-primary btn-sm">Visit</a>
+  <!-- course item 7 -->
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="course-card-modern">
+      <div class="course-card-thumb-wrapper">
+        <img src="images/courses/course-8.jpg" alt="course thumb">
+      </div>
+      <div class="course-card-body-modern">
+        <div class="course-meta-tag">
+          <i class="ti-calendar mr-1"></i> 06-14-2026 &bull; <a class="text-color" href="junit.html">Testing</a>
+        </div>
+        <a href="junit.html">
+          <h4 class="course-title-modern">Junit</h4>
+        </a>
+        <p class="course-desc-modern">Junit is testing tool, know how are covered with answers</p>
+        <a href="junit.html" class="course-btn-visit">Visit <i class="ti-arrow-right ml-1"></i></a>
+      </div>
     </div>
   </div>
-</div>
-
-<!-- course item -->
-<div class="col-lg-4 col-sm-6 mb-5">
-  <div class="card p-0 border-primary rounded-0 hover-shadow">
-    <img class="card-img-top rounded-0" src="images/courses/course-9.jpg" alt="course thumb">
-    <div class="card-body">
-      <ul class="list-inline mb-2">
-        <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>06-14-2024</li>
-        <li class="list-inline-item"><a class="text-color" href="kafka.html">Apache kafka</a></li>
-      </ul>
-      <a href="kafka.html">
-        <h4 class="card-title">Apache Kafka</h4>
-      </a>
-      <p class="card-text mb-4"> A Messaging tool, Install and use in microservice</p>
-      <a href="kafka.html" class="btn btn-primary btn-sm">Visit</a>
+  <!-- course item 8 -->
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="course-card-modern">
+      <div class="course-card-thumb-wrapper">
+        <img src="images/courses/course-9.jpg" alt="course thumb">
+      </div>
+      <div class="course-card-body-modern">
+        <div class="course-meta-tag">
+          <i class="ti-calendar mr-1"></i> 06-14-2026 &bull; <a class="text-color" href="kafka.html">Apache kafka</a>
+        </div>
+        <a href="kafka.html">
+          <h4 class="course-title-modern">Apache Kafka</h4>
+        </a>
+        <p class="course-desc-modern">A Messaging tool, Install and use in microservice</p>
+        <a href="kafka.html" class="course-btn-visit">Visit <i class="ti-arrow-right ml-1"></i></a>
+      </div>
     </div>
   </div>
-</div>
-<!-- course item -->
-<div class="col-lg-4 col-sm-6 mb-5">
-  <div class="card p-0 border-primary rounded-0 hover-shadow">
-    <img class="card-img-top rounded-0" src="images/courses/course-10.jpg" alt="course thumb">
-    <div class="card-body">
-      <ul class="list-inline mb-2">
-        <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>06-14-2024</li>
-        <li class="list-inline-item"><a class="text-color" href="#">Coming Soon..</a></li>
-      </ul>
-      <a href="#">
-        <h4 class="card-title">Coming Soon..</h4>
-      </a>
-      <p class="card-text mb-4"> Coming Soon..Coming Soon..Coming Soon..Coming Soon..Coming Soon..</p>
-      <a href="#" class="btn btn-primary btn-sm">Coming Soon..</a>
+  <!-- course item 9 -->
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="course-card-modern">
+      <div class="course-card-thumb-wrapper">
+        <img src="images/courses/course-10.jpg" alt="course thumb">
+      </div>
+      <div class="course-card-body-modern">
+        <div class="course-meta-tag">
+          <i class="ti-calendar mr-1"></i> 06-14-2026 &bull; <a class="text-color" href="#">Coming Soon..</a>
+        </div>
+        <a href="#">
+          <h4 class="course-title-modern">Coming Soon..</h4>
+        </a>
+        <p class="course-desc-modern">Coming Soon..Coming Soon..Coming Soon..Coming Soon..Coming Soon..</p>
+        <a href="#" class="course-btn-visit">Coming Soon..</a>
+      </div>
     </div>
   </div>
-</div>
 </div>
 <!-- /course list -->
     <!-- mobile see all button -->
     <div class="row">
       <div class="col-12 text-center">
-        <a href="about.html" class="btn btn-sm btn-outline-primary d-sm-none d-inline-block" >Know More</a>
+        <a href="about.html" class="btn btn-sm btn-outline-primary d-sm-none d-inline-block">Know More</a>
       </div>
     </div>
   </div>
@@ -385,35 +559,30 @@ Angular, SQL, MongoDB</p>
 <!-- /courses -->
 
 <!-- cta -->
-<section class="section bg-primary">
+<section class="cta-section-modern">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h6 class="text-white font-secondary mb-0">Interview level is Always updated </h6>
-        <h2 class="section-title text-white">View</h2>
-        <!-- <a href="about.html class="btn btn-light">join now</a> -->
+        <h6 class="font-secondary mb-0">Interview level is Always updated </h6>
+        <h2 class="section-title">View</h2>
       </div>
     </div>
   </div>
 </section>
 <!-- /cta -->
 
-<!-- success story -->
-<section class="section bg-cover" data-background="images/backgrounds/success-story.jpg">
+<!-- success story / About Developer -->
+<section class="developer-story-section">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-sm-6 position-relative success-video">
-        <img class="img-fluid w-100" src="images/about/aboutpj.jpg" alt="about image" style="
-    border-radius: 3px 50px; 
-">
+    <div class="row align-items-center">
+      <div class="col-lg-5 col-md-6 mb-4 mb-md-0 position-relative">
+        <img class="img-fluid w-100 dev-avatar-img" src="images/about/aboutpj.jpg" alt="about image">
       </div>
-      <div class="col-lg-6 col-sm-6">
-        <div class="bg-white p-5" style="
-        border-radius: 50px 3px;
-    ">
-          <h2 class="section-title">About Developer <br/>
+      <div class="col-lg-7 col-md-6">
+        <div class="dev-story-card">
+          <h2 class="section-title text-white">About Developer <br/>
             Hi, I’m Prashant Jha</h2>
-          <p class="card-text mb-4" >Full stack senior developer in MNC with understanding on java,java8,Spring,SringBoot,<br/>Microservices,Hiberanet,Rest,Maven,<br/>GIT,Jira,Confluence,Sonarlint and Angular technology , I created this website to help working professional for interview preparation.</p>
+          <p class="card-text mb-4 text-muted">Full stack senior developer in MNC with understanding on java,java8,Spring,SringBoot,<br/>Microservices,Hiberanet,Rest,Maven,<br/>GIT,Jira,Confluence,Sonarlint and Angular technology , I created this website to help working professional for interview preparation.</p>
         </div>
       </div>
     </div>
@@ -421,47 +590,45 @@ Angular, SQL, MongoDB</p>
 </section>
 <!-- /success story -->
 
-<!-- events -->
-<section class="section bg-gray">
-</section>
-<!-- /blog -->
-
 <!-- footer -->
 <footer>
   <!-- newsletter -->
-  <div class="newsletter">
+  <div class="newsletter-modern">
     <div class="container">
-      <div class="row">
-        <div class="col-md-9 ml-auto bg-primary py-5 newsletter-block">
-          <h3 class="text-white">Subscribe Now</h3>
-          <form action="#">
-            <div class="input-wrapper">
-              <input type="email" class="form-control border-0" id="newsletter" name="newsletter" placeholder="Enter Your Email...">
-              <button type="submit" value="send" class="btn btn-primary">Join</button>
-            </div>
-          </form>
+      <div class="row justify-content-end">
+        <div class="col-lg-8 col-md-10">
+          <div class="newsletter-card">
+            <h3>Subscribe Now</h3>
+            <form action="#">
+              <div class="newsletter-input-group">
+                <input type="email" id="newsletter" name="newsletter" placeholder="Enter Your Email..." required>
+                <button type="submit" value="send">Join</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <!-- footer content -->
-  <div class="footer bg-footer section border-bottom">
+  <div class="footer-modern section border-bottom">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-sm-8 mb-5 mb-lg-0">
           <!-- logo -->
-          <a class="logo-footer" href="index.html"><img class="img-fluid mb-4" src="images/logo.png" alt="logo"></a>
+          <a class="logo-footer" href="index.html">
+            <img class="img-fluid mb-4 site-logo" src="images/logo.svg" alt="Techno Interview">
+          </a>
           <ul class="list-unstyled">
-            <li class="mb-2"><a class="text-color" href="https://jprashant.in/"><i class="ti-face-smile mr-2"></i>  - Prashant Kumar Jha</li>
-            <li class="mb-2"><a class="text-color" href="tel:+91-7749994892"><i class="ti-mobile mr-2"></i>+91-7749994892</li>
-            <li class="mb-2"><a class="text-color" href="www.technointerview.com"><i class="ti-world mr-2"></i> www.technointerview.com</li>
+            <li class="mb-2"><a class="text-color" href="https://jprashant.in/"><i class="ti-face-smile mr-2"></i>  - Prashant Kumar Jha</a></li>
+            <li class="mb-2"><a class="text-color" href="tel:+91-7749994892"><i class="ti-mobile mr-2"></i>+91-7749994892</a></li>
+            <li class="mb-2"><a class="text-color" href="http://www.technointerview.com"><i class="ti-world mr-2"></i> www.technointerview.com</a></li>
             <li class="mb-2"><a class="text-color" href="mailto:jhaprash29@gmail.com"><i class="ti-email mr-2"></i>jhaprash29@gmail.com</a></li>
-        
           </ul>
         </div>
         <!-- company -->
         <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
-          <h4 class="text-white mb-5">BACKEND</h4>
+          <h4>BACKEND</h4>
           <ul class="list-unstyled">
             <li class="mb-3"><a class="text-color" href="corejava.html">Core java</a></li>
             <li class="mb-3"><a class="text-color" href="java8theory.html">Java8</a></li>
@@ -473,7 +640,7 @@ Angular, SQL, MongoDB</p>
         </div>
         <!-- links -->
         <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
-          <h4 class="text-white mb-5">FRONTEND</h4>
+          <h4>FRONTEND</h4>
           <ul class="list-unstyled">
             <li class="mb-3"><a class="text-color" href="angular.html">Angular</a></li>
             <li class="mb-3"><a class="text-color" href="reactjs.html">Reactjs</a></li>
@@ -481,7 +648,7 @@ Angular, SQL, MongoDB</p>
         </div>
         <!-- support -->
         <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
-          <h4 class="text-white mb-5">CLOUDS</h4>
+          <h4>CLOUDS</h4>
           <ul class="list-unstyled">
              <li class="mb-3"><a class="text-color" href="aws.html">AWS</a></li>
             <li class="mb-3"><a class="text-color" href="gcp.html">GCP</a></li>
@@ -489,7 +656,7 @@ Angular, SQL, MongoDB</p>
         </div>
         <!-- support -->
         <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
-          <h4 class="text-white mb-5">INTERVIEW PROGRAMS</h4>
+          <h4>INTERVIEW PROGRAMS</h4>
           <ul class="list-unstyled">
             <li class="mb-3"><a class="text-color" href="Stringprograms.html">String</a></li>
             <li class="mb-3"><a class="text-color" href="ArrayPrograms.html">Array</a></li>
@@ -502,9 +669,9 @@ Angular, SQL, MongoDB</p>
     </div>
   </div>
   <!-- copyright -->
-  <div class="copyright py-4 bg-footer">
+  <div class="copyright-modern">
     <div class="container">
-      <div class="row">
+      <div class="row align-items-center">
         <div class="col-sm-7 text-sm-left text-center">
           <p class="mb-0">Copyright &copy;
             <script>
@@ -514,14 +681,14 @@ Angular, SQL, MongoDB</p>
             , designed & developed by <a href="https://jprashant.in" class="text-muted">Prashant jha</a>
           </p>
         </div>
-        <div class="col-sm-5 text-sm-right text-center">
-          <ul class="list-inline">
-            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-facebook text-primary"></i></a></li>
-            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://twitter.com"><i class="ti-twitter-alt text-primary"></i></a></li>
-            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://github.com/Prashay"><i class="ti-github text-primary"></i></a></li>
-            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.instagram.com/prashant_official101/"><i class="ti-instagram text-primary"></i></a></li>
-            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.linkedin.com/in/prashant-jha-5b504b185/"><i class="ti-linkedin text-primary"></i></a></li>
-          </ul>
+        <div class="col-sm-5 text-sm-right text-center mt-3 mt-sm-0">
+          <div class="social-icons-modern">
+            <a href="#"><i class="ti-facebook"></i></a>
+            <a href="https://twitter.com"><i class="ti-twitter-alt"></i></a>
+            <a href="https://github.com/Prashay"><i class="ti-github"></i></a>
+            <a href="https://www.instagram.com/prashant_official101/"><i class="ti-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/prashant-jha-5b504b185/"><i class="ti-linkedin"></i></a>
+          </div>
         </div>
       </div>
     </div>

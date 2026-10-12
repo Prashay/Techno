@@ -15,6 +15,11 @@
   <meta name="author" content="Prashant jha">
   <meta name="generator" content=" Techno Interview">
 
+    <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <!-- ** Plugins Needed for the Project ** -->
   <!-- Bootstrap -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
@@ -31,6 +36,7 @@
 
   <!-- Main Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/modern-opening.css" rel="stylesheet">
 
   <!--Favicon-->
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -45,11 +51,54 @@
 </head>
 
 <body>
-  <!-- preloader start -->
+    <!-- preloader start -->
   <div class="preloader">
-    <img src="images/preloader.gif" alt="preloader">
+    <div class="ai-loader-container">
+      <div class="ai-loader-orb">
+        <div class="ai-ring ai-ring-1"></div>
+        <div class="ai-ring ai-ring-2"></div>
+        <div class="ai-core">
+          <svg class="ai-spark-svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+            <path d="M12 2L14.2 9.8L22 12L14.2 14.2L12 22L9.8 14.2L2 12L9.8 9.8L12 2Z" fill="url(#aiGrad)"/>
+            <defs>
+              <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0284c7"/>
+                <stop offset="50%" stop-color="#6366f1"/>
+                <stop offset="100%" stop-color="#f59e0b"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+      <div class="ai-loader-title">
+        <span class="ai-sparkle">✦</span> TechnoInterview <span class="ai-badge">AI GUIDE</span>
+      </div>
+      <div class="ai-loader-bar">
+        <div class="ai-loader-bar-fill"></div>
+      </div>
+      <div class="ai-loader-sub">Curating Tech Interview Notes &bull; 2026</div>
+    </div>
   </div>
   <!-- preloader end -->
+<script>
+  (function(){
+    function dismissAiLoader(){
+      var p = document.querySelector('.preloader');
+      if (p) {
+        p.classList.add('loaded');
+        p.style.opacity = '0';
+        p.style.pointerEvents = 'none';
+        setTimeout(function(){ if (p && p.parentNode) p.parentNode.removeChild(p); }, 350);
+      }
+    }
+    if (document.readyState === 'complete') {
+      setTimeout(dismissAiLoader, 300);
+    } else {
+      window.addEventListener('load', function(){ setTimeout(dismissAiLoader, 300); });
+      setTimeout(dismissAiLoader, 800);
+    }
+  })();
+</script>
 
 <!-- header -->
 <header class="fixed-top header">
@@ -58,7 +107,7 @@
   <div class="navigation w-100">
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark p-0">
-        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+        <a class="navbar-brand" href="index.html"><img class="site-logo" src="images/logo.svg" alt="Techno Interview"></a>
         <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
           aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -519,7 +568,7 @@
           <img class="card-img-top rounded-0" src="images/courses/course-9.jpg" alt="course thumb">
           <div class="card-body">
             <ul class="list-inline mb-2">
-              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2024</li>
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
               <li class="list-inline-item"><a class="text-color" href="#">Basic Java</a></li>
             </ul>
             <a href="#">
@@ -536,7 +585,7 @@
           <img class="card-img-top rounded-0" src="images/courses/course-6.jpg" alt="course thumb">
           <div class="card-body">
             <ul class="list-inline mb-2">
-              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2024</li>
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
               <li class="list-inline-item"><a class="text-color" href="#">Multithreading</a></li>
             </ul>
             <a href="#">
@@ -553,7 +602,7 @@
           <img class="card-img-top rounded-0" src="images/courses/course-4.jpg" alt="course thumb">
           <div class="card-body">
             <ul class="list-inline mb-2">
-              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2024</li>
+              <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2026</li>
               <li class="list-inline-item"><a class="text-color" href="#">Exception handling</a></li>
             </ul>
             <a href="#">
@@ -595,7 +644,7 @@
       <div class="row">
         <div class="col-lg-4 col-sm-8 mb-5 mb-lg-0">
           <!-- logo -->
-          <a class="logo-footer" href="index.html"><img class="img-fluid mb-4" src="images/logo.png" alt="logo"></a>
+          <a class="logo-footer" href="index.html"><img class="img-fluid mb-4 site-logo" src="images/logo.svg" alt="Techno Interview"></a>
           <ul class="list-unstyled">
             <li class="mb-2"><a class="text-color" href="#"><i class="ti-face-smile mr-2"></i>  - Prashant Kumar Jha</li>
             <li class="mb-2"><a class="text-color" href="tel:+91-7749994892"><i class="ti-mobile mr-2"></i>+91-7749994892</li>

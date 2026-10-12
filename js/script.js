@@ -2,9 +2,21 @@
 	'use strict';
 
 	// Preloader js    
+	function dismissLoader() {
+		var $preloader = $('.preloader');
+		if ($preloader.length > 0) {
+			$preloader.addClass('loaded');
+			$preloader.fadeOut(350, function () {
+				$(this).remove();
+			});
+		}
+	}
+
 	$(window).on('load', function () {
-		$('.preloader').fadeOut(700);
+		dismissLoader();
 	});
+
+	setTimeout(dismissLoader, 600);
 
 	// Sticky Menu
 	$(window).scroll(function () {

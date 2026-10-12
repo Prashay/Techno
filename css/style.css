@@ -910,9 +910,24 @@ link:focus,
   background-color: #182b45;
 }
 
+.navbar-brand img,
+.site-logo {
+  height: 42px;
+  width: auto;
+  max-width: 260px;
+  object-fit: contain;
+}
+
 .logo-footer {
   margin-top: -20px;
   display: inline-block;
+}
+
+.logo-footer img {
+  height: 42px;
+  width: auto;
+  max-width: 260px;
+  object-fit: contain;
 }
 
 .footer {

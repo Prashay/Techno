@@ -5,18 +5,23 @@
   <!-- Basic Page Needs
 	================================================== -->
   <meta charset="utf-8">
-  <title>Techno Interview</title>
+  <title>About Prashant Kumar Jha - Senior Full-Stack Developer | Techno Interview</title>
 
   <!-- Mobile Specific Metas
 	================================================== -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Construction Html5 Template">
+  <meta name="description" content="Portfolio of Prashant Kumar Jha - Senior Full-Stack Developer with 7+ years of experience in Java 8, Spring Boot, Microservices, Angular, AWS, Docker and Distributed Architecture.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="author" content="Prashant jha">
-  <meta name="generator" content=" Techno Interview">
+  <meta name="generator" content="Techno Interview">
   
   <!-- theme meta -->
-  <meta name="theme-name" content=" Techno Interview" />
+  <meta name="theme-name" content="Techno Interview" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- ** Plugins Needed for the Project ** -->
   <!-- Bootstrap -->
@@ -34,36 +39,79 @@
 
   <!-- Main Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/modern-opening.css" rel="stylesheet">
 
   <!--Favicon-->
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="images/favicon-16x16.png" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
 
 </head>
 
 <body>
   <!-- preloader start -->
   <div class="preloader">
-    <img src="images/preloader.gif" alt="preloader">
+    <div class="ai-loader-container">
+      <div class="ai-loader-orb">
+        <div class="ai-ring ai-ring-1"></div>
+        <div class="ai-ring ai-ring-2"></div>
+        <div class="ai-core">
+          <svg class="ai-spark-svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+            <path d="M12 2L14.2 9.8L22 12L14.2 14.2L12 22L9.8 14.2L2 12L9.8 9.8L12 2Z" fill="url(#aiGrad)"/>
+            <defs>
+              <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0284c7"/>
+                <stop offset="50%" stop-color="#6366f1"/>
+                <stop offset="100%" stop-color="#f59e0b"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+      <div class="ai-loader-title">
+        <span class="ai-sparkle">✦</span> TechnoInterview <span class="ai-badge">AI GUIDE</span>
+      </div>
+      <div class="ai-loader-bar">
+        <div class="ai-loader-bar-fill"></div>
+      </div>
+      <div class="ai-loader-sub">Curating Tech Interview Notes &bull; 2026</div>
+    </div>
   </div>
   <!-- preloader end -->
+  <script>
+    (function(){
+      function dismissAiLoader(){
+        var p = document.querySelector('.preloader');
+        if (p) {
+          p.classList.add('loaded');
+          p.style.opacity = '0';
+          p.style.pointerEvents = 'none';
+          setTimeout(function(){ if (p && p.parentNode) p.parentNode.removeChild(p); }, 350);
+        }
+      }
+      if (document.readyState === 'complete') {
+        setTimeout(dismissAiLoader, 300);
+      } else {
+        window.addEventListener('load', function(){ setTimeout(dismissAiLoader, 300); });
+        setTimeout(dismissAiLoader, 800);
+      }
+    })();
+  </script>
 
 <!-- header -->
 <header class="fixed-top header">
-  <!-- top header -->
-
   <!-- navbar -->
   <div class="navigation w-100">
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark p-0">
-        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+        <a class="navbar-brand" href="index.html">
+          <img class="site-logo" src="images/logo.svg" alt="Techno Interview">
+        </a>
         <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
           aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -87,7 +135,7 @@
               <a class="nav-link" href="database.html">Database</a>
             </li>
             <li class="nav-item dropdown view">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="programmin.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Interview program
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -109,851 +157,524 @@
 </header>
 <!-- /header -->
 
-<!-- page title -->
-<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+<!-- Modern Portfolio Hero -->
+<section class="portfolio-hero-section">
   <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        <ul class="list-inline custom-breadcrumb mb-2">
-          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="index.html">Home</a></li>
-          <li class="list-inline-item text-white h3 font-secondary nasted">About Prashant jha</li>
-        </ul>
-       </div>
+    <div class="row align-items-center">
+      <div class="col-lg-4 text-center mb-5 mb-lg-0">
+        <div class="portfolio-avatar-card">
+          <img class="portfolio-avatar-img" src="images/about/about-us.jpg" alt="Prashant Kumar Jha">
+          <div class="portfolio-status-pill">
+            <span class="pulse-dot"></span> Senior Developer &bull; Lowes India
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="hero-live-badge mb-3">
+          <span class="pulse-dot"></span> HPE &amp; Google Certified Developer
+        </div>
+        <h1 class="display-4 font-weight-bold text-dark mb-2">I’m Prashant Kumar Jha</h1>
+        <h4 class="text-primary font-weight-bold mb-3" style="color: var(--ti-amber-dark) !important;">Senior developer from Lowes India</h4>
+        <p class="lead mb-4 text-secondary" style="max-width: 650px;">
+          Full-Stack Senior Developer with 7+ years of experience delivering scalable enterprise software, microservices, and high-performance cloud architectures.
+        </p>
+        <div class="d-flex flex-wrap align-items-center" style="gap: 12px;">
+          <a href="#about" class="btn btn-primary">Know More <i class="ti-arrow-down ml-1"></i></a>
+          <a href="#contact" class="btn-outline-tech">Get In Touch <i class="ti-email ml-1"></i></a>
+          <a href="index.html" class="btn-outline-tech">Explore Interview Notes <i class="ti-book ml-1"></i></a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-<!-- /page title -->
+<!-- /portfolio hero -->
 
-<!-- about -->
-<section class="section">
+<!-- About Me & Profile Section -->
+<section class="section pb-4" id="about">
   <div class="container">
-    <div class="row">
+    <div class="portfolio-section-title">
+      <span class="section-subtitle">Who Am I</span>
+      <h2>ABOUT ME</h2>
+      <div class="border-top mx-auto mt-3" style="width: 60px; border-width: 3px !important; border-color: var(--ti-amber) !important;"></div>
+    </div>
+
+    <!-- Introduction Card -->
+    <div class="row mb-5">
       <div class="col-12">
-        <div class="content-area__wrapper">
-          <div class="content-area entry-content">
-            
-      <meta charset="UTF-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-          <!-- CSS only -->
-           <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-            
-             -->
-            <style>
-                body{
-          margin: 0;
-          font-family: 'Montserrat', sans-serif !important;
-      }
-      /* .navbar-brand img{
-          width: 15vw;
-          height: 15vh;
-      } */
-      /* .nav-link.active{
-          color: #56beb8 !important;
-          border-bottom: 2px solid #56beb8 !important ;  
-      } */
-      /* .nav-item a.nav-link:hover{
-           color: #56beb8 !important;
-          
-      } */
-      /* .navbar-nav{
-          margin-right: 5vw;
-      } */
-      .header-2{
-          padding-top: 18vh;
-      }
-      .hero-unit-container{
-          background: url(images/banner/banner-1.jpg);
-          height: 85vh;
-          /* opacity: 0.7; */
-          text-align: center;
-          background-size: cover;
-      }
-      .hero-unit-container img{
-          width:10vw;
-          height: 15vh;
-          border-radius: 6vh 1vh;
-          box-shadow: 2px 3px 10px 3px #e5e5e5c9;
-          
-      }
-      .hero-unit-container p{
-          color:white;
-          font-family: 'Inconsolata'!important;
-          font-size: 1.2em;
-      }
-      .hero-unit-mask h1{
-          margin-top: 0;
-          color: white;
-          font-size:3em ;
-      }
-      .hero-unit-mask{
-        height: 85vh;
-        background-color: #4f4f4f85;
-      }
-      .test{
-          font-weight: lighter;
-      }
-      .hero-unit-mask a{
-       color: white;
-       background-color: #56beb8;
-       padding: 12px;
-       font-size: 1.2em;
-       font-family: 'Inconsolata'!important;
-       text-decoration: none;
-       border-radius: 0.7em;
-      }
-      .hero-unit-mask a:hover{
-          background-color: #ffffff00;
-          color: #56beb8;
-          font-weight: 500;
-      }
-      .myjobotron{
-         text-align: center;
-      }
-      .myjobotron h3 {
-          font-weight: bold;
-      }
-      .myjobotron h3 span{
-          font-family: 'Cedarville Cursive', cursive !important;
-          font-size: 0.2em;
-          text-transform: capitalize;
-          color: #56beb8;
-      }
-      .bgr{
-          background-color: #56beb8;
-      }
-      
-      .aboutme-title{
-          
-          border-radius: 6vh 1vh;
-      }
-      .aboutme-title h4{
-          font-family: 'Cedarville Cursive', cursive !important;
-          font-weight: 500;
-          font-size: 1.3em;
-      }
-      
-      
-      .aboutme-title p{
-          color: white;
-          font-family: 'Inconsolata'!important;
-      }
-      .aboutme-title h5{
-          color: #56beb8;
-          font-size: .7em;
-          font-family: 'Inconsolata';
-          letter-spacing: 1px;
-          padding: 0 0 5px 0;
-          font-weight: bold;
-      }
-      .aboutme-title h5 span{
-          color:black;
-          font-weight:lighter;
-      }
-      .progress-bar{
-          background-color: #56beb8 !important;
-      }
-      
-      .stats-wrap{
-          padding: 5px 0 25px 0;
-          display: block;
-          
-      }
-      .stats-wrap img{
-          width: 4vw;
-          height: 8vh;
-      }
-      .title-resume h2{
-          font-weight: bolder;
-      }
-      .title-resume h2 span{
-          font-family: 'Cedarville Cursive', cursive !important;
-          font-size: 0.2em;
-          text-transform: capitalize;
-          color: #56beb8;
-      }
-      .resume-title h4{
-          font-family: 'Cedarville Cursive', cursive !important;
-          font-weight: 500;
-          font-size: 1.3em;
-      }
-      
-      .footer-section{
-          background-color: skyblue;
-          border-top: 2px solid coral;
-          color: white;
-      }
-      
-      .media-body h4 span{
-          font-family: 'Inconsolata';
-          letter-spacing: 1px;
-          font-size: 0.1em;
-          color: #FFF;
-          font-weight: lighter;
-          padding: 0.5vh;
-          background-color: #56beb8;
-          border-radius: 2vh 2vh 2vh 0vh;
-          box-shadow: 1px 1px 5px 0px #56beb8;
-          margin-left: 4em;
-      }
-      .media-body h4{
-          font-size: 0.5em;
-          font-weight: bolder;
-      }
-      .media-body h5{
-          font-size: 0.3em;
-          font-weight: bolder; 
-      }
-      .certificate-details img{
-          width: 25vw;
-          height: 37vh;
-          box-shadow: 2px 1px 10px #56beb8;
-          border-radius: 1em;
-      }
-      .service-list {
-          text-align: center;
-          padding: 30px;
-      }
-      .icon-block img{
-      width: 130px;
-      height: 121px;
-      border: 2px solid #56beb8;
-      box-shadow: 2px 1px 10px #56beb8;
-      border-radius: 4vh 1vh;
-      padding: 1em;
-      }
-      .service-list  h5{
-          font-size: 16px;
-          font-weight: 700;
-          letter-spacing: 1px;
-          color: #000000;
-          padding: 1em 0 ;
-      }
-      .service-list p{
-          font-size: .7em;
-          font-family: 'Inconsolata'!important;
-      }
-      .media-left {
-          vertical-align: middle;
-      }
-      .form-btn {
-          background-color: #56beb8;
-          color: #ffffff;
-          text-transform: uppercase;
-      }
-      .form-btn:hover {
-          color: #56beb8;
-          background-color: #ffffff;
-          border: 0;
-          
-      }
-      
-      /* .list-inline > li {
-          display: inline-block;
-          padding-right: 5px;
-          padding-left: 5px;
-      } */
-      
-      #footerm{
-          padding: 1em 2em;
-          font-family: 'Inconsolata'!important;
-      }
-      /* .list-inline> li a{
-          color: #ffffff;
-          text-decoration: underline;
-          background-color: #56beb8;
-          padding: 0.3em .4em;
-          border-radius: 0px 11px 11px;
-      }
-      .list-inline> li a:hover{
-          background-color: black;
-          border-radius: 11px 0px 11px;
-      } */
-      #myBtn {
-          display: none;
-          position: fixed;
-          bottom: 15px;
-          right: 30px;
-          z-index: 99;
-          font-size: 18px;
-          border: none;
-          outline: none;
-          background-color: #56beb8;
-          color: white;
-          margin-right:10px;
-          width: 10vw !important;
-          cursor: pointer;
-          padding: 7px 10px;
-          border-radius: 4px;
-        }
-        
-        .carosel-new{
-              height: 120vh;
-          }
-          .carousel-caption{
-              top:50vh
-          }
-        #myBtn:hover {
-          background-color: #555;
-        }
-        .proflespan {
-          font-family: 'Cedarville Cursive', cursive !important;
-          font-size: 0.2em;
-          text-transform: capitalize;
-          color: #56beb8;
-        }
-      
-      @media (max-width:576px){
-          .navbar-brand img {
-              width: 41vw;
-              height: 10vh;
-          }
-          .title-resume h2 span {
-          font-family: 'Cedarville Cursive', cursive !important;
-          font-size: 0.6em;
-          text-transform: capitalize;
-          color: #56beb8;
-         }
-         .proflespan {
-          font-family: 'Cedarville Cursive', cursive !important;
-          font-size: 0.9em;
-          text-transform: capitalize;
-          color: #56beb8;
-        }
-         .media-body h4 {
-          font-size: 1em;
-          font-weight: bolder;
-          }
-         .media-body h5 {
-          font-size: 0.7em;
-          font-weight: bolder;
-          }
-          .details{
-            font-size: .7em;
-          font-family: 'Inconsolata';
-          letter-spacing: 1px;
-          padding: 0 0 5px 0;
-          }
-          .certificate-details img {
-          width: 100vw;
-          height: 37vh;}
-          .stats-wrap img {
-            width: 12vw;
-          height: 8vh;
-          margin-right: 3vw;
-      }
-      .stats-wrap{
-          padding: 2vh 2vh;
-          display: flex;
-          text-align : right;
-      }
-      .certificate-details
-      {
-          padding: 1.5em;
-      }
-      .media-body h4 span{
-          font-family: 'Inconsolata';
-          letter-spacing: 1px;
-          font-size: 0.8em;
-         
-      }
-      .carousel-caption{
-                  top:6vh
-              }
-              .carosel-new {
-                  height: 30vh;
-              }
-      .hero-unit-container img {
-                  width: 33vw;}
-          }
-          @media(min-width:577px) and (max-width:991px) {
-              .navbar-brand img {
-                  width: 41vw;
-                  height: 10vh;
-              }
-              .carosel-new {
-                  height: 47vh;
-              }
-              .google-map iframe{
-                  width:350px !important;
-              } 
-              .hero-unit-container img {
-                  width: 25vw;}
-                  .stats-wrap img {
-                      width: 10vw;
-                      height: 8vh;
-                      margin-right: 4vw;
-                  }
-                  .aboutme-title h4 {
-                      font-family: 'Cedarville Cursive', cursive !important;
-                      font-weight: 500;
-                      font-size: 1.0em;
-                  }
-                  .certificate-details img {
-                      width: 27vw;
-                      height: 15vh;}
-               
-                  }
-            </style>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&amp;display=swap" rel="stylesheet">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-      <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400&amp;display=swap" rel="stylesheet">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-      <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&amp;display=swap" rel="stylesheet">
-            <title>prashant jha</title>
-      
-      
-          
-      
-         <!-- Headersection -->
-         <button onclick="topFunction()" id="myBtn" title="Go to top" style="display: block;"><i class="fa fa-chevron-up"></i></button>
-         <header class="header-section">
-          <nav class="navbar navbar-expand-lg navbar-light">
-            </nav>
-         </header>
-      <!-- Header end -->
-      <section class="hero-unit-container">
-        <div class="hero-unit-mask">
-          <div class="header-2">
-          <img src="images/about/about-us.jpg" alt="">
-        <h1>I’m  prashant kumar jha</h1>
-        <p>Senior developer from Lowes India </p>
-        <a href="#about">know more <i class="fa fa-chevron-down test"></i></a>
-      </div>
-      </div>
-      </section>
-      <div class="container-fluid myjobotron py-4" id="about">
-          
-          <h3><span>Who Am i</span><br>
-            – ABOUT ME –</h3>
-      </div>
-      <!-- Product section -->
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 aboutme-title text-center py-4 bgr "><h4>– Introduction –</h4>
-            <p>Hi! I’m Prashant kumar jha, fullstack devlelper  with HPE (Certified Java Developer) and Google Certification from India. I have been working from last 7 years in IT inductry with knowledge of java8,Springboot,Rest Api,Hibernate,AWS ,MicroService,JPA,Maven,Git,Jira ,Confluence,BitBucket and angular framework ,Currently I am  working for Lowes India  </p>
+        <div class="portfolio-card p-4 p-md-5" style="border-left: 5px solid var(--ti-amber);">
+          <div class="d-flex align-items-center mb-3" style="gap: 10px;">
+            <i class="ti-user text-primary" style="font-size: 24px; color: var(--ti-amber-dark) !important;"></i>
+            <h3 class="mb-0 text-dark font-weight-bold">– Introduction –</h3>
           </div>
-      
-         
-        </div>
-        <div class="row mt-5">
-          <div class="col-md-4 aboutme-title "><h4>– My Profile –</h4>
-            <h5>Complete Name: <span> Prashant Kumar Jha </span> </h5>
-            <!-- <h5>Birthdate: <span> 03/02/1996 </span> </h5> -->
-            <h5>Phone Number: <span> +91-9988001549</span> </h5>
-            <h5>Website: <span> www.technointerview.com </span> </h5>
-            <h5>E-mail: <span> pklj231@gmail.com </span> </h5>
-            <h5>Address: <span> Bangalore,Karnataka,India -560045 </span> </h5>
-          </div>
-          <div class="col-md-4 aboutme-title"><h4>– Professional Skills –</h4>
-            
-          
-      <div> Java/Java 8 </div>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 89%;" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100">89%</div>
-      </div>
-      
-      
-      <div>SpringBoot</div>
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 83%;" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100">83%</div>
-          </div>
-      
-      
-      <div>Restful web-services </div>
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
-          </div>
-      
-      <div>Microservice</div>
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 76%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
-          </div>
-      <div>Angular </div>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
-      </div>
-      
-      <div>AWS </div>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
-      </div>
-      </div>
-      <!-- progress bar end -->
-      <div class="col-md-4 aboutme-title"><h4>– Milestones –</h4>  
-        <div class="row">     
-        <div class=" col-6 col-md-6 col-sm-12  ">
-              <div class="stats-wrap">
-                <i class="ti-book mb-xl-4 mb-lg-3 mb-4 feature-icon"></i><br>
-                  <span class="counter">7 – yrs</span>
-                  <div>Experience</div>
-                </div>
-          </div>
-          <div class="col-6 col-md-6 col-sm-12 ">
-                <div class="stats-wrap">
-                  <i class="ti-blackboard mb-xl-4 mb-lg-3 mb-4 feature-icon"></i><br>
-                         <span class="counter">10+</span>
-                         <div>Projects</div>
-                 </div>
+          <p class="text-secondary" style="font-size: 16px; line-height: 1.8;">
+            Hi! I’m Prashant kumar jha, fullstack devlelper with HPE (Certified Java Developer) and Google Certification from India. I have been working from last 7 years in IT inductry with knowledge of java8,Springboot,Rest Api,Hibernate,AWS ,MicroService,JPA,Maven,Git,Jira ,Confluence,BitBucket and angular framework ,Currently I am working for Lowes India.
+          </p>
+          <div class="d-flex flex-wrap mt-4" style="gap: 10px;">
+            <span class="hero-tech-pill"><i class="ti-medall"></i> HPE Certified Java Developer</span>
+            <span class="hero-tech-pill"><i class="ti-check-box"></i> Google Certified</span>
+            <span class="hero-tech-pill"><i class="ti-layers"></i> 7+ Years Experience</span>
+            <span class="hero-tech-pill"><i class="ti-briefcase"></i> Lowes India</span>
           </div>
         </div>
-          <div class="row">
-          <div class="col-6 col-md-6 col-sm-12 ">
-                <div class="stats-wrap">
-                  <i class="ti-agenda mb-xl-4 mb-lg-3 mb-4 feature-icon"></i><br>
-                         <span class="counter">20+</span>
-                         <div>Cetifications</div>
-                 </div>
-          </div>
-          <div class="col-6 col-md-6 col-sm-12 ">
-                    <div class="stats-wrap">
-                      <i class="ti-write mb-xl-4 mb-lg-3 mb-4 feature-icon"></i><br>
-                         <span class="counter">1M+</span>
-                         <div>Lines of codes</div>
-                 </div>
-          </div>
-        </div> 
       </div>
-      </div>
-      </div>
-        
-      
-      <!-- First section -->
-      <section class="bg-light mt-2" id="resume">
-      <div class="container py-3">
-      <div class="row">     
-        <div class="container">
-          <div class="row">
-             <div class="title-resume col-md-12 text-center">
-              <h2> <span>-Begining –</span><br>– Education –</h2>  
-              <br>
-          </div>   
-              <div class="col-md-4">
-                <div class="media service">
-                  <div class="media-left">
-                      <i class="ion-ios-bookmarks-outline"></i>
-                  </div>
-                  <div class="media-body">
-                      <h4>Primary School <span> 2009-2011 </span></h4>
-                      <h5>@passed </h5>
-                      <p class="details"> Gyan Bharti Public School ,darbhanga.</p>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4">
-              <div class="media service">
-                  <div class="media-left">
-                      <i class="ion-ios-bookmarks-outline"></i>
-                  </div>
-                  <div class="media-body">
-                      <h4>Secondary School <span> 2011-2013</span></h4>
-                      <h5>@passed </h5>
-                      <p class="details">  Rose Public School ,darbhanga.</p>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4">
-              <div class="media service">
-                  <div class="media-left">
-                      <i class="ion-ios-bookmarks-outline"></i>
-                  </div>
-                  <div class="media-body">
-                      <h4>Graduation <span> 2013-2017</span></h4>
-                      <h5>@passed </h5>
-                      <p class="details"> Biju Patnaik University of Technology, Odisha.</p>
-                  </div>
-              </div>
+    </div>
+
+    <!-- Profile Details & Skills Grid -->
+    <div class="row">
+      <!-- Profile Information -->
+      <div class="col-lg-5 mb-4 mb-lg-0">
+        <div class="portfolio-card">
+          <div class="d-flex align-items-center mb-4" style="gap: 10px;">
+            <i class="ti-id-badge text-primary" style="font-size: 22px; color: var(--ti-cyan) !important;"></i>
+            <h4 class="mb-0 text-dark font-weight-bold">– My Profile –</h4>
           </div>
           
-          
-          <div class="title-resume col-md-12 text-center">
-            <h2> <span>– Professional –</span><br> – Employment – </h2>  
-            <br> <br>
-         </div> 
-           <div class="col-md-4">
-              <div class="media service">
-                  <div class="media-left">
-                      <i class="ion-ios-briefcase-outline"></i>
-                  </div>
-                  <div class="media-body">
-                      <h4>Associate Software Engineer <span> 2018 </span></h4>
-                      <h5>Stixis Software </h5>
-                  </div>
-              </div>
+          <div class="profile-info-row">
+            <strong>Complete Name:</strong>
+            <span>Prashant Kumar Jha</span>
           </div>
-           <div class="col-md-4">
-              <div class="media service">
-                  <div class="media-left">
-                      <i class="ion-ios-briefcase-outline"></i>
-                  </div>
-                  <div class="media-body">
-                      <h4>Software Engineer <span> 2018-2021</span></h4>
-                      <h5>CGI <span class="proflespan"> (Trade-360)</span></h5>
-                  
-                  </div>
-              </div>
+          <div class="profile-info-row">
+            <strong>Phone Number:</strong>
+            <a href="tel:+919988001549">+91-9988001549</a>
           </div>
-          <div class="col-md-4">
-            <div class="media service">
-                <div class="media-left">
-                    <i class="ion-ios-briefcase-outline"></i>
-                </div>
-                <div class="media-body">
-                    <h4>Senior Software Engineer <span> 2021-2023</span></h4>
-                    <h5>HCL Technology <span class="proflespan"> (MCP Marketplace)</span></h5>
-                </div>
+          <div class="profile-info-row">
+            <strong>Website:</strong>
+            <a href="http://www.technointerview.com" target="_blank">www.technointerview.com</a>
+          </div>
+          <div class="profile-info-row">
+            <strong>E-mail:</strong>
+            <a href="mailto:pklj231@gmail.com">pklj231@gmail.com</a>
+          </div>
+          <div class="profile-info-row">
+            <strong>Address:</strong>
+            <span>Bangalore, Karnataka, India - 560045</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Professional Skills -->
+      <div class="col-lg-7">
+        <div class="portfolio-card">
+          <div class="d-flex align-items-center mb-4" style="gap: 10px;">
+            <i class="ti-stats-up text-primary" style="font-size: 22px; color: var(--ti-amber-dark) !important;"></i>
+            <h4 class="mb-0 text-dark font-weight-bold">– Professional Skills –</h4>
+          </div>
+
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-header">
+              <span>Java / Java 8</span>
+              <span class="text-primary font-weight-bold" style="color: var(--ti-amber-dark) !important;">89%</span>
             </div>
-        </div>
-        <div class="col-md-4">
-          <div class="media service">
-              <div class="media-left">
-                  <i class="ion-ios-briefcase-outline"></i>
-              </div>
-              <div class="media-body">
-                  <h4>Senior Software Engineer <span> 2023-now</span></h4>
-                  <h5><b>IBM </b><span class="proflespan"> Nimbus</span></h5>
-              </div>
+            <div class="skill-bar-progress">
+              <div class="skill-bar-fill" style="width: 89%;"></div>
+            </div>
           </div>
-      </div>
-      </div>
-      </div>
-      
-      </div>
-      </div>
-      </section> 
-      
-     
-      <!-- service -->
-      <div id="service" class="bg-light mt-4">
-        <div class="title-resume col-md-12 text-center">
-            <h2> <span>What can I do</span><br>– Technology –</h2>  
-        </div>  
-        
-      <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-            <div class="service-list">
-                <div class="icon-block">
-                    <img src="images/icon/angular.png" class="img-circle" alt="Security">
-                </div>
-                <h5>Angular</h5>
-                <p>Professional &amp; Creative Web Design Including Logo and Graphics.</p>
+
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-header">
+              <span>SpringBoot</span>
+              <span class="text-primary font-weight-bold" style="color: var(--ti-amber-dark) !important;">83%</span>
             </div>
-        </div>
-      
-        <div class="col-md-4">
-            <div class="service-list">
-                <div class="icon-block">
-                    <img src="images/icon/java.png" class="img-circle" alt="Web Development">
-                </div>
-                <h5>Java</h5>
-                <p>Java is programming language </p>
+            <div class="skill-bar-progress">
+              <div class="skill-bar-fill" style="width: 83%;"></div>
             </div>
-        </div>
-      
-        <div class="col-md-4">
-            <div class="service-list">
-                <div class="icon-block">
-                    <img src="images/icon/sp1.png" class="img-circle" alt="Quality Assurance">
-                </div>
-                <h5>SpringBoot</h5>
-                <p>SpringBoot is backend framework lnguage </p>
-            </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-list">
-              <div class="icon-block">
-                  <img src="images/icon/micro.png" class="img-circle" alt="Web Development">
-              </div>
-              <h5>Microservice</h5>
-              <p>Microservice is artitecture followed by developer </p>
           </div>
-      </div>
-      
-      <div class="col-md-4">
-          <div class="service-list">
-              <div class="icon-block">
-                  <img src="images/icon/docker.png" class="img-circle" alt="Quality Assurance">
-              </div>
-              <h5>Docker</h5>
-              <p>Docker is diployment Tool </p>
+
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-header">
+              <span>Restful web-services</span>
+              <span class="text-primary font-weight-bold" style="color: var(--ti-amber-dark) !important;">95%</span>
+            </div>
+            <div class="skill-bar-progress">
+              <div class="skill-bar-fill" style="width: 95%;"></div>
+            </div>
           </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-list">
-            <div class="icon-block">
-                <img src="images/icon/aws.png" class="img-circle" alt="Quality Assurance">
+
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-header">
+              <span>Microservice</span>
+              <span class="text-primary font-weight-bold" style="color: var(--ti-amber-dark) !important;">76%</span>
             </div>
-            <h5>Aws</h5>
-            <p>Aws is cloud Service  </p>
+            <div class="skill-bar-progress">
+              <div class="skill-bar-fill" style="width: 76%;"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-header">
+              <span>Angular</span>
+              <span class="text-primary font-weight-bold" style="color: var(--ti-amber-dark) !important;">75%</span>
+            </div>
+            <div class="skill-bar-progress">
+              <div class="skill-bar-fill" style="width: 75%;"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-wrap mb-0">
+            <div class="skill-bar-header">
+              <span>AWS</span>
+              <span class="text-primary font-weight-bold" style="color: var(--ti-amber-dark) !important;">85%</span>
+            </div>
+            <div class="skill-bar-progress">
+              <div class="skill-bar-fill" style="width: 85%;"></div>
+            </div>
+          </div>
+
         </div>
       </div>
+    </div>
+
+    <!-- Milestones Stats Grid -->
+    <div class="row mt-5">
+      <div class="col-12 mb-4">
+        <h4 class="text-center text-dark font-weight-bold">– Milestones –</h4>
       </div>
-      </div>
-      </div>
-      <div id="contact" class="mb-5">
-        <div class="title-resume col-md-12 text-center py-4">
-            <h2> <span>Get in touch with me</span><br>– Contact –</h2>  
-        </div>  
-        
-      <div class="container">
-      <div class="row py-5">
-        <div class="col-md-4">
-            <div class="media contact-info">
-              <div class="row">
-                <div class="media-left col-md-1">
-                    <i class="fa fa-map"></i>
-                </div>
-                <div class="media-body col-md-11">
-                    <p>Banglore, Karnataka <br>INDIA</p>
-                </div>
-              </div>
-            </div>
-        </div>
-      
-        <div class="col-md-4">
-            <div class="media contact-info">
-              <div class="row">
-                <div class="media-left col-md-1">
-                    <i class="fa fa-mobile"></i>
-                </div>
-                <div class="media-body col-md-11">
-                    <p> +91-9988001549</p>
-                </div>
-              </div>
-            </div>
-        </div>
-      
-        <div class="col-md-4">
-            <div class="media contact-info">
-              <div class="row">
-                <div class="media-left col-md-1">
-                    <i class="fa fa-envelope"></i>
-                </div>
-                <div class="media-body col-md-11">
-                    <p>jhaprash29@gmail.com<br>www.technointerview.com</p>
-                </div>
-              </div>
-            </div>
+      <div class="col-md-3 col-6 mb-4 mb-md-0">
+        <div class="feature-card-modern">
+          <div class="feature-icon-wrapper">
+            <i class="ti-book"></i>
+          </div>
+          <h2 class="font-weight-bold text-dark mb-1">7 – yrs</h2>
+          <p class="text-secondary mb-0">Experience</p>
         </div>
       </div>
-      
-      
-      <!-- Contact Form -->
-      <div class="contact-form">
-      <div class="row">
-      
-        <div class="col-md-6">
-            <form id="contact-form" class="form" name="sentMessage" novalidate="">
-      
-                <div class="form-group"> <!-- Your name input -->
-                    <input type="text" autocomplete="off" class="form-control kabir-btn" placeholder="Your Name *" id="name" required="" data-validation-required-message="Please enter your name.">
-                    <p class="help-block text-danger"></p>
-                </div>
-      
-                <div class="form-group"> <!-- Your email input -->
-                    <input type="email" autocomplete="off" class="form-control kabir-btn" placeholder="Your Email *" id="email" required="" data-validation-required-message="Please enter your email address.">
-                    <p class="help-block text-danger"></p>
-                </div>
-      
-                <textarea class="form-control kabir-btn" rows="2" placeholder="Your Message..." id="message" required="" data-validation-required-message="Please enter a message."></textarea>
-                <p class="help-block text-danger"></p>
-      
-               <div id="success" class=" mb-3 ">
-                <button class="btn btn-default form-btn" type="submit">Send Message <i class="fa fa-paper-plane"></i></button>
-            </div>
-              </form>
-      
+      <div class="col-md-3 col-6 mb-4 mb-md-0">
+        <div class="feature-card-modern">
+          <div class="feature-icon-wrapper">
+            <i class="ti-blackboard"></i>
+          </div>
+          <h2 class="font-weight-bold text-dark mb-1">10+</h2>
+          <p class="text-secondary mb-0">Projects</p>
         </div>
-      
-        <div class="col-md-6 google-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1943.410756392866!2d77.61950414801883!3d13.047030517269043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1725eb715381%3A0xf956037c4bbb384b!2sChai%20Point%20-%20Nagavara!5e0!3m2!1sen!2sin!4v1721329315784!5m2!1sen!2sin" width="300" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>    
-           </div>
       </div>
-      </div> 
+      <div class="col-md-3 col-6">
+        <div class="feature-card-modern">
+          <div class="feature-icon-wrapper">
+            <i class="ti-agenda"></i>
+          </div>
+          <h2 class="font-weight-bold text-dark mb-1">20+</h2>
+          <p class="text-secondary mb-0">Cetifications</p>
+        </div>
       </div>
-      <!-- Footer -->
-      
-      <!-- back to top js -->
-      <script>
-        //Get the button
-        var mybutton = document.getElementById("myBtn");
-        
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
-        
-        function scrollFunction() {
-          if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
-            mybutton.style.display = "block";
-          } else {
-            mybutton.style.display = "none";
-          }
-        }
-        
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-        }
-        </script>
-      
-          <!-- JavaScript Bundle with Popper -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-      
-      
-      
-      <p></p>
-                </div>
-        </div> 
+      <div class="col-md-3 col-6">
+        <div class="feature-card-modern">
+          <div class="feature-icon-wrapper">
+            <i class="ti-write"></i>
+          </div>
+          <h2 class="font-weight-bold text-dark mb-1">1M+</h2>
+          <p class="text-secondary mb-0">Lines of codes</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Career & Education Timeline Section -->
+<section class="section bg-light" id="resume">
+  <div class="container">
+    <div class="portfolio-section-title">
+      <span class="section-subtitle">Journey</span>
+      <h2>RESUME &amp; EXPERIENCE</h2>
+      <div class="border-top mx-auto mt-3" style="width: 60px; border-width: 3px !important; border-color: var(--ti-amber) !important;"></div>
+    </div>
+
+    <!-- Professional Employment -->
+    <div class="row mb-5">
+      <div class="col-12 mb-4">
+        <div class="d-flex align-items-center" style="gap: 10px;">
+          <i class="ti-briefcase text-primary" style="font-size: 24px; color: var(--ti-amber-dark) !important;"></i>
+          <h3 class="mb-0 text-dark font-weight-bold">– Professional Employment –</h3>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <div class="timeline-card">
+          <span class="timeline-period-badge">2018</span>
+          <h4 class="timeline-role">Associate Software Engineer</h4>
+          <div class="timeline-company">Stixis Software</div>
+          <p class="text-secondary mb-0">Full-stack development, Java core services and web applications.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <div class="timeline-card">
+          <span class="timeline-period-badge">2018-2021</span>
+          <h4 class="timeline-role">Software Engineer</h4>
+          <div class="timeline-company">CGI <span class="company-project">&bull; Trade-360</span></div>
+          <p class="text-secondary mb-0">Enterprise banking and global trade finance platform architecture.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <div class="timeline-card">
+          <span class="timeline-period-badge">2021-2023</span>
+          <h4 class="timeline-role">Senior Software Engineer</h4>
+          <div class="timeline-company">HCL Technology <span class="company-project">&bull; MCP Marketplace</span></div>
+          <p class="text-secondary mb-0">Microservices, scalable distributed APIs and cloud marketplace services.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <div class="timeline-card">
+          <span class="timeline-period-badge">2023 - 2025</span>
+          <h4 class="timeline-role">Senior Software Engineer</h4>
+          <div class="timeline-company"><b>IBM</b> <span class="company-project">&bull; LOCI &amp; THOR</span></div>
+          <p class="text-secondary mb-0">Cloud infrastructure, high-concurrency enterprise services, and robust systems for LOCI and THOR platforms.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-12 mb-4">
+        <div class="timeline-card" style="border-left-color: var(--ti-emerald); background: linear-gradient(to right, #ffffff, #f0fdf4);">
+          <div class="d-flex flex-wrap align-items-center justify-content-between mb-2">
+            <span class="timeline-period-badge" style="background: #ecfdf5; color: #047857; border-color: #a7f3d0;">
+              <span class="pulse-dot" style="display:inline-block; width:7px; height:7px; background:#10b981; border-radius:50%; margin-right:5px; box-shadow:0 0 6px #10b981;"></span> 2025 - now &bull; Current Role
+            </span>
+            <span class="badge badge-success px-3 py-1" style="border-radius:20px; font-weight:600; font-size:12px;">Active</span>
+          </div>
+          <h4 class="timeline-role">Senior Developer</h4>
+          <div class="timeline-company"><b>Lowes India</b> <span class="company-project">&bull; Tachyon</span></div>
+          <p class="text-secondary mb-0">Architecting modern enterprise retail solutions, scalable microservices, and high-performance cloud architecture for Project Tachyon.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education Timeline -->
+    <div class="row">
+      <div class="col-12 mb-4">
+        <div class="d-flex align-items-center" style="gap: 10px;">
+          <i class="ti-book text-primary" style="font-size: 24px; color: var(--ti-cyan) !important;"></i>
+          <h3 class="mb-0 text-dark font-weight-bold">– Begining — Education –</h3>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="timeline-card" style="border-left-color: var(--ti-cyan);">
+          <span class="timeline-period-badge" style="background: var(--ti-cyan-light); color: var(--ti-cyan); border-color: #bae6fd;">2009-2011</span>
+          <h4 class="timeline-role">Primary School</h4>
+          <div class="timeline-company">Gyan Bharti Public School ,darbhanga.</div>
+          <span class="badge badge-success px-2 py-1">@passed</span>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="timeline-card" style="border-left-color: var(--ti-cyan);">
+          <span class="timeline-period-badge" style="background: var(--ti-cyan-light); color: var(--ti-cyan); border-color: #bae6fd;">2011-2013</span>
+          <h4 class="timeline-role">Secondary School</h4>
+          <div class="timeline-company">Rose Public School ,darbhanga.</div>
+          <span class="badge badge-success px-2 py-1">@passed</span>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="timeline-card" style="border-left-color: var(--ti-cyan);">
+          <span class="timeline-period-badge" style="background: var(--ti-cyan-light); color: var(--ti-cyan); border-color: #bae6fd;">2013-2017</span>
+          <h4 class="timeline-role">Graduation</h4>
+          <div class="timeline-company">Biju Patnaik University of Technology, Odisha.</div>
+          <span class="badge badge-success px-2 py-1">@passed</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Technology Stack Section -->
+<section class="section" id="service">
+  <div class="container">
+    <div class="portfolio-section-title">
+      <span class="section-subtitle">What can I do</span>
+      <h2>TECHNOLOGY</h2>
+      <div class="border-top mx-auto mt-3" style="width: 60px; border-width: 3px !important; border-color: var(--ti-amber) !important;"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="tech-item-card">
+          <div class="tech-icon-box">
+            <img src="images/icon/angular.png" alt="Angular">
+          </div>
+          <h4>Angular</h4>
+          <p>Professional &amp; Creative Web Design Including Logo and Graphics.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="tech-item-card">
+          <div class="tech-icon-box">
+            <img src="images/icon/java.png" alt="Java">
+          </div>
+          <h4>Java</h4>
+          <p>Java is programming language</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="tech-item-card">
+          <div class="tech-icon-box">
+            <img src="images/icon/sp1.png" alt="SpringBoot">
+          </div>
+          <h4>SpringBoot</h4>
+          <p>SpringBoot is backend framework lnguage</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="tech-item-card">
+          <div class="tech-icon-box">
+            <img src="images/icon/micro.png" alt="Microservice">
+          </div>
+          <h4>Microservice</h4>
+          <p>Microservice is artitecture followed by developer</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="tech-item-card">
+          <div class="tech-icon-box">
+            <img src="images/icon/docker.png" alt="Docker">
+          </div>
+          <h4>Docker</h4>
+          <p>Docker is diployment Tool</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="tech-item-card">
+          <div class="tech-icon-box">
+            <img src="images/icon/aws.png" alt="Aws">
+          </div>
+          <h4>Aws</h4>
+          <p>Aws is cloud Service</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
-<!-- /about -->
 
+<!-- Contact Section -->
+<section class="section bg-light" id="contact">
+  <div class="container">
+    <div class="portfolio-section-title">
+      <span class="section-subtitle">Get in touch with me</span>
+      <h2>CONTACT</h2>
+      <div class="border-top mx-auto mt-3" style="width: 60px; border-width: 3px !important; border-color: var(--ti-amber) !important;"></div>
+    </div>
+
+    <!-- Quick Info Cards -->
+    <div class="row mb-5">
+      <div class="col-md-4 mb-3 mb-md-0">
+        <div class="contact-info-pill">
+          <div class="contact-icon-circle">
+            <i class="ti-location-pin"></i>
+          </div>
+          <div>
+            <h6 class="font-weight-bold mb-1 text-dark">Location</h6>
+            <p class="mb-0 text-secondary" style="font-size: 14px;">Banglore, Karnataka<br>INDIA</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-3 mb-md-0">
+        <div class="contact-info-pill">
+          <div class="contact-icon-circle">
+            <i class="ti-mobile"></i>
+          </div>
+          <div>
+            <h6 class="font-weight-bold mb-1 text-dark">Phone</h6>
+            <a href="tel:+919988001549" class="text-secondary" style="font-size: 14px;">+91-9988001549</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="contact-info-pill">
+          <div class="contact-icon-circle">
+            <i class="ti-email"></i>
+          </div>
+          <div>
+            <h6 class="font-weight-bold mb-1 text-dark">Email &amp; Web</h6>
+            <a href="mailto:jhaprash29@gmail.com" class="text-secondary d-block" style="font-size: 14px;">jhaprash29@gmail.com</a>
+            <a href="http://www.technointerview.com" target="_blank" class="text-secondary" style="font-size: 13px;">www.technointerview.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form & Map Split -->
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="portfolio-card p-4 p-md-5">
+          <h4 class="font-weight-bold text-dark mb-4">Send a Message</h4>
+          <form id="contact-form" class="form" name="sentMessage" novalidate="">
+            <div class="form-group mb-3">
+              <label class="font-weight-bold text-dark" style="font-size: 13px;">Your Name *</label>
+              <input type="text" class="form-control" placeholder="Your Name *" id="name" required="" style="height: 50px; border-radius: 8px; border: 1px solid #cbd5e1;">
+            </div>
+            <div class="form-group mb-3">
+              <label class="font-weight-bold text-dark" style="font-size: 13px;">Your Email *</label>
+              <input type="email" class="form-control" placeholder="Your Email *" id="email" required="" style="height: 50px; border-radius: 8px; border: 1px solid #cbd5e1;">
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-weight-bold text-dark" style="font-size: 13px;">Your Message *</label>
+              <textarea class="form-control" rows="4" placeholder="Your Message..." id="message" required="" style="border-radius: 8px; border: 1px solid #cbd5e1;"></textarea>
+            </div>
+            <button class="btn btn-primary w-100 py-3 font-weight-bold" type="submit" style="border-radius: 8px;">
+              Send Message <i class="ti-arrow-right ml-1"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="portfolio-card p-2 overflow-hidden" style="border-radius: 18px;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1943.410756392866!2d77.61950414801883!3d13.047030517269043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1725eb715381%3A0xf956037c4bbb384b!2sChai%20Point%20-%20Nagavara!5e0!3m2!1sen!2sin!4v1721329315784!5m2!1sen!2sin" width="100%" height="420" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- footer -->
 <footer>
   <!-- newsletter -->
-  <div class="newsletter">
+  <div class="newsletter-modern">
     <div class="container">
-      <div class="row">
-        <div class="col-md-9 ml-auto bg-primary py-5 newsletter-block">
-          <h3 class="text-white">Subscribe Now</h3>
-          <form action="#">
-            <div class="input-wrapper">
-              <input type="email" class="form-control border-0" id="newsletter" name="newsletter" placeholder="Enter Your Email...">
-              <button type="submit" value="send" class="btn btn-primary">Join</button>
-            </div>
-          </form>
+      <div class="row justify-content-end">
+        <div class="col-lg-8 col-md-10">
+          <div class="newsletter-card">
+            <h3>Subscribe Now</h3>
+            <form action="#">
+              <div class="newsletter-input-group">
+                <input type="email" id="newsletter" name="newsletter" placeholder="Enter Your Email..." required>
+                <button type="submit" value="send">Join</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <!-- footer content -->
-  <div class="footer bg-footer section border-bottom">
+  <div class="footer-modern section border-bottom">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-sm-8 mb-5 mb-lg-0">
           <!-- logo -->
-          <a class="logo-footer" href="index.html"><img class="img-fluid mb-4" src="images/logo.png" alt="logo"></a>
+          <a class="logo-footer" href="index.html">
+            <img class="img-fluid mb-4 site-logo" src="images/logo.svg" alt="Techno Interview">
+          </a>
           <ul class="list-unstyled">
-            <li class="mb-2"><a class="text-color" href="#"><i class="ti-face-smile mr-2"></i>  - Prashant Kumar Jha</li>
-            <li class="mb-2"><a class="text-color" href="tel:+91-9988001549"><i class="ti-mobile mr-2"></i>+91-9988001549</li>
-            <li class="mb-2"><a class="text-color" href="www.technointerview.com"><i class="ti-world mr-2"></i> www.technointerview.com</li>
+            <li class="mb-2"><a class="text-color" href="#"><i class="ti-face-smile mr-2"></i>  - Prashant Kumar Jha</a></li>
+            <li class="mb-2"><a class="text-color" href="tel:+91-9988001549"><i class="ti-mobile mr-2"></i>+91-9988001549</a></li>
+            <li class="mb-2"><a class="text-color" href="http://www.technointerview.com"><i class="ti-world mr-2"></i> www.technointerview.com</a></li>
             <li class="mb-2"><a class="text-color" href="mailto:jhaprash29@gmail.com"><i class="ti-email mr-2"></i>jhaprash29@gmail.com</a></li>
-        
           </ul>
         </div>
         <!-- company -->
         <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
-          <h4 class="text-white mb-5">BACKEND</h4>
+          <h4>BACKEND</h4>
           <ul class="list-unstyled">
             <li class="mb-3"><a class="text-color" href="corejava.html">Core java</a></li>
             <li class="mb-3"><a class="text-color" href="java8theory.html">Java8</a></li>
@@ -965,7 +686,7 @@
         </div>
         <!-- links -->
         <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
-          <h4 class="text-white mb-5">FRONTEND</h4>
+          <h4>FRONTEND</h4>
           <ul class="list-unstyled">
             <li class="mb-3"><a class="text-color" href="angular.html">Angular</a></li>
             <li class="mb-3"><a class="text-color" href="reactjs.html">Reactjs</a></li>
@@ -973,7 +694,7 @@
         </div>
         <!-- support -->
         <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
-          <h4 class="text-white mb-5">CLOUDS</h4>
+          <h4>CLOUDS</h4>
           <ul class="list-unstyled">
              <li class="mb-3"><a class="text-color" href="aws.html">AWS</a></li>
             <li class="mb-3"><a class="text-color" href="gcp.html">GCP</a></li>
@@ -981,7 +702,7 @@
         </div>
         <!-- support -->
         <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
-          <h4 class="text-white mb-5">INTERVIEW PROGRAMS</h4>
+          <h4>INTERVIEW PROGRAMS</h4>
           <ul class="list-unstyled">
             <li class="mb-3"><a class="text-color" href="Stringprograms.html">String</a></li>
             <li class="mb-3"><a class="text-color" href="ArrayPrograms.html">Array</a></li>
@@ -994,9 +715,9 @@
     </div>
   </div>
   <!-- copyright -->
-  <div class="copyright py-4 bg-footer">
+  <div class="copyright-modern">
     <div class="container">
-      <div class="row">
+      <div class="row align-items-center">
         <div class="col-sm-7 text-sm-left text-center">
           <p class="mb-0">Copyright &copy;
             <script>
@@ -1006,15 +727,14 @@
             , designed & developed by <a href="https://jprashant.in" class="text-muted">Prashant jha</a>
           </p>
         </div>
-        <div class="col-sm-5 text-sm-right text-center">
-          <ul class="list-inline">
-            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-facebook text-primary"></i></a></li>
-            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://twitter.com"><i class="ti-twitter-alt text-primary"></i></a></li>
-            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://github.com/Prashay"><i class="ti-github text-primary"></i></a></li>
-            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.instagram.com/prashant_official101/"><i class="ti-instagram text-primary"></i></a></li>
-            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.linkedin.com/in/prashant-jha-5b504b185/"><i class="ti-linkedin text-primary"></i></a></li>
-          </ul>
-          
+        <div class="col-sm-5 text-sm-right text-center mt-3 mt-sm-0">
+          <div class="social-icons-modern">
+            <a href="#"><i class="ti-facebook"></i></a>
+            <a href="https://twitter.com"><i class="ti-twitter-alt"></i></a>
+            <a href="https://github.com/Prashay"><i class="ti-github"></i></a>
+            <a href="https://www.instagram.com/prashant_official101/"><i class="ti-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/prashant-jha-5b504b185/"><i class="ti-linkedin"></i></a>
+          </div>
         </div>
       </div>
     </div>
@@ -1034,9 +754,6 @@
 <script src="plugins/venobox/venobox.min.js"></script>
 <!-- filter -->
 <script src="plugins/filterizr/jquery.filterizr.min.js"></script>
-<!-- google map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
-<script src="plugins/google-map/gmap.js"></script>
 
 <!-- Main Script -->
 <script src="js/script.js"></script>
