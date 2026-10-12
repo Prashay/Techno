@@ -356,6 +356,7 @@ ENTRYPOINT ["java", "-jar", "/app.jar"]`
           <div class="jarvis-tabbar">
             <button class="jarvis-tab-btn active" data-tab="qa"><i class="ti-search mr-1"></i> Full Repo Q&amp;A</button>
             <button class="jarvis-tab-btn" data-tab="anomaly"><i class="ti-shield mr-1"></i> Code Anomaly Detector</button>
+            <button class="jarvis-tab-btn" data-tab="suggest"><i class="ti-light-bulb mr-1"></i> Suggest Question (Tasks)</button>
             <button class="jarvis-tab-btn" data-tab="compiler"><i class="ti-control-play mr-1"></i> Quick Test Sandbox</button>
           </div>
 
@@ -408,7 +409,26 @@ ENTRYPOINT ["java", "-jar", "/app.jar"]`
               </div>
             </div>
 
-            <!-- Tab 3: Quick Test Sandbox -->
+            <!-- Tab 3: Suggest Question / Tasks (Feedback Section) -->
+            <div id="jarvis-tab-suggest" class="jarvis-tab-content">
+              <div class="jarvis-compiler-promo">
+                <div class="promo-card" style="max-width: 650px;">
+                  <div class="promo-icon" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);">💡</div>
+                  <h3>User Feedback &bull; Suggest Interview Questions</h3>
+                  <p>Have an interview question asked in recent 2026 rounds? Submit theory or programming questions to our <strong>Community Task Board</strong>. You can review pending questions, test solutions in the Online Compiler, and mark them as addressed once merged!</p>
+                  <div class="d-flex justify-content-center align-items-center flex-wrap" style="gap: 12px;">
+                    <button id="jarvis-open-tasks-btn" class="jarvis-launch-ide-btn" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                      <i class="ti-list mr-1"></i> View Task Board
+                    </button>
+                    <button id="jarvis-add-question-btn" class="jarvis-pill-btn" style="padding: 10px 20px; font-size: 14px; border: 1px solid #f59e0b; color: #fbbf24;">
+                      <i class="ti-plus mr-1"></i> Add Question Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab 4: Quick Test Sandbox -->
             <div id="jarvis-tab-compiler" class="jarvis-tab-content">
               <div class="jarvis-compiler-promo">
                 <div class="promo-card">
@@ -652,6 +672,22 @@ public class PaymentProcessingService {
         }
       }, 400);
     });
+
+    // Wire Tasks & Suggest buttons inside JARVIS
+    var openTasksBtn = document.getElementById('jarvis-open-tasks-btn');
+    var addQBtn = document.getElementById('jarvis-add-question-btn');
+    if (openTasksBtn) {
+      openTasksBtn.addEventListener('click', function () {
+        jarvisModal.style.display = 'none';
+        if (window.TechnoFeedback) window.TechnoFeedback.open('list');
+      });
+    }
+    if (addQBtn) {
+      addQBtn.addEventListener('click', function () {
+        jarvisModal.style.display = 'none';
+        if (window.TechnoFeedback) window.TechnoFeedback.open('add');
+      });
+    }
 
     // Launch IDE
     launchIdeBtn.addEventListener('click', function () {

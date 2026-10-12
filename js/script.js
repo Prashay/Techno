@@ -138,3 +138,15 @@
     document.head.appendChild(jarvisScript);
   }
 })();
+
+// ==========================================================================
+// TechnoInterview - Load Question Suggestions & Community Task Board
+// ==========================================================================
+(function () {
+  if (typeof window !== 'undefined' && !window.TechnoFeedback) {
+    var feedbackScript = document.createElement('script');
+    feedbackScript.src = 'js/suggest-questions.js';
+    feedbackScript.async = true;
+    document.head.appendChild(feedbackScript);
+  }
+})();

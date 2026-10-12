@@ -152,6 +152,9 @@
             <li class="nav-item active">
               <a class="nav-link" href="about.html">About</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#user-feedback" style="color: #f59e0b !important; font-weight: 700;"><i class="ti-light-bulb mr-1"></i>Feedback</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -183,6 +186,7 @@
         </p>
         <div class="d-flex flex-wrap align-items-center" style="gap: 12px;">
           <a href="#about" class="btn btn-primary">Know More <i class="ti-arrow-down ml-1"></i></a>
+          <a href="#user-feedback" class="btn btn-warning font-weight-bold" style="background:#f59e0b; border-color:#f59e0b; color:#1e293b;">Suggest Questions <i class="ti-light-bulb ml-1"></i></a>
           <a href="#contact" class="btn-outline-tech">Get In Touch <i class="ti-email ml-1"></i></a>
           <a href="index.html" class="btn-outline-tech">Explore Interview Notes <i class="ti-book ml-1"></i></a>
         </div>
@@ -648,6 +652,102 @@
   </div>
 </section>
 
+<!-- ==========================================================================
+     User Feedback & Question Suggestion Section (Community Task Board)
+     ========================================================================== -->
+<section class="section bg-white border-top" id="user-feedback">
+  <div class="container">
+    <div class="portfolio-section-title">
+      <span class="section-subtitle">Collaborative Tech Interview Preparation</span>
+      <h2>USER FEEDBACK &amp; QUESTION SUGGESTIONS</h2>
+      <div class="border-top mx-auto mt-3" style="width: 60px; border-width: 3px !important; border-color: var(--ti-amber) !important;"></div>
+      <p class="text-secondary mt-3 mx-auto" style="max-width: 700px; font-size: 15px;">
+        Contribute theory or programming interview questions asked in recent rounds. Every submission is registered as an <strong>actionable task</strong>. Once reviewed and added to the official topic section, tasks can be marked addressed and removed from the active board!
+      </p>
+    </div>
+
+    <div class="row align-items-center mb-4">
+      <div class="col-md-8 mb-3 mb-md-0">
+        <div class="d-flex align-items-center flex-wrap" style="gap: 10px;">
+          <button class="btn btn-primary" onclick="if(window.TechnoFeedback) window.TechnoFeedback.open('add');">
+            <i class="ti-plus mr-1"></i> Suggest New Question
+          </button>
+          <button class="btn btn-outline-primary" onclick="if(window.TechnoFeedback) window.TechnoFeedback.open('list');">
+            <i class="ti-view-list-alt mr-1"></i> Open Task Board
+          </button>
+          <span class="badge badge-warning text-dark font-weight-bold py-2 px-3" style="border-radius: 20px;">
+            <i class="ti-check-box mr-1"></i> Interactive Task Workflow
+          </span>
+        </div>
+      </div>
+      <div class="col-md-4 text-md-right text-muted" style="font-size: 13px;">
+        <i class="ti-server mr-1"></i> Stored locally &bull; Testable via Online Compiler
+      </div>
+    </div>
+
+    <!-- Live Preview Cards of Recent Community Suggested Tasks -->
+    <div class="row" id="feedback-preview-container">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="portfolio-card p-4 h-100" style="border-top: 4px solid var(--ti-amber);">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge badge-warning text-dark font-weight-bold" style="font-size: 11px;">THEORY</span>
+            <span class="text-muted" style="font-size: 12px;">Java 21 Scoped Values</span>
+          </div>
+          <h5 class="font-weight-bold text-dark mb-2">Scoped Values vs ThreadLocal</h5>
+          <p class="text-secondary mb-3" style="font-size: 13.5px; line-height: 1.6;">
+            Explaining JEP 446 Scoped Values for immutable data sharing across Virtual Threads with lower memory footprint.
+          </p>
+          <div class="mt-auto pt-2 border-top d-flex justify-content-between align-items-center">
+            <span class="badge badge-light text-primary" style="font-size: 11px;">Status: Action Task</span>
+            <button class="btn btn-sm btn-outline-primary py-1 px-2" onclick="if(window.TechnoFeedback) window.TechnoFeedback.open('list');" style="font-size: 12px;">
+              Manage Task <i class="ti-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="portfolio-card p-4 h-100" style="border-top: 4px solid var(--ti-cyan);">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge badge-info font-weight-bold" style="font-size: 11px;">PROGRAM</span>
+            <span class="text-muted" style="font-size: 12px;">Array Programs</span>
+          </div>
+          <h5 class="font-weight-bold text-dark mb-2">Longest Subarray with Sum K</h5>
+          <p class="text-secondary mb-3" style="font-size: 13.5px; line-height: 1.6;">
+            HashMap prefix sum technique in O(N) time and space. Solves zero and negative elements handling.
+          </p>
+          <div class="mt-auto pt-2 border-top d-flex justify-content-between align-items-center">
+            <span class="badge badge-light text-primary" style="font-size: 11px;">Status: Action Task</span>
+            <button class="btn btn-sm btn-outline-primary py-1 px-2" onclick="if(window.TechnoFeedback) window.TechnoFeedback.open('list');" style="font-size: 12px;">
+              Manage Task <i class="ti-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="portfolio-card p-4 h-100" style="border-top: 4px solid var(--ti-emerald);">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge badge-success font-weight-bold" style="font-size: 11px;">SPRING BOOT</span>
+            <span class="text-muted" style="font-size: 12px;">Spring Boot 3.3</span>
+          </div>
+          <h5 class="font-weight-bold text-dark mb-2">Virtual Threads + RestClient</h5>
+          <p class="text-secondary mb-3" style="font-size: 13.5px; line-height: 1.6;">
+            Configuring JdkClientHttpRequestFactory to maximize non-blocking concurrency without exhausting sockets.
+          </p>
+          <div class="mt-auto pt-2 border-top d-flex justify-content-between align-items-center">
+            <span class="badge badge-light text-primary" style="font-size: 11px;">Status: Action Task</span>
+            <button class="btn btn-sm btn-outline-primary py-1 px-2" onclick="if(window.TechnoFeedback) window.TechnoFeedback.open('list');" style="font-size: 12px;">
+              Manage Task <i class="ti-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- footer -->
 <footer>
     <!-- newsletter (compact modern design) -->
@@ -783,6 +883,7 @@
 <script src="js/script.js"></script>
 <script src="js/online-compiler.js"></script>
 <script src="js/jarvis-ai.js"></script>
+<script src="js/suggest-questions.js"></script>
 
 </body>
 </html>
