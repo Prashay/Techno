@@ -150,3 +150,16 @@
     document.head.appendChild(feedbackScript);
   }
 })();
+
+// ==========================================================================
+// TechnoInterview - Load Mobile Download & QR Scanner System
+// ==========================================================================
+(function () {
+  if (typeof window !== 'undefined' && !window.TechnoMobile) {
+    var mobileScript = document.createElement('script');
+    mobileScript.src = 'js/mobile-download.js';
+    mobileScript.async = true;
+    document.head.appendChild(mobileScript);
+  }
+})();
+

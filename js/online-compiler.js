@@ -812,6 +812,10 @@ simulateMicroservices().then(res => console.log("Cluster Report:", JSON.stringif
 
   // Floating trigger button on bottom-right of page
   function addFloatingIdeTrigger() {
+    // Unified in Techno App Hub: retire standalone button
+    var existing = document.getElementById('floating-compiler-btn');
+    if (existing) existing.remove();
+    return;
     if (document.getElementById('floating-compiler-btn')) return;
 
     var btn = document.createElement('button');

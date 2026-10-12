@@ -727,6 +727,10 @@ public class PaymentProcessingService {
 
   // Floating trigger button on bottom-left of screen
   function addFloatingJarvisTrigger() {
+    // Unified in Techno App Hub: retire standalone button
+    var existing = document.getElementById('floating-jarvis-btn');
+    if (existing) existing.remove();
+    return;
     if (document.getElementById('floating-jarvis-btn')) return;
 
     var btn = document.createElement('button');

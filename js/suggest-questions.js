@@ -572,6 +572,10 @@ public class ClientConfig {
 
   // Floating trigger button on bottom-left (next to JARVIS) or navbar
   function addFloatingSuggestTrigger() {
+    // Unified in Techno App Hub: retire standalone button
+    var existing = document.getElementById('floating-suggest-btn');
+    if (existing) existing.remove();
+    return;
     if (document.getElementById('floating-suggest-btn')) return;
 
     var btn = document.createElement('button');
