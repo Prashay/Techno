@@ -1,6 +1,6 @@
 {
-  "name": "Techno Interview - Tech Interview Preparation Guide",
-  "short_name": "TechnoInterview",
+  "name": "Techno - Tech Interview Preparation Guide",
+  "short_name": "Techno",
   "description": "Comprehensive Tech Interview Preparation Guide covering Java 8, Spring Boot, Microservices, Hibernate, Angular, SQL, Cloud, and Data Structures.",
   "start_url": "index.html",
   "scope": "./",

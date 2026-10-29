@@ -293,7 +293,7 @@
 
   // 2. STATE & CONFIGURATION
   var APP_CONFIG = {
-    appName: 'TechnoInterview',
+    appName: 'Techno',
     version: '2.4.0',
     size: '24 KB',
     apkPath: 'downloads/TechnoInterview-v2.4.0.apk',
@@ -336,7 +336,7 @@
 
   // 4. DOWNLOAD LOGIC
   function triggerApkDownload() {
-    showToast('Starting TechnoInterview APK v2.4.0 download...', 'info');
+    showToast('Starting Techno APK v2.4.0 download...', 'info');
 
     var link = document.createElement('a');
     link.href = APP_CONFIG.apkPath;
@@ -355,7 +355,7 @@
       deferredInstallPrompt.prompt();
       deferredInstallPrompt.userChoice.then(function (choiceResult) {
         if (choiceResult.outcome === 'accepted') {
-          showToast('TechnoInterview successfully added to your device!', 'success');
+          showToast('Techno successfully added to your device!', 'success');
         }
         deferredInstallPrompt = null;
       });
@@ -466,7 +466,7 @@
                 <i class="ti-mobile"></i>
               </div>
               <div>
-                <h3 class="modal-title">TechnoInterview Mobile App</h3>
+                <h3 class="modal-title">Techno Mobile App</h3>
                 <p class="modal-subtitle">Fast &bull; Offline Ready &bull; 35+ Interview Tracks</p>
               </div>
             </div>
@@ -545,13 +545,13 @@
 
                 <div class="quick-share-row">
                   <span class="share-label">Share to phone:</span>
-                  <a href="https://api.whatsapp.com/send?text=${encodeURIComponent('Check out TechnoInterview Mobile App: ' + APP_CONFIG.webUrl)}" target="_blank" class="share-badge-btn whatsapp" title="Share via WhatsApp">
+                  <a href="https://api.whatsapp.com/send?text=${encodeURIComponent('Check out Techno Mobile App: ' + APP_CONFIG.webUrl)}" target="_blank" class="share-badge-btn whatsapp" title="Share via WhatsApp">
                     WhatsApp
                   </a>
-                  <a href="https://t.me/share/url?url=${encodeURIComponent(APP_CONFIG.webUrl)}&text=${encodeURIComponent('TechnoInterview Mobile App')}" target="_blank" class="share-badge-btn telegram" title="Share via Telegram">
+                  <a href="https://t.me/share/url?url=${encodeURIComponent(APP_CONFIG.webUrl)}&text=${encodeURIComponent('Techno Mobile App')}" target="_blank" class="share-badge-btn telegram" title="Share via Telegram">
                     Telegram
                   </a>
-                  <a href="mailto:?subject=${encodeURIComponent('TechnoInterview Mobile App Link')}&body=${encodeURIComponent('Download and practice Tech Interview questions here: ' + APP_CONFIG.webUrl)}" class="share-badge-btn email" title="Share via Email">
+                  <a href="mailto:?subject=${encodeURIComponent('Techno Mobile App Link')}&body=${encodeURIComponent('Download and practice Tech Interview questions here: ' + APP_CONFIG.webUrl)}" class="share-badge-btn email" title="Share via Email">
                     Email
                   </a>
                 </div>
@@ -571,7 +571,7 @@
                     <span class="status-badge green"><span class="pulse-dot"></span> v2.4.0 Live Release</span>
                     <span class="status-badge blue"><i class="ti-shield"></i> Virus Clean &bull; Verified</span>
                   </div>
-                  <h3 class="app-name-title">TechnoInterview for Android &amp; Mobile</h3>
+                  <h3 class="app-name-title">Techno for Android &amp; Mobile</h3>
                   <p class="app-desc-lead">Complete offline reference with 35+ MNC tracks, online code runner, and JARVIS anomaly detection on your smartphone.</p>
                 </div>
               </div>
