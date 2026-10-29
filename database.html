@@ -106,60 +106,184 @@
   <!-- navbar -->
   <div class="navigation w-100">
     <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-dark p-0">
-        <a class="navbar-brand" href="index.html"><img class="site-logo" src="images/logo.svg" alt="Techno"></a>
-        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
-          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+                  <nav class="navbar navbar-expand-lg navbar-dark p-0">
+        <a class="navbar-brand" href="index.html">
+          <img class="site-logo" src="images/logo.svg" alt="Techno">
+        </a>
+        
+        <!-- Mobile Right Controls (Quick App Pill + Animated Hamburger) -->
+        <div class="mobile-nav-right d-lg-none">
+          <button class="btn-mobile-quick-pwa btn-scanner-link" aria-label="Open Mobile App QR Scanner">
+            <span class="pulse-dot"></span> App
+          </button>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+            aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+
+        <!-- Desktop Navigation Pill Dock Links -->
         <div class="collapse navbar-collapse" id="navigation">
-            <ul class="navbar-nav ml-auto text-center">
-              <li class="nav-item @@home">
-                <a class="nav-link" href="index.html">Home</a>
-              </li>
-              <li class="nav-item @@about">
-                <a class="nav-link" href="backend.html">Backend</a>
-              </li>
-              <li class="nav-item @@courses">
-                <a class="nav-link" href="frontend.html">Frontend</a>
-              </li>
-              <li class="nav-item @@events">
-                <a class="nav-link" href="cloud.html">Cloud</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="database.html">Database</a>
-              </li>
-              <li class="nav-item dropdown view">
-                <a class="nav-link dropdown-toggle" href="programmin.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Interview program
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="ArrayPrograms.html">Array</a></li>
-                    <li><a class="dropdown-item" href="numberprograms.html">Numbers</a></li>
-                    <li><a class="dropdown-item" href="Stringprograms.html">String</a></li>
-                    <li><a class="dropdown-item" href="java8programs.html">Java8 Programs</a></li>
-                    <li><a class="dropdown-item" href="topicwiseprogram.html">Topicwise Programs</a></li>
-                <li><a class="dropdown-item" href="personal-interview.html" style="color: #f59e0b; font-weight: 600;"><i class="ti-user mr-1"></i>Personal Interview</a></li>
-                  </ul>
-              </li>
-                          <li class="nav-item dropdown view">
-              <a class="nav-link dropdown-toggle" href="personal-interview.html" id="navbarDropdownPersonal" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Personal Interview
+          <ul class="navbar-nav ml-auto align-items-center">
+            <li class="nav-item ">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="backend.html">Backend</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="frontend.html">Frontend</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="cloud.html">Cloud</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="database.html">Database</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link nav-link-ai" href="ai.html">
+                <span class="nav-ai-sparkle">✦</span> AI
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownPersonal">
-                <li><a class="dropdown-item" href="personal-interview.html">📋 Full HR Playbook</a></li>
-                <li><a class="dropdown-item" href="personal-interview.html#section-01">01. Career Story &amp; Transitions</a></li>
-                <li><a class="dropdown-item" href="personal-interview.html#section-02">02. Java &amp; Leadership</a></li>
-                <li><a class="dropdown-item" href="personal-interview.html#section-03">03. Salary &amp; Logistics</a></li>
-                <li><a class="dropdown-item" href="personal-interview.html#section-04">04. Competing Offers</a></li>
-                <li><a class="dropdown-item" href="personal-interview.html#section-05">05. Quick Revision &amp; Checklist</a></li>
+            </li>
+            <li class="nav-item dropdown view ">
+              <a class="nav-link dropdown-toggle" href="programmin.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Interview Programs
+              </a>
+              <ul class="dropdown-menu modern-dropdown-menu" aria-labelledby="navbarDropdown">
+                <li class="dropdown-header-label">CODING MASTERY TRACKS</li>
+                <li>
+                  <a class="dropdown-item modern-dd-item" href="ArrayPrograms.html">
+                    <span class="dd-icon-box"><i class="ti-layout-grid2"></i></span>
+                    <div class="dd-text-wrap">
+                      <span class="dd-title">Array Programs</span>
+                      <span class="dd-desc">Two Pointers &bull; Sliding Window</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item modern-dd-item" href="numberprograms.html">
+                    <span class="dd-icon-box"><i class="ti-stats-up"></i></span>
+                    <div class="dd-text-wrap">
+                      <span class="dd-title">Number Programs</span>
+                      <span class="dd-desc">Bitwise, Primes &amp; Math Logic</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item modern-dd-item" href="Stringprograms.html">
+                    <span class="dd-icon-box"><i class="ti-text"></i></span>
+                    <div class="dd-text-wrap">
+                      <span class="dd-title">String Programs</span>
+                      <span class="dd-desc">Anagrams, Palindromes &amp; Trie</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item modern-dd-item" href="java8programs.html">
+                    <span class="dd-icon-box dd-icon-accent"><i class="ti-bolt"></i></span>
+                    <div class="dd-text-wrap">
+                      <span class="dd-title">Java 8 Programs</span>
+                      <span class="dd-desc">Streams, Lambdas &amp; GroupingBy</span>
+                    </div>
+                    <span class="dd-badge-hot">Hot</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item modern-dd-item" href="topicwiseprogram.html">
+                    <span class="dd-icon-box"><i class="ti-view-list-alt"></i></span>
+                    <div class="dd-text-wrap">
+                      <span class="dd-title">Topicwise DSA</span>
+                      <span class="dd-desc">Trees, Graphs, DP &amp; LeetCode</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="dropdown-divider-line"></li>
+                <li>
+                  <a class="dropdown-item modern-dd-item dd-highlight" href="personal-interview.html">
+                    <span class="dd-icon-box dd-icon-hr"><i class="ti-user"></i></span>
+                    <div class="dd-text-wrap">
+                      <span class="dd-title">Personal Interview</span>
+                      <span class="dd-desc">HR &amp; Tech Lead Playbook</span>
+                    </div>
+                    <span class="dd-badge-new">New</span>
+                  </a>
+                </li>
               </ul>
             </li>
-<li class="nav-item @@contact">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
-            </ul>
-          </div>
+            <li class="nav-item dropdown view ">
+              <a class="nav-link dropdown-toggle nav-link-personal" href="personal-interview.html" id="navbarDropdownPersonal" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Personal Interview <span class="nav-pill-badge">HR 45 Qs</span>
+              </a>
+              <ul class="dropdown-menu modern-dropdown-menu" aria-labelledby="navbarDropdownPersonal">
+                <li class="dropdown-header-label">HR &amp; LEADERSHIP PLAYBOOK</li>
+                <li>
+                  <a class="dropdown-item modern-dd-item" href="personal-interview.html">
+                    <span class="dd-icon-box dd-icon-hr"><i class="ti-book"></i></span>
+                    <div class="dd-text-wrap">
+                      <span class="dd-title">Full HR Playbook</span>
+                      <span class="dd-desc">45 Recruiter &amp; Leadership Scripts</span>
+                    </div>
+                    <span class="dd-badge-hot">45 Qs</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item modern-dd-item" href="personal-interview.html#section-01">
+                    <span class="dd-icon-box"><i class="ti-direction"></i></span>
+                    <div class="dd-text-wrap">
+                      <span class="dd-title">01. Career Story &amp; Transitions</span>
+                      <span class="dd-desc">STIXIS, CGI &amp; Lowe's Narrative</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item modern-dd-item" href="personal-interview.html#section-02">
+                    <span class="dd-icon-box"><i class="ti-medall"></i></span>
+                    <div class="dd-text-wrap">
+                      <span class="dd-title">02. Java &amp; Leadership</span>
+                      <span class="dd-desc">Mentoring 8-10 Eng &bull; Redis 170ms</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item modern-dd-item" href="personal-interview.html#section-03">
+                    <span class="dd-icon-box"><i class="ti-wallet"></i></span>
+                    <div class="dd-text-wrap">
+                      <span class="dd-title">03. Salary &amp; Logistics</span>
+                      <span class="dd-desc">₹29L to ₹40-42L CTC Scripts</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item modern-dd-item" href="personal-interview.html#section-04">
+                    <span class="dd-icon-box"><i class="ti-layers-alt"></i></span>
+                    <div class="dd-text-wrap">
+                      <span class="dd-title">04. Competing Offers</span>
+                      <span class="dd-desc">Counteroffers &amp; Multi-Offer Strategy</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item modern-dd-item" href="personal-interview.html#section-05">
+                    <span class="dd-icon-box"><i class="ti-check-box"></i></span>
+                    <div class="dd-text-wrap">
+                      <span class="dd-title">05. Quick Revision &amp; Checklist</span>
+                      <span class="dd-desc">30s Pitch &bull; Facts &bull; What to Avoid</span>
+                    </div>
+                    <span class="dd-badge-checklist">Checklist</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn-scanner-link" href="javascript:void(0)">
+                <span class="pulse-dot"></span><i class="ti-mobile mr-1"></i>Mobile App
+              </a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </div>
   </div>
