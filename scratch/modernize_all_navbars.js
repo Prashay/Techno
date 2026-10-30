@@ -123,18 +123,18 @@ function generateModernNav(activeKey) {
             </li>
             <li class="nav-item dropdown view ${activeKey === 'personal' ? 'active' : ''}">
               <a class="nav-link dropdown-toggle nav-link-personal" href="personal-interview.html" id="navbarDropdownPersonal" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Personal Interview <span class="nav-pill-badge">HR 45 Qs</span>
+                Personal Interview <span class="nav-pill-badge">60 Qs</span>
               </a>
               <ul class="dropdown-menu modern-dropdown-menu" aria-labelledby="navbarDropdownPersonal">
-                <li class="dropdown-header-label">HR &amp; LEADERSHIP PLAYBOOK</li>
+                <li class="dropdown-header-label">HR &amp; TECHNICAL PLAYBOOK (60 Qs)</li>
                 <li>
                   <a class="dropdown-item modern-dd-item" href="personal-interview.html">
                     <span class="dd-icon-box dd-icon-hr"><i class="ti-book"></i></span>
                     <div class="dd-text-wrap">
-                      <span class="dd-title">Full HR Playbook</span>
-                      <span class="dd-desc">45 Recruiter &amp; Leadership Scripts</span>
+                      <span class="dd-title">Full Playbook (60 Qs)</span>
+                      <span class="dd-desc">45 HR + 15 Production Scenarios</span>
                     </div>
-                    <span class="dd-badge-hot">45 Qs</span>
+                    <span class="dd-badge-hot">60 Qs</span>
                   </a>
                 </li>
                 <li>
@@ -174,10 +174,20 @@ function generateModernNav(activeKey) {
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item modern-dd-item" href="personal-interview.html#section-05">
+                  <a class="dropdown-item modern-dd-item dd-highlight" href="personal-interview.html#section-05">
+                    <span class="dd-icon-box dd-icon-accent"><i class="ti-bolt"></i></span>
+                    <div class="dd-text-wrap">
+                      <span class="dd-title">05. 15 Production Scenarios</span>
+                      <span class="dd-desc">Bottlenecks, Kafka, OOM &amp; Sagas</span>
+                    </div>
+                    <span class="dd-badge-hot">Hot</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item modern-dd-item" href="personal-interview.html#section-06">
                     <span class="dd-icon-box"><i class="ti-check-box"></i></span>
                     <div class="dd-text-wrap">
-                      <span class="dd-title">05. Quick Revision &amp; Checklist</span>
+                      <span class="dd-title">06. Quick Revision &amp; Checklist</span>
                       <span class="dd-desc">30s Pitch &bull; Facts &bull; What to Avoid</span>
                     </div>
                     <span class="dd-badge-checklist">Checklist</span>

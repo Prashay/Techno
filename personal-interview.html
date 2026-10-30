@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Personal Interview &amp; HR Playbook - Techno</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Personalized HR Interview Questions &amp; Answers for Prashant Kumar Jha - Senior Java Backend Engineer &amp; Technical Lead. 45 curated questions, spoken answers, career transition narratives, and salary negotiation tactics.">
+  <meta name="description" content="Personalized Technical Lead &amp; HR Interview Playbook for Prashant Kumar Jha - 60 Real-World Questions and Production Scenarios in Java, Spring Boot, Microservices, System Architecture, Redis, Kafka, and Salary Negotiation.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="author" content="Prashant jha">
   <meta name="generator" content="Techno">
@@ -46,14 +46,14 @@
     /* Executive Stats Header Ribbon */
     .executive-stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 16px;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
     }
     .exec-stat-card {
       background: #ffffff;
       border-radius: 16px;
-      padding: 20px 22px;
+      padding: 18px 20px;
       border: 1px solid rgba(226, 232, 240, 0.9);
       box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
       position: relative;
@@ -76,9 +76,10 @@
     .exec-stat-card.c-violet::before { background: linear-gradient(90deg, #6366f1, #818cf8); }
     .exec-stat-card.c-emerald::before { background: linear-gradient(90deg, #10b981, #34d399); }
     .exec-stat-card.c-amber::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+    .exec-stat-card.c-cyan::before { background: linear-gradient(90deg, #06b6d4, #3b82f6); }
 
     .exec-stat-val {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 800;
       color: #0f172a;
       line-height: 1.2;
@@ -86,13 +87,13 @@
       margin-bottom: 4px;
     }
     .exec-stat-label {
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 700;
       color: #475569;
       margin-bottom: 2px;
     }
     .exec-stat-sub {
-      font-size: 12px;
+      font-size: 11.5px;
       color: #64748b;
     }
 
@@ -103,7 +104,7 @@
       padding: 16px 20px;
       border: 1px solid #e2e8f0;
       box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
-      margin-bottom: 30px;
+      margin-bottom: 28px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -194,6 +195,10 @@
       position: relative;
       overflow: hidden;
     }
+    .section-divider-banner.banner-tech {
+      background: linear-gradient(135deg, #090d16 0%, #131d2e 50%, #0c203b 100%);
+      border-left: 5px solid #38bdf8;
+    }
     .section-divider-banner::after {
       content: '';
       position: absolute;
@@ -215,6 +220,10 @@
       padding: 3px 10px;
       border-radius: 6px;
       margin-bottom: 8px;
+    }
+    .sec-banner-num.num-tech {
+      color: #34d399;
+      background: rgba(52, 211, 153, 0.15);
     }
     .sec-banner-title {
       font-size: 24px;
@@ -243,6 +252,9 @@
       box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
       border-color: #cbd5e1;
     }
+    .interview-q-card.card-production {
+      border-top: 3px solid #0284c7;
+    }
     .q-card-header {
       display: flex;
       align-items: flex-start;
@@ -260,6 +272,11 @@
       flex-shrink: 0;
       box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
     }
+    .q-num-pill.q-num-tech {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+    }
     .q-title-wrap {
       flex: 1;
     }
@@ -271,12 +288,16 @@
       letter-spacing: 0.5px;
       padding: 2px 8px;
       border-radius: 6px;
-      margin-bottom: 6px;
     }
     .badge-career { background: #e0f2fe; color: #0369a1; }
     .badge-tech { background: #ede9fe; color: #5b21b6; }
     .badge-salary { background: #fef3c7; color: #92400e; }
     .badge-offer { background: #fce7f3; color: #9d174d; }
+    .badge-prod { background: #dcfce7; color: #166534; }
+    .badge-perf { background: #fef3c7; color: #b45309; }
+    .badge-concur { background: #ede9fe; color: #6b21a8; }
+    .badge-resil { background: #ffe4e6; color: #be123c; }
+    .badge-kafka { background: #e0e7ff; color: #3730a3; }
 
     .q-heading {
       font-size: 19px;
@@ -297,6 +318,10 @@
       padding: 18px 22px;
       margin-top: 10px;
     }
+    .spoken-quote-bubble.quote-prod {
+      border-left: 4px solid #10b981;
+      background: linear-gradient(to right, #f0fdf4, #ffffff);
+    }
     .quote-header {
       display: flex;
       align-items: center;
@@ -313,6 +338,9 @@
       color: #0284c7;
       display: inline-flex;
       align-items: center;
+    }
+    .spoken-quote-bubble.quote-prod .quote-voice-tag {
+      color: #059669;
     }
     .btn-copy-quote {
       background: #f1f5f9;
@@ -343,6 +371,107 @@
     }
     .quote-text:last-child {
       margin-bottom: 0;
+    }
+
+    /* Production Scenario Checklist */
+    .prod-checklist-box {
+      margin-top: 14px;
+      background: #f8fafc;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      padding: 14px 18px;
+    }
+    .prod-box-label {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      color: #334155;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .prod-checklist-ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    .prod-checklist-ul li {
+      font-size: 14px;
+      color: #1e293b;
+      line-height: 1.6;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: flex-start;
+    }
+    .prod-checklist-ul li:last-child {
+      margin-bottom: 0;
+    }
+    .prod-checklist-ul li i {
+      margin-top: 4px;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    /* Resume Connection Callout */
+    .resume-connection-box {
+      margin-top: 12px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 12px 16px;
+    }
+    .resume-badge-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #166534;
+      margin-bottom: 4px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .resume-connection-text {
+      font-size: 13.5px;
+      color: #14532d;
+      line-height: 1.55;
+      margin-bottom: 0;
+      font-weight: 500;
+    }
+
+    /* Follow-up Q&A */
+    .follow-up-box {
+      margin-top: 12px;
+      background: #f5f3ff;
+      border: 1px solid #ddd6fe;
+      border-radius: 12px;
+      padding: 12px 16px;
+    }
+    .follow-up-q {
+      font-size: 13.5px;
+      color: #4c1d95;
+      margin-bottom: 6px;
+    }
+    .follow-up-badge {
+      display: inline-block;
+      background: #7c3aed;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-right: 6px;
+    }
+    .follow-up-a {
+      font-size: 13.5px;
+      color: #3b0764;
+      line-height: 1.55;
+      display: flex;
+      align-items: flex-start;
+    }
+    .follow-up-a i {
+      margin-top: 3px;
+      font-size: 12px;
+      flex-shrink: 0;
     }
 
     /* Conditional branches */
@@ -408,7 +537,232 @@
       line-height: 1.55;
     }
 
-    /* Section 05: Fact Sheet & Revision */
+    /* Lead Framework Hero Card */
+    .lead-framework-card {
+      background: linear-gradient(135deg, #090d16 0%, #172554 100%);
+      border-radius: 18px;
+      padding: 24px 26px;
+      color: #ffffff;
+      box-shadow: 0 8px 26px rgba(15, 23, 42, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    .lead-framework-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+    .framework-step-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 14px 16px;
+      height: 100%;
+      transition: all 0.2s ease;
+    }
+    .framework-step-card:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: #38bdf8;
+      transform: translateY(-2px);
+    }
+    .framework-step-num {
+      width: 26px;
+      height: 26px;
+      background: #0284c7;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    .framework-step-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .framework-step-desc {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.45;
+    }
+    .framework-truth-alert {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 12.5px;
+      color: #fde68a;
+      display: flex;
+      align-items: flex-start;
+      line-height: 1.5;
+    }
+
+    /* Subcategory Filter Row */
+    .subcat-filter-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 12px 18px;
+      border-radius: 14px;
+    }
+    .subcat-filter-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #64748b;
+    }
+    .subcat-pills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .subcat-pill-btn {
+      padding: 5px 12px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      color: #475569;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .subcat-pill-btn:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    .subcat-pill-btn.active {
+      background: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
+    }
+    .subcat-pill-btn .badge-count {
+      display: inline-block;
+      margin-left: 4px;
+      padding: 0 6px;
+      font-size: 11px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 8px;
+    }
+    .subcat-pill-btn:not(.active) .badge-count {
+      background: #e2e8f0;
+      color: #475569;
+    }
+
+    /* Final 60-Second Formula */
+    .final-formula-card {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+      border-radius: 16px;
+      padding: 24px 28px;
+      color: #ffffff;
+      box-shadow: 0 6px 20px rgba(30, 27, 75, 0.15);
+    }
+    .formula-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fbbf24;
+      background: rgba(251, 191, 36, 0.15);
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+    }
+    .formula-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .formula-subtitle {
+      font-size: 13.5px;
+      color: #c7d2fe;
+      margin-bottom: 18px;
+    }
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .formula-step-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .f-num {
+      background: #fbbf24;
+      color: #1e1b4b;
+      font-weight: 800;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .f-text {
+      font-size: 13px;
+      line-height: 1.45;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    /* Technical References */
+    .tech-references-card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      padding: 22px 26px;
+      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+    }
+    .ref-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+    .ref-subtitle {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+    .ref-links-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .ref-link-pill {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #334155;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+    .ref-link-pill:hover {
+      background: #e0f2fe;
+      border-color: #0284c7;
+      color: #0369a1;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    /* Section 06: Fact Sheet & Revision */
     .revision-box-hero {
       background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
       border-radius: 20px;
@@ -494,7 +848,7 @@
     /* Key Figures Table */
     .key-figures-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
       gap: 14px;
       margin-bottom: 30px;
     }
@@ -625,6 +979,11 @@
       text-decoration: none;
       transform: translateY(-1px);
     }
+    .priority-chip.chip-tech {
+      background: #e0f2fe;
+      border-color: #bae6fd;
+      color: #0369a1;
+    }
 
     /* Toast */
     .playbook-toast {
@@ -652,7 +1011,7 @@
     }
 
     @media print {
-      .header, .page-title-section, .playbook-control-bar, footer, .preloader, #techno-floating-app-hub {
+      .header, .page-title-section, .playbook-control-bar, footer, .preloader, #techno-floating-app-hub, .btn-copy-quote, .subcat-filter-row {
         display: none !important;
       }
       .interview-q-card {
@@ -690,7 +1049,7 @@
       <div class="ai-loader-bar">
         <div class="ai-loader-bar-fill"></div>
       </div>
-      <div class="ai-loader-sub">Personalized HR Interview Playbook &bull; 2026</div>
+      <div class="ai-loader-sub">Personalized HR &amp; Technical Interview Playbook &bull; 2026</div>
     </div>
   </div>
   <!-- preloader end -->
@@ -719,7 +1078,7 @@
 <header class="fixed-top header">
   <div class="navigation w-100">
     <div class="container">
-                  <nav class="navbar navbar-expand-lg navbar-dark p-0">
+            <nav class="navbar navbar-expand-lg navbar-dark p-0">
         <a class="navbar-brand" href="index.html">
           <img class="site-logo" src="images/logo.svg" alt="Techno">
         </a>
@@ -825,18 +1184,18 @@
             </li>
             <li class="nav-item dropdown view active">
               <a class="nav-link dropdown-toggle nav-link-personal" href="personal-interview.html" id="navbarDropdownPersonal" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Personal Interview <span class="nav-pill-badge">HR 45 Qs</span>
+                Personal Interview <span class="nav-pill-badge">60 Qs</span>
               </a>
               <ul class="dropdown-menu modern-dropdown-menu" aria-labelledby="navbarDropdownPersonal">
-                <li class="dropdown-header-label">HR &amp; LEADERSHIP PLAYBOOK</li>
+                <li class="dropdown-header-label">HR &amp; TECHNICAL PLAYBOOK (60 Qs)</li>
                 <li>
                   <a class="dropdown-item modern-dd-item" href="personal-interview.html">
                     <span class="dd-icon-box dd-icon-hr"><i class="ti-book"></i></span>
                     <div class="dd-text-wrap">
-                      <span class="dd-title">Full HR Playbook</span>
-                      <span class="dd-desc">45 Recruiter &amp; Leadership Scripts</span>
+                      <span class="dd-title">Full Playbook (60 Qs)</span>
+                      <span class="dd-desc">45 HR + 15 Production Scenarios</span>
                     </div>
-                    <span class="dd-badge-hot">45 Qs</span>
+                    <span class="dd-badge-hot">60 Qs</span>
                   </a>
                 </li>
                 <li>
@@ -876,10 +1235,20 @@
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item modern-dd-item" href="personal-interview.html#section-05">
+                  <a class="dropdown-item modern-dd-item dd-highlight" href="personal-interview.html#section-05">
+                    <span class="dd-icon-box dd-icon-accent"><i class="ti-bolt"></i></span>
+                    <div class="dd-text-wrap">
+                      <span class="dd-title">05. 15 Production Scenarios</span>
+                      <span class="dd-desc">Bottlenecks, Kafka, OOM &amp; Sagas</span>
+                    </div>
+                    <span class="dd-badge-hot">Hot</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item modern-dd-item" href="personal-interview.html#section-06">
                     <span class="dd-icon-box"><i class="ti-check-box"></i></span>
                     <div class="dd-text-wrap">
-                      <span class="dd-title">05. Quick Revision &amp; Checklist</span>
+                      <span class="dd-title">06. Quick Revision &amp; Checklist</span>
                       <span class="dd-desc">30s Pitch &bull; Facts &bull; What to Avoid</span>
                     </div>
                     <span class="dd-badge-checklist">Checklist</span>
@@ -912,10 +1281,10 @@
           <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="index.html">Home</a></li>
           <li class="list-inline-item text-white h3 font-secondary nasted">Personal Interview Playbook</li>
         </ul>
-        <h1 class="text-white font-weight-bold mb-2" style="font-size: 32px;">HR Interview Questions &amp; Answers</h1>
+        <h1 class="text-white font-weight-bold mb-2" style="font-size: 32px;">HR &amp; Technical Interview Playbook</h1>
         <p class="text-lighten mb-0">Java &bull; Spring Boot &bull; Microservices &bull; Senior Software Engineer / Technical Lead</p>
         <div class="mt-2 text-warning" style="font-size: 13.5px; font-weight: 600;">
-          <i class="ti-user mr-1"></i> Personalized Preparation for Prashant Kumar Jha &bull; 45 Verified Recruiter &amp; Hiring Manager Scripts
+          <i class="ti-user mr-1"></i> Prepared for Prashant Kumar Jha &bull; 60 Questions (45 HR &amp; Leadership + 15 Production Scenarios)
         </div>
       </div>
     </div>
@@ -949,6 +1318,11 @@
         <div class="exec-stat-label">Suggested Opening Expectation</div>
         <div class="exec-stat-sub">Justified by API optimization (8s &rarr; 170ms) &amp; leadership</div>
       </div>
+      <div class="exec-stat-card c-cyan">
+        <div class="exec-stat-val">60 Curated Q&amp;As</div>
+        <div class="exec-stat-label">HR + Production Scenarios</div>
+        <div class="exec-stat-sub">45 Recruiter Scripts &bull; 15 Production Architecture Scenarios</div>
+      </div>
     </div>
 
     <!-- Important Guidance Alert -->
@@ -956,7 +1330,7 @@
       <div class="d-flex align-items-center">
         <i class="ti-info-alt text-primary mr-3" style="font-size: 20px;"></i>
         <div style="font-size: 14px; line-height: 1.6;">
-          <strong>Candidate Advisory:</strong> Some questions include conditional sample answers (such as promotion discussions or competing offer status). Use only statements that match your actual experience. The salary target is an informed opening negotiation position.
+          <strong>Candidate &amp; Technical Lead Advisory:</strong> This guide contains 45 HR &amp; negotiation questions plus 15 advanced technical production incident scenarios (Q46-Q60). Use the spoken answers and checklists as authentic frameworks grounded in your real architecture experience at Lowe's, IBM, HCLTech, and CGI.
         </div>
       </div>
     </div>
@@ -965,11 +1339,11 @@
     <div class="playbook-control-bar">
       <div class="search-input-wrap">
         <i class="ti-search"></i>
-        <input type="text" class="playbook-search-input" id="search-input" placeholder="Search questions (e.g. Lowe's, salary, Redis, STIXIS, AI, notice)...">
+        <input type="text" class="playbook-search-input" id="search-input" placeholder="Search questions &amp; scenarios (e.g. bottleneck, HikariCP, Kafka lag, idempotency, Lowe's, salary)...">
       </div>
       <div class="filter-pills-wrap">
         <button class="filter-tab-pill active" data-filter="all">
-          All Questions <span class="filter-count-badge" id="count-all">45</span>
+          All Questions <span class="filter-count-badge" id="count-all">60</span>
         </button>
         <button class="filter-tab-pill" data-filter="section-01">
           01 Career Story <span class="filter-count-badge">12</span>
@@ -983,8 +1357,11 @@
         <button class="filter-tab-pill" data-filter="section-04">
           04 Competing Offers <span class="filter-count-badge">7</span>
         </button>
-        <button class="filter-tab-pill" data-filter="section-05">
-          05 Revision &amp; Facts
+        <button class="filter-tab-pill" data-filter="section-05" style="border-color: #38bdf8; font-weight: 700;">
+          <i class="ti-bolt text-warning mr-1"></i> 05 Production Scenarios <span class="filter-count-badge" style="background: #0284c7; color: #fff;">15</span>
+        </button>
+        <button class="filter-tab-pill" data-filter="section-06">
+          06 Revision &amp; Facts
         </button>
       </div>
       <div>
@@ -994,33 +1371,38 @@
       </div>
     </div>
 
-    <!-- Sections 01 to 04 -->
+    <!-- Sections 01 to 05 -->
     <div id="questions-container">
       
     <div class="section-anchor-wrap" id="section-01">
-      <div class="section-divider-banner">
+      <div class="section-divider-banner ">
         <div class="sec-banner-meta">
-          <span class="sec-banner-num">SECTION 01</span>
+          <span class="sec-banner-num ">SECTION 01</span>
           <h2 class="sec-banner-title">Career story & transitions</h2>
           <p class="sec-banner-theme"><i class="ti-light-bulb mr-1 text-warning"></i> Build a positive narrative around your early upskilling, your move to CGI, and your growth ambitions at Lowe's.</p>
         </div>
       </div>
+      
+      
       <div class="row">
         
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q01" data-secid="section-01">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q01" data-secid="section-01" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q01</div>
+          <div class="q-num-pill ">Q01</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+              
+            </div>
             <h3 class="q-heading">Tell me about yourself.</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="Sure. I&#039;m a backend software engineer with over eight years of experience, primarily working with Java, Spring Boot, microservices, and distributed systems.
 
 I started my career at STIXIS and later worked with CGI, HCLTech, IBM, and currently Lowe&#039;s India.
@@ -1037,25 +1419,31 @@ At this stage, I&#039;m looking for an opportunity where I can contribute hands-
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q02" data-secid="section-01">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q02" data-secid="section-01" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q02</div>
+          <div class="q-num-pill ">Q02</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+              
+            </div>
             <h3 class="q-heading">Why did you leave STIXIS after just six months?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="STIXIS was my first professional experience, where I worked on developing a customer-facing B2B portal. During that time, I was also upgrading my skills by completing a course focused on Java, Spring Boot, and microservices.
 
 After completing that training, I explored opportunities through off-campus recruitment and successfully secured a position at CGI. CGI offered me the opportunity to work on enterprise banking applications, which aligned with my career interests.
@@ -1068,25 +1456,31 @@ I subsequently spent nearly three years there, so that early move was an importa
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q03" data-secid="section-01">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q03" data-secid="section-01" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q03</div>
+          <div class="q-num-pill ">Q03</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+              
+            </div>
             <h3 class="q-heading">Why did you join CGI?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="After completing my Java, Spring Boot, and microservices training, I wanted to apply those skills in an enterprise development environment.
 
 I cleared CGI&#039;s off-campus recruitment process and received an opportunity to work on banking applications. It was a valuable transition because I gained experience working with Java backend systems, REST APIs, enterprise business logic, and production support." title="Copy to clipboard">
@@ -1097,25 +1491,31 @@ I cleared CGI&#039;s off-campus recruitment process and received an opportunity 
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q04" data-secid="section-01">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q04" data-secid="section-01" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q04</div>
+          <div class="q-num-pill ">Q04</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+              
+            </div>
             <h3 class="q-heading">Why is there a gap between STIXIS and CGI?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="My STIXIS employment ended in August 2018, and I joined CGI in November 2018 after clearing the off-campus recruitment process.
 
 During that transition period, I was [explain your actual activities during September and October 2018]." title="Copy to clipboard">
@@ -1125,6 +1525,9 @@ During that transition period, I was [explain your actual activities during Sept
         <p class="quote-text">My STIXIS employment ended in August 2018, and I joined CGI in November 2018 after clearing the off-campus recruitment process.</p><p class="quote-text">During that transition period, I was [explain your actual activities during September and October 2018].</p>
       </div>
     
+          
+          
+          
           
       <div class="prep-note-callout">
         <div class="prep-note-icon"><i class="ti-alert"></i></div>
@@ -1138,20 +1541,23 @@ During that transition period, I was [explain your actual activities during Sept
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q05" data-secid="section-01">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q05" data-secid="section-01" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q05</div>
+          <div class="q-num-pill ">Q05</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+              
+            </div>
             <h3 class="q-heading">Why have you changed companies multiple times?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="My career moves have helped me develop experience across different enterprise domains and backend technologies.
 
 At CGI, I spent nearly three years working on banking applications. At HCLTech, I worked on mobility-related microservices, and at IBM, I gained experience leading engineers and developing a Kubernetes-based CI/CD platform.
@@ -1166,25 +1572,31 @@ At this stage, I&#039;m looking for greater alignment between my responsibilitie
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q06" data-secid="section-01">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q06" data-secid="section-01" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q06</div>
+          <div class="q-num-pill ">Q06</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+              
+            </div>
             <h3 class="q-heading">Why do you want to leave Lowe&#039;s before completing two years?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I&#039;ve had a positive experience at Lowe&#039;s and learned a lot while working on large-scale distributed systems.
 
 I&#039;m currently involved in backend architecture, mentoring engineers, reviewing code, and leading feature development. Over time, my responsibilities have grown beyond my current Senior Software Engineer designation.
@@ -1199,25 +1611,31 @@ So my decision isn&#039;t based on any negative experience. I&#039;m looking for
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q07" data-secid="section-01">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q07" data-secid="section-01" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q07</div>
+          <div class="q-num-pill ">Q07</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+              
+            </div>
             <h3 class="q-heading">Why can&#039;t you get career growth at Lowe&#039;s?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="Lowe&#039;s has provided me with good learning opportunities, and I genuinely value my experience here.
 
 However, while exploring my next career step, I want to consider opportunities that offer a stronger progression path, greater architectural ownership, and compensation aligned with my responsibilities.
@@ -1230,17 +1648,23 @@ I believe exploring external opportunities is a reasonable part of career planni
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q08" data-secid="section-01">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q08" data-secid="section-01" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q08</div>
+          <div class="q-num-pill ">Q08</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+              
+            </div>
             <h3 class="q-heading">Have you discussed your promotion with your manager?</h3>
           </div>
         </div>
@@ -1291,6 +1715,9 @@ I believe exploring external opportunities is a reasonable part of career planni
       </div>
     
           
+          
+          
+          
       <div class="prep-note-callout">
         <div class="prep-note-icon"><i class="ti-alert"></i></div>
         <div class="prep-note-body">
@@ -1303,20 +1730,23 @@ I believe exploring external opportunities is a reasonable part of career planni
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q09" data-secid="section-01">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q09" data-secid="section-01" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q09</div>
+          <div class="q-num-pill ">Q09</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+              
+            </div>
             <h3 class="q-heading">If Lowe&#039;s offers you a promotion or counteroffer, will you stay?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I value my current organization, and I would certainly treat any internal opportunity respectfully.
 
 However, my decision to explore new roles is based on several factors, including technical responsibilities, career progression, long-term growth, and compensation.
@@ -1329,25 +1759,31 @@ I don&#039;t want to make a career decision based only on a counteroffer. If I a
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q10" data-secid="section-01">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q10" data-secid="section-01" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q10</div>
+          <div class="q-num-pill ">Q10</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+              
+            </div>
             <h3 class="q-heading">Why should we believe you will stay with us long-term?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I understand your concern.
 
 If you look at my experience, I spent nearly three years at CGI and have consistently developed my expertise in enterprise Java backend engineering.
@@ -1362,25 +1798,31 @@ I&#039;m not looking to change organizations frequently. I&#039;m evaluating opp
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q11" data-secid="section-01">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q11" data-secid="section-01" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q11</div>
+          <div class="q-num-pill ">Q11</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+              
+            </div>
             <h3 class="q-heading">What if we offer the same Senior Software Engineer designation?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I&#039;m open to the same designation if the role provides the right technical challenges, responsibilities, and opportunities for growth.
 
 For me, career progression isn&#039;t only about the title. It also involves technical ownership, architectural responsibilities, the complexity of systems, opportunities to mentor engineers, and compensation.
@@ -1393,25 +1835,31 @@ If the role aligns with those expectations and offers a clear growth path, I&#03
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q12" data-secid="section-01">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q12" data-secid="section-01" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q12</div>
+          <div class="q-num-pill ">Q12</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-career">01 &bull; Career story &amp; transitions</span>
+              
+            </div>
             <h3 class="q-heading">Why do you want to join our organization?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I&#039;m interested in this opportunity because the role aligns closely with my core experience in Java, Spring Boot, microservices, and distributed systems.
 
 I&#039;m looking for an environment where I can work on challenging backend systems, take ownership of important features, and contribute to engineering decisions.
@@ -1424,6 +1872,9 @@ I&#039;d also like to understand your technical roadmap and team responsibilitie
       </div>
     
           
+          
+          
+          
       <div class="prep-note-callout">
         <div class="prep-note-icon"><i class="ti-alert"></i></div>
         <div class="prep-note-body">
@@ -1435,33 +1886,40 @@ I&#039;d also like to understand your technical roadmap and team responsibilitie
       </div>
     </div>
   
+        
+        
       </div>
     </div>
   
     <div class="section-anchor-wrap" id="section-02">
-      <div class="section-divider-banner">
+      <div class="section-divider-banner ">
         <div class="sec-banner-meta">
-          <span class="sec-banner-num">SECTION 02</span>
+          <span class="sec-banner-num ">SECTION 02</span>
           <h2 class="sec-banner-title">Java expertise & technical leadership</h2>
           <p class="sec-banner-theme"><i class="ti-light-bulb mr-1 text-warning"></i> Reinforce that Java backend engineering is your core specialization and support leadership claims with your real project experience.</p>
         </div>
       </div>
+      
+      
       <div class="row">
         
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q13" data-secid="section-02">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q13" data-secid="section-02" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q13</div>
+          <div class="q-num-pill ">Q13</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+              
+            </div>
             <h3 class="q-heading">We&#039;re hiring for Java and microservices only. Are you comfortable without AI work?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="Absolutely. My core expertise is Java backend development, and that&#039;s where I&#039;ve spent most of my professional career.
 
 I&#039;ve worked with Java 8, Java 17, and Java 21, along with Spring Boot, REST APIs, Kafka, Redis, and distributed systems.
@@ -1476,25 +1934,31 @@ So I&#039;m completely comfortable with a role focused entirely on Java and micr
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q14" data-secid="section-02">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q14" data-secid="section-02" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q14</div>
+          <div class="q-num-pill ">Q14</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+              
+            </div>
             <h3 class="q-heading">If you&#039;re interested in AI, won&#039;t you leave for an AI role later?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I see AI as an additional capability rather than a replacement for backend engineering.
 
 Even AI-driven enterprise applications require secure APIs, scalable microservices, databases, event-driven systems, and reliable backend infrastructure.
@@ -1507,25 +1971,31 @@ My primary professional strength remains Java backend engineering. I want to con
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q15" data-secid="section-02">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q15" data-secid="section-02" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q15</div>
+          <div class="q-num-pill ">Q15</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+              
+            </div>
             <h3 class="q-heading">You are a Senior Software Engineer. How are you already performing technical lead responsibilities?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="Although my official designation is Senior Software Engineer, my responsibilities include mentoring eight engineers, participating in backend architecture decisions, conducting code reviews, and coordinating feature delivery.
 
 I remain hands-on with implementation while supporting the team with technical decisions, code quality, and production issues.
@@ -1538,25 +2008,31 @@ This combination of individual technical contribution and team mentorship has he
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q16" data-secid="section-02">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q16" data-secid="section-02" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q16</div>
+          <div class="q-num-pill ">Q16</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+              
+            </div>
             <h3 class="q-heading">Do you prefer hands-on coding or management?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="My preference is hands-on technical leadership.
 
 I enjoy designing and implementing backend systems, reviewing code, solving difficult technical problems, and mentoring engineers.
@@ -1569,25 +2045,31 @@ I don&#039;t want to move into a purely people-management role at this stage. I 
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q17" data-secid="section-02">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q17" data-secid="section-02" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q17</div>
+          <div class="q-num-pill ">Q17</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+              
+            </div>
             <h3 class="q-heading">Tell me about your biggest achievement at Lowe&#039;s.</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="One of my significant achievements was improving the performance of our inventory and lookup APIs.
 
 We were experiencing high tail latency, with p99 response times reaching approximately eight seconds. I worked on implementing distributed Redis caching, which helped reduce p99 latency to approximately 170 milliseconds.
@@ -1600,25 +2082,31 @@ This was an important improvement in application responsiveness and backend perf
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q18" data-secid="section-02">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q18" data-secid="section-02" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q18</div>
+          <div class="q-num-pill ">Q18</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+              
+            </div>
             <h3 class="q-heading">How many engineers have you led?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="At Lowe&#039;s, I&#039;ve mentored eight engineers and contributed to architecture, code reviews, and technical delivery.
 
 Previously, at IBM, I led a team of ten engineers working on a Kubernetes-based CI/CD control plane.
@@ -1631,25 +2119,31 @@ My leadership approach focuses on remaining technically involved while helping e
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q19" data-secid="section-02">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q19" data-secid="section-02" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q19</div>
+          <div class="q-num-pill ">Q19</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+              
+            </div>
             <h3 class="q-heading">How do you handle disagreements during code review?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I try to keep technical discussions objective and focused on engineering requirements.
 
 I first understand the reasoning behind the proposed implementation. Then I evaluate aspects such as maintainability, performance, security, testing, and consistency with our architecture.
@@ -1662,25 +2156,31 @@ If there are multiple valid approaches, I prefer discussing the trade-offs and a
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q20" data-secid="section-02">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q20" data-secid="section-02" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q20</div>
+          <div class="q-num-pill ">Q20</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+              
+            </div>
             <h3 class="q-heading">How do you handle production incidents?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="My first priority is to understand the impact and restore service stability.
 
 I start by checking monitoring dashboards, logs, error patterns, and the affected services. I coordinate with the relevant engineers to identify the issue and determine the safest mitigation.
@@ -1693,25 +2193,31 @@ After service recovery, I focus on root-cause analysis and preventive improvemen
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q21" data-secid="section-02">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q21" data-secid="section-02" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q21</div>
+          <div class="q-num-pill ">Q21</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+              
+            </div>
             <h3 class="q-heading">Tell me about handling high transaction volumes.</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="At Lowe&#039;s, I was involved in supporting production operations during the Black Friday and Cyber Monday event.
 
 The retail platform processed approximately 2.3 million transactions across the entire event. My responsibilities included on-call incident response and supporting the reliability of backend services.
@@ -1724,25 +2230,31 @@ This gave me valuable experience working with business-critical systems where mo
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q22" data-secid="section-02">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q22" data-secid="section-02" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q22</div>
+          <div class="q-num-pill ">Q22</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+              
+            </div>
             <h3 class="q-heading">What is your biggest technical strength?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="My biggest strength is solving backend engineering problems with a practical and structured approach.
 
 I have experience developing Java microservices, working with distributed systems, improving API performance, and handling production issues.
@@ -1755,25 +2267,31 @@ I also bring the ability to mentor engineers and contribute to architectural dec
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q23" data-secid="section-02">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q23" data-secid="section-02" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q23</div>
+          <div class="q-num-pill ">Q23</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+              
+            </div>
             <h3 class="q-heading">What is one area you want to improve?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I want to continue deepening my expertise in large-scale distributed system architecture.
 
 Although I already work with microservices, Kafka, Redis, and production systems, I believe there&#039;s always room to improve in areas such as resilience, system design trade-offs, and performance engineering.
@@ -1786,25 +2304,31 @@ I actively try to improve through hands-on implementation, architecture discussi
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q24" data-secid="section-02">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q24" data-secid="section-02" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q24</div>
+          <div class="q-num-pill ">Q24</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-tech">02 &bull; Java expertise &amp; technical leadership</span>
+              
+            </div>
             <h3 class="q-heading">Why should we hire you?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I believe I bring a combination of strong Java backend engineering experience, production ownership, and technical leadership capabilities.
 
 I&#039;ve worked with Spring Boot microservices, distributed systems, Kafka, Redis, and enterprise applications across multiple domains.
@@ -1819,37 +2343,47 @@ I can contribute hands-on from the beginning and also support technical design, 
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
+        
+        
       </div>
     </div>
   
     <div class="section-anchor-wrap" id="section-03">
-      <div class="section-divider-banner">
+      <div class="section-divider-banner ">
         <div class="sec-banner-meta">
-          <span class="sec-banner-num">SECTION 03</span>
+          <span class="sec-banner-num ">SECTION 03</span>
           <h2 class="sec-banner-title">Compensation, offers & logistics</h2>
           <p class="sec-banner-theme"><i class="ti-light-bulb mr-1 text-warning"></i> Stay consistent on current CTC, communicate a reasoned expectation, and ask for fixed-versus-variable details.</p>
         </div>
       </div>
+      
+      
       <div class="row">
         
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q25" data-secid="section-03">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q25" data-secid="section-03" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q25</div>
+          <div class="q-num-pill ">Q25</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+              
+            </div>
             <h3 class="q-heading">What is your current CTC?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="My current total CTC is ₹29 LPA, which includes ₹26.5 LPA fixed compensation and ₹2.5 LPA variable pay." title="Copy to clipboard">
             <i class="ti-files mr-1"></i> Copy
           </button>
@@ -1858,25 +2392,31 @@ I can contribute hands-on from the beginning and also support technical design, 
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q26" data-secid="section-03">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q26" data-secid="section-03" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q26</div>
+          <div class="q-num-pill ">Q26</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+              
+            </div>
             <h3 class="q-heading">What is your expected CTC?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="Considering my eight-plus years of experience, technical responsibilities, and expertise in Java microservices and distributed systems, I&#039;m targeting approximately ₹40 to ₹42 LPA.
 
 However, I&#039;m open to discussing the overall package depending on the role&#039;s responsibilities, fixed compensation, and career growth opportunities." title="Copy to clipboard">
@@ -1887,25 +2427,31 @@ However, I&#039;m open to discussing the overall package depending on the role&#
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q27" data-secid="section-03">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q27" data-secid="section-03" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q27</div>
+          <div class="q-num-pill ">Q27</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+              
+            </div>
             <h3 class="q-heading">You&#039;re expecting almost a 40-45% hike. Why?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I understand that it&#039;s a significant increase compared to my current compensation.
 
 However, my expectation is based on the responsibilities and experience I bring rather than only a percentage increase. My current role includes backend architecture, mentoring engineers, feature delivery, performance optimization, and production ownership.
@@ -1920,25 +2466,31 @@ That said, I&#039;m open to a reasonable discussion based on your compensation s
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q28" data-secid="section-03">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q28" data-secid="section-03" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q28</div>
+          <div class="q-num-pill ">Q28</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+              
+            </div>
             <h3 class="q-heading">Why should we pay ₹40-42 LPA for your experience?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I believe the value I bring goes beyond implementing assigned development tasks.
 
 I&#039;ve contributed to designing distributed backend systems, improving API performance, reviewing and maintaining code quality, mentoring engineers, and supporting production applications.
@@ -1953,25 +2505,31 @@ I believe these experiences position me to contribute to both technical delivery
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q29" data-secid="section-03">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q29" data-secid="section-03" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q29</div>
+          <div class="q-num-pill ">Q29</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+              
+            </div>
             <h3 class="q-heading">Our maximum budget is ₹35 LPA. Are you comfortable?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="Thank you for sharing the budget.
 
 I&#039;m genuinely interested in the opportunity, particularly because of its alignment with my Java and microservices experience. My current expectation is closer to ₹40 LPA, considering the responsibilities and my experience.
@@ -1984,25 +2542,31 @@ Would there be any flexibility in the fixed compensation or overall package? I&#
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q30" data-secid="section-03">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q30" data-secid="section-03" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q30</div>
+          <div class="q-num-pill ">Q30</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+              
+            </div>
             <h3 class="q-heading">Is compensation more important than career growth?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I consider both important.
 
 A challenging technical role with meaningful responsibilities and a clear progression path is essential for my long-term career. At the same time, I believe compensation should be reasonably aligned with the responsibilities and experience expected from the position.
@@ -2015,25 +2579,31 @@ I&#039;m looking for the right balance rather than prioritizing only one factor.
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q31" data-secid="section-03">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q31" data-secid="section-03" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q31</div>
+          <div class="q-num-pill ">Q31</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+              
+            </div>
             <h3 class="q-heading">What is your minimum expected salary?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I&#039;d prefer to evaluate the overall offer rather than commit to an absolute minimum upfront.
 
 My current target is around ₹40-42 LPA, but I&#039;m happy to discuss the fixed component, role responsibilities, and long-term opportunities before making a decision." title="Copy to clipboard">
@@ -2044,25 +2614,31 @@ My current target is around ₹40-42 LPA, but I&#039;m happy to discuss the fixe
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q32" data-secid="section-03">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q32" data-secid="section-03" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q32</div>
+          <div class="q-num-pill ">Q32</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+              
+            </div>
             <h3 class="q-heading">Are you comfortable with variable compensation?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="Yes, I&#039;m open to a reasonable variable component.
 
 However, I would prefer a strong fixed component, since that provides more predictable compensation.
@@ -2075,17 +2651,23 @@ I&#039;d also like to understand how variable pay is determined and whether it d
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q33" data-secid="section-03">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q33" data-secid="section-03" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q33</div>
+          <div class="q-num-pill ">Q33</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+              
+            </div>
             <h3 class="q-heading">Do you currently have any other offers?</h3>
           </div>
         </div>
@@ -2136,6 +2718,9 @@ I&#039;d also like to understand how variable pay is determined and whether it d
       </div>
     
           
+          
+          
+          
       <div class="prep-note-callout">
         <div class="prep-note-icon"><i class="ti-alert"></i></div>
         <div class="prep-note-body">
@@ -2148,20 +2733,23 @@ I&#039;d also like to understand how variable pay is determined and whether it d
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q34" data-secid="section-03">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q34" data-secid="section-03" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q34</div>
+          <div class="q-num-pill ">Q34</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+              
+            </div>
             <h3 class="q-heading">What is your notice period?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="My official notice period is [insert the notice period stated in your employment agreement].
 
 If selected, I&#039;ll ensure a professional transition and proper knowledge transfer. I&#039;ll also discuss the joining timeline with my current organization if an earlier release is needed." title="Copy to clipboard">
@@ -2171,6 +2759,9 @@ If selected, I&#039;ll ensure a professional transition and proper knowledge tra
         <p class="quote-text">My official notice period is [insert the notice period stated in your employment agreement].</p><p class="quote-text">If selected, I&#039;ll ensure a professional transition and proper knowledge transfer. I&#039;ll also discuss the joining timeline with my current organization if an earlier release is needed.</p>
       </div>
     
+          
+          
+          
           
       <div class="prep-note-callout">
         <div class="prep-note-icon"><i class="ti-alert"></i></div>
@@ -2184,20 +2775,23 @@ If selected, I&#039;ll ensure a professional transition and proper knowledge tra
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q35" data-secid="section-03">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q35" data-secid="section-03" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q35</div>
+          <div class="q-num-pill ">Q35</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+              
+            </div>
             <h3 class="q-heading">Are you comfortable with hybrid working?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="Yes, I&#039;m comfortable with a hybrid work environment.
 
 I believe in-person collaboration is valuable for architecture discussions, technical planning, mentoring, and team coordination.
@@ -2209,6 +2803,9 @@ I&#039;m also comfortable working independently and collaborating with distribut
         <p class="quote-text">Yes, I&#039;m comfortable with a hybrid work environment.</p><p class="quote-text">I believe in-person collaboration is valuable for architecture discussions, technical planning, mentoring, and team coordination.</p><p class="quote-text">I&#039;m also comfortable working independently and collaborating with distributed teams. I&#039;d be happy to understand the office location and required number of in-office days.</p>
       </div>
     
+          
+          
+          
           
       <div class="prep-note-callout">
         <div class="prep-note-icon"><i class="ti-alert"></i></div>
@@ -2222,20 +2819,23 @@ I&#039;m also comfortable working independently and collaborating with distribut
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q36" data-secid="section-03">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q36" data-secid="section-03" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q36</div>
+          <div class="q-num-pill ">Q36</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+              
+            </div>
             <h3 class="q-heading">Are you willing to relocate?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="Yes, I&#039;m open to relocation for the right opportunity.
 
 My decision would depend on the work location, responsibilities, compensation, and overall career prospects. I&#039;m flexible and willing to discuss relocation requirements." title="Copy to clipboard">
@@ -2246,25 +2846,31 @@ My decision would depend on the work location, responsibilities, compensation, a
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q37" data-secid="section-03">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q37" data-secid="section-03" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q37</div>
+          <div class="q-num-pill ">Q37</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+              
+            </div>
             <h3 class="q-heading">When can you join?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I would be able to join after completing my contractual notice period and handing over my current responsibilities professionally.
 
 Once we reach the offer stage, I can discuss the joining timeline and explore whether any flexibility is possible." title="Copy to clipboard">
@@ -2275,72 +2881,88 @@ Once we reach the offer stage, I can discuss the joining timeline and explore wh
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q38" data-secid="section-03">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q38" data-secid="section-03" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q38</div>
+          <div class="q-num-pill ">Q38</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
+              
+            </div>
             <h3 class="q-heading">Do you have any questions for us?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
-          <button class="btn-copy-quote" data-copy-text="Yes, thank you. I&#039;d like to understand a few things about this opportunity:
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
+          <button class="btn-copy-quote" data-copy-text="Yes, thank you. I&#039;d like to understand a few things about this opportunity.
 
-1. What are the main technical challenges the team is currently working on?
-2. How much ownership would this role have in architecture and technical decision-making?
-3. What does the career progression path look like for a Senior Software Engineer who demonstrates technical leadership?
-4. And finally, how do you measure success for someone in this role during the first six months?" title="Copy to clipboard">
+First, what are the main technical challenges the team is currently working on?
+
+Second, how much ownership would this role have in architecture and technical decision-making?
+
+Third, what does the career progression path look like for a Senior Software Engineer who demonstrates technical leadership?
+
+And finally, how do you measure success for someone in this role during the first six months?" title="Copy to clipboard">
             <i class="ti-files mr-1"></i> Copy
           </button>
         </div>
-        <p class="quote-text">Yes, thank you. I&#039;d like to understand a few things about this opportunity:</p><p class="quote-text">1. What are the main technical challenges the team is currently working on?
-2. How much ownership would this role have in architecture and technical decision-making?
-3. What does the career progression path look like for a Senior Software Engineer who demonstrates technical leadership?
-4. And finally, how do you measure success for someone in this role during the first six months?</p>
+        <p class="quote-text">Yes, thank you. I&#039;d like to understand a few things about this opportunity.</p><p class="quote-text">First, what are the main technical challenges the team is currently working on?</p><p class="quote-text">Second, how much ownership would this role have in architecture and technical decision-making?</p><p class="quote-text">Third, what does the career progression path look like for a Senior Software Engineer who demonstrates technical leadership?</p><p class="quote-text">And finally, how do you measure success for someone in this role during the first six months?</p>
       </div>
     
+          
+          
+          
           
         </div>
       </div>
     </div>
   
+        
+        
       </div>
     </div>
   
     <div class="section-anchor-wrap" id="section-04">
-      <div class="section-divider-banner">
+      <div class="section-divider-banner ">
         <div class="sec-banner-meta">
-          <span class="sec-banner-num">SECTION 04</span>
+          <span class="sec-banner-num ">SECTION 04</span>
           <h2 class="sec-banner-title">Competing-offer scenarios</h2>
           <p class="sec-banner-theme"><i class="ti-light-bulb mr-1 text-warning"></i> Use this section if you genuinely have another offer. Be transparent about the status, terms, deadlines, and decisions; never bluff.</p>
         </div>
       </div>
+      
+      
       <div class="row">
         
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q39" data-secid="section-04">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q39" data-secid="section-04" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q39</div>
+          <div class="q-num-pill ">Q39</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-offer">04 &bull; Competing-offer scenarios</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-offer">04 &bull; Competing-offer scenarios</span>
+              
+            </div>
             <h3 class="q-heading">You already have an offer. Why are you still looking for other opportunities?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="Yes, I currently have an offer, and I&#039;m grateful for that opportunity. However, I&#039;m not making a career decision based only on the first offer I receive or on compensation alone.
 
 At this stage, I want the right combination of technical responsibilities, career progression, organizational stability, and compensation. My core expertise is Java, Spring Boot, microservices, and distributed systems, so meaningful technical ownership matters to me.
@@ -2352,6 +2974,9 @@ That&#039;s why I&#039;m evaluating opportunities carefully before making a fina
         <p class="quote-text">Yes, I currently have an offer, and I&#039;m grateful for that opportunity. However, I&#039;m not making a career decision based only on the first offer I receive or on compensation alone.</p><p class="quote-text">At this stage, I want the right combination of technical responsibilities, career progression, organizational stability, and compensation. My core expertise is Java, Spring Boot, microservices, and distributed systems, so meaningful technical ownership matters to me.</p><p class="quote-text">That&#039;s why I&#039;m evaluating opportunities carefully before making a final decision. If your role aligns well with my goals, I would absolutely consider it seriously.</p>
       </div>
     
+          
+          
+          
           
       <div class="prep-note-callout">
         <div class="prep-note-icon"><i class="ti-alert"></i></div>
@@ -2365,20 +2990,23 @@ That&#039;s why I&#039;m evaluating opportunities carefully before making a fina
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q40" data-secid="section-04">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q40" data-secid="section-04" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q40</div>
+          <div class="q-num-pill ">Q40</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-offer">04 &bull; Competing-offer scenarios</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-offer">04 &bull; Competing-offer scenarios</span>
+              
+            </div>
             <h3 class="q-heading">If your other offer is ₹40 LPA, why should we offer you more?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I appreciate that compensation is important, but I&#039;m not trying to create a bidding competition. I evaluate roles based on engineering challenges, responsibilities, growth opportunities, and the overall compensation structure.
 
 If the role is a strong match, I&#039;d be happy to discuss a competitive package that is appropriate for its scope and expectations." title="Copy to clipboard">
@@ -2388,6 +3016,9 @@ If the role is a strong match, I&#039;d be happy to discuss a competitive packag
         <p class="quote-text">I appreciate that compensation is important, but I&#039;m not trying to create a bidding competition. I evaluate roles based on engineering challenges, responsibilities, growth opportunities, and the overall compensation structure.</p><p class="quote-text">If the role is a strong match, I&#039;d be happy to discuss a competitive package that is appropriate for its scope and expectations.</p>
       </div>
     
+          
+          
+          
           
       <div class="prep-note-callout">
         <div class="prep-note-icon"><i class="ti-alert"></i></div>
@@ -2401,20 +3032,23 @@ If the role is a strong match, I&#039;d be happy to discuss a competitive packag
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q41" data-secid="section-04">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q41" data-secid="section-04" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q41</div>
+          <div class="q-num-pill ">Q41</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-offer">04 &bull; Competing-offer scenarios</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-offer">04 &bull; Competing-offer scenarios</span>
+              
+            </div>
             <h3 class="q-heading">If we match your existing offer, would you choose us?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="Yes, I would definitely consider your opportunity. If compensation is comparable, my decision would depend on the technical ownership, the systems I&#039;d be working on, the team&#039;s engineering culture, and the long-term growth path.
 
 I&#039;d want to make a well-informed commitment rather than choose based only on the number in the offer letter." title="Copy to clipboard">
@@ -2425,25 +3059,31 @@ I&#039;d want to make a well-informed commitment rather than choose based only o
       </div>
     
           
+          
+          
+          
         </div>
       </div>
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q42" data-secid="section-04">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q42" data-secid="section-04" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q42</div>
+          <div class="q-num-pill ">Q42</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-offer">04 &bull; Competing-offer scenarios</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-offer">04 &bull; Competing-offer scenarios</span>
+              
+            </div>
             <h3 class="q-heading">Are you using our offer to negotiate with another company?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I&#039;m evaluating opportunities seriously because I want to make the right long-term move. I&#039;m interested in the role itself, not just in collecting offers.
 
 My decision would be based on the complete opportunity - the technical scope, team, career progression, and compensation - and I&#039;d communicate my decision professionally and within the agreed timeline." title="Copy to clipboard">
@@ -2453,6 +3093,9 @@ My decision would be based on the complete opportunity - the technical scope, te
         <p class="quote-text">I&#039;m evaluating opportunities seriously because I want to make the right long-term move. I&#039;m interested in the role itself, not just in collecting offers.</p><p class="quote-text">My decision would be based on the complete opportunity - the technical scope, team, career progression, and compensation - and I&#039;d communicate my decision professionally and within the agreed timeline.</p>
       </div>
     
+          
+          
+          
           
       <div class="prep-note-callout">
         <div class="prep-note-icon"><i class="ti-alert"></i></div>
@@ -2466,12 +3109,15 @@ My decision would be based on the complete opportunity - the technical scope, te
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q43" data-secid="section-04">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q43" data-secid="section-04" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q43</div>
+          <div class="q-num-pill ">Q43</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-offer">04 &bull; Competing-offer scenarios</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-offer">04 &bull; Competing-offer scenarios</span>
+              
+            </div>
             <h3 class="q-heading">Have you already accepted your other offer?</h3>
           </div>
         </div>
@@ -2522,6 +3168,9 @@ My decision would be based on the complete opportunity - the technical scope, te
       </div>
     
           
+          
+          
+          
       <div class="prep-note-callout">
         <div class="prep-note-icon"><i class="ti-alert"></i></div>
         <div class="prep-note-body">
@@ -2534,20 +3183,23 @@ My decision would be based on the complete opportunity - the technical scope, te
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q44" data-secid="section-04">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q44" data-secid="section-04" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q44</div>
+          <div class="q-num-pill ">Q44</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-offer">04 &bull; Competing-offer scenarios</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-offer">04 &bull; Competing-offer scenarios</span>
+              
+            </div>
             <h3 class="q-heading">What is the offered CTC, which company is it from, and what is your joining date?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I can share the relevant details of the offer and my availability accurately. The offered total CTC is [actual amount], with [actual fixed/variable breakdown], and the proposed joining date is [actual date].
 
 Regarding the company name, I&#039;d prefer to keep the other employer&#039;s identity confidential at this stage, if that&#039;s acceptable. I&#039;m happy to focus on my expectations, availability, and genuine interest in this role." title="Copy to clipboard">
@@ -2557,6 +3209,9 @@ Regarding the company name, I&#039;d prefer to keep the other employer&#039;s id
         <p class="quote-text">I can share the relevant details of the offer and my availability accurately. The offered total CTC is [actual amount], with [actual fixed/variable breakdown], and the proposed joining date is [actual date].</p><p class="quote-text">Regarding the company name, I&#039;d prefer to keep the other employer&#039;s identity confidential at this stage, if that&#039;s acceptable. I&#039;m happy to focus on my expectations, availability, and genuine interest in this role.</p>
       </div>
     
+          
+          
+          
           
       <div class="prep-note-callout">
         <div class="prep-note-icon"><i class="ti-alert"></i></div>
@@ -2570,20 +3225,23 @@ Regarding the company name, I&#039;d prefer to keep the other employer&#039;s id
     </div>
   
 
-    <div class="col-12 mb-4 q-card-item" data-qnum="Q45" data-secid="section-04">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q45" data-secid="section-04" >
+      <div class="interview-q-card ">
         <div class="q-card-header">
-          <div class="q-num-pill">Q45</div>
+          <div class="q-num-pill ">Q45</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge badge-offer">04 &bull; Competing-offer scenarios</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-offer">04 &bull; Competing-offer scenarios</span>
+              
+            </div>
             <h3 class="q-heading">Can you share your offer letter, and how long do you have to decide?</h3>
           </div>
         </div>
         <div class="q-card-body">
           
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="I understand why you&#039;re asking. I can discuss the genuine offer terms and the date by which I need to respond. My current decision deadline is [actual date].
 
 I&#039;d prefer not to circulate another employer&#039;s confidential offer letter during an early discussion, but I&#039;m happy to understand what verification your process requires at a later stage. Could you also share the expected timeline for your interview and offer process?" title="Copy to clipboard">
@@ -2593,6 +3251,9 @@ I&#039;d prefer not to circulate another employer&#039;s confidential offer lett
         <p class="quote-text">I understand why you&#039;re asking. I can discuss the genuine offer terms and the date by which I need to respond. My current decision deadline is [actual date].</p><p class="quote-text">I&#039;d prefer not to circulate another employer&#039;s confidential offer letter during an early discussion, but I&#039;m happy to understand what verification your process requires at a later stage. Could you also share the expected timeline for your interview and offer process?</p>
       </div>
     
+          
+          
+          
           
       <div class="prep-note-callout">
         <div class="prep-note-icon"><i class="ti-alert"></i></div>
@@ -2605,16 +3266,1012 @@ I&#039;d prefer not to circulate another employer&#039;s confidential offer lett
       </div>
     </div>
   
+        
+        
+      </div>
+    </div>
+  
+    <div class="section-anchor-wrap" id="section-05">
+      <div class="section-divider-banner banner-tech">
+        <div class="sec-banner-meta">
+          <span class="sec-banner-num num-tech">SECTION 05</span>
+          <h2 class="sec-banner-title">15 Production Scenarios</h2>
+          <p class="sec-banner-theme"><i class="ti-light-bulb mr-1 text-warning"></i> Senior Java / Spring Boot / Microservices: Spoken answers, investigation checklists, follow-ups, and resume-relevant examples.</p>
+        </div>
+      </div>
+      
+      <div class="lead-framework-card mb-4">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+          <h3 class="lead-framework-title mb-0">
+            <i class="ti-crown text-warning mr-2"></i> HOW TO ANSWER LIKE A TECHNICAL LEAD
+          </h3>
+          <span class="badge badge-warning text-dark font-weight-bold px-3 py-2" style="border-radius: 8px;">
+            <i class="ti-shield mr-1"></i> Technical Lead Standard
+          </span>
+        </div>
+        <div class="row steps-row mb-3">
+          
+            <div class="col-md-3 col-sm-6 mb-3">
+              <div class="framework-step-card">
+                <div class="framework-step-num">1</div>
+                <div class="framework-step-title">Scope the incident & assess customer impact</div>
+                <div class="framework-step-desc">Identify affected endpoints, timing, error rate, p95/p99 latency regressions, and whether traffic or blast radius is growing.</div>
+              </div>
+            </div>
+          
+            <div class="col-md-3 col-sm-6 mb-3">
+              <div class="framework-step-card">
+                <div class="framework-step-num">2</div>
+                <div class="framework-step-title">Use measurements to pinpoint the actual bottleneck</div>
+                <div class="framework-step-desc">Check Grafana, APM distributed traces, HikariCP pool metrics, GC logs, slow queries, and thread dumps instead of guessing.</div>
+              </div>
+            </div>
+          
+            <div class="col-md-3 col-sm-6 mb-3">
+              <div class="framework-step-card">
+                <div class="framework-step-num">3</div>
+                <div class="framework-step-title">Apply the smallest safe fix with an explicit trade-off</div>
+                <div class="framework-step-desc">Mitigate first (cache, rate limit, timeout, circuit break, rolling restart) before deep structural rewrites.</div>
+              </div>
+            </div>
+          
+            <div class="col-md-3 col-sm-6 mb-3">
+              <div class="framework-step-card">
+                <div class="framework-step-num">4</div>
+                <div class="framework-step-title">Validate with metrics, tests & automated prevention</div>
+                <div class="framework-step-desc">Confirm recovery under representative load, add automated alerts, SLO guards, and regression tests.</div>
+              </div>
+            </div>
+          
+        </div>
+        <div class="framework-truth-alert">
+          <i class="ti-alert mr-2 text-warning" style="font-size: 16px;"></i>
+          <span>Truthfulness note: Your resume confirms API p99 optimization, Redis caching, Kafka telemetry ingestion, PostgreSQL store services, production monitoring and mentorship. Payment/saga/scheduler scenarios are preparation examples, NOT claims of projects you delivered.</span>
+        </div>
+      </div>
+    
+      
+      <div class="subcat-filter-row mb-4">
+        <span class="subcat-filter-label"><i class="ti-filter mr-1"></i> Domain Filters:</span>
+        <div class="subcat-pills-wrap">
+          
+            <button class="subcat-pill-btn active" data-subcat-filter="sub-all">
+              All 15 Scenarios <span class="badge-count">15</span>
+            </button>
+          
+            <button class="subcat-pill-btn " data-subcat-filter="sub-perf">
+              Performance &amp; Capacity <span class="badge-count">4</span>
+            </button>
+          
+            <button class="subcat-pill-btn " data-subcat-filter="sub-concur">
+              Concurrency &amp; Idempotency <span class="badge-count">3</span>
+            </button>
+          
+            <button class="subcat-pill-btn " data-subcat-filter="sub-resil">
+              Resilience &amp; Transactions <span class="badge-count">4</span>
+            </button>
+          
+            <button class="subcat-pill-btn " data-subcat-filter="sub-kafka">
+              Kafka, JVM &amp; Observability <span class="badge-count">4</span>
+            </button>
+          
+        </div>
+      </div>
+    
+      <div class="row">
+        
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q46" data-secid="section-05" data-subcat="sub-perf">
+      <div class="interview-q-card card-production">
+        <div class="q-card-header">
+          <div class="q-num-pill q-num-tech">Q46</div>
+          <div class="q-title-wrap">
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-prod">05 &bull; 15 Production Scenarios</span>
+              <span class="q-sec-badge badge-perf"><i class="ti-tag mr-1"></i>Performance and capacity</span>
+            </div>
+            <h3 class="q-heading">Your API suddenly takes 5 seconds instead of 200 ms. How would you find the bottleneck?</h3>
+          </div>
+        </div>
+        <div class="q-card-body">
+          
+      <div class="spoken-quote-bubble quote-prod">
+        <div class="quote-header">
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
+          <button class="btn-copy-quote" data-copy-text="I would first confirm the scope of the regression: which endpoints, when it started, and whether p95 and p99 rose along with traffic or error rates. I&#039;d examine Grafana dashboards for application, database, cache, JVM, and downstream-service metrics. Then I&#039;d use a distributed trace or targeted timings to divide total request time into connection wait, application logic, SQL, Redis, and external calls. I&#039;d check deployment changes, thread saturation, GC pauses, and slow queries. After isolating the dominant delay, I&#039;d fix it and verify the improvement under representative load." title="Copy to clipboard">
+            <i class="ti-files mr-1"></i> Copy
+          </button>
+        </div>
+        <p class="quote-text">I would first confirm the scope of the regression: which endpoints, when it started, and whether p95 and p99 rose along with traffic or error rates. I&#039;d examine Grafana dashboards for application, database, cache, JVM, and downstream-service metrics. Then I&#039;d use a distributed trace or targeted timings to divide total request time into connection wait, application logic, SQL, Redis, and external calls. I&#039;d check deployment changes, thread saturation, GC pauses, and slow queries. After isolating the dominant delay, I&#039;d fix it and verify the improvement under representative load.</p>
+      </div>
+    
+          
+      <div class="prod-checklist-box">
+        <div class="prod-box-label"><i class="ti-check-box text-success mr-1"></i> WHAT TO CHECK / EXPLAIN:</div>
+        <ul class="prod-checklist-ul">
+          <li><i class="ti-check text-success mr-2"></i><span>Compare p50/p95/p99, traffic, error rate, releases, and individual endpoints.</span></li><li><i class="ti-check text-success mr-2"></i><span>Trace each dependency; check DB pool wait, slow SQL, Redis hit rate, outbound HTTP, GC and thread dumps.</span></li><li><i class="ti-check text-success mr-2"></i><span>Validate the fix with load testing and production monitoring; avoid guessing the cause.</span></li>
+        </ul>
+      </div>
+    
+          
+      <div class="resume-connection-box">
+        <div class="resume-badge-tag"><i class="ti-medall mr-1"></i> YOUR RESUME CONNECTION</div>
+        <p class="resume-connection-text">Lowe&#039;s: you actually improved inventory/lookup API p99 from 8 seconds to 170 ms using distributed Redis caching. Do not imply this exact 5-second incident happened.</p>
+      </div>
+    
+          
+      <div class="follow-up-box">
+        <div class="follow-up-q">
+          <span class="follow-up-badge">FOLLOW-UP</span>
+          <strong>What if SQL is fast but p99 is high?</strong>
+        </div>
+        <div class="follow-up-a">
+          <i class="ti-arrow-right text-primary mr-2"></i> Check queueing, connection acquisition, slow dependency calls, and JVM pauses.
+        </div>
+      </div>
+    
+          
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q47" data-secid="section-05" data-subcat="sub-perf">
+      <div class="interview-q-card card-production">
+        <div class="q-card-header">
+          <div class="q-num-pill q-num-tech">Q47</div>
+          <div class="q-title-wrap">
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-prod">05 &bull; 15 Production Scenarios</span>
+              <span class="q-sec-badge badge-perf"><i class="ti-tag mr-1"></i>Performance and capacity</span>
+            </div>
+            <h3 class="q-heading">Your DB connection pool is exhausted. What would you check first?</h3>
+          </div>
+        </div>
+        <div class="q-card-body">
+          
+      <div class="spoken-quote-bubble quote-prod">
+        <div class="quote-header">
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
+          <button class="btn-copy-quote" data-copy-text="I&#039;d start with HikariCP metrics for active, idle, pending, and maximum connections, especially acquisition wait time. Then I&#039;d look for long-running SQL, slow transactions, thread stacks waiting for connections, and connections that are not being returned. I&#039;d also check whether a deployment increased replica count or concurrency, which could multiply total database connections. I wouldn&#039;t blindly increase the pool size; I&#039;d fix leaks or long transactions, introduce sensible timeouts, and tune the application&#039;s concurrency against the database&#039;s real capacity." title="Copy to clipboard">
+            <i class="ti-files mr-1"></i> Copy
+          </button>
+        </div>
+        <p class="quote-text">I&#039;d start with HikariCP metrics for active, idle, pending, and maximum connections, especially acquisition wait time. Then I&#039;d look for long-running SQL, slow transactions, thread stacks waiting for connections, and connections that are not being returned. I&#039;d also check whether a deployment increased replica count or concurrency, which could multiply total database connections. I wouldn&#039;t blindly increase the pool size; I&#039;d fix leaks or long transactions, introduce sensible timeouts, and tune the application&#039;s concurrency against the database&#039;s real capacity.</p>
+      </div>
+    
+          
+      <div class="prod-checklist-box">
+        <div class="prod-box-label"><i class="ti-check-box text-success mr-1"></i> WHAT TO CHECK / EXPLAIN:</div>
+        <ul class="prod-checklist-ul">
+          <li><i class="ti-check text-success mr-2"></i><span>Inspect active/idle/pending/max connections and acquisition timeout trends.</span></li><li><i class="ti-check text-success mr-2"></i><span>Correlate active connections with transaction duration, lock waits, slow SQL, and thread dumps.</span></li><li><i class="ti-check text-success mr-2"></i><span>Check total connections across ALL app replicas; pool x replicas must fit DB limits.</span></li>
+        </ul>
+      </div>
+    
+          
+      <div class="resume-connection-box">
+        <div class="resume-badge-tag"><i class="ti-medall mr-1"></i> YOUR RESUME CONNECTION</div>
+        <p class="resume-connection-text">Lowe&#039;s: PostgreSQL-backed store-edge services; discuss as your troubleshooting method unless you saw this exact issue.</p>
+      </div>
+    
+          
+      <div class="follow-up-box">
+        <div class="follow-up-q">
+          <span class="follow-up-badge">FOLLOW-UP</span>
+          <strong>Could @Transactional cause exhaustion?</strong>
+        </div>
+        <div class="follow-up-a">
+          <i class="ti-arrow-right text-primary mr-2"></i> Yes, transactions that include slow network calls or excessive work retain connections longer.
+        </div>
+      </div>
+    
+          
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q48" data-secid="section-05" data-subcat="sub-concur">
+      <div class="interview-q-card card-production">
+        <div class="q-card-header">
+          <div class="q-num-pill q-num-tech">Q48</div>
+          <div class="q-title-wrap">
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-prod">05 &bull; 15 Production Scenarios</span>
+              <span class="q-sec-badge badge-concur"><i class="ti-tag mr-1"></i>Concurrency and idempotency</span>
+            </div>
+            <h3 class="q-heading">Two users update the same record simultaneously. How do you handle it?</h3>
+          </div>
+        </div>
+        <div class="q-card-body">
+          
+      <div class="spoken-quote-bubble quote-prod">
+        <div class="quote-header">
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
+          <button class="btn-copy-quote" data-copy-text="I would prevent lost updates according to the business rule. For typical user-driven changes, I&#039;d use optimistic locking with JPA @Version and return a conflict if someone has already updated the record. The client can reload the latest state and retry deliberately. For highly contended inventory or balance changes, I&#039;d evaluate atomic conditional SQL updates or short database row locks. I&#039;d keep transactions focused and test concurrent requests. A Java synchronized block isn&#039;t sufficient when multiple microservice instances are running." title="Copy to clipboard">
+            <i class="ti-files mr-1"></i> Copy
+          </button>
+        </div>
+        <p class="quote-text">I would prevent lost updates according to the business rule. For typical user-driven changes, I&#039;d use optimistic locking with JPA @Version and return a conflict if someone has already updated the record. The client can reload the latest state and retry deliberately. For highly contended inventory or balance changes, I&#039;d evaluate atomic conditional SQL updates or short database row locks. I&#039;d keep transactions focused and test concurrent requests. A Java synchronized block isn&#039;t sufficient when multiple microservice instances are running.</p>
+      </div>
+    
+          
+      <div class="prod-checklist-box">
+        <div class="prod-box-label"><i class="ti-check-box text-success mr-1"></i> WHAT TO CHECK / EXPLAIN:</div>
+        <ul class="prod-checklist-ul">
+          <li><i class="ti-check text-success mr-2"></i><span>Optimistic: @Version and OptimisticLockException; return 409 Conflict or equivalent.</span></li><li><i class="ti-check text-success mr-2"></i><span>High contention: UPDATE ... WHERE version/quantity condition or SELECT ... FOR UPDATE inside a transaction.</span></li><li><i class="ti-check text-success mr-2"></i><span>Choose behavior explicitly: reject, merge, retry, or serialize based on domain semantics.</span></li>
+        </ul>
+      </div>
+    
+          
+      <div class="resume-connection-box">
+        <div class="resume-badge-tag"><i class="ti-medall mr-1"></i> YOUR RESUME CONNECTION</div>
+        <p class="resume-connection-text">Lowe&#039;s: store/inventory services provide a relevant setting; do not claim a conflict-handling implementation you have not used.</p>
+      </div>
+    
+          
+      <div class="follow-up-box">
+        <div class="follow-up-q">
+          <span class="follow-up-badge">FOLLOW-UP</span>
+          <strong>Why not Redis locks by default?</strong>
+        </div>
+        <div class="follow-up-a">
+          <i class="ti-arrow-right text-primary mr-2"></i> Database atomicity or versioning is typically simpler and more reliable for a single DB record.
+        </div>
+      </div>
+    
+          
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q49" data-secid="section-05" data-subcat="sub-concur">
+      <div class="interview-q-card card-production">
+        <div class="q-card-header">
+          <div class="q-num-pill q-num-tech">Q49</div>
+          <div class="q-title-wrap">
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-prod">05 &bull; 15 Production Scenarios</span>
+              <span class="q-sec-badge badge-concur"><i class="ti-tag mr-1"></i>Concurrency and idempotency</span>
+            </div>
+            <h3 class="q-heading">A payment request reaches your API twice. How do you prevent duplicate payments?</h3>
+          </div>
+        </div>
+        <div class="q-card-body">
+          
+      <div class="spoken-quote-bubble quote-prod">
+        <div class="quote-header">
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
+          <button class="btn-copy-quote" data-copy-text="I would make payment creation idempotent. The client supplies an idempotency key for the logical payment, and the backend atomically reserves that key using a unique constraint, together with a request fingerprint and durable processing status. If the same request arrives again, we return the existing result or current status rather than executing a second charge. I&#039;d also pass an idempotency key to the payment provider where supported, and reconcile uncertain outcomes after timeouts. An in-memory lock alone isn&#039;t reliable across instances." title="Copy to clipboard">
+            <i class="ti-files mr-1"></i> Copy
+          </button>
+        </div>
+        <p class="quote-text">I would make payment creation idempotent. The client supplies an idempotency key for the logical payment, and the backend atomically reserves that key using a unique constraint, together with a request fingerprint and durable processing status. If the same request arrives again, we return the existing result or current status rather than executing a second charge. I&#039;d also pass an idempotency key to the payment provider where supported, and reconcile uncertain outcomes after timeouts. An in-memory lock alone isn&#039;t reliable across instances.</p>
+      </div>
+    
+          
+      <div class="prod-checklist-box">
+        <div class="prod-box-label"><i class="ti-check-box text-success mr-1"></i> WHAT TO CHECK / EXPLAIN:</div>
+        <ul class="prod-checklist-ul">
+          <li><i class="ti-check text-success mr-2"></i><span>Unique key scoped by customer/merchant and operation; reject same key with different payload.</span></li><li><i class="ti-check text-success mr-2"></i><span>Persist PENDING/SUCCEEDED/FAILED; coordinate concurrent calls and retry unknown outcomes safely.</span></li><li><i class="ti-check text-success mr-2"></i><span>Handle gateway timeouts via provider lookup/reconciliation; test replay and racing requests.</span></li>
+        </ul>
+      </div>
+    
+          
+      <div class="resume-connection-box">
+        <div class="resume-badge-tag"><i class="ti-medall mr-1"></i> YOUR RESUME CONNECTION</div>
+        <p class="resume-connection-text">Your CGI banking work is relevant experience in transaction workflows, but do not say you implemented payments or this mechanism unless true.</p>
+      </div>
+    
+          
+      <div class="follow-up-box">
+        <div class="follow-up-q">
+          <span class="follow-up-badge">FOLLOW-UP</span>
+          <strong>What if the provider charged but your API timed out?</strong>
+        </div>
+        <div class="follow-up-a">
+          <i class="ti-arrow-right text-primary mr-2"></i> Query provider status with the same idempotency reference before retrying.
+        </div>
+      </div>
+    
+          
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q50" data-secid="section-05" data-subcat="sub-resil">
+      <div class="interview-q-card card-production">
+        <div class="q-card-header">
+          <div class="q-num-pill q-num-tech">Q50</div>
+          <div class="q-title-wrap">
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-prod">05 &bull; 15 Production Scenarios</span>
+              <span class="q-sec-badge badge-resil"><i class="ti-tag mr-1"></i>Resilience and transactions</span>
+            </div>
+            <h3 class="q-heading">A downstream service takes 10 seconds to respond. What would you do?</h3>
+          </div>
+        </div>
+        <div class="q-card-body">
+          
+      <div class="spoken-quote-bubble quote-prod">
+        <div class="quote-header">
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
+          <button class="btn-copy-quote" data-copy-text="I&#039;d first check whether the delay is isolated or widespread and whether that dependency is overloaded. I&#039;d set connection and response timeouts based on the end-to-end request budget, and use a circuit breaker and bulkhead to avoid exhausting our threads or connections. For noncritical features, I&#039;d consider a cached or degraded response. I&#039;d retry only transient, safe-to-retry calls, with bounded exponential backoff and jitter. If the workflow cannot complete safely, I&#039;d return a clear failure or pending status, then monitor dependency latency and error rates." title="Copy to clipboard">
+            <i class="ti-files mr-1"></i> Copy
+          </button>
+        </div>
+        <p class="quote-text">I&#039;d first check whether the delay is isolated or widespread and whether that dependency is overloaded. I&#039;d set connection and response timeouts based on the end-to-end request budget, and use a circuit breaker and bulkhead to avoid exhausting our threads or connections. For noncritical features, I&#039;d consider a cached or degraded response. I&#039;d retry only transient, safe-to-retry calls, with bounded exponential backoff and jitter. If the workflow cannot complete safely, I&#039;d return a clear failure or pending status, then monitor dependency latency and error rates.</p>
+      </div>
+    
+          
+      <div class="prod-checklist-box">
+        <div class="prod-box-label"><i class="ti-check-box text-success mr-1"></i> WHAT TO CHECK / EXPLAIN:</div>
+        <ul class="prod-checklist-ul">
+          <li><i class="ti-check text-success mr-2"></i><span>Set timeouts shorter than the caller&#039;s total deadline; propagate deadlines where possible.</span></li><li><i class="ti-check text-success mr-2"></i><span>Apply circuit breaker, concurrency limits/bulkheads, and graceful fallback only where acceptable.</span></li><li><i class="ti-check text-success mr-2"></i><span>Retry selective transient errors; avoid retrying non-idempotent writes without idempotency.</span></li>
+        </ul>
+      </div>
+    
+          
+      <div class="resume-connection-box">
+        <div class="resume-badge-tag"><i class="ti-medall mr-1"></i> YOUR RESUME CONNECTION</div>
+        <p class="resume-connection-text">Lowe&#039;s: relate to resilient distributed services and your production monitoring responsibilities.</p>
+      </div>
+    
+          
+      <div class="follow-up-box">
+        <div class="follow-up-q">
+          <span class="follow-up-badge">FOLLOW-UP</span>
+          <strong>When is a fallback dangerous?</strong>
+        </div>
+        <div class="follow-up-a">
+          <i class="ti-arrow-right text-primary mr-2"></i> For payments or inventory guarantees, an invented success would violate correctness.
+        </div>
+      </div>
+    
+          
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q51" data-secid="section-05" data-subcat="sub-resil">
+      <div class="interview-q-card card-production">
+        <div class="q-card-header">
+          <div class="q-num-pill q-num-tech">Q51</div>
+          <div class="q-title-wrap">
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-prod">05 &bull; 15 Production Scenarios</span>
+              <span class="q-sec-badge badge-resil"><i class="ti-tag mr-1"></i>Resilience and transactions</span>
+            </div>
+            <h3 class="q-heading">Your retry mechanism starts increasing traffic instead of reducing failures. Why?</h3>
+          </div>
+        </div>
+        <div class="q-card-body">
+          
+      <div class="spoken-quote-bubble quote-prod">
+        <div class="quote-header">
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
+          <button class="btn-copy-quote" data-copy-text="That usually means retries are amplifying load on an already unhealthy dependency, possibly with retries at several layers. I would inspect retry counts, response codes, concurrent request volume, and whether clients are retrying at the same time. I&#039;d centralize retry policy at one appropriate boundary, cap attempts, use exponential backoff with jitter, and enforce an overall time budget. I&#039;d combine this with circuit breaking, load shedding, and idempotency for side-effecting operations. The goal is to reduce pressure while the dependency recovers." title="Copy to clipboard">
+            <i class="ti-files mr-1"></i> Copy
+          </button>
+        </div>
+        <p class="quote-text">That usually means retries are amplifying load on an already unhealthy dependency, possibly with retries at several layers. I would inspect retry counts, response codes, concurrent request volume, and whether clients are retrying at the same time. I&#039;d centralize retry policy at one appropriate boundary, cap attempts, use exponential backoff with jitter, and enforce an overall time budget. I&#039;d combine this with circuit breaking, load shedding, and idempotency for side-effecting operations. The goal is to reduce pressure while the dependency recovers.</p>
+      </div>
+    
+          
+      <div class="prod-checklist-box">
+        <div class="prod-box-label"><i class="ti-check-box text-success mr-1"></i> WHAT TO CHECK / EXPLAIN:</div>
+        <ul class="prod-checklist-ul">
+          <li><i class="ti-check text-success mr-2"></i><span>Look for nested retries: three attempts at each of three layers can create up to 27 downstream attempts.</span></li><li><i class="ti-check text-success mr-2"></i><span>Use bounded attempts, jitter, retry budgets, circuit breakers, and explicit retryable error classes.</span></li><li><i class="ti-check text-success mr-2"></i><span>Monitor retry rate, attempts/request, downstream QPS, latency, and successful recoveries.</span></li>
+        </ul>
+      </div>
+    
+          
+      <div class="resume-connection-box">
+        <div class="resume-badge-tag"><i class="ti-medall mr-1"></i> YOUR RESUME CONNECTION</div>
+        <p class="resume-connection-text">Applicable to microservice design and on-call troubleshooting; do not present nested retry storm as an incident you personally fixed.</p>
+      </div>
+    
+          
+      <div class="follow-up-box">
+        <div class="follow-up-q">
+          <span class="follow-up-badge">FOLLOW-UP</span>
+          <strong>Why add jitter?</strong>
+        </div>
+        <div class="follow-up-a">
+          <i class="ti-arrow-right text-primary mr-2"></i> It prevents synchronized retry waves (thundering herd) after an outage.
+        </div>
+      </div>
+    
+          
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q52" data-secid="section-05" data-subcat="sub-kafka">
+      <div class="interview-q-card card-production">
+        <div class="q-card-header">
+          <div class="q-num-pill q-num-tech">Q52</div>
+          <div class="q-title-wrap">
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-prod">05 &bull; 15 Production Scenarios</span>
+              <span class="q-sec-badge badge-kafka"><i class="ti-tag mr-1"></i>Kafka, JVM, contracts, observability</span>
+            </div>
+            <h3 class="q-heading">Kafka consumer lag keeps increasing. How would you troubleshoot it?</h3>
+          </div>
+        </div>
+        <div class="q-card-body">
+          
+      <div class="spoken-quote-bubble quote-prod">
+        <div class="quote-header">
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
+          <button class="btn-copy-quote" data-copy-text="I&#039;d compare incoming message rate with successful processing throughput, then check lag per partition, not just the total. I&#039;d inspect consumer health, partition assignments, rebalance frequency, processing time, errors, and downstream dependencies such as PostgreSQL or Elasticsearch. I&#039;d review batch size, commit behavior, and max.poll.interval.ms, because long processing can trigger rebalances. If the group is underprovisioned, I&#039;d scale consumers up to useful partition parallelism or optimize processing, while protecting ordering and delivery semantics. Poison messages should be handled deliberately rather than endlessly retried." title="Copy to clipboard">
+            <i class="ti-files mr-1"></i> Copy
+          </button>
+        </div>
+        <p class="quote-text">I&#039;d compare incoming message rate with successful processing throughput, then check lag per partition, not just the total. I&#039;d inspect consumer health, partition assignments, rebalance frequency, processing time, errors, and downstream dependencies such as PostgreSQL or Elasticsearch. I&#039;d review batch size, commit behavior, and max.poll.interval.ms, because long processing can trigger rebalances. If the group is underprovisioned, I&#039;d scale consumers up to useful partition parallelism or optimize processing, while protecting ordering and delivery semantics. Poison messages should be handled deliberately rather than endlessly retried.</p>
+      </div>
+    
+          
+      <div class="prod-checklist-box">
+        <div class="prod-box-label"><i class="ti-check-box text-success mr-1"></i> WHAT TO CHECK / EXPLAIN:</div>
+        <ul class="prod-checklist-ul">
+          <li><i class="ti-check text-success mr-2"></i><span>Inspect consumer-group lag by partition, broker/topic throughput, assignments, and rebalances.</span></li><li><i class="ti-check text-success mr-2"></i><span>Identify bottlenecks: slow handlers, SQL, external APIs, large batches, GC, and poison messages.</span></li><li><i class="ti-check text-success mr-2"></i><span>Scale within partition limits; tune poll/batch/commit carefully and consider DLQ or retries with ordering awareness.</span></li>
+        </ul>
+      </div>
+    
+          
+      <div class="resume-connection-box">
+        <div class="resume-badge-tag"><i class="ti-medall mr-1"></i> YOUR RESUME CONNECTION</div>
+        <p class="resume-connection-text">Lowe&#039;s: you built Kafka/Redis/Elasticsearch ingestion services for MQTT store telemetry; this is directly relevant experience.</p>
+      </div>
+    
+          
+      <div class="follow-up-box">
+        <div class="follow-up-q">
+          <span class="follow-up-badge">FOLLOW-UP</span>
+          <strong>If topic has 4 partitions and 10 consumers in one group?</strong>
+        </div>
+        <div class="follow-up-a">
+          <i class="ti-arrow-right text-primary mr-2"></i> Only up to 4 consumers can actively own partitions in classic partition-based consumption.
+        </div>
+      </div>
+    
+          
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q53" data-secid="section-05" data-subcat="sub-kafka">
+      <div class="interview-q-card card-production">
+        <div class="q-card-header">
+          <div class="q-num-pill q-num-tech">Q53</div>
+          <div class="q-title-wrap">
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-prod">05 &bull; 15 Production Scenarios</span>
+              <span class="q-sec-badge badge-kafka"><i class="ti-tag mr-1"></i>Kafka, JVM, contracts, observability</span>
+            </div>
+            <h3 class="q-heading">Your application throws OutOfMemoryError only in production. What would you investigate?</h3>
+          </div>
+        </div>
+        <div class="q-card-body">
+          
+      <div class="spoken-quote-bubble quote-prod">
+        <div class="quote-header">
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
+          <button class="btn-copy-quote" data-copy-text="I&#039;d first identify which memory area failed: Java heap, Metaspace, direct buffers, or native/container memory. I&#039;d compare production traffic and payload sizes with lower environments and inspect heap usage, GC pause time, allocation rate, container limits, and recent releases. If safe, I&#039;d capture a heap dump and analyze retained objects and dominator trees, along with thread or JFR data. Typical causes include unbounded caches, large collections, queue buildup, or memory leaks. I&#039;d fix the retaining code and verify under production-like load rather than just increasing Xmx." title="Copy to clipboard">
+            <i class="ti-files mr-1"></i> Copy
+          </button>
+        </div>
+        <p class="quote-text">I&#039;d first identify which memory area failed: Java heap, Metaspace, direct buffers, or native/container memory. I&#039;d compare production traffic and payload sizes with lower environments and inspect heap usage, GC pause time, allocation rate, container limits, and recent releases. If safe, I&#039;d capture a heap dump and analyze retained objects and dominator trees, along with thread or JFR data. Typical causes include unbounded caches, large collections, queue buildup, or memory leaks. I&#039;d fix the retaining code and verify under production-like load rather than just increasing Xmx.</p>
+      </div>
+    
+          
+      <div class="prod-checklist-box">
+        <div class="prod-box-label"><i class="ti-check-box text-success mr-1"></i> WHAT TO CHECK / EXPLAIN:</div>
+        <ul class="prod-checklist-ul">
+          <li><i class="ti-check text-success mr-2"></i><span>Differentiate Java heap OOM, Metaspace, direct-buffer pressure, and Kubernetes OOMKilled.</span></li><li><i class="ti-check text-success mr-2"></i><span>Use GC logs, heap dump/MAT, JFR, container metrics, allocations and retained-object analysis.</span></li><li><i class="ti-check text-success mr-2"></i><span>Review unbounded Redis-local caches, in-memory buffers, batch sizes, thread counts, and memory limits.</span></li>
+        </ul>
+      </div>
+    
+          
+      <div class="resume-connection-box">
+        <div class="resume-badge-tag"><i class="ti-medall mr-1"></i> YOUR RESUME CONNECTION</div>
+        <p class="resume-connection-text">Your Java/JVM and Kubernetes background supports this response; an actual OOM incident is not confirmed.</p>
+      </div>
+    
+          
+      <div class="follow-up-box">
+        <div class="follow-up-q">
+          <span class="follow-up-badge">FOLLOW-UP</span>
+          <strong>Why could Xmx be below pod memory yet container OOMKill?</strong>
+        </div>
+        <div class="follow-up-a">
+          <i class="ti-arrow-right text-primary mr-2"></i> Heap is only one component of total process memory.
+        </div>
+      </div>
+    
+          
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q54" data-secid="section-05" data-subcat="sub-perf">
+      <div class="interview-q-card card-production">
+        <div class="q-card-header">
+          <div class="q-num-pill q-num-tech">Q54</div>
+          <div class="q-title-wrap">
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-prod">05 &bull; 15 Production Scenarios</span>
+              <span class="q-sec-badge badge-perf"><i class="ti-tag mr-1"></i>Performance and capacity</span>
+            </div>
+            <h3 class="q-heading">The DB query takes 50 ms, but the API takes 3 seconds. Where could the remaining time go?</h3>
+          </div>
+        </div>
+        <div class="q-card-body">
+          
+      <div class="spoken-quote-bubble quote-prod">
+        <div class="quote-header">
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
+          <button class="btn-copy-quote" data-copy-text="A fast SQL execution doesn&#039;t prove that database access was fast end-to-end. I&#039;d check time waiting for a pool connection, ORM mapping, repeated N+1 queries, transaction locks, and network transfer. Outside the database, I&#039;d measure request queueing, authentication, serialization, Redis calls, downstream HTTP calls, retries, thread scheduling, and GC pauses. I&#039;d add span timings around each stage and compare the total wall-clock time. That would show whether the remaining time is spent waiting, processing, or calling another dependency." title="Copy to clipboard">
+            <i class="ti-files mr-1"></i> Copy
+          </button>
+        </div>
+        <p class="quote-text">A fast SQL execution doesn&#039;t prove that database access was fast end-to-end. I&#039;d check time waiting for a pool connection, ORM mapping, repeated N+1 queries, transaction locks, and network transfer. Outside the database, I&#039;d measure request queueing, authentication, serialization, Redis calls, downstream HTTP calls, retries, thread scheduling, and GC pauses. I&#039;d add span timings around each stage and compare the total wall-clock time. That would show whether the remaining time is spent waiting, processing, or calling another dependency.</p>
+      </div>
+    
+          
+      <div class="prod-checklist-box">
+        <div class="prod-box-label"><i class="ti-check-box text-success mr-1"></i> WHAT TO CHECK / EXPLAIN:</div>
+        <ul class="prod-checklist-ul">
+          <li><i class="ti-check text-success mr-2"></i><span>Distinguish pure DB execution time from acquisition, network, ORM, and transaction duration.</span></li><li><i class="ti-check text-success mr-2"></i><span>Check N+1, serialization, HTTP calls, rate limits, queues, thread starvation and GC.</span></li><li><i class="ti-check text-success mr-2"></i><span>Use distributed traces and timers; verify totals match end-to-end wall clock.</span></li>
+        </ul>
+      </div>
+    
+          
+      <div class="resume-connection-box">
+        <div class="resume-badge-tag"><i class="ti-medall mr-1"></i> YOUR RESUME CONNECTION</div>
+        <p class="resume-connection-text">Lowe&#039;s: tie to your API performance work and Grafana/Kibana/Prometheus observability.</p>
+      </div>
+    
+          
+      <div class="follow-up-box">
+        <div class="follow-up-q">
+          <span class="follow-up-badge">FOLLOW-UP</span>
+          <strong>What if timing still does not add up?</strong>
+        </div>
+        <div class="follow-up-a">
+          <i class="ti-arrow-right text-primary mr-2"></i> Inspect uninstrumented queues and asynchronous waits, plus clock/trace gaps.
+        </div>
+      </div>
+    
+          
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q55" data-secid="section-05" data-subcat="sub-resil">
+      <div class="interview-q-card card-production">
+        <div class="q-card-header">
+          <div class="q-num-pill q-num-tech">Q55</div>
+          <div class="q-title-wrap">
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-prod">05 &bull; 15 Production Scenarios</span>
+              <span class="q-sec-badge badge-resil"><i class="ti-tag mr-1"></i>Resilience and transactions</span>
+            </div>
+            <h3 class="q-heading">One microservice goes down during an order transaction. How should your system behave?</h3>
+          </div>
+        </div>
+        <div class="q-card-body">
+          
+      <div class="spoken-quote-bubble quote-prod">
+        <div class="quote-header">
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
+          <button class="btn-copy-quote" data-copy-text="I would design the transaction around explicit business states instead of assuming one distributed ACID transaction across services. For a multi-step order workflow, a saga can coordinate local transactions and compensating actions. I&#039;d use durable events and an outbox pattern to avoid losing state changes, and make each step idempotent. If a downstream service is unavailable, the order should move to a well-defined pending, failed, or compensating state. I&#039;d provide recovery, retries where safe, observability, and reconciliation rather than silently claiming success." title="Copy to clipboard">
+            <i class="ti-files mr-1"></i> Copy
+          </button>
+        </div>
+        <p class="quote-text">I would design the transaction around explicit business states instead of assuming one distributed ACID transaction across services. For a multi-step order workflow, a saga can coordinate local transactions and compensating actions. I&#039;d use durable events and an outbox pattern to avoid losing state changes, and make each step idempotent. If a downstream service is unavailable, the order should move to a well-defined pending, failed, or compensating state. I&#039;d provide recovery, retries where safe, observability, and reconciliation rather than silently claiming success.</p>
+      </div>
+    
+          
+      <div class="prod-checklist-box">
+        <div class="prod-box-label"><i class="ti-check-box text-success mr-1"></i> WHAT TO CHECK / EXPLAIN:</div>
+        <ul class="prod-checklist-ul">
+          <li><i class="ti-check text-success mr-2"></i><span>Use local transactions with a saga (orchestration/choreography) and business-specific compensations.</span></li><li><i class="ti-check text-success mr-2"></i><span>Persist state changes plus outgoing events atomically via transactional outbox when appropriate.</span></li><li><i class="ti-check text-success mr-2"></i><span>Design idempotent handlers, eventual consistency, and a recoverable order state machine.</span></li>
+        </ul>
+      </div>
+    
+          
+      <div class="resume-connection-box">
+        <div class="resume-badge-tag"><i class="ti-medall mr-1"></i> YOUR RESUME CONNECTION</div>
+        <p class="resume-connection-text">You have event-driven retail and CI/CD orchestration experience; this exact order saga is a design answer, not a confirmed project.</p>
+      </div>
+    
+          
+      <div class="follow-up-box">
+        <div class="follow-up-q">
+          <span class="follow-up-badge">FOLLOW-UP</span>
+          <strong>Can every step be rolled back?</strong>
+        </div>
+        <div class="follow-up-a">
+          <i class="ti-arrow-right text-primary mr-2"></i> No. Real-world side effects may require refunds, cancellations, or manual reconciliation.
+        </div>
+      </div>
+    
+          
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q56" data-secid="section-05" data-subcat="sub-resil">
+      <div class="interview-q-card card-production">
+        <div class="q-card-header">
+          <div class="q-num-pill q-num-tech">Q56</div>
+          <div class="q-title-wrap">
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-prod">05 &bull; 15 Production Scenarios</span>
+              <span class="q-sec-badge badge-resil"><i class="ti-tag mr-1"></i>Resilience and transactions</span>
+            </div>
+            <h3 class="q-heading">A scheduled job executes twice after deployment. How would you prevent duplicate execution?</h3>
+          </div>
+        </div>
+        <div class="q-card-body">
+          
+      <div class="spoken-quote-bubble quote-prod">
+        <div class="quote-header">
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
+          <button class="btn-copy-quote" data-copy-text="I&#039;d check whether multiple instances are running the same @Scheduled job after horizontal scaling or during a rolling deployment. A local synchronized lock won&#039;t coordinate multiple pods. Depending on requirements, I&#039;d use a persistent distributed scheduler or a lease-based lock such as a properly configured database-backed scheduler. More importantly, I&#039;d make the job idempotent using a unique run or business-operation key so a restart or expired lock cannot duplicate its effects. I&#039;d track ownership, lock expiry, execution status, and job success metrics." title="Copy to clipboard">
+            <i class="ti-files mr-1"></i> Copy
+          </button>
+        </div>
+        <p class="quote-text">I&#039;d check whether multiple instances are running the same @Scheduled job after horizontal scaling or during a rolling deployment. A local synchronized lock won&#039;t coordinate multiple pods. Depending on requirements, I&#039;d use a persistent distributed scheduler or a lease-based lock such as a properly configured database-backed scheduler. More importantly, I&#039;d make the job idempotent using a unique run or business-operation key so a restart or expired lock cannot duplicate its effects. I&#039;d track ownership, lock expiry, execution status, and job success metrics.</p>
+      </div>
+    
+          
+      <div class="prod-checklist-box">
+        <div class="prod-box-label"><i class="ti-check-box text-success mr-1"></i> WHAT TO CHECK / EXPLAIN:</div>
+        <ul class="prod-checklist-ul">
+          <li><i class="ti-check text-success mr-2"></i><span>Check multiple pods, duplicate scheduler registration, rolling overlap, clock and cron configuration.</span></li><li><i class="ti-check text-success mr-2"></i><span>Use Quartz clustered mode, ShedLock with shared storage, or an equivalent lease/fencing arrangement.</span></li><li><i class="ti-check text-success mr-2"></i><span>Use unique run IDs and durable idempotency because locks alone do not guarantee exactly-once effects.</span></li>
+        </ul>
+      </div>
+    
+          
+      <div class="resume-connection-box">
+        <div class="resume-badge-tag"><i class="ti-medall mr-1"></i> YOUR RESUME CONNECTION</div>
+        <p class="resume-connection-text">IBM: you designed Argo Workflows orchestration; reference your orchestration experience, not a fabricated scheduling incident.</p>
+      </div>
+    
+          
+      <div class="follow-up-box">
+        <div class="follow-up-q">
+          <span class="follow-up-badge">FOLLOW-UP</span>
+          <strong>Why might a lock still permit duplicate work?</strong>
+        </div>
+        <div class="follow-up-a">
+          <i class="ti-arrow-right text-primary mr-2"></i> A lease may expire while the original worker continues.
+        </div>
+      </div>
+    
+          
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q57" data-secid="section-05" data-subcat="sub-kafka">
+      <div class="interview-q-card card-production">
+        <div class="q-card-header">
+          <div class="q-num-pill q-num-tech">Q57</div>
+          <div class="q-title-wrap">
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-prod">05 &bull; 15 Production Scenarios</span>
+              <span class="q-sec-badge badge-kafka"><i class="ti-tag mr-1"></i>Kafka, JVM, contracts, observability</span>
+            </div>
+            <h3 class="q-heading">You need to introduce a new field in an API without breaking existing clients. How?</h3>
+          </div>
+        </div>
+        <div class="q-card-body">
+          
+      <div class="spoken-quote-bubble quote-prod">
+        <div class="quote-header">
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
+          <button class="btn-copy-quote" data-copy-text="I&#039;d make the change backward-compatible by adding an optional field and keeping existing field names, types, and response semantics unchanged. I&#039;d provide sensible default behavior when older clients don&#039;t send the field, and ensure clients can tolerate the additional response field. I&#039;d update API documentation and contract tests, then deploy the server side before requiring consumers to use the new field. If the change is genuinely breaking, I&#039;d version the contract or introduce a migration period rather than silently changing existing behavior." title="Copy to clipboard">
+            <i class="ti-files mr-1"></i> Copy
+          </button>
+        </div>
+        <p class="quote-text">I&#039;d make the change backward-compatible by adding an optional field and keeping existing field names, types, and response semantics unchanged. I&#039;d provide sensible default behavior when older clients don&#039;t send the field, and ensure clients can tolerate the additional response field. I&#039;d update API documentation and contract tests, then deploy the server side before requiring consumers to use the new field. If the change is genuinely breaking, I&#039;d version the contract or introduce a migration period rather than silently changing existing behavior.</p>
+      </div>
+    
+          
+      <div class="prod-checklist-box">
+        <div class="prod-box-label"><i class="ti-check-box text-success mr-1"></i> WHAT TO CHECK / EXPLAIN:</div>
+        <ul class="prod-checklist-ul">
+          <li><i class="ti-check text-success mr-2"></i><span>Additive optional field; do not make it mandatory for existing consumers.</span></li><li><i class="ti-check text-success mr-2"></i><span>Check older clients&#039; tolerance to unknown JSON fields; use consumer-driven contract testing.</span></li><li><i class="ti-check text-success mr-2"></i><span>For event schemas, check schema compatibility and evolve producers/consumers carefully.</span></li>
+        </ul>
+      </div>
+    
+          
+      <div class="resume-connection-box">
+        <div class="resume-badge-tag"><i class="ti-medall mr-1"></i> YOUR RESUME CONNECTION</div>
+        <p class="resume-connection-text">Lowe&#039;s: you delivered 30+ APIs/microservices; discuss your design approach and actual versioning practices if known.</p>
+      </div>
+    
+          
+      <div class="follow-up-box">
+        <div class="follow-up-q">
+          <span class="follow-up-badge">FOLLOW-UP</span>
+          <strong>What if field changes the meaning of an existing field?</strong>
+        </div>
+        <div class="follow-up-a">
+          <i class="ti-arrow-right text-primary mr-2"></i> That is a semantic breaking change even if JSON still parses.
+        </div>
+      </div>
+    
+          
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q58" data-secid="section-05" data-subcat="sub-perf">
+      <div class="interview-q-card card-production">
+        <div class="q-card-header">
+          <div class="q-num-pill q-num-tech">Q58</div>
+          <div class="q-title-wrap">
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-prod">05 &bull; 15 Production Scenarios</span>
+              <span class="q-sec-badge badge-perf"><i class="ti-tag mr-1"></i>Performance and capacity</span>
+            </div>
+            <h3 class="q-heading">Your application handles 1,000 requests/sec today. Tomorrow it needs to handle 10,000. What changes would you consider?</h3>
+          </div>
+        </div>
+        <div class="q-card-body">
+          
+      <div class="spoken-quote-bubble quote-prod">
+        <div class="quote-header">
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
+          <button class="btn-copy-quote" data-copy-text="I&#039;d start with a realistic load test to identify the current bottleneck and define latency, error-rate, and cost targets. I&#039;d check whether the service is CPU-bound, blocked on database connections, or limited by downstream capacity. Then I&#039;d optimize inefficient queries, apply appropriate caching, ensure stateless horizontal scaling, and tune thread and connection pools. I&#039;d assess Kubernetes autoscaling, load balancing, rate limiting, data partitioning, Kafka buffering, and resilience under bursts. I&#039;d validate the full dependency chain at 10,000 requests per second, not just scale application pods tenfold." title="Copy to clipboard">
+            <i class="ti-files mr-1"></i> Copy
+          </button>
+        </div>
+        <p class="quote-text">I&#039;d start with a realistic load test to identify the current bottleneck and define latency, error-rate, and cost targets. I&#039;d check whether the service is CPU-bound, blocked on database connections, or limited by downstream capacity. Then I&#039;d optimize inefficient queries, apply appropriate caching, ensure stateless horizontal scaling, and tune thread and connection pools. I&#039;d assess Kubernetes autoscaling, load balancing, rate limiting, data partitioning, Kafka buffering, and resilience under bursts. I&#039;d validate the full dependency chain at 10,000 requests per second, not just scale application pods tenfold.</p>
+      </div>
+    
+          
+      <div class="prod-checklist-box">
+        <div class="prod-box-label"><i class="ti-check-box text-success mr-1"></i> WHAT TO CHECK / EXPLAIN:</div>
+        <ul class="prod-checklist-ul">
+          <li><i class="ti-check text-success mr-2"></i><span>Calculate demand and headroom, then profile app, DB, caches, brokers, and downstream capacity.</span></li><li><i class="ti-check text-success mr-2"></i><span>Use load tests for p95/p99 and error SLOs; scale stateless services plus their dependencies.</span></li><li><i class="ti-check text-success mr-2"></i><span>Use caching, indexing, partitions, backpressure, HPA, rate limiting, and rollout tests as appropriate.</span></li>
+        </ul>
+      </div>
+    
+          
+      <div class="resume-connection-box">
+        <div class="resume-badge-tag"><i class="ti-medall mr-1"></i> YOUR RESUME CONNECTION</div>
+        <p class="resume-connection-text">Lowe&#039;s: you supported services used across 1,621 stores and BFCM production operations; do not claim 10,000 RPS achieved.</p>
+      </div>
+    
+          
+      <div class="follow-up-box">
+        <div class="follow-up-q">
+          <span class="follow-up-badge">FOLLOW-UP</span>
+          <strong>Why not simply add 10x pods?</strong>
+        </div>
+        <div class="follow-up-a">
+          <i class="ti-arrow-right text-primary mr-2"></i> Shared DB, network, cache, and downstream dependencies may become the new bottleneck.
+        </div>
+      </div>
+    
+          
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q59" data-secid="section-05" data-subcat="sub-kafka">
+      <div class="interview-q-card card-production">
+        <div class="q-card-header">
+          <div class="q-num-pill q-num-tech">Q59</div>
+          <div class="q-title-wrap">
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-prod">05 &bull; 15 Production Scenarios</span>
+              <span class="q-sec-badge badge-kafka"><i class="ti-tag mr-1"></i>Kafka, JVM, contracts, observability</span>
+            </div>
+            <h3 class="q-heading">Your logs don&#039;t let you trace a request across multiple microservices. How would you improve this?</h3>
+          </div>
+        </div>
+        <div class="q-card-body">
+          
+      <div class="spoken-quote-bubble quote-prod">
+        <div class="quote-header">
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
+          <button class="btn-copy-quote" data-copy-text="I&#039;d introduce end-to-end distributed tracing and structured logs with a common trace ID and span ID. In Spring Boot, Micrometer Tracing with OpenTelemetry is one practical approach. I&#039;d propagate trace context across HTTP requests and Kafka messages, then make sure those identifiers appear in logs and connect to a trace backend. I&#039;d retain service name, environment, error code, and duration as searchable fields, and protect sensitive customer data. I would verify context propagation across asynchronous boundaries and use sampling to manage volume." title="Copy to clipboard">
+            <i class="ti-files mr-1"></i> Copy
+          </button>
+        </div>
+        <p class="quote-text">I&#039;d introduce end-to-end distributed tracing and structured logs with a common trace ID and span ID. In Spring Boot, Micrometer Tracing with OpenTelemetry is one practical approach. I&#039;d propagate trace context across HTTP requests and Kafka messages, then make sure those identifiers appear in logs and connect to a trace backend. I&#039;d retain service name, environment, error code, and duration as searchable fields, and protect sensitive customer data. I would verify context propagation across asynchronous boundaries and use sampling to manage volume.</p>
+      </div>
+    
+          
+      <div class="prod-checklist-box">
+        <div class="prod-box-label"><i class="ti-check-box text-success mr-1"></i> WHAT TO CHECK / EXPLAIN:</div>
+        <ul class="prod-checklist-ul">
+          <li><i class="ti-check text-success mr-2"></i><span>Instrument incoming/outgoing HTTP and Kafka producers/consumers; propagate W3C trace context.</span></li><li><i class="ti-check text-success mr-2"></i><span>Include traceId/spanId in structured logs and correlate metrics, logs and traces.</span></li><li><i class="ti-check text-success mr-2"></i><span>Validate async propagation, error sampling, PII redaction, and storage cost.</span></li>
+        </ul>
+      </div>
+    
+          
+      <div class="resume-connection-box">
+        <div class="resume-badge-tag"><i class="ti-medall mr-1"></i> YOUR RESUME CONNECTION</div>
+        <p class="resume-connection-text">Lowe&#039;s: you have created Grafana/Kibana/Prometheus dashboards; tracing is a recommended design extension, not a confirmed deployment.</p>
+      </div>
+    
+          
+      <div class="follow-up-box">
+        <div class="follow-up-q">
+          <span class="follow-up-badge">FOLLOW-UP</span>
+          <strong>Why are correlation IDs not enough?</strong>
+        </div>
+        <div class="follow-up-a">
+          <i class="ti-arrow-right text-primary mr-2"></i> They connect logs, but spans additionally expose causal relationships and timings.
+        </div>
+      </div>
+    
+          
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="col-12 mb-4 q-card-item" data-qnum="Q60" data-secid="section-05" data-subcat="sub-concur">
+      <div class="interview-q-card card-production">
+        <div class="q-card-header">
+          <div class="q-num-pill q-num-tech">Q60</div>
+          <div class="q-title-wrap">
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge badge-prod">05 &bull; 15 Production Scenarios</span>
+              <span class="q-sec-badge badge-concur"><i class="ti-tag mr-1"></i>Concurrency and idempotency</span>
+            </div>
+            <h3 class="q-heading">Your service receives duplicate requests during a network timeout. How would you make the operation safe?</h3>
+          </div>
+        </div>
+        <div class="q-card-body">
+          
+      <div class="spoken-quote-bubble quote-prod">
+        <div class="quote-header">
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
+          <button class="btn-copy-quote" data-copy-text="I would assume a timeout means the result is unknown, not necessarily that the operation failed. For operations with side effects, I&#039;d require a stable idempotency key or business request ID and atomically enforce uniqueness in durable storage. Repeated requests should return the previous outcome or a processing status rather than repeat the operation. I&#039;d validate payload consistency for reused keys, define retention and reconciliation policies, and keep event consumers idempotent as well. GET and naturally idempotent updates can use normal HTTP semantics, while create or charge workflows need stronger protection." title="Copy to clipboard">
+            <i class="ti-files mr-1"></i> Copy
+          </button>
+        </div>
+        <p class="quote-text">I would assume a timeout means the result is unknown, not necessarily that the operation failed. For operations with side effects, I&#039;d require a stable idempotency key or business request ID and atomically enforce uniqueness in durable storage. Repeated requests should return the previous outcome or a processing status rather than repeat the operation. I&#039;d validate payload consistency for reused keys, define retention and reconciliation policies, and keep event consumers idempotent as well. GET and naturally idempotent updates can use normal HTTP semantics, while create or charge workflows need stronger protection.</p>
+      </div>
+    
+          
+      <div class="prod-checklist-box">
+        <div class="prod-box-label"><i class="ti-check-box text-success mr-1"></i> WHAT TO CHECK / EXPLAIN:</div>
+        <ul class="prod-checklist-ul">
+          <li><i class="ti-check text-success mr-2"></i><span>Use a stable client request ID; durable unique constraint and stored result/status for side-effecting writes.</span></li><li><i class="ti-check text-success mr-2"></i><span>Handle in-flight duplicates as PENDING; distinguish transport timeout from business failure.</span></li><li><i class="ti-check text-success mr-2"></i><span>Test concurrent retries across replicas, crash recovery, and message redelivery.</span></li>
+        </ul>
+      </div>
+    
+          
+      <div class="resume-connection-box">
+        <div class="resume-badge-tag"><i class="ti-medall mr-1"></i> YOUR RESUME CONNECTION</div>
+        <p class="resume-connection-text">CGI banking / Lowe&#039;s distributed systems support the design discussion; do not equate this with a payment incident you implemented.</p>
+      </div>
+    
+          
+      <div class="follow-up-box">
+        <div class="follow-up-q">
+          <span class="follow-up-badge">FOLLOW-UP</span>
+          <strong>Are retries always safe with POST?</strong>
+        </div>
+        <div class="follow-up-a">
+          <i class="ti-arrow-right text-primary mr-2"></i> Only if the operation is designed with a reliable idempotency contract.
+        </div>
+      </div>
+    
+          
+        </div>
+      </div>
+    </div>
+  
+        
+      <div class="col-12 mt-3 mb-4">
+        <div class="final-formula-card">
+          <div class="formula-header">
+            <div class="formula-badge"><i class="ti-bolt mr-1"></i> SPEED &amp; RIGOR</div>
+            <h4 class="formula-title">FINAL 60-SECOND INTERVIEW FORMULA</h4>
+            <p class="formula-subtitle">Use this consistent mental model to structure every live troubleshooting answer in under a minute:</p>
+          </div>
+          <div class="formula-grid">
+            
+              <div class="formula-step-pill">
+                <span class="f-num">01</span>
+                <span class="f-text">State the observable symptom and customer impact.</span>
+              </div>
+            
+              <div class="formula-step-pill">
+                <span class="f-num">02</span>
+                <span class="f-text">Mention the first dashboard or metric you would check.</span>
+              </div>
+            
+              <div class="formula-step-pill">
+                <span class="f-num">03</span>
+                <span class="f-text">Name 2-3 likely root causes and how to distinguish them.</span>
+              </div>
+            
+              <div class="formula-step-pill">
+                <span class="f-num">04</span>
+                <span class="f-text">Explain a safe fix and the trade-off.</span>
+              </div>
+            
+              <div class="formula-step-pill">
+                <span class="f-num">05</span>
+                <span class="f-text">Close with verification, alerting, and prevention.</span>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    
+        
+      <div class="col-12 mb-4">
+        <div class="tech-references-card">
+          <h4 class="ref-title"><i class="ti-bookmark-alt text-primary mr-2"></i>Official Technical References &amp; Standards</h4>
+          <p class="ref-subtitle">Direct upstream documentation and foundational architectures grounding these 15 scenarios:</p>
+          <div class="ref-links-wrap">
+            
+              <a href="https://docs.spring.io/spring-boot/3.3/reference/actuator/metrics.html" target="_blank" rel="noopener noreferrer" class="ref-link-pill">
+                <i class="ti-pulse mr-1 text-primary"></i> Spring Boot Actuator Metrics <i class="ti-export ml-1 text-muted" style="font-size: 11px;"></i>
+              </a>
+            
+              <a href="https://docs.spring.io/spring-boot/reference/actuator/observability.html" target="_blank" rel="noopener noreferrer" class="ref-link-pill">
+                <i class="ti-eye mr-1 text-primary"></i> Spring Boot Observability <i class="ti-export ml-1 text-muted" style="font-size: 11px;"></i>
+              </a>
+            
+              <a href="https://kafka.apache.org/28/configuration/consumer-configs/" target="_blank" rel="noopener noreferrer" class="ref-link-pill">
+                <i class="ti-layers mr-1 text-primary"></i> Apache Kafka Consumer Config <i class="ti-export ml-1 text-muted" style="font-size: 11px;"></i>
+              </a>
+            
+              <a href="https://kafka.apache.org/44/operations/monitoring/" target="_blank" rel="noopener noreferrer" class="ref-link-pill">
+                <i class="ti-dashboard mr-1 text-primary"></i> Apache Kafka Monitoring <i class="ti-export ml-1 text-muted" style="font-size: 11px;"></i>
+              </a>
+            
+              <a href="https://opentelemetry.io/docs/concepts/context-propagation/" target="_blank" rel="noopener noreferrer" class="ref-link-pill">
+                <i class="ti-share mr-1 text-primary"></i> OpenTelemetry Context Propagation <i class="ti-export ml-1 text-muted" style="font-size: 11px;"></i>
+              </a>
+            
+              <a href="https://www.postgresql.org/docs/17/explicit-locking.html" target="_blank" rel="noopener noreferrer" class="ref-link-pill">
+                <i class="ti-lock mr-1 text-primary"></i> PostgreSQL Explicit Row Locking <i class="ti-export ml-1 text-muted" style="font-size: 11px;"></i>
+              </a>
+            
+              <a href="https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/" target="_blank" rel="noopener noreferrer" class="ref-link-pill">
+                <i class="ti-time mr-1 text-primary"></i> AWS Builder&#039;s Library: Timeouts &amp; Jitter <i class="ti-export ml-1 text-muted" style="font-size: 11px;"></i>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    
       </div>
     </div>
   
     </div>
 
-    <!-- SECTION 05: Quick Revision Sheet & Interview Checklist -->
-    <div class="section-anchor-wrap" id="section-05">
+    <!-- SECTION 06: Quick Revision Sheet & Interview Checklist -->
+    <div class="section-anchor-wrap" id="section-06">
       <div class="section-divider-banner" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);">
         <div class="sec-banner-meta">
-          <span class="sec-banner-num" style="color: #c7d2fe; background: rgba(199, 210, 254, 0.15);">SECTION 05</span>
+          <span class="sec-banner-num" style="color: #c7d2fe; background: rgba(199, 210, 254, 0.15);">SECTION 06</span>
           <h2 class="sec-banner-title">Quick revision sheet &amp; interview checklist</h2>
           <p class="sec-banner-theme"><i class="ti-check-box mr-1 text-success"></i> Review this page before the interview call; use the full answers only as a preparation guide.</p>
         </div>
@@ -2685,6 +4342,10 @@ I&#039;d prefer not to circulate another employer&#039;s confidential offer lett
             <span class="figure-param">Retail Platform Reach</span>
             <span class="figure-val">1,621 Stores</span>
           </div>
+          <div class="figure-pill-card">
+            <span class="figure-param">Total Scenarios</span>
+            <span class="figure-val text-primary">60 Qs (45 HR + 15 Tech)</span>
+          </div>
         </div>
       </div>
 
@@ -2741,6 +4402,10 @@ I&#039;d prefer not to circulate another employer&#039;s confidential offer lett
           <input type="checkbox" class="checklist-checkbox" id="chk-4">
           <label for="chk-4" class="checklist-text mb-0">4. Your actual other-offer status, offer amount, acceptance, decision deadline and joining date.</label>
         </div>
+        <div class="checklist-item">
+          <input type="checkbox" class="checklist-checkbox" id="chk-5">
+          <label for="chk-5" class="checklist-text mb-0">5. 60-Second Production Formula reviewed: Symptom &rarr; First Metric &rarr; 2-3 Causes &rarr; Safe Fix &rarr; Verification.</label>
+        </div>
 
         <div class="mt-4 pt-3 border-top">
           <span class="font-weight-bold text-dark d-block mb-2"><i class="ti-target text-danger mr-1"></i> Highest-Priority Practice Questions:</span>
@@ -2753,6 +4418,13 @@ I&#039;d prefer not to circulate another employer&#039;s confidential offer lett
             <a href="#section-02" class="priority-chip" data-jump="Q13">Q13 (Java-only Role)</a>
             <a href="#section-03" class="priority-chip" data-jump="Q26">Q26-Q27 (Salary Negotiation)</a>
             <a href="#section-04" class="priority-chip" data-jump="Q39">Q39-Q45 (Competing Offers)</a>
+            <a href="#section-05" class="priority-chip chip-tech" data-jump="Q46">Q46 (API Bottleneck 5s &rarr; 200ms)</a>
+            <a href="#section-05" class="priority-chip chip-tech" data-jump="Q47">Q47 (DB Connection Pool Exhaustion)</a>
+            <a href="#section-05" class="priority-chip chip-tech" data-jump="Q48">Q48 (Simultaneous Updates &amp; Locking)</a>
+            <a href="#section-05" class="priority-chip chip-tech" data-jump="Q50">Q50 (Downstream Service 10s Latency)</a>
+            <a href="#section-05" class="priority-chip chip-tech" data-jump="Q52">Q52 (Kafka Consumer Lag)</a>
+            <a href="#section-05" class="priority-chip chip-tech" data-jump="Q55">Q55 (Order Microservice Down &amp; Saga)</a>
+            <a href="#section-05" class="priority-chip chip-tech" data-jump="Q60">Q60 (Network Timeout Idempotency)</a>
           </div>
         </div>
       </div>
@@ -2830,7 +4502,7 @@ I&#039;d prefer not to circulate another employer&#039;s confidential offer lett
         </p>
         <hr style="border-color: #cbd5e1;">
         <div style="font-size: 12.5px; color: #64748b; line-height: 1.6;">
-          <strong>Source Note:</strong> Career dates, project descriptions, scope, and performance metrics are based on the candidate's verified professional profile. STIXIS training and compensation figures reflect personalized coaching data. Offer-related scripts are conditional coaching models to be adapted to verified circumstances.
+          <strong>Source Note:</strong> Career dates, project descriptions, scope, and performance metrics are based on the candidate's verified professional profile. STIXIS training and compensation figures reflect personalized coaching data. Offer-related scripts and production scenario answers are structured frameworks to be adapted to verified circumstances.
         </div>
       </div>
     </div>
@@ -2879,7 +4551,7 @@ I&#039;d prefer not to circulate another employer&#039;s confidential offer lett
             <li class="mb-3"><a class="text-color" href="numberprograms.html">Number</a></li>
             <li class="mb-3"><a class="text-color" href="java8programs.html">Java 8 Programs</a></li>
             <li class="mb-3"><a class="text-color" href="topicwiseprogram.html">Topicwise Programs</a></li>
-            <li class="mb-3"><a class="text-color" href="personal-interview.html">Personal Interview (HR)</a></li>
+            <li class="mb-3"><a class="text-color" href="personal-interview.html">Personal Interview (HR &amp; Tech)</a></li>
           </ul>
         </div>
       </div>
@@ -2984,6 +4656,27 @@ I&#039;d prefer not to circulate another employer&#039;s confidential offer lett
         }
       }
 
+      // Subcategory Filter Pills inside Section 05
+      var subcatBtn = e.target.closest('.subcat-pill-btn');
+      if (subcatBtn) {
+        var targetSubcat = subcatBtn.getAttribute('data-subcat-filter');
+        var parentRow = subcatBtn.closest('.subcat-filter-row');
+        if (parentRow) {
+          parentRow.querySelectorAll('.subcat-pill-btn').forEach(function(b){ b.classList.remove('active'); });
+          subcatBtn.classList.add('active');
+          
+          var sec05Cards = document.querySelectorAll('#section-05 .q-card-item');
+          sec05Cards.forEach(function(card){
+            var cardSub = card.getAttribute('data-subcat');
+            if (targetSubcat === 'sub-all' || cardSub === targetSubcat) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        }
+      }
+
       // Priority Jump Chips
       var chip = e.target.closest('.priority-chip');
       if (chip) {
@@ -2991,11 +4684,15 @@ I&#039;d prefer not to circulate another employer&#039;s confidential offer lett
         if (qNum) {
           var targetCard = document.querySelector('[data-qnum="' + qNum + '"]');
           if (targetCard) {
+            targetCard.style.display = 'block';
             targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            targetCard.querySelector('.interview-q-card').style.outline = '3px solid #0284c7';
-            setTimeout(function(){
-              targetCard.querySelector('.interview-q-card').style.outline = 'none';
-            }, 2500);
+            var cardInner = targetCard.querySelector('.interview-q-card');
+            if (cardInner) {
+              cardInner.style.outline = '3px solid #0284c7';
+              setTimeout(function(){
+                cardInner.style.outline = 'none';
+              }, 2500);
+            }
           }
         }
       }
@@ -3029,8 +4726,8 @@ I&#039;d prefer not to circulate another employer&#039;s confidential offer lett
       // Show/hide section banners
       document.querySelectorAll('.section-anchor-wrap').forEach(function(secWrap){
         var secId = secWrap.id;
-        if (secId === 'section-05') {
-          secWrap.style.display = (currentFilter === 'all' || currentFilter === 'section-05') ? 'block' : 'none';
+        if (secId === 'section-06') {
+          secWrap.style.display = (currentFilter === 'all' || currentFilter === 'section-06') ? 'block' : 'none';
         } else {
           var anyVisible = secWrap.querySelectorAll('.q-card-item:not([style*="display: none"])').length > 0;
           secWrap.style.display = anyVisible ? 'block' : 'none';
@@ -3093,7 +4790,7 @@ I&#039;d prefer not to circulate another employer&#039;s confidential offer lett
     });
 
     // Checklist persistence
-    ['chk-1', 'chk-2', 'chk-3', 'chk-4'].forEach(function(chkId){
+    ['chk-1', 'chk-2', 'chk-3', 'chk-4', 'chk-5'].forEach(function(chkId){
       var chk = document.getElementById(chkId);
       if (chk) {
         var saved = localStorage.getItem('techno_' + chkId);

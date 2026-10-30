@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const rootDir = path.resolve(__dirname, '..');
 
+// --- 1. SECTIONS DATA ---
 const sectionsData = [
   {
     id: "section-01",
@@ -246,7 +247,7 @@ const sectionsData = [
       {
         num: "Q38",
         q: "Do you have any questions for us?",
-        spoken: "Yes, thank you. I'd like to understand a few things about this opportunity:\n\n1. What are the main technical challenges the team is currently working on?\n2. How much ownership would this role have in architecture and technical decision-making?\n3. What does the career progression path look like for a Senior Software Engineer who demonstrates technical leadership?\n4. And finally, how do you measure success for someone in this role during the first six months?"
+        spoken: "Yes, thank you. I'd like to understand a few things about this opportunity.\n\nFirst, what are the main technical challenges the team is currently working on?\n\nSecond, how much ownership would this role have in architecture and technical decision-making?\n\nThird, what does the career progression path look like for a Senior Software Engineer who demonstrates technical leadership?\n\nAnd finally, how do you measure success for someone in this role during the first six months?"
       }
     ]
   },
@@ -311,6 +312,307 @@ const sectionsData = [
         note: "Do not share confidential or personal documents unless you are comfortable and permitted to do so. Give a real deadline, not one invented to pressure a recruiter."
       }
     ]
+  },
+  {
+    id: "section-05",
+    num: "05",
+    title: "15 Production Scenarios",
+    theme: "Senior Java / Spring Boot / Microservices: Spoken answers, investigation checklists, follow-ups, and resume-relevant examples.",
+    badgeClass: "badge-prod",
+    isProductionSection: true,
+    leadFramework: {
+      title: "HOW TO ANSWER LIKE A TECHNICAL LEAD",
+      steps: [
+        { num: "1", title: "Scope the incident & assess customer impact", desc: "Identify affected endpoints, timing, error rate, p95/p99 latency regressions, and whether traffic or blast radius is growing." },
+        { num: "2", title: "Use measurements to pinpoint the actual bottleneck", desc: "Check Grafana, APM distributed traces, HikariCP pool metrics, GC logs, slow queries, and thread dumps instead of guessing." },
+        { num: "3", title: "Apply the smallest safe fix with an explicit trade-off", desc: "Mitigate first (cache, rate limit, timeout, circuit break, rolling restart) before deep structural rewrites." },
+        { num: "4", title: "Validate with metrics, tests & automated prevention", desc: "Confirm recovery under representative load, add automated alerts, SLO guards, and regression tests." }
+      ],
+      truthfulnessNote: "Truthfulness note: Your resume confirms API p99 optimization, Redis caching, Kafka telemetry ingestion, PostgreSQL store services, production monitoring and mentorship. Payment/saga/scheduler scenarios are preparation examples, NOT claims of projects you delivered."
+    },
+    subCategories: [
+      { id: "sub-all", name: "All 15 Scenarios", count: 15 },
+      { id: "sub-perf", name: "Performance & Capacity", count: 4, qs: ["Q46", "Q47", "Q54", "Q58"] },
+      { id: "sub-concur", name: "Concurrency & Idempotency", count: 3, qs: ["Q48", "Q49", "Q60"] },
+      { id: "sub-resil", name: "Resilience & Transactions", count: 4, qs: ["Q50", "Q51", "Q55", "Q56"] },
+      { id: "sub-kafka", name: "Kafka, JVM & Observability", count: 4, qs: ["Q52", "Q53", "Q57", "Q59"] }
+    ],
+    questions: [
+      {
+        num: "Q46",
+        q: "Your API suddenly takes 5 seconds instead of 200 ms. How would you find the bottleneck?",
+        category: "Performance and capacity",
+        subCatId: "sub-perf",
+        spoken: "I would first confirm the scope of the regression: which endpoints, when it started, and whether p95 and p99 rose along with traffic or error rates. I'd examine Grafana dashboards for application, database, cache, JVM, and downstream-service metrics. Then I'd use a distributed trace or targeted timings to divide total request time into connection wait, application logic, SQL, Redis, and external calls. I'd check deployment changes, thread saturation, GC pauses, and slow queries. After isolating the dominant delay, I'd fix it and verify the improvement under representative load.",
+        checklist: [
+          "Compare p50/p95/p99, traffic, error rate, releases, and individual endpoints.",
+          "Trace each dependency; check DB pool wait, slow SQL, Redis hit rate, outbound HTTP, GC and thread dumps.",
+          "Validate the fix with load testing and production monitoring; avoid guessing the cause."
+        ],
+        resumeConnection: "Lowe's: you actually improved inventory/lookup API p99 from 8 seconds to 170 ms using distributed Redis caching. Do not imply this exact 5-second incident happened.",
+        followUp: {
+          q: "What if SQL is fast but p99 is high?",
+          a: "Check queueing, connection acquisition, slow dependency calls, and JVM pauses."
+        }
+      },
+      {
+        num: "Q47",
+        q: "Your DB connection pool is exhausted. What would you check first?",
+        category: "Performance and capacity",
+        subCatId: "sub-perf",
+        spoken: "I'd start with HikariCP metrics for active, idle, pending, and maximum connections, especially acquisition wait time. Then I'd look for long-running SQL, slow transactions, thread stacks waiting for connections, and connections that are not being returned. I'd also check whether a deployment increased replica count or concurrency, which could multiply total database connections. I wouldn't blindly increase the pool size; I'd fix leaks or long transactions, introduce sensible timeouts, and tune the application's concurrency against the database's real capacity.",
+        checklist: [
+          "Inspect active/idle/pending/max connections and acquisition timeout trends.",
+          "Correlate active connections with transaction duration, lock waits, slow SQL, and thread dumps.",
+          "Check total connections across ALL app replicas; pool x replicas must fit DB limits."
+        ],
+        resumeConnection: "Lowe's: PostgreSQL-backed store-edge services; discuss as your troubleshooting method unless you saw this exact issue.",
+        followUp: {
+          q: "Could @Transactional cause exhaustion?",
+          a: "Yes, transactions that include slow network calls or excessive work retain connections longer."
+        }
+      },
+      {
+        num: "Q48",
+        q: "Two users update the same record simultaneously. How do you handle it?",
+        category: "Concurrency and idempotency",
+        subCatId: "sub-concur",
+        spoken: "I would prevent lost updates according to the business rule. For typical user-driven changes, I'd use optimistic locking with JPA @Version and return a conflict if someone has already updated the record. The client can reload the latest state and retry deliberately. For highly contended inventory or balance changes, I'd evaluate atomic conditional SQL updates or short database row locks. I'd keep transactions focused and test concurrent requests. A Java synchronized block isn't sufficient when multiple microservice instances are running.",
+        checklist: [
+          "Optimistic: @Version and OptimisticLockException; return 409 Conflict or equivalent.",
+          "High contention: UPDATE ... WHERE version/quantity condition or SELECT ... FOR UPDATE inside a transaction.",
+          "Choose behavior explicitly: reject, merge, retry, or serialize based on domain semantics."
+        ],
+        resumeConnection: "Lowe's: store/inventory services provide a relevant setting; do not claim a conflict-handling implementation you have not used.",
+        followUp: {
+          q: "Why not Redis locks by default?",
+          a: "Database atomicity or versioning is typically simpler and more reliable for a single DB record."
+        }
+      },
+      {
+        num: "Q49",
+        q: "A payment request reaches your API twice. How do you prevent duplicate payments?",
+        category: "Concurrency and idempotency",
+        subCatId: "sub-concur",
+        spoken: "I would make payment creation idempotent. The client supplies an idempotency key for the logical payment, and the backend atomically reserves that key using a unique constraint, together with a request fingerprint and durable processing status. If the same request arrives again, we return the existing result or current status rather than executing a second charge. I'd also pass an idempotency key to the payment provider where supported, and reconcile uncertain outcomes after timeouts. An in-memory lock alone isn't reliable across instances.",
+        checklist: [
+          "Unique key scoped by customer/merchant and operation; reject same key with different payload.",
+          "Persist PENDING/SUCCEEDED/FAILED; coordinate concurrent calls and retry unknown outcomes safely.",
+          "Handle gateway timeouts via provider lookup/reconciliation; test replay and racing requests."
+        ],
+        resumeConnection: "Your CGI banking work is relevant experience in transaction workflows, but do not say you implemented payments or this mechanism unless true.",
+        followUp: {
+          q: "What if the provider charged but your API timed out?",
+          a: "Query provider status with the same idempotency reference before retrying."
+        }
+      },
+      {
+        num: "Q50",
+        q: "A downstream service takes 10 seconds to respond. What would you do?",
+        category: "Resilience and transactions",
+        subCatId: "sub-resil",
+        spoken: "I'd first check whether the delay is isolated or widespread and whether that dependency is overloaded. I'd set connection and response timeouts based on the end-to-end request budget, and use a circuit breaker and bulkhead to avoid exhausting our threads or connections. For noncritical features, I'd consider a cached or degraded response. I'd retry only transient, safe-to-retry calls, with bounded exponential backoff and jitter. If the workflow cannot complete safely, I'd return a clear failure or pending status, then monitor dependency latency and error rates.",
+        checklist: [
+          "Set timeouts shorter than the caller's total deadline; propagate deadlines where possible.",
+          "Apply circuit breaker, concurrency limits/bulkheads, and graceful fallback only where acceptable.",
+          "Retry selective transient errors; avoid retrying non-idempotent writes without idempotency."
+        ],
+        resumeConnection: "Lowe's: relate to resilient distributed services and your production monitoring responsibilities.",
+        followUp: {
+          q: "When is a fallback dangerous?",
+          a: "For payments or inventory guarantees, an invented success would violate correctness."
+        }
+      },
+      {
+        num: "Q51",
+        q: "Your retry mechanism starts increasing traffic instead of reducing failures. Why?",
+        category: "Resilience and transactions",
+        subCatId: "sub-resil",
+        spoken: "That usually means retries are amplifying load on an already unhealthy dependency, possibly with retries at several layers. I would inspect retry counts, response codes, concurrent request volume, and whether clients are retrying at the same time. I'd centralize retry policy at one appropriate boundary, cap attempts, use exponential backoff with jitter, and enforce an overall time budget. I'd combine this with circuit breaking, load shedding, and idempotency for side-effecting operations. The goal is to reduce pressure while the dependency recovers.",
+        checklist: [
+          "Look for nested retries: three attempts at each of three layers can create up to 27 downstream attempts.",
+          "Use bounded attempts, jitter, retry budgets, circuit breakers, and explicit retryable error classes.",
+          "Monitor retry rate, attempts/request, downstream QPS, latency, and successful recoveries."
+        ],
+        resumeConnection: "Applicable to microservice design and on-call troubleshooting; do not present nested retry storm as an incident you personally fixed.",
+        followUp: {
+          q: "Why add jitter?",
+          a: "It prevents synchronized retry waves (thundering herd) after an outage."
+        }
+      },
+      {
+        num: "Q52",
+        q: "Kafka consumer lag keeps increasing. How would you troubleshoot it?",
+        category: "Kafka, JVM, contracts, observability",
+        subCatId: "sub-kafka",
+        spoken: "I'd compare incoming message rate with successful processing throughput, then check lag per partition, not just the total. I'd inspect consumer health, partition assignments, rebalance frequency, processing time, errors, and downstream dependencies such as PostgreSQL or Elasticsearch. I'd review batch size, commit behavior, and max.poll.interval.ms, because long processing can trigger rebalances. If the group is underprovisioned, I'd scale consumers up to useful partition parallelism or optimize processing, while protecting ordering and delivery semantics. Poison messages should be handled deliberately rather than endlessly retried.",
+        checklist: [
+          "Inspect consumer-group lag by partition, broker/topic throughput, assignments, and rebalances.",
+          "Identify bottlenecks: slow handlers, SQL, external APIs, large batches, GC, and poison messages.",
+          "Scale within partition limits; tune poll/batch/commit carefully and consider DLQ or retries with ordering awareness."
+        ],
+        resumeConnection: "Lowe's: you built Kafka/Redis/Elasticsearch ingestion services for MQTT store telemetry; this is directly relevant experience.",
+        followUp: {
+          q: "If topic has 4 partitions and 10 consumers in one group?",
+          a: "Only up to 4 consumers can actively own partitions in classic partition-based consumption."
+        }
+      },
+      {
+        num: "Q53",
+        q: "Your application throws OutOfMemoryError only in production. What would you investigate?",
+        category: "Kafka, JVM, contracts, observability",
+        subCatId: "sub-kafka",
+        spoken: "I'd first identify which memory area failed: Java heap, Metaspace, direct buffers, or native/container memory. I'd compare production traffic and payload sizes with lower environments and inspect heap usage, GC pause time, allocation rate, container limits, and recent releases. If safe, I'd capture a heap dump and analyze retained objects and dominator trees, along with thread or JFR data. Typical causes include unbounded caches, large collections, queue buildup, or memory leaks. I'd fix the retaining code and verify under production-like load rather than just increasing Xmx.",
+        checklist: [
+          "Differentiate Java heap OOM, Metaspace, direct-buffer pressure, and Kubernetes OOMKilled.",
+          "Use GC logs, heap dump/MAT, JFR, container metrics, allocations and retained-object analysis.",
+          "Review unbounded Redis-local caches, in-memory buffers, batch sizes, thread counts, and memory limits."
+        ],
+        resumeConnection: "Your Java/JVM and Kubernetes background supports this response; an actual OOM incident is not confirmed.",
+        followUp: {
+          q: "Why could Xmx be below pod memory yet container OOMKill?",
+          a: "Heap is only one component of total process memory."
+        }
+      },
+      {
+        num: "Q54",
+        q: "The DB query takes 50 ms, but the API takes 3 seconds. Where could the remaining time go?",
+        category: "Performance and capacity",
+        subCatId: "sub-perf",
+        spoken: "A fast SQL execution doesn't prove that database access was fast end-to-end. I'd check time waiting for a pool connection, ORM mapping, repeated N+1 queries, transaction locks, and network transfer. Outside the database, I'd measure request queueing, authentication, serialization, Redis calls, downstream HTTP calls, retries, thread scheduling, and GC pauses. I'd add span timings around each stage and compare the total wall-clock time. That would show whether the remaining time is spent waiting, processing, or calling another dependency.",
+        checklist: [
+          "Distinguish pure DB execution time from acquisition, network, ORM, and transaction duration.",
+          "Check N+1, serialization, HTTP calls, rate limits, queues, thread starvation and GC.",
+          "Use distributed traces and timers; verify totals match end-to-end wall clock."
+        ],
+        resumeConnection: "Lowe's: tie to your API performance work and Grafana/Kibana/Prometheus observability.",
+        followUp: {
+          q: "What if timing still does not add up?",
+          a: "Inspect uninstrumented queues and asynchronous waits, plus clock/trace gaps."
+        }
+      },
+      {
+        num: "Q55",
+        q: "One microservice goes down during an order transaction. How should your system behave?",
+        category: "Resilience and transactions",
+        subCatId: "sub-resil",
+        spoken: "I would design the transaction around explicit business states instead of assuming one distributed ACID transaction across services. For a multi-step order workflow, a saga can coordinate local transactions and compensating actions. I'd use durable events and an outbox pattern to avoid losing state changes, and make each step idempotent. If a downstream service is unavailable, the order should move to a well-defined pending, failed, or compensating state. I'd provide recovery, retries where safe, observability, and reconciliation rather than silently claiming success.",
+        checklist: [
+          "Use local transactions with a saga (orchestration/choreography) and business-specific compensations.",
+          "Persist state changes plus outgoing events atomically via transactional outbox when appropriate.",
+          "Design idempotent handlers, eventual consistency, and a recoverable order state machine."
+        ],
+        resumeConnection: "You have event-driven retail and CI/CD orchestration experience; this exact order saga is a design answer, not a confirmed project.",
+        followUp: {
+          q: "Can every step be rolled back?",
+          a: "No. Real-world side effects may require refunds, cancellations, or manual reconciliation."
+        }
+      },
+      {
+        num: "Q56",
+        q: "A scheduled job executes twice after deployment. How would you prevent duplicate execution?",
+        category: "Resilience and transactions",
+        subCatId: "sub-resil",
+        spoken: "I'd check whether multiple instances are running the same @Scheduled job after horizontal scaling or during a rolling deployment. A local synchronized lock won't coordinate multiple pods. Depending on requirements, I'd use a persistent distributed scheduler or a lease-based lock such as a properly configured database-backed scheduler. More importantly, I'd make the job idempotent using a unique run or business-operation key so a restart or expired lock cannot duplicate its effects. I'd track ownership, lock expiry, execution status, and job success metrics.",
+        checklist: [
+          "Check multiple pods, duplicate scheduler registration, rolling overlap, clock and cron configuration.",
+          "Use Quartz clustered mode, ShedLock with shared storage, or an equivalent lease/fencing arrangement.",
+          "Use unique run IDs and durable idempotency because locks alone do not guarantee exactly-once effects."
+        ],
+        resumeConnection: "IBM: you designed Argo Workflows orchestration; reference your orchestration experience, not a fabricated scheduling incident.",
+        followUp: {
+          q: "Why might a lock still permit duplicate work?",
+          a: "A lease may expire while the original worker continues."
+        }
+      },
+      {
+        num: "Q57",
+        q: "You need to introduce a new field in an API without breaking existing clients. How?",
+        category: "Kafka, JVM, contracts, observability",
+        subCatId: "sub-kafka",
+        spoken: "I'd make the change backward-compatible by adding an optional field and keeping existing field names, types, and response semantics unchanged. I'd provide sensible default behavior when older clients don't send the field, and ensure clients can tolerate the additional response field. I'd update API documentation and contract tests, then deploy the server side before requiring consumers to use the new field. If the change is genuinely breaking, I'd version the contract or introduce a migration period rather than silently changing existing behavior.",
+        checklist: [
+          "Additive optional field; do not make it mandatory for existing consumers.",
+          "Check older clients' tolerance to unknown JSON fields; use consumer-driven contract testing.",
+          "For event schemas, check schema compatibility and evolve producers/consumers carefully."
+        ],
+        resumeConnection: "Lowe's: you delivered 30+ APIs/microservices; discuss your design approach and actual versioning practices if known.",
+        followUp: {
+          q: "What if field changes the meaning of an existing field?",
+          a: "That is a semantic breaking change even if JSON still parses."
+        }
+      },
+      {
+        num: "Q58",
+        q: "Your application handles 1,000 requests/sec today. Tomorrow it needs to handle 10,000. What changes would you consider?",
+        category: "Performance and capacity",
+        subCatId: "sub-perf",
+        spoken: "I'd start with a realistic load test to identify the current bottleneck and define latency, error-rate, and cost targets. I'd check whether the service is CPU-bound, blocked on database connections, or limited by downstream capacity. Then I'd optimize inefficient queries, apply appropriate caching, ensure stateless horizontal scaling, and tune thread and connection pools. I'd assess Kubernetes autoscaling, load balancing, rate limiting, data partitioning, Kafka buffering, and resilience under bursts. I'd validate the full dependency chain at 10,000 requests per second, not just scale application pods tenfold.",
+        checklist: [
+          "Calculate demand and headroom, then profile app, DB, caches, brokers, and downstream capacity.",
+          "Use load tests for p95/p99 and error SLOs; scale stateless services plus their dependencies.",
+          "Use caching, indexing, partitions, backpressure, HPA, rate limiting, and rollout tests as appropriate."
+        ],
+        resumeConnection: "Lowe's: you supported services used across 1,621 stores and BFCM production operations; do not claim 10,000 RPS achieved.",
+        followUp: {
+          q: "Why not simply add 10x pods?",
+          a: "Shared DB, network, cache, and downstream dependencies may become the new bottleneck."
+        }
+      },
+      {
+        num: "Q59",
+        q: "Your logs don't let you trace a request across multiple microservices. How would you improve this?",
+        category: "Kafka, JVM, contracts, observability",
+        subCatId: "sub-kafka",
+        spoken: "I'd introduce end-to-end distributed tracing and structured logs with a common trace ID and span ID. In Spring Boot, Micrometer Tracing with OpenTelemetry is one practical approach. I'd propagate trace context across HTTP requests and Kafka messages, then make sure those identifiers appear in logs and connect to a trace backend. I'd retain service name, environment, error code, and duration as searchable fields, and protect sensitive customer data. I would verify context propagation across asynchronous boundaries and use sampling to manage volume.",
+        checklist: [
+          "Instrument incoming/outgoing HTTP and Kafka producers/consumers; propagate W3C trace context.",
+          "Include traceId/spanId in structured logs and correlate metrics, logs and traces.",
+          "Validate async propagation, error sampling, PII redaction, and storage cost."
+        ],
+        resumeConnection: "Lowe's: you have created Grafana/Kibana/Prometheus dashboards; tracing is a recommended design extension, not a confirmed deployment.",
+        followUp: {
+          q: "Why are correlation IDs not enough?",
+          a: "They connect logs, but spans additionally expose causal relationships and timings."
+        }
+      },
+      {
+        num: "Q60",
+        q: "Your service receives duplicate requests during a network timeout. How would you make the operation safe?",
+        category: "Concurrency and idempotency",
+        subCatId: "sub-concur",
+        spoken: "I would assume a timeout means the result is unknown, not necessarily that the operation failed. For operations with side effects, I'd require a stable idempotency key or business request ID and atomically enforce uniqueness in durable storage. Repeated requests should return the previous outcome or a processing status rather than repeat the operation. I'd validate payload consistency for reused keys, define retention and reconciliation policies, and keep event consumers idempotent as well. GET and naturally idempotent updates can use normal HTTP semantics, while create or charge workflows need stronger protection.",
+        checklist: [
+          "Use a stable client request ID; durable unique constraint and stored result/status for side-effecting writes.",
+          "Handle in-flight duplicates as PENDING; distinguish transport timeout from business failure.",
+          "Test concurrent retries across replicas, crash recovery, and message redelivery."
+        ],
+        resumeConnection: "CGI banking / Lowe's distributed systems support the design discussion; do not equate this with a payment incident you implemented.",
+        followUp: {
+          q: "Are retries always safe with POST?",
+          a: "Only if the operation is designed with a reliable idempotency contract."
+        }
+      }
+    ],
+    finalFormula: {
+      title: "FINAL 60-SECOND INTERVIEW FORMULA",
+      points: [
+        "State the observable symptom and customer impact.",
+        "Mention the first dashboard or metric you would check.",
+        "Name 2-3 likely root causes and how to distinguish them.",
+        "Explain a safe fix and the trade-off.",
+        "Close with verification, alerting, and prevention."
+      ]
+    },
+    technicalReferences: [
+      { name: "Spring Boot Actuator Metrics", url: "https://docs.spring.io/spring-boot/3.3/reference/actuator/metrics.html", icon: "ti-pulse" },
+      { name: "Spring Boot Observability", url: "https://docs.spring.io/spring-boot/reference/actuator/observability.html", icon: "ti-eye" },
+      { name: "Apache Kafka Consumer Config", url: "https://kafka.apache.org/28/configuration/consumer-configs/", icon: "ti-layers" },
+      { name: "Apache Kafka Monitoring", url: "https://kafka.apache.org/44/operations/monitoring/", icon: "ti-dashboard" },
+      { name: "OpenTelemetry Context Propagation", url: "https://opentelemetry.io/docs/concepts/context-propagation/", icon: "ti-share" },
+      { name: "PostgreSQL Explicit Row Locking", url: "https://www.postgresql.org/docs/17/explicit-locking.html", icon: "ti-lock" },
+      { name: "AWS Builder's Library: Timeouts & Jitter", url: "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/", icon: "ti-time" }
+    ]
   }
 ];
 
@@ -363,14 +665,54 @@ function renderQuestionCard(qObj, sec) {
     `;
   } else if (qObj.spoken) {
     contentHtml = `
-      <div class="spoken-quote-bubble">
+      <div class="spoken-quote-bubble ${sec.isProductionSection ? 'quote-prod' : ''}">
         <div class="quote-header">
-          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer</span>
+          <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
           <button class="btn-copy-quote" data-copy-text="${escapeHtml(qObj.spoken)}" title="Copy to clipboard">
             <i class="ti-files mr-1"></i> Copy
           </button>
         </div>
         <p class="quote-text">${escapeHtml(qObj.spoken).replace(/\n\n/g, '</p><p class="quote-text">')}</p>
+      </div>
+    `;
+  }
+
+  // Checklist for technical scenario cards
+  let checklistHtml = '';
+  if (qObj.checklist && qObj.checklist.length > 0) {
+    checklistHtml = `
+      <div class="prod-checklist-box">
+        <div class="prod-box-label"><i class="ti-check-box text-success mr-1"></i> WHAT TO CHECK / EXPLAIN:</div>
+        <ul class="prod-checklist-ul">
+          ${qObj.checklist.map(item => `<li><i class="ti-check text-success mr-2"></i><span>${escapeHtml(item)}</span></li>`).join('')}
+        </ul>
+      </div>
+    `;
+  }
+
+  // Resume connection callout
+  let resumeHtml = '';
+  if (qObj.resumeConnection) {
+    resumeHtml = `
+      <div class="resume-connection-box">
+        <div class="resume-badge-tag"><i class="ti-medall mr-1"></i> YOUR RESUME CONNECTION</div>
+        <p class="resume-connection-text">${escapeHtml(qObj.resumeConnection)}</p>
+      </div>
+    `;
+  }
+
+  // Follow-up Q&A
+  let followUpHtml = '';
+  if (qObj.followUp) {
+    followUpHtml = `
+      <div class="follow-up-box">
+        <div class="follow-up-q">
+          <span class="follow-up-badge">FOLLOW-UP</span>
+          <strong>${escapeHtml(qObj.followUp.q)}</strong>
+        </div>
+        <div class="follow-up-a">
+          <i class="ti-arrow-right text-primary mr-2"></i> ${escapeHtml(qObj.followUp.a)}
+        </div>
       </div>
     `;
   }
@@ -387,18 +729,38 @@ function renderQuestionCard(qObj, sec) {
     `;
   }
 
+  // Badges
+  let categoryBadge = '';
+  if (qObj.category) {
+    let catClass = 'badge-secondary';
+    if (qObj.category.toLowerCase().includes('performance')) catClass = 'badge-perf';
+    else if (qObj.category.toLowerCase().includes('concurrency')) catClass = 'badge-concur';
+    else if (qObj.category.toLowerCase().includes('resilience')) catClass = 'badge-resil';
+    else if (qObj.category.toLowerCase().includes('kafka') || qObj.category.toLowerCase().includes('jvm')) catClass = 'badge-kafka';
+
+    categoryBadge = `<span class="q-sec-badge ${catClass}"><i class="ti-tag mr-1"></i>${escapeHtml(qObj.category)}</span>`;
+  }
+
+  const subCatAttr = qObj.subCatId ? `data-subcat="${qObj.subCatId}"` : '';
+
   return `
-    <div class="col-12 mb-4 q-card-item" data-qnum="${qObj.num}" data-secid="${sec.id}">
-      <div class="interview-q-card">
+    <div class="col-12 mb-4 q-card-item" data-qnum="${qObj.num}" data-secid="${sec.id}" ${subCatAttr}>
+      <div class="interview-q-card ${sec.isProductionSection ? 'card-production' : ''}">
         <div class="q-card-header">
-          <div class="q-num-pill">${qObj.num}</div>
+          <div class="q-num-pill ${sec.isProductionSection ? 'q-num-tech' : ''}">${qObj.num}</div>
           <div class="q-title-wrap">
-            <span class="q-sec-badge ${sec.badgeClass}">${sec.num} &bull; ${escapeHtml(sec.title)}</span>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <span class="q-sec-badge ${sec.badgeClass}">${sec.num} &bull; ${escapeHtml(sec.title)}</span>
+              ${categoryBadge}
+            </div>
             <h3 class="q-heading">${escapeHtml(qObj.q)}</h3>
           </div>
         </div>
         <div class="q-card-body">
           ${contentHtml}
+          ${checklistHtml}
+          ${resumeHtml}
+          ${followUpHtml}
           ${noteHtml}
         </div>
       </div>
@@ -406,31 +768,126 @@ function renderQuestionCard(qObj, sec) {
   `;
 }
 
+// Generate Section 01 - 05
 let allCardsHtml = '';
 for (const sec of sectionsData) {
+  let sectionLeadHtml = '';
+  if (sec.leadFramework) {
+    sectionLeadHtml = `
+      <div class="lead-framework-card mb-4">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+          <h3 class="lead-framework-title mb-0">
+            <i class="ti-crown text-warning mr-2"></i> ${sec.leadFramework.title}
+          </h3>
+          <span class="badge badge-warning text-dark font-weight-bold px-3 py-2" style="border-radius: 8px;">
+            <i class="ti-shield mr-1"></i> Technical Lead Standard
+          </span>
+        </div>
+        <div class="row steps-row mb-3">
+          ${sec.leadFramework.steps.map(st => `
+            <div class="col-md-3 col-sm-6 mb-3">
+              <div class="framework-step-card">
+                <div class="framework-step-num">${st.num}</div>
+                <div class="framework-step-title">${st.title}</div>
+                <div class="framework-step-desc">${st.desc}</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <div class="framework-truth-alert">
+          <i class="ti-alert mr-2 text-warning" style="font-size: 16px;"></i>
+          <span>${escapeHtml(sec.leadFramework.truthfulnessNote)}</span>
+        </div>
+      </div>
+    `;
+  }
+
+  let subCategoryFilterHtml = '';
+  if (sec.subCategories) {
+    subCategoryFilterHtml = `
+      <div class="subcat-filter-row mb-4">
+        <span class="subcat-filter-label"><i class="ti-filter mr-1"></i> Domain Filters:</span>
+        <div class="subcat-pills-wrap">
+          ${sec.subCategories.map((sc, i) => `
+            <button class="subcat-pill-btn ${i === 0 ? 'active' : ''}" data-subcat-filter="${sc.id}">
+              ${escapeHtml(sc.name)} <span class="badge-count">${sc.count}</span>
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let closingSectionHtml = '';
+  if (sec.finalFormula) {
+    closingSectionHtml = `
+      <div class="col-12 mt-3 mb-4">
+        <div class="final-formula-card">
+          <div class="formula-header">
+            <div class="formula-badge"><i class="ti-bolt mr-1"></i> SPEED &amp; RIGOR</div>
+            <h4 class="formula-title">${sec.finalFormula.title}</h4>
+            <p class="formula-subtitle">Use this consistent mental model to structure every live troubleshooting answer in under a minute:</p>
+          </div>
+          <div class="formula-grid">
+            ${sec.finalFormula.points.map((pt, idx) => `
+              <div class="formula-step-pill">
+                <span class="f-num">0${idx + 1}</span>
+                <span class="f-text">${escapeHtml(pt)}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  let referencesHtml = '';
+  if (sec.technicalReferences) {
+    referencesHtml = `
+      <div class="col-12 mb-4">
+        <div class="tech-references-card">
+          <h4 class="ref-title"><i class="ti-bookmark-alt text-primary mr-2"></i>Official Technical References &amp; Standards</h4>
+          <p class="ref-subtitle">Direct upstream documentation and foundational architectures grounding these 15 scenarios:</p>
+          <div class="ref-links-wrap">
+            ${sec.technicalReferences.map(ref => `
+              <a href="${ref.url}" target="_blank" rel="noopener noreferrer" class="ref-link-pill">
+                <i class="${ref.icon} mr-1 text-primary"></i> ${escapeHtml(ref.name)} <i class="ti-export ml-1 text-muted" style="font-size: 11px;"></i>
+              </a>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
   allCardsHtml += `
     <div class="section-anchor-wrap" id="${sec.id}">
-      <div class="section-divider-banner">
+      <div class="section-divider-banner ${sec.isProductionSection ? 'banner-tech' : ''}">
         <div class="sec-banner-meta">
-          <span class="sec-banner-num">SECTION ${sec.num}</span>
+          <span class="sec-banner-num ${sec.isProductionSection ? 'num-tech' : ''}">SECTION ${sec.num}</span>
           <h2 class="sec-banner-title">${sec.title}</h2>
           <p class="sec-banner-theme"><i class="ti-light-bulb mr-1 text-warning"></i> ${sec.theme}</p>
         </div>
       </div>
+      ${sectionLeadHtml}
+      ${subCategoryFilterHtml}
       <div class="row">
         ${sec.questions.map(q => renderQuestionCard(q, sec)).join('\n')}
+        ${closingSectionHtml}
+        ${referencesHtml}
       </div>
     </div>
   `;
 }
 
+// Build full HTML page
 const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Personal Interview &amp; HR Playbook - Techno</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Personalized HR Interview Questions &amp; Answers for Prashant Kumar Jha - Senior Java Backend Engineer &amp; Technical Lead. 45 curated questions, spoken answers, career transition narratives, and salary negotiation tactics.">
+  <meta name="description" content="Personalized Technical Lead &amp; HR Interview Playbook for Prashant Kumar Jha - 60 Real-World Questions and Production Scenarios in Java, Spring Boot, Microservices, System Architecture, Redis, Kafka, and Salary Negotiation.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="author" content="Prashant jha">
   <meta name="generator" content="Techno">
@@ -472,14 +929,14 @@ const html = `<!DOCTYPE html>
     /* Executive Stats Header Ribbon */
     .executive-stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 16px;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
     }
     .exec-stat-card {
       background: #ffffff;
       border-radius: 16px;
-      padding: 20px 22px;
+      padding: 18px 20px;
       border: 1px solid rgba(226, 232, 240, 0.9);
       box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
       position: relative;
@@ -502,9 +959,10 @@ const html = `<!DOCTYPE html>
     .exec-stat-card.c-violet::before { background: linear-gradient(90deg, #6366f1, #818cf8); }
     .exec-stat-card.c-emerald::before { background: linear-gradient(90deg, #10b981, #34d399); }
     .exec-stat-card.c-amber::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+    .exec-stat-card.c-cyan::before { background: linear-gradient(90deg, #06b6d4, #3b82f6); }
 
     .exec-stat-val {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 800;
       color: #0f172a;
       line-height: 1.2;
@@ -512,13 +970,13 @@ const html = `<!DOCTYPE html>
       margin-bottom: 4px;
     }
     .exec-stat-label {
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 700;
       color: #475569;
       margin-bottom: 2px;
     }
     .exec-stat-sub {
-      font-size: 12px;
+      font-size: 11.5px;
       color: #64748b;
     }
 
@@ -529,7 +987,7 @@ const html = `<!DOCTYPE html>
       padding: 16px 20px;
       border: 1px solid #e2e8f0;
       box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
-      margin-bottom: 30px;
+      margin-bottom: 28px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -620,6 +1078,10 @@ const html = `<!DOCTYPE html>
       position: relative;
       overflow: hidden;
     }
+    .section-divider-banner.banner-tech {
+      background: linear-gradient(135deg, #090d16 0%, #131d2e 50%, #0c203b 100%);
+      border-left: 5px solid #38bdf8;
+    }
     .section-divider-banner::after {
       content: '';
       position: absolute;
@@ -641,6 +1103,10 @@ const html = `<!DOCTYPE html>
       padding: 3px 10px;
       border-radius: 6px;
       margin-bottom: 8px;
+    }
+    .sec-banner-num.num-tech {
+      color: #34d399;
+      background: rgba(52, 211, 153, 0.15);
     }
     .sec-banner-title {
       font-size: 24px;
@@ -669,6 +1135,9 @@ const html = `<!DOCTYPE html>
       box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
       border-color: #cbd5e1;
     }
+    .interview-q-card.card-production {
+      border-top: 3px solid #0284c7;
+    }
     .q-card-header {
       display: flex;
       align-items: flex-start;
@@ -686,6 +1155,11 @@ const html = `<!DOCTYPE html>
       flex-shrink: 0;
       box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
     }
+    .q-num-pill.q-num-tech {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+    }
     .q-title-wrap {
       flex: 1;
     }
@@ -697,12 +1171,16 @@ const html = `<!DOCTYPE html>
       letter-spacing: 0.5px;
       padding: 2px 8px;
       border-radius: 6px;
-      margin-bottom: 6px;
     }
     .badge-career { background: #e0f2fe; color: #0369a1; }
     .badge-tech { background: #ede9fe; color: #5b21b6; }
     .badge-salary { background: #fef3c7; color: #92400e; }
     .badge-offer { background: #fce7f3; color: #9d174d; }
+    .badge-prod { background: #dcfce7; color: #166534; }
+    .badge-perf { background: #fef3c7; color: #b45309; }
+    .badge-concur { background: #ede9fe; color: #6b21a8; }
+    .badge-resil { background: #ffe4e6; color: #be123c; }
+    .badge-kafka { background: #e0e7ff; color: #3730a3; }
 
     .q-heading {
       font-size: 19px;
@@ -723,6 +1201,10 @@ const html = `<!DOCTYPE html>
       padding: 18px 22px;
       margin-top: 10px;
     }
+    .spoken-quote-bubble.quote-prod {
+      border-left: 4px solid #10b981;
+      background: linear-gradient(to right, #f0fdf4, #ffffff);
+    }
     .quote-header {
       display: flex;
       align-items: center;
@@ -739,6 +1221,9 @@ const html = `<!DOCTYPE html>
       color: #0284c7;
       display: inline-flex;
       align-items: center;
+    }
+    .spoken-quote-bubble.quote-prod .quote-voice-tag {
+      color: #059669;
     }
     .btn-copy-quote {
       background: #f1f5f9;
@@ -769,6 +1254,107 @@ const html = `<!DOCTYPE html>
     }
     .quote-text:last-child {
       margin-bottom: 0;
+    }
+
+    /* Production Scenario Checklist */
+    .prod-checklist-box {
+      margin-top: 14px;
+      background: #f8fafc;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      padding: 14px 18px;
+    }
+    .prod-box-label {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      color: #334155;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .prod-checklist-ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    .prod-checklist-ul li {
+      font-size: 14px;
+      color: #1e293b;
+      line-height: 1.6;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: flex-start;
+    }
+    .prod-checklist-ul li:last-child {
+      margin-bottom: 0;
+    }
+    .prod-checklist-ul li i {
+      margin-top: 4px;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    /* Resume Connection Callout */
+    .resume-connection-box {
+      margin-top: 12px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 12px 16px;
+    }
+    .resume-badge-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #166534;
+      margin-bottom: 4px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .resume-connection-text {
+      font-size: 13.5px;
+      color: #14532d;
+      line-height: 1.55;
+      margin-bottom: 0;
+      font-weight: 500;
+    }
+
+    /* Follow-up Q&A */
+    .follow-up-box {
+      margin-top: 12px;
+      background: #f5f3ff;
+      border: 1px solid #ddd6fe;
+      border-radius: 12px;
+      padding: 12px 16px;
+    }
+    .follow-up-q {
+      font-size: 13.5px;
+      color: #4c1d95;
+      margin-bottom: 6px;
+    }
+    .follow-up-badge {
+      display: inline-block;
+      background: #7c3aed;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-right: 6px;
+    }
+    .follow-up-a {
+      font-size: 13.5px;
+      color: #3b0764;
+      line-height: 1.55;
+      display: flex;
+      align-items: flex-start;
+    }
+    .follow-up-a i {
+      margin-top: 3px;
+      font-size: 12px;
+      flex-shrink: 0;
     }
 
     /* Conditional branches */
@@ -834,7 +1420,232 @@ const html = `<!DOCTYPE html>
       line-height: 1.55;
     }
 
-    /* Section 05: Fact Sheet & Revision */
+    /* Lead Framework Hero Card */
+    .lead-framework-card {
+      background: linear-gradient(135deg, #090d16 0%, #172554 100%);
+      border-radius: 18px;
+      padding: 24px 26px;
+      color: #ffffff;
+      box-shadow: 0 8px 26px rgba(15, 23, 42, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    .lead-framework-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+    .framework-step-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 14px 16px;
+      height: 100%;
+      transition: all 0.2s ease;
+    }
+    .framework-step-card:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: #38bdf8;
+      transform: translateY(-2px);
+    }
+    .framework-step-num {
+      width: 26px;
+      height: 26px;
+      background: #0284c7;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    .framework-step-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .framework-step-desc {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.45;
+    }
+    .framework-truth-alert {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 12.5px;
+      color: #fde68a;
+      display: flex;
+      align-items: flex-start;
+      line-height: 1.5;
+    }
+
+    /* Subcategory Filter Row */
+    .subcat-filter-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 12px 18px;
+      border-radius: 14px;
+    }
+    .subcat-filter-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #64748b;
+    }
+    .subcat-pills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .subcat-pill-btn {
+      padding: 5px 12px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      color: #475569;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .subcat-pill-btn:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    .subcat-pill-btn.active {
+      background: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
+    }
+    .subcat-pill-btn .badge-count {
+      display: inline-block;
+      margin-left: 4px;
+      padding: 0 6px;
+      font-size: 11px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 8px;
+    }
+    .subcat-pill-btn:not(.active) .badge-count {
+      background: #e2e8f0;
+      color: #475569;
+    }
+
+    /* Final 60-Second Formula */
+    .final-formula-card {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+      border-radius: 16px;
+      padding: 24px 28px;
+      color: #ffffff;
+      box-shadow: 0 6px 20px rgba(30, 27, 75, 0.15);
+    }
+    .formula-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fbbf24;
+      background: rgba(251, 191, 36, 0.15);
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+    }
+    .formula-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .formula-subtitle {
+      font-size: 13.5px;
+      color: #c7d2fe;
+      margin-bottom: 18px;
+    }
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .formula-step-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .f-num {
+      background: #fbbf24;
+      color: #1e1b4b;
+      font-weight: 800;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .f-text {
+      font-size: 13px;
+      line-height: 1.45;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    /* Technical References */
+    .tech-references-card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      padding: 22px 26px;
+      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+    }
+    .ref-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+    .ref-subtitle {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+    .ref-links-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .ref-link-pill {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #334155;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+    .ref-link-pill:hover {
+      background: #e0f2fe;
+      border-color: #0284c7;
+      color: #0369a1;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    /* Section 06: Fact Sheet & Revision */
     .revision-box-hero {
       background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
       border-radius: 20px;
@@ -920,7 +1731,7 @@ const html = `<!DOCTYPE html>
     /* Key Figures Table */
     .key-figures-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
       gap: 14px;
       margin-bottom: 30px;
     }
@@ -1051,6 +1862,11 @@ const html = `<!DOCTYPE html>
       text-decoration: none;
       transform: translateY(-1px);
     }
+    .priority-chip.chip-tech {
+      background: #e0f2fe;
+      border-color: #bae6fd;
+      color: #0369a1;
+    }
 
     /* Toast */
     .playbook-toast {
@@ -1078,7 +1894,7 @@ const html = `<!DOCTYPE html>
     }
 
     @media print {
-      .header, .page-title-section, .playbook-control-bar, footer, .preloader, #techno-floating-app-hub {
+      .header, .page-title-section, .playbook-control-bar, footer, .preloader, #techno-floating-app-hub, .btn-copy-quote, .subcat-filter-row {
         display: none !important;
       }
       .interview-q-card {
@@ -1116,7 +1932,7 @@ const html = `<!DOCTYPE html>
       <div class="ai-loader-bar">
         <div class="ai-loader-bar-fill"></div>
       </div>
-      <div class="ai-loader-sub">Personalized HR Interview Playbook &bull; 2026</div>
+      <div class="ai-loader-sub">Personalized HR &amp; Technical Interview Playbook &bull; 2026</div>
     </div>
   </div>
   <!-- preloader end -->
@@ -1187,15 +2003,16 @@ const html = `<!DOCTYPE html>
             </li>
             <li class="nav-item dropdown view active">
               <a class="nav-link dropdown-toggle" href="personal-interview.html" id="navbarDropdownPersonal" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Personal Interview
+                Personal Interview <span class="nav-pill-badge">60 Qs</span>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownPersonal">
-                <li><a class="dropdown-item" href="personal-interview.html">📋 Full HR Playbook</a></li>
+                <li><a class="dropdown-item" href="personal-interview.html">📋 Full Playbook (60 Qs)</a></li>
                 <li><a class="dropdown-item" href="personal-interview.html#section-01">01. Career Story &amp; Transitions</a></li>
                 <li><a class="dropdown-item" href="personal-interview.html#section-02">02. Java &amp; Leadership</a></li>
                 <li><a class="dropdown-item" href="personal-interview.html#section-03">03. Salary &amp; Logistics</a></li>
                 <li><a class="dropdown-item" href="personal-interview.html#section-04">04. Competing Offers</a></li>
-                <li><a class="dropdown-item" href="personal-interview.html#section-05">05. Quick Revision &amp; Checklist</a></li>
+                <li><a class="dropdown-item" href="personal-interview.html#section-05">05. 15 Production Scenarios (Q46-Q60)</a></li>
+                <li><a class="dropdown-item" href="personal-interview.html#section-06">06. Quick Revision &amp; Checklist</a></li>
               </ul>
             </li>
             <li class="nav-item @@contact">
@@ -1221,10 +2038,10 @@ const html = `<!DOCTYPE html>
           <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="index.html">Home</a></li>
           <li class="list-inline-item text-white h3 font-secondary nasted">Personal Interview Playbook</li>
         </ul>
-        <h1 class="text-white font-weight-bold mb-2" style="font-size: 32px;">HR Interview Questions &amp; Answers</h1>
+        <h1 class="text-white font-weight-bold mb-2" style="font-size: 32px;">HR &amp; Technical Interview Playbook</h1>
         <p class="text-lighten mb-0">Java &bull; Spring Boot &bull; Microservices &bull; Senior Software Engineer / Technical Lead</p>
         <div class="mt-2 text-warning" style="font-size: 13.5px; font-weight: 600;">
-          <i class="ti-user mr-1"></i> Personalized Preparation for Prashant Kumar Jha &bull; 45 Verified Recruiter &amp; Hiring Manager Scripts
+          <i class="ti-user mr-1"></i> Prepared for Prashant Kumar Jha &bull; 60 Questions (45 HR &amp; Leadership + 15 Production Scenarios)
         </div>
       </div>
     </div>
@@ -1258,6 +2075,11 @@ const html = `<!DOCTYPE html>
         <div class="exec-stat-label">Suggested Opening Expectation</div>
         <div class="exec-stat-sub">Justified by API optimization (8s &rarr; 170ms) &amp; leadership</div>
       </div>
+      <div class="exec-stat-card c-cyan">
+        <div class="exec-stat-val">60 Curated Q&amp;As</div>
+        <div class="exec-stat-label">HR + Production Scenarios</div>
+        <div class="exec-stat-sub">45 Recruiter Scripts &bull; 15 Production Architecture Scenarios</div>
+      </div>
     </div>
 
     <!-- Important Guidance Alert -->
@@ -1265,7 +2087,7 @@ const html = `<!DOCTYPE html>
       <div class="d-flex align-items-center">
         <i class="ti-info-alt text-primary mr-3" style="font-size: 20px;"></i>
         <div style="font-size: 14px; line-height: 1.6;">
-          <strong>Candidate Advisory:</strong> Some questions include conditional sample answers (such as promotion discussions or competing offer status). Use only statements that match your actual experience. The salary target is an informed opening negotiation position.
+          <strong>Candidate &amp; Technical Lead Advisory:</strong> This guide contains 45 HR &amp; negotiation questions plus 15 advanced technical production incident scenarios (Q46-Q60). Use the spoken answers and checklists as authentic frameworks grounded in your real architecture experience at Lowe's, IBM, HCLTech, and CGI.
         </div>
       </div>
     </div>
@@ -1274,11 +2096,11 @@ const html = `<!DOCTYPE html>
     <div class="playbook-control-bar">
       <div class="search-input-wrap">
         <i class="ti-search"></i>
-        <input type="text" class="playbook-search-input" id="search-input" placeholder="Search questions (e.g. Lowe's, salary, Redis, STIXIS, AI, notice)...">
+        <input type="text" class="playbook-search-input" id="search-input" placeholder="Search questions &amp; scenarios (e.g. bottleneck, HikariCP, Kafka lag, idempotency, Lowe's, salary)...">
       </div>
       <div class="filter-pills-wrap">
         <button class="filter-tab-pill active" data-filter="all">
-          All Questions <span class="filter-count-badge" id="count-all">45</span>
+          All Questions <span class="filter-count-badge" id="count-all">60</span>
         </button>
         <button class="filter-tab-pill" data-filter="section-01">
           01 Career Story <span class="filter-count-badge">12</span>
@@ -1292,8 +2114,11 @@ const html = `<!DOCTYPE html>
         <button class="filter-tab-pill" data-filter="section-04">
           04 Competing Offers <span class="filter-count-badge">7</span>
         </button>
-        <button class="filter-tab-pill" data-filter="section-05">
-          05 Revision &amp; Facts
+        <button class="filter-tab-pill" data-filter="section-05" style="border-color: #38bdf8; font-weight: 700;">
+          <i class="ti-bolt text-warning mr-1"></i> 05 Production Scenarios <span class="filter-count-badge" style="background: #0284c7; color: #fff;">15</span>
+        </button>
+        <button class="filter-tab-pill" data-filter="section-06">
+          06 Revision &amp; Facts
         </button>
       </div>
       <div>
@@ -1303,16 +2128,16 @@ const html = `<!DOCTYPE html>
       </div>
     </div>
 
-    <!-- Sections 01 to 04 -->
+    <!-- Sections 01 to 05 -->
     <div id="questions-container">
       ${allCardsHtml}
     </div>
 
-    <!-- SECTION 05: Quick Revision Sheet & Interview Checklist -->
-    <div class="section-anchor-wrap" id="section-05">
+    <!-- SECTION 06: Quick Revision Sheet & Interview Checklist -->
+    <div class="section-anchor-wrap" id="section-06">
       <div class="section-divider-banner" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);">
         <div class="sec-banner-meta">
-          <span class="sec-banner-num" style="color: #c7d2fe; background: rgba(199, 210, 254, 0.15);">SECTION 05</span>
+          <span class="sec-banner-num" style="color: #c7d2fe; background: rgba(199, 210, 254, 0.15);">SECTION 06</span>
           <h2 class="sec-banner-title">Quick revision sheet &amp; interview checklist</h2>
           <p class="sec-banner-theme"><i class="ti-check-box mr-1 text-success"></i> Review this page before the interview call; use the full answers only as a preparation guide.</p>
         </div>
@@ -1383,6 +2208,10 @@ const html = `<!DOCTYPE html>
             <span class="figure-param">Retail Platform Reach</span>
             <span class="figure-val">1,621 Stores</span>
           </div>
+          <div class="figure-pill-card">
+            <span class="figure-param">Total Scenarios</span>
+            <span class="figure-val text-primary">60 Qs (45 HR + 15 Tech)</span>
+          </div>
         </div>
       </div>
 
@@ -1439,6 +2268,10 @@ const html = `<!DOCTYPE html>
           <input type="checkbox" class="checklist-checkbox" id="chk-4">
           <label for="chk-4" class="checklist-text mb-0">4. Your actual other-offer status, offer amount, acceptance, decision deadline and joining date.</label>
         </div>
+        <div class="checklist-item">
+          <input type="checkbox" class="checklist-checkbox" id="chk-5">
+          <label for="chk-5" class="checklist-text mb-0">5. 60-Second Production Formula reviewed: Symptom &rarr; First Metric &rarr; 2-3 Causes &rarr; Safe Fix &rarr; Verification.</label>
+        </div>
 
         <div class="mt-4 pt-3 border-top">
           <span class="font-weight-bold text-dark d-block mb-2"><i class="ti-target text-danger mr-1"></i> Highest-Priority Practice Questions:</span>
@@ -1451,6 +2284,13 @@ const html = `<!DOCTYPE html>
             <a href="#section-02" class="priority-chip" data-jump="Q13">Q13 (Java-only Role)</a>
             <a href="#section-03" class="priority-chip" data-jump="Q26">Q26-Q27 (Salary Negotiation)</a>
             <a href="#section-04" class="priority-chip" data-jump="Q39">Q39-Q45 (Competing Offers)</a>
+            <a href="#section-05" class="priority-chip chip-tech" data-jump="Q46">Q46 (API Bottleneck 5s &rarr; 200ms)</a>
+            <a href="#section-05" class="priority-chip chip-tech" data-jump="Q47">Q47 (DB Connection Pool Exhaustion)</a>
+            <a href="#section-05" class="priority-chip chip-tech" data-jump="Q48">Q48 (Simultaneous Updates &amp; Locking)</a>
+            <a href="#section-05" class="priority-chip chip-tech" data-jump="Q50">Q50 (Downstream Service 10s Latency)</a>
+            <a href="#section-05" class="priority-chip chip-tech" data-jump="Q52">Q52 (Kafka Consumer Lag)</a>
+            <a href="#section-05" class="priority-chip chip-tech" data-jump="Q55">Q55 (Order Microservice Down &amp; Saga)</a>
+            <a href="#section-05" class="priority-chip chip-tech" data-jump="Q60">Q60 (Network Timeout Idempotency)</a>
           </div>
         </div>
       </div>
@@ -1528,7 +2368,7 @@ const html = `<!DOCTYPE html>
         </p>
         <hr style="border-color: #cbd5e1;">
         <div style="font-size: 12.5px; color: #64748b; line-height: 1.6;">
-          <strong>Source Note:</strong> Career dates, project descriptions, scope, and performance metrics are based on the candidate's verified professional profile. STIXIS training and compensation figures reflect personalized coaching data. Offer-related scripts are conditional coaching models to be adapted to verified circumstances.
+          <strong>Source Note:</strong> Career dates, project descriptions, scope, and performance metrics are based on the candidate's verified professional profile. STIXIS training and compensation figures reflect personalized coaching data. Offer-related scripts and production scenario answers are structured frameworks to be adapted to verified circumstances.
         </div>
       </div>
     </div>
@@ -1577,7 +2417,7 @@ const html = `<!DOCTYPE html>
             <li class="mb-3"><a class="text-color" href="numberprograms.html">Number</a></li>
             <li class="mb-3"><a class="text-color" href="java8programs.html">Java 8 Programs</a></li>
             <li class="mb-3"><a class="text-color" href="topicwiseprogram.html">Topicwise Programs</a></li>
-            <li class="mb-3"><a class="text-color" href="personal-interview.html">Personal Interview (HR)</a></li>
+            <li class="mb-3"><a class="text-color" href="personal-interview.html">Personal Interview (HR &amp; Tech)</a></li>
           </ul>
         </div>
       </div>
@@ -1682,6 +2522,27 @@ const html = `<!DOCTYPE html>
         }
       }
 
+      // Subcategory Filter Pills inside Section 05
+      var subcatBtn = e.target.closest('.subcat-pill-btn');
+      if (subcatBtn) {
+        var targetSubcat = subcatBtn.getAttribute('data-subcat-filter');
+        var parentRow = subcatBtn.closest('.subcat-filter-row');
+        if (parentRow) {
+          parentRow.querySelectorAll('.subcat-pill-btn').forEach(function(b){ b.classList.remove('active'); });
+          subcatBtn.classList.add('active');
+          
+          var sec05Cards = document.querySelectorAll('#section-05 .q-card-item');
+          sec05Cards.forEach(function(card){
+            var cardSub = card.getAttribute('data-subcat');
+            if (targetSubcat === 'sub-all' || cardSub === targetSubcat) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        }
+      }
+
       // Priority Jump Chips
       var chip = e.target.closest('.priority-chip');
       if (chip) {
@@ -1689,11 +2550,15 @@ const html = `<!DOCTYPE html>
         if (qNum) {
           var targetCard = document.querySelector('[data-qnum="' + qNum + '"]');
           if (targetCard) {
+            targetCard.style.display = 'block';
             targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            targetCard.querySelector('.interview-q-card').style.outline = '3px solid #0284c7';
-            setTimeout(function(){
-              targetCard.querySelector('.interview-q-card').style.outline = 'none';
-            }, 2500);
+            var cardInner = targetCard.querySelector('.interview-q-card');
+            if (cardInner) {
+              cardInner.style.outline = '3px solid #0284c7';
+              setTimeout(function(){
+                cardInner.style.outline = 'none';
+              }, 2500);
+            }
           }
         }
       }
@@ -1727,8 +2592,8 @@ const html = `<!DOCTYPE html>
       // Show/hide section banners
       document.querySelectorAll('.section-anchor-wrap').forEach(function(secWrap){
         var secId = secWrap.id;
-        if (secId === 'section-05') {
-          secWrap.style.display = (currentFilter === 'all' || currentFilter === 'section-05') ? 'block' : 'none';
+        if (secId === 'section-06') {
+          secWrap.style.display = (currentFilter === 'all' || currentFilter === 'section-06') ? 'block' : 'none';
         } else {
           var anyVisible = secWrap.querySelectorAll('.q-card-item:not([style*="display: none"])').length > 0;
           secWrap.style.display = anyVisible ? 'block' : 'none';
@@ -1791,7 +2656,7 @@ const html = `<!DOCTYPE html>
     });
 
     // Checklist persistence
-    ['chk-1', 'chk-2', 'chk-3', 'chk-4'].forEach(function(chkId){
+    ['chk-1', 'chk-2', 'chk-3', 'chk-4', 'chk-5'].forEach(function(chkId){
       var chk = document.getElementById(chkId);
       if (chk) {
         var saved = localStorage.getItem('techno_' + chkId);
@@ -1810,4 +2675,4 @@ const html = `<!DOCTYPE html>
 `;
 
 fs.writeFileSync(path.join(rootDir, 'personal-interview.html'), html, 'utf8');
-console.log('Successfully generated personal-interview.html! Total length: ' + html.length + ' chars');
+console.log('Successfully generated updated personal-interview.html! Total length: ' + html.length + ' chars');
