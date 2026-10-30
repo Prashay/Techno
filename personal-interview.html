@@ -77,6 +77,408 @@
     .exec-stat-card.c-emerald::before { background: linear-gradient(90deg, #10b981, #34d399); }
     .exec-stat-card.c-amber::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
     .exec-stat-card.c-cyan::before { background: linear-gradient(90deg, #06b6d4, #3b82f6); }
+    .exec-stat-card.c-rose::before { background: linear-gradient(90deg, #f43f5e, #fb7185); }
+
+    /* Editable Highlights Styling */
+    .editable-highlight {
+      border-radius: 6px;
+      padding: 1px 4px;
+      margin: -1px -4px;
+      transition: all 0.2s ease;
+      cursor: text;
+    }
+    .editable-highlight:hover,
+    .editable-highlight:focus {
+      outline: 2px dashed #0284c7 !important;
+      background: rgba(2, 132, 199, 0.06);
+    }
+    .exec-badge-pill {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 10px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+    .badge-lwd {
+      background: #ffe4e6;
+      color: #e11d48;
+      border: 1px solid #fecdd3;
+    }
+
+    /* Smart Quick Chips Bar */
+    .quick-chips-bar {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 7px;
+      width: 100%;
+      padding-top: 10px;
+      border-top: 1px dashed #e2e8f0;
+      margin-top: 12px;
+    }
+    .quick-chip-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #64748b;
+      margin-right: 4px;
+    }
+    .quick-filter-chip {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .quick-filter-chip:hover {
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #0284c7;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.2);
+    }
+    .quick-filter-chip.active {
+      background: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
+    }
+    .quick-filter-chip.chip-hot {
+      border-color: #38bdf8;
+      color: #0284c7;
+    }
+    .quick-filter-chip.chip-clear {
+      background: #fee2e2;
+      border-color: #fca5a5;
+      color: #b91c1c;
+    }
+
+    /* Smart Topic Guidance Hint Banner */
+    .smart-search-hint-card {
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-radius: 14px;
+      padding: 14px 18px;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 14px rgba(22, 101, 52, 0.05);
+      animation: fadeIn 0.25s ease;
+    }
+    .hint-icon-box {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: #dcfce7;
+      color: #16a34a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .hint-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #15803d;
+      margin-bottom: 2px;
+    }
+    .hint-body {
+      font-size: 13px;
+      color: #166534;
+      line-height: 1.5;
+    }
+    .hint-jump-btn {
+      background: #16a34a;
+      border: none;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .hint-jump-btn:hover {
+      background: #15803d;
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       Dedicated Interview Q&A Copilot Helper
+       ========================================================================== */
+    .interview-copilot-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 20px;
+      padding: 26px 30px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.03);
+      position: relative;
+      overflow: hidden;
+    }
+    .interview-copilot-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #0284c7, #6366f1, #10b981);
+    }
+    .copilot-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      color: #0369a1;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .copilot-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+      margin-bottom: 4px;
+    }
+    .copilot-sub {
+      font-size: 13.5px;
+      color: #64748b;
+      margin-bottom: 18px;
+      line-height: 1.55;
+    }
+    .copilot-search-box-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .copilot-search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      font-size: 16px;
+      pointer-events: none;
+    }
+    .copilot-search-input {
+      flex: 1;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 12px 16px 12px 44px;
+      font-size: 14.5px;
+      font-family: inherit;
+      color: #0f172a;
+      transition: all 0.2s ease;
+    }
+    .copilot-search-input:focus {
+      outline: none;
+      background: #ffffff;
+      border-color: #0284c7;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+    .copilot-ask-btn {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 14px;
+      padding: 12px 22px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+    }
+    .copilot-ask-btn:hover {
+      background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.4);
+    }
+    .copilot-prompts-bar {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .copilot-prompts-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #64748b;
+      margin-right: 4px;
+    }
+    .copilot-prompt-pill {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .copilot-prompt-pill:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+      border-color: #cbd5e1;
+      transform: translateY(-1px);
+    }
+
+    /* Copilot Answer Display */
+    .copilot-result-container {
+      margin-top: 18px;
+      animation: fadeIn 0.25s ease;
+    }
+    .copilot-answer-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 22px 24px;
+    }
+    .copilot-ans-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .copilot-qnum-tag {
+      background: #0284c7;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 6px;
+    }
+    .copilot-sec-tag {
+      font-size: 12px;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .copilot-match-badge {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #15803d;
+      background: #dcfce7;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+    .copilot-ans-question {
+      font-size: 17px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .copilot-cheatsheet-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .cheat-pill {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 3px 10px;
+      border-radius: 8px;
+      font-size: 11.5px;
+      color: #334155;
+    }
+    .copilot-speech-bubble {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #0284c7;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+    }
+    .bubble-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed #e2e8f0;
+    }
+    .bubble-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: #0284c7;
+    }
+    .copilot-speech-text {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #0f172a;
+      white-space: pre-line;
+      font-weight: 400;
+    }
+    .copilot-footer-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 12px;
+      border-top: 1px solid #e2e8f0;
+    }
+    .copilot-related-wrap {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px dashed #cbd5e1;
+    }
+    .copilot-related-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #64748b;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .copilot-related-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .copilot-related-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 5px 12px;
+      border-radius: 10px;
+      font-size: 12.5px;
+      color: #1e293b;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.18s ease;
+    }
+    .copilot-related-btn:hover {
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #0284c7;
+    }
 
     .exec-stat-val {
       font-size: 24px;
@@ -1078,191 +1480,65 @@
 <header class="fixed-top header">
   <div class="navigation w-100">
     <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-dark p-0">
-        <a class="navbar-brand" href="index.html">
-          <img class="site-logo" src="images/logo.svg" alt="Techno">
-        </a>
-        
-        <!-- Mobile Right Controls (Quick App Pill + Animated Hamburger) -->
-        <div class="mobile-nav-right d-lg-none">
-          <button class="btn-mobile-quick-pwa btn-scanner-link" aria-label="Open Mobile App QR Scanner">
-            <span class="pulse-dot"></span> App
-          </button>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-            aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
+      <nav class="navbar navbar-expand-lg navbar-dark p-0">
+        <a class="navbar-brand" href="index.html"><img class="site-logo" src="images/logo.svg" alt="Techno"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <!-- Desktop Navigation Pill Dock Links -->
         <div class="collapse navbar-collapse" id="navigation">
-          <ul class="navbar-nav ml-auto align-items-center">
-            <li class="nav-item ">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item">
               <a class="nav-link" href="index.html">Home</a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item">
               <a class="nav-link" href="backend.html">Backend</a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item">
               <a class="nav-link" href="frontend.html">Frontend</a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item">
               <a class="nav-link" href="cloud.html">Cloud</a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item">
               <a class="nav-link" href="database.html">Database</a>
             </li>
-            <li class="nav-item ">
-              <a class="nav-link nav-link-ai" href="ai.html">
-                <span class="nav-ai-sparkle">✦</span> AI
-              </a>
+            <li class="nav-item">
+              <a class="nav-link" href="ai.html">AI</a>
             </li>
-            <li class="nav-item dropdown view ">
+            <li class="nav-item dropdown view">
               <a class="nav-link dropdown-toggle" href="programmin.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Interview Programs
+                Interview program
               </a>
-              <ul class="dropdown-menu modern-dropdown-menu" aria-labelledby="navbarDropdown">
-                <li class="dropdown-header-label">CODING MASTERY TRACKS</li>
-                <li>
-                  <a class="dropdown-item modern-dd-item" href="ArrayPrograms.html">
-                    <span class="dd-icon-box"><i class="ti-layout-grid2"></i></span>
-                    <div class="dd-text-wrap">
-                      <span class="dd-title">Array Programs</span>
-                      <span class="dd-desc">Two Pointers &bull; Sliding Window</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item modern-dd-item" href="numberprograms.html">
-                    <span class="dd-icon-box"><i class="ti-stats-up"></i></span>
-                    <div class="dd-text-wrap">
-                      <span class="dd-title">Number Programs</span>
-                      <span class="dd-desc">Bitwise, Primes &amp; Math Logic</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item modern-dd-item" href="Stringprograms.html">
-                    <span class="dd-icon-box"><i class="ti-text"></i></span>
-                    <div class="dd-text-wrap">
-                      <span class="dd-title">String Programs</span>
-                      <span class="dd-desc">Anagrams, Palindromes &amp; Trie</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item modern-dd-item" href="java8programs.html">
-                    <span class="dd-icon-box dd-icon-accent"><i class="ti-bolt"></i></span>
-                    <div class="dd-text-wrap">
-                      <span class="dd-title">Java 8 Programs</span>
-                      <span class="dd-desc">Streams, Lambdas &amp; GroupingBy</span>
-                    </div>
-                    <span class="dd-badge-hot">Hot</span>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item modern-dd-item" href="topicwiseprogram.html">
-                    <span class="dd-icon-box"><i class="ti-view-list-alt"></i></span>
-                    <div class="dd-text-wrap">
-                      <span class="dd-title">Topicwise DSA</span>
-                      <span class="dd-desc">Trees, Graphs, DP &amp; LeetCode</span>
-                    </div>
-                  </a>
-                </li>
-                <li class="dropdown-divider-line"></li>
-                <li>
-                  <a class="dropdown-item modern-dd-item dd-highlight" href="personal-interview.html">
-                    <span class="dd-icon-box dd-icon-hr"><i class="ti-user"></i></span>
-                    <div class="dd-text-wrap">
-                      <span class="dd-title">Personal Interview</span>
-                      <span class="dd-desc">HR &amp; Tech Lead Playbook</span>
-                    </div>
-                    <span class="dd-badge-new">New</span>
-                  </a>
-                </li>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="ArrayPrograms.html">Array</a></li>
+                <li><a class="dropdown-item" href="numberprograms.html">Numbers</a></li>
+                <li><a class="dropdown-item" href="Stringprograms.html">String</a></li>
+                <li><a class="dropdown-item" href="java8programs.html">Java8 Programs</a></li>
+                <li><a class="dropdown-item" href="topicwiseprogram.html">Topicwise Programs</a></li>
+                <li><a class="dropdown-item" href="personal-interview.html" style="color: #f59e0b; font-weight: 600;"><i class="ti-user mr-1"></i>Personal Interview</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown view active">
-              <a class="nav-link dropdown-toggle nav-link-personal" href="personal-interview.html" id="navbarDropdownPersonal" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="personal-interview.html" id="navbarDropdownPersonal" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Personal Interview <span class="nav-pill-badge">60 Qs</span>
               </a>
-              <ul class="dropdown-menu modern-dropdown-menu" aria-labelledby="navbarDropdownPersonal">
-                <li class="dropdown-header-label">HR &amp; TECHNICAL PLAYBOOK (60 Qs)</li>
-                <li>
-                  <a class="dropdown-item modern-dd-item" href="personal-interview.html">
-                    <span class="dd-icon-box dd-icon-hr"><i class="ti-book"></i></span>
-                    <div class="dd-text-wrap">
-                      <span class="dd-title">Full Playbook (60 Qs)</span>
-                      <span class="dd-desc">45 HR + 15 Production Scenarios</span>
-                    </div>
-                    <span class="dd-badge-hot">60 Qs</span>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item modern-dd-item" href="personal-interview.html#section-01">
-                    <span class="dd-icon-box"><i class="ti-direction"></i></span>
-                    <div class="dd-text-wrap">
-                      <span class="dd-title">01. Career Story &amp; Transitions</span>
-                      <span class="dd-desc">STIXIS, CGI &amp; Lowe's Narrative</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item modern-dd-item" href="personal-interview.html#section-02">
-                    <span class="dd-icon-box"><i class="ti-medall"></i></span>
-                    <div class="dd-text-wrap">
-                      <span class="dd-title">02. Java &amp; Leadership</span>
-                      <span class="dd-desc">Mentoring 8-10 Eng &bull; Redis 170ms</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item modern-dd-item" href="personal-interview.html#section-03">
-                    <span class="dd-icon-box"><i class="ti-wallet"></i></span>
-                    <div class="dd-text-wrap">
-                      <span class="dd-title">03. Salary &amp; Logistics</span>
-                      <span class="dd-desc">₹29L to ₹40-42L CTC Scripts</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item modern-dd-item" href="personal-interview.html#section-04">
-                    <span class="dd-icon-box"><i class="ti-layers-alt"></i></span>
-                    <div class="dd-text-wrap">
-                      <span class="dd-title">04. Competing Offers</span>
-                      <span class="dd-desc">Counteroffers &amp; Multi-Offer Strategy</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item modern-dd-item dd-highlight" href="personal-interview.html#section-05">
-                    <span class="dd-icon-box dd-icon-accent"><i class="ti-bolt"></i></span>
-                    <div class="dd-text-wrap">
-                      <span class="dd-title">05. 15 Production Scenarios</span>
-                      <span class="dd-desc">Bottlenecks, Kafka, OOM &amp; Sagas</span>
-                    </div>
-                    <span class="dd-badge-hot">Hot</span>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item modern-dd-item" href="personal-interview.html#section-06">
-                    <span class="dd-icon-box"><i class="ti-check-box"></i></span>
-                    <div class="dd-text-wrap">
-                      <span class="dd-title">06. Quick Revision &amp; Checklist</span>
-                      <span class="dd-desc">30s Pitch &bull; Facts &bull; What to Avoid</span>
-                    </div>
-                    <span class="dd-badge-checklist">Checklist</span>
-                  </a>
-                </li>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownPersonal">
+                <li><a class="dropdown-item" href="personal-interview.html">📋 Full Playbook (60 Qs)</a></li>
+                <li><a class="dropdown-item" href="personal-interview.html#section-01">01. Career Story &amp; Transitions</a></li>
+                <li><a class="dropdown-item" href="personal-interview.html#section-02">02. Java &amp; Leadership</a></li>
+                <li><a class="dropdown-item" href="personal-interview.html#section-03">03. Salary &amp; Logistics</a></li>
+                <li><a class="dropdown-item" href="personal-interview.html#section-04">04. Competing Offers</a></li>
+                <li><a class="dropdown-item" href="personal-interview.html#section-05">05. 15 Production Scenarios (Q46-Q60)</a></li>
+                <li><a class="dropdown-item" href="personal-interview.html#section-06">06. Quick Revision &amp; Checklist</a></li>
               </ul>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item @@contact">
               <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn-scanner-link" href="javascript:void(0)">
-                <span class="pulse-dot"></span><i class="ti-mobile mr-1"></i>Mobile App
-              </a>
+              <a class="nav-link btn-scanner-link" href="javascript:void(0)" style="color: #10b981 !important; font-weight: 700;"><i class="ti-mobile mr-1"></i>Mobile App</a>
             </li>
           </ul>
         </div>
@@ -1296,28 +1572,63 @@
 <section class="section-sm">
   <div class="container">
 
-    <!-- Executive Highlights Cards -->
+    <!-- Executive Career Highlights (Editable & Auto-saved) -->
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+      <div class="d-flex align-items-center">
+        <span class="pulse-dot mr-2"></span>
+        <strong class="text-dark" style="font-size: 15px;">Executive Highlights &amp; Negotiation Parameters</strong>
+        <span class="badge badge-light border text-primary ml-2 px-2 py-1" style="font-size: 11px; font-weight: 600;">
+          <i class="ti-pencil-alt mr-1"></i>Click any value to edit &bull; Auto-saves
+        </span>
+      </div>
+      <div class="d-flex align-items-center" style="gap: 8px;">
+        <button type="button" id="btn-edit-highlights" class="btn btn-sm btn-outline-primary" style="border-radius: 8px; font-size: 12px; padding: 4px 10px;">
+          <i class="ti-pencil mr-1"></i> Quick Edit
+        </button>
+        <button type="button" id="btn-reset-highlights" class="btn btn-sm btn-outline-secondary" style="border-radius: 8px; font-size: 12px; padding: 4px 10px;" title="Reset all highlight values to candidate defaults">
+          <i class="ti-reload mr-1"></i> Reset Defaults
+        </button>
+      </div>
+    </div>
+
     <div class="executive-stats-grid">
-      <div class="exec-stat-card c-blue">
-        <div class="exec-stat-val">8+ Years</div>
-        <div class="exec-stat-label">Java Backend Experience</div>
-        <div class="exec-stat-sub">Spring Boot &bull; Microservices &bull; Distributed Systems</div>
+      <!-- 1. Last Working Day (LWD 27 Nov) -->
+      <div class="exec-stat-card c-rose">
+        <span class="exec-badge-pill badge-lwd"><i class="ti-calendar mr-1"></i>Notice Served</span>
+        <div class="exec-stat-val editable-highlight" id="hl-lwd" data-hkey="lwd" contenteditable="true" title="Click to edit value">27 Nov</div>
+        <div class="exec-stat-label">Last Working Day (LWD)</div>
+        <div class="exec-stat-sub editable-highlight" id="hl-lwd-sub" data-hkey="lwd_sub" contenteditable="true" title="Click to edit note">Notice Active &bull; Immediate Joiner</div>
       </div>
-      <div class="exec-stat-card c-violet">
-        <div class="exec-stat-val">8 / 10 Engineers</div>
-        <div class="exec-stat-label">Mentorship &amp; Leadership</div>
-        <div class="exec-stat-sub">8 at Lowe's India &bull; 10 at IBM Kubernetes Control Plane</div>
-      </div>
+
+      <!-- 2. Current CTC -->
       <div class="exec-stat-card c-emerald">
-        <div class="exec-stat-val">₹29 LPA</div>
+        <div class="exec-stat-val editable-highlight" id="hl-ctc-current" data-hkey="ctc_current" contenteditable="true" title="Click to edit value">₹29 LPA</div>
         <div class="exec-stat-label">Current Total CTC</div>
-        <div class="exec-stat-sub">₹26.5L Fixed + ₹2.5L Variable Component (~9%)</div>
+        <div class="exec-stat-sub editable-highlight" id="hl-ctc-current-sub" data-hkey="ctc_current_sub" contenteditable="true" title="Click to edit note">₹26.5L Fixed + ₹2.5L Variable Component (~9%)</div>
       </div>
+
+      <!-- 3. Suggested Expectation Ask -->
       <div class="exec-stat-card c-amber">
-        <div class="exec-stat-val">₹40–42 LPA</div>
+        <div class="exec-stat-val editable-highlight" id="hl-ctc-expected" data-hkey="ctc_expected" contenteditable="true" title="Click to edit value">₹40–42 LPA</div>
         <div class="exec-stat-label">Suggested Opening Expectation</div>
-        <div class="exec-stat-sub">Justified by API optimization (8s &rarr; 170ms) &amp; leadership</div>
+        <div class="exec-stat-sub editable-highlight" id="hl-ctc-expected-sub" data-hkey="ctc_expected_sub" contenteditable="true" title="Click to edit note">Justified by API latency drop (8s &rarr; 170ms) &amp; lead role</div>
       </div>
+
+      <!-- 4. Experience -->
+      <div class="exec-stat-card c-blue">
+        <div class="exec-stat-val editable-highlight" id="hl-exp" data-hkey="exp" contenteditable="true" title="Click to edit value">8+ Years</div>
+        <div class="exec-stat-label">Java Backend Specialization</div>
+        <div class="exec-stat-sub editable-highlight" id="hl-exp-sub" data-hkey="exp_sub" contenteditable="true" title="Click to edit note">Spring Boot &bull; Microservices &bull; Distributed Systems</div>
+      </div>
+
+      <!-- 5. Mentorship & Leadership -->
+      <div class="exec-stat-card c-violet">
+        <div class="exec-stat-val editable-highlight" id="hl-lead" data-hkey="lead" contenteditable="true" title="Click to edit value">8 / 10 Engineers</div>
+        <div class="exec-stat-label">Mentorship &amp; Leadership</div>
+        <div class="exec-stat-sub editable-highlight" id="hl-lead-sub" data-hkey="lead_sub" contenteditable="true" title="Click to edit note">8 at Lowe's India &bull; 10 at IBM Kubernetes Control Plane</div>
+      </div>
+
+      <!-- 6. Total Q&As -->
       <div class="exec-stat-card c-cyan">
         <div class="exec-stat-val">60 Curated Q&amp;As</div>
         <div class="exec-stat-label">HR + Production Scenarios</div>
@@ -1335,11 +1646,88 @@
       </div>
     </div>
 
-    <!-- Interactive Control Bar -->
+    <!-- Dedicated HR & Technical Answer Copilot Helper -->
+    <div class="interview-copilot-card mb-4" id="interview-copilot">
+      <div class="copilot-header">
+        <div class="copilot-badge"><span class="ai-sparkle">✦</span> INSTANT INTERVIEW COPILOT</div>
+        <h3 class="copilot-title">Direct Question &amp; Spoken Answer Assistant</h3>
+        <p class="copilot-sub">Type any question as an interviewer or HR would ask you. The assistant searches all 60 scenarios and generates your verbatim winning spoken response with candidate facts.</p>
+      </div>
+
+      <div class="copilot-search-box-wrap">
+        <i class="ti-comment-alt copilot-search-icon"></i>
+        <input type="text" id="copilot-search-input" class="copilot-search-input" placeholder="Type direct question (e.g. 'What is your last working day?', 'Current CTC', 'Why leave Lowe's?', 'How many engineers did you lead?')...">
+        <button type="button" id="copilot-ask-btn" class="copilot-ask-btn">
+          <i class="ti-bolt mr-1"></i> Get Spoken Answer
+        </button>
+      </div>
+
+      <div class="copilot-prompts-bar">
+        <span class="copilot-prompts-label">Try Asking:</span>
+        <button type="button" class="copilot-prompt-pill" data-ask="When is your last working day?">⏳ Last working day (27 Nov)</button>
+        <button type="button" class="copilot-prompt-pill" data-ask="What is your current CTC and breakdown?">💰 Current CTC (₹29L)</button>
+        <button type="button" class="copilot-prompt-pill" data-ask="What are your salary expectations?">🎯 Expected CTC (₹40–42L)</button>
+        <button type="button" class="copilot-prompt-pill" data-ask="Why do you want to change company?">🏢 Why change company?</button>
+        <button type="button" class="copilot-prompt-pill" data-ask="How many engineers do you mentor or lead?">👥 How many engineers led?</button>
+        <button type="button" class="copilot-prompt-pill" data-ask="Do you have any other offers in hand?">💼 Do you have other offers?</button>
+        <button type="button" class="copilot-prompt-pill" data-ask="How did you reduce API latency to 170ms?">⚡ 170ms Redis Latency Win</button>
+        <button type="button" class="copilot-prompt-pill" data-ask="Tell me about a production OutOfMemoryError incident.">💥 Production OOM Incident</button>
+      </div>
+
+      <!-- Dynamic Copilot Result Panel -->
+      <div id="copilot-result-container" class="copilot-result-container" style="display:none;">
+        <div class="copilot-answer-card">
+          <div class="copilot-ans-meta">
+            <div class="d-flex align-items-center" style="gap: 8px;">
+              <span class="copilot-qnum-tag" id="copilot-ans-qnum">Q25</span>
+              <span class="copilot-sec-tag" id="copilot-ans-sectitle">Section 03: Salary &amp; Logistics</span>
+            </div>
+            <span class="copilot-match-badge" id="copilot-ans-score"><i class="ti-check text-success mr-1"></i>98% Best Match</span>
+          </div>
+
+          <h4 class="copilot-ans-question" id="copilot-ans-question">What is your notice period, and when is your last working day?</h4>
+
+          <!-- Candidate Key Highlights Bar -->
+          <div class="copilot-cheatsheet-bar" id="copilot-cheatsheet-bar">
+            <span class="cheat-pill"><i class="ti-calendar text-danger mr-1"></i><strong>LWD:</strong> <span class="sync-lwd-val">27 Nov</span> (Notice Active)</span>
+            <span class="cheat-pill"><i class="ti-wallet text-success mr-1"></i><strong>Current:</strong> <span class="sync-ctc-current-val">₹29 LPA</span></span>
+            <span class="cheat-pill"><i class="ti-target text-primary mr-1"></i><strong>Expected:</strong> <span class="sync-ctc-expected-val">₹40–42 LPA</span></span>
+            <span class="cheat-pill"><i class="ti-user text-info mr-1"></i><strong>Leadership:</strong> <span class="sync-lead-val">8 / 10 Eng</span></span>
+          </div>
+
+          <!-- Spoken Speech Bubble -->
+          <div class="copilot-speech-bubble">
+            <div class="bubble-header">
+              <span class="bubble-tag"><i class="ti-microphone mr-1"></i>VERBATIM SPOKEN RESPONSE SCRIPT</span>
+              <button type="button" class="btn-copy-quote copilot-copy-action" id="copilot-copy-btn">
+                <i class="ti-clipboard mr-1"></i> Copy Answer
+              </button>
+            </div>
+            <div class="copilot-speech-text" id="copilot-speech-text"></div>
+          </div>
+
+          <!-- Action buttons -->
+          <div class="copilot-footer-actions">
+            <button type="button" class="btn btn-sm btn-outline-primary" id="copilot-jump-playbook-btn">
+              <i class="ti-arrow-down mr-1"></i> Open Full Question &amp; Notes in Playbook
+            </button>
+            <span class="text-muted" style="font-size: 12px;"><i class="ti-shield text-success mr-1"></i> Verified profile narrative &bull; Lowe's India &amp; IBM</span>
+          </div>
+
+          <!-- Related Questions Row -->
+          <div class="copilot-related-wrap" id="copilot-related-wrap" style="display:none;">
+            <div class="copilot-related-title">Related Interview Questions:</div>
+            <div class="copilot-related-list" id="copilot-related-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Control Bar & Search -->
     <div class="playbook-control-bar">
       <div class="search-input-wrap">
         <i class="ti-search"></i>
-        <input type="text" class="playbook-search-input" id="search-input" placeholder="Search questions &amp; scenarios (e.g. bottleneck, HikariCP, Kafka lag, idempotency, Lowe's, salary)...">
+        <input type="text" class="playbook-search-input" id="search-input" placeholder="Search questions &amp; scenarios (e.g. 'offer holding', 'change company', 'leadership', 'current ctc', 'last working day', 'OOM')...">
       </div>
       <div class="filter-pills-wrap">
         <button class="filter-tab-pill active" data-filter="all">
@@ -1367,6 +1755,51 @@
       <div>
         <button class="btn btn-outline-primary btn-sm" id="btn-print-playbook" style="border-radius: 20px; font-weight: 600;">
           <i class="ti-printer mr-1"></i> Print / PDF
+        </button>
+      </div>
+
+      <!-- Quick Topic Jump Chips -->
+      <div class="quick-chips-bar">
+        <span class="quick-chip-label"><i class="ti-bolt text-warning mr-1"></i>Quick Topics:</span>
+        <button type="button" class="quick-filter-chip" data-keyword="offer holding" data-target="section-04">
+          💼 Offer Holding (Q39–Q45)
+        </button>
+        <button type="button" class="quick-filter-chip" data-keyword="change company" data-target="section-01">
+          🏢 Why Change Company? (Q01–Q12)
+        </button>
+        <button type="button" class="quick-filter-chip" data-keyword="leadership" data-target="section-02">
+          👥 Leadership (8-10 Eng)
+        </button>
+        <button type="button" class="quick-filter-chip" data-keyword="current ctc" data-target="section-03">
+          💰 Current CTC (₹29L)
+        </button>
+        <button type="button" class="quick-filter-chip" data-keyword="expected ctc" data-target="section-03">
+          🎯 Expected CTC (₹40–42L)
+        </button>
+        <button type="button" class="quick-filter-chip" data-keyword="last working day" data-target="section-03">
+          ⏳ LWD: 27 Nov (Notice Served)
+        </button>
+        <button type="button" class="quick-filter-chip chip-hot" data-keyword="production incident" data-target="section-05">
+          ⚡ 15 Production Incidents (Q46–Q60)
+        </button>
+        <button type="button" class="quick-filter-chip chip-clear" id="btn-clear-search" style="display:none;">
+          ✕ Clear
+        </button>
+      </div>
+    </div>
+
+    <!-- Smart Guidance Hint & Direct Section Jump Banner -->
+    <div id="smart-search-hint" class="smart-search-hint-card" style="display:none;">
+      <div class="d-flex align-items-start justify-content-between flex-wrap gap-2">
+        <div class="d-flex align-items-start" style="gap: 12px;">
+          <span class="hint-icon-box"><i class="ti-light-bulb"></i></span>
+          <div>
+            <div class="hint-title" id="hint-title">Smart Topic Hint</div>
+            <div class="hint-body" id="hint-body">Guidance context...</div>
+          </div>
+        </div>
+        <button type="button" class="hint-jump-btn" id="hint-jump-btn">
+          <i class="ti-arrow-down mr-1"></i> Jump to Section
         </button>
       </div>
     </div>
@@ -2742,7 +3175,7 @@ I&#039;d also like to understand how variable pay is determined and whether it d
               <span class="q-sec-badge badge-salary">03 &bull; Compensation, offers &amp; logistics</span>
               
             </div>
-            <h3 class="q-heading">What is your notice period?</h3>
+            <h3 class="q-heading">What is your notice period, and when is your last working day?</h3>
           </div>
         </div>
         <div class="q-card-body">
@@ -2750,13 +3183,13 @@ I&#039;d also like to understand how variable pay is determined and whether it d
       <div class="spoken-quote-bubble ">
         <div class="quote-header">
           <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
-          <button class="btn-copy-quote" data-copy-text="My official notice period is [insert the notice period stated in your employment agreement].
+          <button class="btn-copy-quote" data-copy-text="My official notice period is currently being served, and my Last Working Day (LWD) is 27 November 2026.
 
-If selected, I&#039;ll ensure a professional transition and proper knowledge transfer. I&#039;ll also discuss the joining timeline with my current organization if an earlier release is needed." title="Copy to clipboard">
+Since my notice is already active, I am available as an early / immediate joiner. I will ensure a thorough knowledge transfer and clean handover, and I can join your engineering team on or right after 28 November." title="Copy to clipboard">
             <i class="ti-files mr-1"></i> Copy
           </button>
         </div>
-        <p class="quote-text">My official notice period is [insert the notice period stated in your employment agreement].</p><p class="quote-text">If selected, I&#039;ll ensure a professional transition and proper knowledge transfer. I&#039;ll also discuss the joining timeline with my current organization if an earlier release is needed.</p>
+        <p class="quote-text">My official notice period is currently being served, and my Last Working Day (LWD) is 27 November 2026.</p><p class="quote-text">Since my notice is already active, I am available as an early / immediate joiner. I will ensure a thorough knowledge transfer and clean handover, and I can join your engineering team on or right after 28 November.</p>
       </div>
     
           
@@ -2766,7 +3199,7 @@ If selected, I&#039;ll ensure a professional transition and proper knowledge tra
       <div class="prep-note-callout">
         <div class="prep-note-icon"><i class="ti-alert"></i></div>
         <div class="prep-note-body">
-          <strong>PREPARATION NOTE:</strong> Confirm your official notice period before the interview.
+          <strong>PREPARATION NOTE:</strong> Verified: Official notice served. Last Working Day is 27 Nov 2026. Use immediate-joiner status as a major advantage.
         </div>
       </div>
     
@@ -2871,13 +3304,13 @@ My decision would depend on the work location, responsibilities, compensation, a
       <div class="spoken-quote-bubble ">
         <div class="quote-header">
           <span class="quote-voice-tag"><i class="ti-microphone mr-1"></i> Suggested Spoken Answer (45–60s)</span>
-          <button class="btn-copy-quote" data-copy-text="I would be able to join after completing my contractual notice period and handing over my current responsibilities professionally.
+          <button class="btn-copy-quote" data-copy-text="I can join immediately after completing my active notice period—my official Last Working Day is 27 November 2026.
 
-Once we reach the offer stage, I can discuss the joining timeline and explore whether any flexibility is possible." title="Copy to clipboard">
+Because my notice is already active, there are no administrative delays or long notice lock-ins. I can join your team on or right after 28 November." title="Copy to clipboard">
             <i class="ti-files mr-1"></i> Copy
           </button>
         </div>
-        <p class="quote-text">I would be able to join after completing my contractual notice period and handing over my current responsibilities professionally.</p><p class="quote-text">Once we reach the offer stage, I can discuss the joining timeline and explore whether any flexibility is possible.</p>
+        <p class="quote-text">I can join immediately after completing my active notice period—my official Last Working Day is 27 November 2026.</p><p class="quote-text">Because my notice is already active, there are no administrative delays or long notice lock-ins. I can join your team on or right after 28 November.</p>
       </div>
     
           
@@ -4698,8 +5131,344 @@ I&#039;d prefer not to circulate another employer&#039;s confidential offer lett
       }
     });
 
-    // 3. Search & Filter
+    // --- 2.1 EMBEDDED ALL QUESTIONS FOR FAST COPILOT & SEARCH ---
+    var ALL_QUESTIONS = [{"id":"section-01","num":"01","title":"Career story & transitions","theme":"Build a positive narrative around your early upskilling, your move to CGI, and your growth ambitions at Lowe's.","badgeClass":"badge-career","questions":[{"num":"Q01","q":"Tell me about yourself.","spoken":"Sure. I'm a backend software engineer with over eight years of experience, primarily working with Java, Spring Boot, microservices, and distributed systems.\n\nI started my career at STIXIS and later worked with CGI, HCLTech, IBM, and currently Lowe's India.\n\nAt Lowe's, I'm working on enterprise retail platforms where I contribute to backend architecture, microservices development, code reviews, and mentoring eight engineers. One of my key achievements was reducing API p99 latency from eight seconds to around 170 milliseconds using distributed Redis caching.\n\nI've also worked with Kafka, PostgreSQL, Kubernetes, Azure, and CI/CD technologies. Alongside backend development, I've gained production experience with AI agents and MCP integrations.\n\nAt this stage, I'm looking for an opportunity where I can contribute hands-on while taking greater technical ownership and progressing toward a stronger technical leadership role."},{"num":"Q02","q":"Why did you leave STIXIS after just six months?","spoken":"STIXIS was my first professional experience, where I worked on developing a customer-facing B2B portal. During that time, I was also upgrading my skills by completing a course focused on Java, Spring Boot, and microservices.\n\nAfter completing that training, I explored opportunities through off-campus recruitment and successfully secured a position at CGI. CGI offered me the opportunity to work on enterprise banking applications, which aligned with my career interests.\n\nI subsequently spent nearly three years there, so that early move was an important step in building my long-term career in Java backend development."},{"num":"Q03","q":"Why did you join CGI?","spoken":"After completing my Java, Spring Boot, and microservices training, I wanted to apply those skills in an enterprise development environment.\n\nI cleared CGI's off-campus recruitment process and received an opportunity to work on banking applications. It was a valuable transition because I gained experience working with Java backend systems, REST APIs, enterprise business logic, and production support."},{"num":"Q04","q":"Why is there a gap between STIXIS and CGI?","spoken":"My STIXIS employment ended in August 2018, and I joined CGI in November 2018 after clearing the off-campus recruitment process.\n\nDuring that transition period, I was [explain your actual activities during September and October 2018].","note":"Confirm the real reason for the September-October 2018 interval. Do not invent training, interviews, or any other activity."},{"num":"Q05","q":"Why have you changed companies multiple times?","spoken":"My career moves have helped me develop experience across different enterprise domains and backend technologies.\n\nAt CGI, I spent nearly three years working on banking applications. At HCLTech, I worked on mobility-related microservices, and at IBM, I gained experience leading engineers and developing a Kubernetes-based CI/CD platform.\n\nCurrently, at Lowe's, my responsibilities include distributed systems, technical leadership, and production ownership. Each experience has contributed to my technical development.\n\nAt this stage, I'm looking for greater alignment between my responsibilities, career progression, and compensation, with the intention of building a longer-term career in the right organization."},{"num":"Q06","q":"Why do you want to leave Lowe's before completing two years?","spoken":"I've had a positive experience at Lowe's and learned a lot while working on large-scale distributed systems.\n\nI'm currently involved in backend architecture, mentoring engineers, reviewing code, and leading feature development. Over time, my responsibilities have grown beyond my current Senior Software Engineer designation.\n\nAt this stage of my career, I'm looking for an opportunity where my technical responsibilities, professional growth, designation, and compensation are better aligned.\n\nSo my decision isn't based on any negative experience. I'm looking for the right long-term opportunity to continue growing."},{"num":"Q07","q":"Why can't you get career growth at Lowe's?","spoken":"Lowe's has provided me with good learning opportunities, and I genuinely value my experience here.\n\nHowever, while exploring my next career step, I want to consider opportunities that offer a stronger progression path, greater architectural ownership, and compensation aligned with my responsibilities.\n\nI believe exploring external opportunities is a reasonable part of career planning, provided the decision is thoughtful and based on long-term goals."},{"num":"Q08","q":"Have you discussed your promotion with your manager?","conditional":{"label":"Choose depending on your real situation:","branches":[{"tag":"IF YES (Discussed)","text":"Yes, I've had discussions about my responsibilities and career development. I understand that promotions depend on organizational requirements, available opportunities, and internal processes. Meanwhile, I'm also exploring roles where the responsibilities and progression path align with my career objectives."},{"tag":"IF NO (Not yet discussed)","text":"I haven't had a formal promotion discussion yet, although my responsibilities have grown considerably. I'm evaluating my career direction and exploring opportunities where I can take greater technical ownership."}]},"note":"Use only the version that matches your actual discussion with your manager."},{"num":"Q09","q":"If Lowe's offers you a promotion or counteroffer, will you stay?","spoken":"I value my current organization, and I would certainly treat any internal opportunity respectfully.\n\nHowever, my decision to explore new roles is based on several factors, including technical responsibilities, career progression, long-term growth, and compensation.\n\nI don't want to make a career decision based only on a counteroffer. If I accept an external opportunity, it would be after carefully evaluating the role and my long-term career goals."},{"num":"Q10","q":"Why should we believe you will stay with us long-term?","spoken":"I understand your concern.\n\nIf you look at my experience, I spent nearly three years at CGI and have consistently developed my expertise in enterprise Java backend engineering.\n\nAt this stage, I have a clear understanding of the type of role I want: hands-on technical work, architecture ownership, and opportunities to grow as a technical leader.\n\nI'm not looking to change organizations frequently. I'm evaluating opportunities carefully because I want to find an environment where I can contribute and grow over the long term."},{"num":"Q11","q":"What if we offer the same Senior Software Engineer designation?","spoken":"I'm open to the same designation if the role provides the right technical challenges, responsibilities, and opportunities for growth.\n\nFor me, career progression isn't only about the title. It also involves technical ownership, architectural responsibilities, the complexity of systems, opportunities to mentor engineers, and compensation.\n\nIf the role aligns with those expectations and offers a clear growth path, I'd definitely be interested."},{"num":"Q12","q":"Why do you want to join our organization?","spoken":"I'm interested in this opportunity because the role aligns closely with my core experience in Java, Spring Boot, microservices, and distributed systems.\n\nI'm looking for an environment where I can work on challenging backend systems, take ownership of important features, and contribute to engineering decisions.\n\nI'd also like to understand your technical roadmap and team responsibilities because those are important factors in my long-term career decision.","note":"For a real interview, add a specific, verified reason about that employer or team."}]},{"id":"section-02","num":"02","title":"Java expertise & technical leadership","theme":"Reinforce that Java backend engineering is your core specialization and support leadership claims with your real project experience.","badgeClass":"badge-tech","questions":[{"num":"Q13","q":"We're hiring for Java and microservices only. Are you comfortable without AI work?","spoken":"Absolutely. My core expertise is Java backend development, and that's where I've spent most of my professional career.\n\nI've worked with Java 8, Java 17, and Java 21, along with Spring Boot, REST APIs, Kafka, Redis, and distributed systems.\n\nAlthough I've gained additional experience with AI agents and MCP, I consider those complementary skills. I genuinely enjoy backend engineering, particularly solving challenges related to system performance, scalability, reliability, and architecture.\n\nSo I'm completely comfortable with a role focused entirely on Java and microservices."},{"num":"Q14","q":"If you're interested in AI, won't you leave for an AI role later?","spoken":"I see AI as an additional capability rather than a replacement for backend engineering.\n\nEven AI-driven enterprise applications require secure APIs, scalable microservices, databases, event-driven systems, and reliable backend infrastructure.\n\nMy primary professional strength remains Java backend engineering. I want to continue developing that expertise, regardless of whether the application includes AI functionality."},{"num":"Q15","q":"You are a Senior Software Engineer. How are you already performing technical lead responsibilities?","spoken":"Although my official designation is Senior Software Engineer, my responsibilities include mentoring eight engineers, participating in backend architecture decisions, conducting code reviews, and coordinating feature delivery.\n\nI remain hands-on with implementation while supporting the team with technical decisions, code quality, and production issues.\n\nThis combination of individual technical contribution and team mentorship has helped me develop leadership capabilities."},{"num":"Q16","q":"Do you prefer hands-on coding or management?","spoken":"My preference is hands-on technical leadership.\n\nI enjoy designing and implementing backend systems, reviewing code, solving difficult technical problems, and mentoring engineers.\n\nI don't want to move into a purely people-management role at this stage. I want to continue contributing technically while taking ownership of system design and delivery."},{"num":"Q17","q":"Tell me about your biggest achievement at Lowe's.","spoken":"One of my significant achievements was improving the performance of our inventory and lookup APIs.\n\nWe were experiencing high tail latency, with p99 response times reaching approximately eight seconds. I worked on implementing distributed Redis caching, which helped reduce p99 latency to approximately 170 milliseconds.\n\nThis was an important improvement in application responsiveness and backend performance. It also reinforced the importance of measuring performance and choosing suitable architectural optimizations."},{"num":"Q18","q":"How many engineers have you led?","spoken":"At Lowe's, I've mentored eight engineers and contributed to architecture, code reviews, and technical delivery.\n\nPreviously, at IBM, I led a team of ten engineers working on a Kubernetes-based CI/CD control plane.\n\nMy leadership approach focuses on remaining technically involved while helping engineers deliver maintainable, reliable solutions."},{"num":"Q19","q":"How do you handle disagreements during code review?","spoken":"I try to keep technical discussions objective and focused on engineering requirements.\n\nI first understand the reasoning behind the proposed implementation. Then I evaluate aspects such as maintainability, performance, security, testing, and consistency with our architecture.\n\nIf there are multiple valid approaches, I prefer discussing the trade-offs and agreeing on a solution based on technical evidence. My goal is to maintain code quality while supporting constructive collaboration."},{"num":"Q20","q":"How do you handle production incidents?","spoken":"My first priority is to understand the impact and restore service stability.\n\nI start by checking monitoring dashboards, logs, error patterns, and the affected services. I coordinate with the relevant engineers to identify the issue and determine the safest mitigation.\n\nAfter service recovery, I focus on root-cause analysis and preventive improvements. At Lowe's, I've worked on production incident response and monitoring using Grafana, Kibana, and Prometheus."},{"num":"Q21","q":"Tell me about handling high transaction volumes.","spoken":"At Lowe's, I was involved in supporting production operations during the Black Friday and Cyber Monday event.\n\nThe retail platform processed approximately 2.3 million transactions across the entire event. My responsibilities included on-call incident response and supporting the reliability of backend services.\n\nThis gave me valuable experience working with business-critical systems where monitoring, incident coordination, and reliability are especially important."},{"num":"Q22","q":"What is your biggest technical strength?","spoken":"My biggest strength is solving backend engineering problems with a practical and structured approach.\n\nI have experience developing Java microservices, working with distributed systems, improving API performance, and handling production issues.\n\nI also bring the ability to mentor engineers and contribute to architectural decisions while remaining hands-on with implementation."},{"num":"Q23","q":"What is one area you want to improve?","spoken":"I want to continue deepening my expertise in large-scale distributed system architecture.\n\nAlthough I already work with microservices, Kafka, Redis, and production systems, I believe there's always room to improve in areas such as resilience, system design trade-offs, and performance engineering.\n\nI actively try to improve through hands-on implementation, architecture discussions, and continuous learning."},{"num":"Q24","q":"Why should we hire you?","spoken":"I believe I bring a combination of strong Java backend engineering experience, production ownership, and technical leadership capabilities.\n\nI've worked with Spring Boot microservices, distributed systems, Kafka, Redis, and enterprise applications across multiple domains.\n\nI've also delivered measurable improvements in performance and engineering quality, while mentoring teams and supporting production systems.\n\nI can contribute hands-on from the beginning and also support technical design, code quality, and team delivery as responsibilities grow."}]},{"id":"section-03","num":"03","title":"Compensation, offers & logistics","theme":"Stay consistent on current CTC, communicate a reasoned expectation, and ask for fixed-versus-variable details.","badgeClass":"badge-salary","questions":[{"num":"Q25","q":"What is your current CTC?","spoken":"My current total CTC is ₹29 LPA, which includes ₹26.5 LPA fixed compensation and ₹2.5 LPA variable pay."},{"num":"Q26","q":"What is your expected CTC?","spoken":"Considering my eight-plus years of experience, technical responsibilities, and expertise in Java microservices and distributed systems, I'm targeting approximately ₹40 to ₹42 LPA.\n\nHowever, I'm open to discussing the overall package depending on the role's responsibilities, fixed compensation, and career growth opportunities."},{"num":"Q27","q":"You're expecting almost a 40-45% hike. Why?","spoken":"I understand that it's a significant increase compared to my current compensation.\n\nHowever, my expectation is based on the responsibilities and experience I bring rather than only a percentage increase. My current role includes backend architecture, mentoring engineers, feature delivery, performance optimization, and production ownership.\n\nI've also worked on measurable improvements in API performance and engineering quality. I'm looking for compensation that reflects my experience and the responsibilities of the new role.\n\nThat said, I'm open to a reasonable discussion based on your compensation structure."},{"num":"Q28","q":"Why should we pay ₹40-42 LPA for your experience?","spoken":"I believe the value I bring goes beyond implementing assigned development tasks.\n\nI've contributed to designing distributed backend systems, improving API performance, reviewing and maintaining code quality, mentoring engineers, and supporting production applications.\n\nFor example, at Lowe's, I contributed to reducing API p99 latency from eight seconds to 170 milliseconds and improving automated testing coverage from 46% to 80%.\n\nI believe these experiences position me to contribute to both technical delivery and engineering quality. I'm open to discussing the package based on the scope and expectations of the role."},{"num":"Q29","q":"Our maximum budget is ₹35 LPA. Are you comfortable?","spoken":"Thank you for sharing the budget.\n\nI'm genuinely interested in the opportunity, particularly because of its alignment with my Java and microservices experience. My current expectation is closer to ₹40 LPA, considering the responsibilities and my experience.\n\nWould there be any flexibility in the fixed compensation or overall package? I'd be happy to understand the full compensation structure before making a decision."},{"num":"Q30","q":"Is compensation more important than career growth?","spoken":"I consider both important.\n\nA challenging technical role with meaningful responsibilities and a clear progression path is essential for my long-term career. At the same time, I believe compensation should be reasonably aligned with the responsibilities and experience expected from the position.\n\nI'm looking for the right balance rather than prioritizing only one factor."},{"num":"Q31","q":"What is your minimum expected salary?","spoken":"I'd prefer to evaluate the overall offer rather than commit to an absolute minimum upfront.\n\nMy current target is around ₹40-42 LPA, but I'm happy to discuss the fixed component, role responsibilities, and long-term opportunities before making a decision."},{"num":"Q32","q":"Are you comfortable with variable compensation?","spoken":"Yes, I'm open to a reasonable variable component.\n\nHowever, I would prefer a strong fixed component, since that provides more predictable compensation.\n\nI'd also like to understand how variable pay is determined and whether it depends on individual performance, company performance, or both."},{"num":"Q33","q":"Do you currently have any other offers?","conditional":{"label":"Choose depending on your real situation:","branches":[{"tag":"IF NO OFFER","text":"I'm actively exploring opportunities, but I don't have a confirmed offer at this stage. My priority is finding a role that aligns with my technical experience and career goals."},{"tag":"IF YOU HAVE AN OFFER","text":"Yes, I'm evaluating another opportunity as well. However, I'm looking at each role based on responsibilities, technical alignment, compensation, and long-term career growth rather than making a decision only on salary."}]},"note":"Choose the truthful version based on your actual offer status."},{"num":"Q34","q":"What is your notice period, and when is your last working day?","spoken":"My official notice period is currently being served, and my Last Working Day (LWD) is 27 November 2026.\n\nSince my notice is already active, I am available as an early / immediate joiner. I will ensure a thorough knowledge transfer and clean handover, and I can join your engineering team on or right after 28 November.","note":"Verified: Official notice served. Last Working Day is 27 Nov 2026. Use immediate-joiner status as a major advantage."},{"num":"Q35","q":"Are you comfortable with hybrid working?","spoken":"Yes, I'm comfortable with a hybrid work environment.\n\nI believe in-person collaboration is valuable for architecture discussions, technical planning, mentoring, and team coordination.\n\nI'm also comfortable working independently and collaborating with distributed teams. I'd be happy to understand the office location and required number of in-office days.","note":"Use this only if you can meet the actual office attendance and location requirements."},{"num":"Q36","q":"Are you willing to relocate?","spoken":"Yes, I'm open to relocation for the right opportunity.\n\nMy decision would depend on the work location, responsibilities, compensation, and overall career prospects. I'm flexible and willing to discuss relocation requirements."},{"num":"Q37","q":"When can you join?","spoken":"I can join immediately after completing my active notice period—my official Last Working Day is 27 November 2026.\n\nBecause my notice is already active, there are no administrative delays or long notice lock-ins. I can join your team on or right after 28 November."},{"num":"Q38","q":"Do you have any questions for us?","spoken":"Yes, thank you. I'd like to understand a few things about this opportunity.\n\nFirst, what are the main technical challenges the team is currently working on?\n\nSecond, how much ownership would this role have in architecture and technical decision-making?\n\nThird, what does the career progression path look like for a Senior Software Engineer who demonstrates technical leadership?\n\nAnd finally, how do you measure success for someone in this role during the first six months?"}]},{"id":"section-04","num":"04","title":"Competing-offer scenarios","theme":"Use this section if you genuinely have another offer. Be transparent about the status, terms, deadlines, and decisions; never bluff.","badgeClass":"badge-offer","questions":[{"num":"Q39","q":"You already have an offer. Why are you still looking for other opportunities?","spoken":"Yes, I currently have an offer, and I'm grateful for that opportunity. However, I'm not making a career decision based only on the first offer I receive or on compensation alone.\n\nAt this stage, I want the right combination of technical responsibilities, career progression, organizational stability, and compensation. My core expertise is Java, Spring Boot, microservices, and distributed systems, so meaningful technical ownership matters to me.\n\nThat's why I'm evaluating opportunities carefully before making a final decision. If your role aligns well with my goals, I would absolutely consider it seriously.","note":"Use this only if you actually hold an offer. If you don't, use the honest 'no confirmed offer' answer in Q33."},{"num":"Q40","q":"If your other offer is ₹40 LPA, why should we offer you more?","spoken":"I appreciate that compensation is important, but I'm not trying to create a bidding competition. I evaluate roles based on engineering challenges, responsibilities, growth opportunities, and the overall compensation structure.\n\nIf the role is a strong match, I'd be happy to discuss a competitive package that is appropriate for its scope and expectations.","note":"The ₹40 LPA figure is a hypothetical interviewer question, not a claim about your actual offer. Never invent or inflate a competing offer."},{"num":"Q41","q":"If we match your existing offer, would you choose us?","spoken":"Yes, I would definitely consider your opportunity. If compensation is comparable, my decision would depend on the technical ownership, the systems I'd be working on, the team's engineering culture, and the long-term growth path.\n\nI'd want to make a well-informed commitment rather than choose based only on the number in the offer letter."},{"num":"Q42","q":"Are you using our offer to negotiate with another company?","spoken":"I'm evaluating opportunities seriously because I want to make the right long-term move. I'm interested in the role itself, not just in collecting offers.\n\nMy decision would be based on the complete opportunity - the technical scope, team, career progression, and compensation - and I'd communicate my decision professionally and within the agreed timeline.","note":"Do not categorically deny negotiating if you are in fact using offers for that purpose. Be truthful about your process."},{"num":"Q43","q":"Have you already accepted your other offer?","conditional":{"label":"Choose depending on your real situation:","branches":[{"tag":"IF NOT ACCEPTED","text":"I haven't accepted it yet. I'm reviewing the opportunity and its terms before making a final commitment."},{"tag":"IF ACCEPTED","text":"Yes, I've accepted an offer, but I'm still reassessing whether it's the right long-term fit. I recognize the commitment involved, so I'm handling this carefully and would make any decision transparently and professionally."}]},"note":"Use only the version matching the real status. Never claim you have not accepted if you already have."},{"num":"Q44","q":"What is the offered CTC, which company is it from, and what is your joining date?","spoken":"I can share the relevant details of the offer and my availability accurately. The offered total CTC is [actual amount], with [actual fixed/variable breakdown], and the proposed joining date is [actual date].\n\nRegarding the company name, I'd prefer to keep the other employer's identity confidential at this stage, if that's acceptable. I'm happy to focus on my expectations, availability, and genuine interest in this role.","note":"Fill in only verified offer terms. If comfortable sharing the employer's name, you may do so. If you have not received an offer, say that instead."},{"num":"Q45","q":"Can you share your offer letter, and how long do you have to decide?","spoken":"I understand why you're asking. I can discuss the genuine offer terms and the date by which I need to respond. My current decision deadline is [actual date].\n\nI'd prefer not to circulate another employer's confidential offer letter during an early discussion, but I'm happy to understand what verification your process requires at a later stage. Could you also share the expected timeline for your interview and offer process?","note":"Do not share confidential or personal documents unless you are comfortable and permitted to do so. Give a real deadline, not one invented to pressure a recruiter."}]},{"id":"section-05","num":"05","title":"15 Production Scenarios","theme":"Senior Java / Spring Boot / Microservices: Spoken answers, investigation checklists, follow-ups, and resume-relevant examples.","badgeClass":"badge-prod","isProductionSection":true,"leadFramework":{"title":"HOW TO ANSWER LIKE A TECHNICAL LEAD","steps":[{"num":"1","title":"Scope the incident & assess customer impact","desc":"Identify affected endpoints, timing, error rate, p95/p99 latency regressions, and whether traffic or blast radius is growing."},{"num":"2","title":"Use measurements to pinpoint the actual bottleneck","desc":"Check Grafana, APM distributed traces, HikariCP pool metrics, GC logs, slow queries, and thread dumps instead of guessing."},{"num":"3","title":"Apply the smallest safe fix with an explicit trade-off","desc":"Mitigate first (cache, rate limit, timeout, circuit break, rolling restart) before deep structural rewrites."},{"num":"4","title":"Validate with metrics, tests & automated prevention","desc":"Confirm recovery under representative load, add automated alerts, SLO guards, and regression tests."}],"truthfulnessNote":"Truthfulness note: Your resume confirms API p99 optimization, Redis caching, Kafka telemetry ingestion, PostgreSQL store services, production monitoring and mentorship. Payment/saga/scheduler scenarios are preparation examples, NOT claims of projects you delivered."},"subCategories":[{"id":"sub-all","name":"All 15 Scenarios","count":15},{"id":"sub-perf","name":"Performance & Capacity","count":4,"qs":["Q46","Q47","Q54","Q58"]},{"id":"sub-concur","name":"Concurrency & Idempotency","count":3,"qs":["Q48","Q49","Q60"]},{"id":"sub-resil","name":"Resilience & Transactions","count":4,"qs":["Q50","Q51","Q55","Q56"]},{"id":"sub-kafka","name":"Kafka, JVM & Observability","count":4,"qs":["Q52","Q53","Q57","Q59"]}],"questions":[{"num":"Q46","q":"Your API suddenly takes 5 seconds instead of 200 ms. How would you find the bottleneck?","category":"Performance and capacity","subCatId":"sub-perf","spoken":"I would first confirm the scope of the regression: which endpoints, when it started, and whether p95 and p99 rose along with traffic or error rates. I'd examine Grafana dashboards for application, database, cache, JVM, and downstream-service metrics. Then I'd use a distributed trace or targeted timings to divide total request time into connection wait, application logic, SQL, Redis, and external calls. I'd check deployment changes, thread saturation, GC pauses, and slow queries. After isolating the dominant delay, I'd fix it and verify the improvement under representative load.","checklist":["Compare p50/p95/p99, traffic, error rate, releases, and individual endpoints.","Trace each dependency; check DB pool wait, slow SQL, Redis hit rate, outbound HTTP, GC and thread dumps.","Validate the fix with load testing and production monitoring; avoid guessing the cause."],"resumeConnection":"Lowe's: you actually improved inventory/lookup API p99 from 8 seconds to 170 ms using distributed Redis caching. Do not imply this exact 5-second incident happened.","followUp":{"q":"What if SQL is fast but p99 is high?","a":"Check queueing, connection acquisition, slow dependency calls, and JVM pauses."}},{"num":"Q47","q":"Your DB connection pool is exhausted. What would you check first?","category":"Performance and capacity","subCatId":"sub-perf","spoken":"I'd start with HikariCP metrics for active, idle, pending, and maximum connections, especially acquisition wait time. Then I'd look for long-running SQL, slow transactions, thread stacks waiting for connections, and connections that are not being returned. I'd also check whether a deployment increased replica count or concurrency, which could multiply total database connections. I wouldn't blindly increase the pool size; I'd fix leaks or long transactions, introduce sensible timeouts, and tune the application's concurrency against the database's real capacity.","checklist":["Inspect active/idle/pending/max connections and acquisition timeout trends.","Correlate active connections with transaction duration, lock waits, slow SQL, and thread dumps.","Check total connections across ALL app replicas; pool x replicas must fit DB limits."],"resumeConnection":"Lowe's: PostgreSQL-backed store-edge services; discuss as your troubleshooting method unless you saw this exact issue.","followUp":{"q":"Could @Transactional cause exhaustion?","a":"Yes, transactions that include slow network calls or excessive work retain connections longer."}},{"num":"Q48","q":"Two users update the same record simultaneously. How do you handle it?","category":"Concurrency and idempotency","subCatId":"sub-concur","spoken":"I would prevent lost updates according to the business rule. For typical user-driven changes, I'd use optimistic locking with JPA @Version and return a conflict if someone has already updated the record. The client can reload the latest state and retry deliberately. For highly contended inventory or balance changes, I'd evaluate atomic conditional SQL updates or short database row locks. I'd keep transactions focused and test concurrent requests. A Java synchronized block isn't sufficient when multiple microservice instances are running.","checklist":["Optimistic: @Version and OptimisticLockException; return 409 Conflict or equivalent.","High contention: UPDATE ... WHERE version/quantity condition or SELECT ... FOR UPDATE inside a transaction.","Choose behavior explicitly: reject, merge, retry, or serialize based on domain semantics."],"resumeConnection":"Lowe's: store/inventory services provide a relevant setting; do not claim a conflict-handling implementation you have not used.","followUp":{"q":"Why not Redis locks by default?","a":"Database atomicity or versioning is typically simpler and more reliable for a single DB record."}},{"num":"Q49","q":"A payment request reaches your API twice. How do you prevent duplicate payments?","category":"Concurrency and idempotency","subCatId":"sub-concur","spoken":"I would make payment creation idempotent. The client supplies an idempotency key for the logical payment, and the backend atomically reserves that key using a unique constraint, together with a request fingerprint and durable processing status. If the same request arrives again, we return the existing result or current status rather than executing a second charge. I'd also pass an idempotency key to the payment provider where supported, and reconcile uncertain outcomes after timeouts. An in-memory lock alone isn't reliable across instances.","checklist":["Unique key scoped by customer/merchant and operation; reject same key with different payload.","Persist PENDING/SUCCEEDED/FAILED; coordinate concurrent calls and retry unknown outcomes safely.","Handle gateway timeouts via provider lookup/reconciliation; test replay and racing requests."],"resumeConnection":"Your CGI banking work is relevant experience in transaction workflows, but do not say you implemented payments or this mechanism unless true.","followUp":{"q":"What if the provider charged but your API timed out?","a":"Query provider status with the same idempotency reference before retrying."}},{"num":"Q50","q":"A downstream service takes 10 seconds to respond. What would you do?","category":"Resilience and transactions","subCatId":"sub-resil","spoken":"I'd first check whether the delay is isolated or widespread and whether that dependency is overloaded. I'd set connection and response timeouts based on the end-to-end request budget, and use a circuit breaker and bulkhead to avoid exhausting our threads or connections. For noncritical features, I'd consider a cached or degraded response. I'd retry only transient, safe-to-retry calls, with bounded exponential backoff and jitter. If the workflow cannot complete safely, I'd return a clear failure or pending status, then monitor dependency latency and error rates.","checklist":["Set timeouts shorter than the caller's total deadline; propagate deadlines where possible.","Apply circuit breaker, concurrency limits/bulkheads, and graceful fallback only where acceptable.","Retry selective transient errors; avoid retrying non-idempotent writes without idempotency."],"resumeConnection":"Lowe's: relate to resilient distributed services and your production monitoring responsibilities.","followUp":{"q":"When is a fallback dangerous?","a":"For payments or inventory guarantees, an invented success would violate correctness."}},{"num":"Q51","q":"Your retry mechanism starts increasing traffic instead of reducing failures. Why?","category":"Resilience and transactions","subCatId":"sub-resil","spoken":"That usually means retries are amplifying load on an already unhealthy dependency, possibly with retries at several layers. I would inspect retry counts, response codes, concurrent request volume, and whether clients are retrying at the same time. I'd centralize retry policy at one appropriate boundary, cap attempts, use exponential backoff with jitter, and enforce an overall time budget. I'd combine this with circuit breaking, load shedding, and idempotency for side-effecting operations. The goal is to reduce pressure while the dependency recovers.","checklist":["Look for nested retries: three attempts at each of three layers can create up to 27 downstream attempts.","Use bounded attempts, jitter, retry budgets, circuit breakers, and explicit retryable error classes.","Monitor retry rate, attempts/request, downstream QPS, latency, and successful recoveries."],"resumeConnection":"Applicable to microservice design and on-call troubleshooting; do not present nested retry storm as an incident you personally fixed.","followUp":{"q":"Why add jitter?","a":"It prevents synchronized retry waves (thundering herd) after an outage."}},{"num":"Q52","q":"Kafka consumer lag keeps increasing. How would you troubleshoot it?","category":"Kafka, JVM, contracts, observability","subCatId":"sub-kafka","spoken":"I'd compare incoming message rate with successful processing throughput, then check lag per partition, not just the total. I'd inspect consumer health, partition assignments, rebalance frequency, processing time, errors, and downstream dependencies such as PostgreSQL or Elasticsearch. I'd review batch size, commit behavior, and max.poll.interval.ms, because long processing can trigger rebalances. If the group is underprovisioned, I'd scale consumers up to useful partition parallelism or optimize processing, while protecting ordering and delivery semantics. Poison messages should be handled deliberately rather than endlessly retried.","checklist":["Inspect consumer-group lag by partition, broker/topic throughput, assignments, and rebalances.","Identify bottlenecks: slow handlers, SQL, external APIs, large batches, GC, and poison messages.","Scale within partition limits; tune poll/batch/commit carefully and consider DLQ or retries with ordering awareness."],"resumeConnection":"Lowe's: you built Kafka/Redis/Elasticsearch ingestion services for MQTT store telemetry; this is directly relevant experience.","followUp":{"q":"If topic has 4 partitions and 10 consumers in one group?","a":"Only up to 4 consumers can actively own partitions in classic partition-based consumption."}},{"num":"Q53","q":"Your application throws OutOfMemoryError only in production. What would you investigate?","category":"Kafka, JVM, contracts, observability","subCatId":"sub-kafka","spoken":"I'd first identify which memory area failed: Java heap, Metaspace, direct buffers, or native/container memory. I'd compare production traffic and payload sizes with lower environments and inspect heap usage, GC pause time, allocation rate, container limits, and recent releases. If safe, I'd capture a heap dump and analyze retained objects and dominator trees, along with thread or JFR data. Typical causes include unbounded caches, large collections, queue buildup, or memory leaks. I'd fix the retaining code and verify under production-like load rather than just increasing Xmx.","checklist":["Differentiate Java heap OOM, Metaspace, direct-buffer pressure, and Kubernetes OOMKilled.","Use GC logs, heap dump/MAT, JFR, container metrics, allocations and retained-object analysis.","Review unbounded Redis-local caches, in-memory buffers, batch sizes, thread counts, and memory limits."],"resumeConnection":"Your Java/JVM and Kubernetes background supports this response; an actual OOM incident is not confirmed.","followUp":{"q":"Why could Xmx be below pod memory yet container OOMKill?","a":"Heap is only one component of total process memory."}},{"num":"Q54","q":"The DB query takes 50 ms, but the API takes 3 seconds. Where could the remaining time go?","category":"Performance and capacity","subCatId":"sub-perf","spoken":"A fast SQL execution doesn't prove that database access was fast end-to-end. I'd check time waiting for a pool connection, ORM mapping, repeated N+1 queries, transaction locks, and network transfer. Outside the database, I'd measure request queueing, authentication, serialization, Redis calls, downstream HTTP calls, retries, thread scheduling, and GC pauses. I'd add span timings around each stage and compare the total wall-clock time. That would show whether the remaining time is spent waiting, processing, or calling another dependency.","checklist":["Distinguish pure DB execution time from acquisition, network, ORM, and transaction duration.","Check N+1, serialization, HTTP calls, rate limits, queues, thread starvation and GC.","Use distributed traces and timers; verify totals match end-to-end wall clock."],"resumeConnection":"Lowe's: tie to your API performance work and Grafana/Kibana/Prometheus observability.","followUp":{"q":"What if timing still does not add up?","a":"Inspect uninstrumented queues and asynchronous waits, plus clock/trace gaps."}},{"num":"Q55","q":"One microservice goes down during an order transaction. How should your system behave?","category":"Resilience and transactions","subCatId":"sub-resil","spoken":"I would design the transaction around explicit business states instead of assuming one distributed ACID transaction across services. For a multi-step order workflow, a saga can coordinate local transactions and compensating actions. I'd use durable events and an outbox pattern to avoid losing state changes, and make each step idempotent. If a downstream service is unavailable, the order should move to a well-defined pending, failed, or compensating state. I'd provide recovery, retries where safe, observability, and reconciliation rather than silently claiming success.","checklist":["Use local transactions with a saga (orchestration/choreography) and business-specific compensations.","Persist state changes plus outgoing events atomically via transactional outbox when appropriate.","Design idempotent handlers, eventual consistency, and a recoverable order state machine."],"resumeConnection":"You have event-driven retail and CI/CD orchestration experience; this exact order saga is a design answer, not a confirmed project.","followUp":{"q":"Can every step be rolled back?","a":"No. Real-world side effects may require refunds, cancellations, or manual reconciliation."}},{"num":"Q56","q":"A scheduled job executes twice after deployment. How would you prevent duplicate execution?","category":"Resilience and transactions","subCatId":"sub-resil","spoken":"I'd check whether multiple instances are running the same @Scheduled job after horizontal scaling or during a rolling deployment. A local synchronized lock won't coordinate multiple pods. Depending on requirements, I'd use a persistent distributed scheduler or a lease-based lock such as a properly configured database-backed scheduler. More importantly, I'd make the job idempotent using a unique run or business-operation key so a restart or expired lock cannot duplicate its effects. I'd track ownership, lock expiry, execution status, and job success metrics.","checklist":["Check multiple pods, duplicate scheduler registration, rolling overlap, clock and cron configuration.","Use Quartz clustered mode, ShedLock with shared storage, or an equivalent lease/fencing arrangement.","Use unique run IDs and durable idempotency because locks alone do not guarantee exactly-once effects."],"resumeConnection":"IBM: you designed Argo Workflows orchestration; reference your orchestration experience, not a fabricated scheduling incident.","followUp":{"q":"Why might a lock still permit duplicate work?","a":"A lease may expire while the original worker continues."}},{"num":"Q57","q":"You need to introduce a new field in an API without breaking existing clients. How?","category":"Kafka, JVM, contracts, observability","subCatId":"sub-kafka","spoken":"I'd make the change backward-compatible by adding an optional field and keeping existing field names, types, and response semantics unchanged. I'd provide sensible default behavior when older clients don't send the field, and ensure clients can tolerate the additional response field. I'd update API documentation and contract tests, then deploy the server side before requiring consumers to use the new field. If the change is genuinely breaking, I'd version the contract or introduce a migration period rather than silently changing existing behavior.","checklist":["Additive optional field; do not make it mandatory for existing consumers.","Check older clients' tolerance to unknown JSON fields; use consumer-driven contract testing.","For event schemas, check schema compatibility and evolve producers/consumers carefully."],"resumeConnection":"Lowe's: you delivered 30+ APIs/microservices; discuss your design approach and actual versioning practices if known.","followUp":{"q":"What if field changes the meaning of an existing field?","a":"That is a semantic breaking change even if JSON still parses."}},{"num":"Q58","q":"Your application handles 1,000 requests/sec today. Tomorrow it needs to handle 10,000. What changes would you consider?","category":"Performance and capacity","subCatId":"sub-perf","spoken":"I'd start with a realistic load test to identify the current bottleneck and define latency, error-rate, and cost targets. I'd check whether the service is CPU-bound, blocked on database connections, or limited by downstream capacity. Then I'd optimize inefficient queries, apply appropriate caching, ensure stateless horizontal scaling, and tune thread and connection pools. I'd assess Kubernetes autoscaling, load balancing, rate limiting, data partitioning, Kafka buffering, and resilience under bursts. I'd validate the full dependency chain at 10,000 requests per second, not just scale application pods tenfold.","checklist":["Calculate demand and headroom, then profile app, DB, caches, brokers, and downstream capacity.","Use load tests for p95/p99 and error SLOs; scale stateless services plus their dependencies.","Use caching, indexing, partitions, backpressure, HPA, rate limiting, and rollout tests as appropriate."],"resumeConnection":"Lowe's: you supported services used across 1,621 stores and BFCM production operations; do not claim 10,000 RPS achieved.","followUp":{"q":"Why not simply add 10x pods?","a":"Shared DB, network, cache, and downstream dependencies may become the new bottleneck."}},{"num":"Q59","q":"Your logs don't let you trace a request across multiple microservices. How would you improve this?","category":"Kafka, JVM, contracts, observability","subCatId":"sub-kafka","spoken":"I'd introduce end-to-end distributed tracing and structured logs with a common trace ID and span ID. In Spring Boot, Micrometer Tracing with OpenTelemetry is one practical approach. I'd propagate trace context across HTTP requests and Kafka messages, then make sure those identifiers appear in logs and connect to a trace backend. I'd retain service name, environment, error code, and duration as searchable fields, and protect sensitive customer data. I would verify context propagation across asynchronous boundaries and use sampling to manage volume.","checklist":["Instrument incoming/outgoing HTTP and Kafka producers/consumers; propagate W3C trace context.","Include traceId/spanId in structured logs and correlate metrics, logs and traces.","Validate async propagation, error sampling, PII redaction, and storage cost."],"resumeConnection":"Lowe's: you have created Grafana/Kibana/Prometheus dashboards; tracing is a recommended design extension, not a confirmed deployment.","followUp":{"q":"Why are correlation IDs not enough?","a":"They connect logs, but spans additionally expose causal relationships and timings."}},{"num":"Q60","q":"Your service receives duplicate requests during a network timeout. How would you make the operation safe?","category":"Concurrency and idempotency","subCatId":"sub-concur","spoken":"I would assume a timeout means the result is unknown, not necessarily that the operation failed. For operations with side effects, I'd require a stable idempotency key or business request ID and atomically enforce uniqueness in durable storage. Repeated requests should return the previous outcome or a processing status rather than repeat the operation. I'd validate payload consistency for reused keys, define retention and reconciliation policies, and keep event consumers idempotent as well. GET and naturally idempotent updates can use normal HTTP semantics, while create or charge workflows need stronger protection.","checklist":["Use a stable client request ID; durable unique constraint and stored result/status for side-effecting writes.","Handle in-flight duplicates as PENDING; distinguish transport timeout from business failure.","Test concurrent retries across replicas, crash recovery, and message redelivery."],"resumeConnection":"CGI banking / Lowe's distributed systems support the design discussion; do not equate this with a payment incident you implemented.","followUp":{"q":"Are retries always safe with POST?","a":"Only if the operation is designed with a reliable idempotency contract."}}],"finalFormula":{"title":"FINAL 60-SECOND INTERVIEW FORMULA","points":["State the observable symptom and customer impact.","Mention the first dashboard or metric you would check.","Name 2-3 likely root causes and how to distinguish them.","Explain a safe fix and the trade-off.","Close with verification, alerting, and prevention."]},"technicalReferences":[{"name":"Spring Boot Actuator Metrics","url":"https://docs.spring.io/spring-boot/3.3/reference/actuator/metrics.html","icon":"ti-pulse"},{"name":"Spring Boot Observability","url":"https://docs.spring.io/spring-boot/reference/actuator/observability.html","icon":"ti-eye"},{"name":"Apache Kafka Consumer Config","url":"https://kafka.apache.org/28/configuration/consumer-configs/","icon":"ti-layers"},{"name":"Apache Kafka Monitoring","url":"https://kafka.apache.org/44/operations/monitoring/","icon":"ti-dashboard"},{"name":"OpenTelemetry Context Propagation","url":"https://opentelemetry.io/docs/concepts/context-propagation/","icon":"ti-share"},{"name":"PostgreSQL Explicit Row Locking","url":"https://www.postgresql.org/docs/17/explicit-locking.html","icon":"ti-lock"},{"name":"AWS Builder's Library: Timeouts & Jitter","url":"https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/","icon":"ti-time"}]}];
+
+    var flatQuestions = [];
+    ALL_QUESTIONS.forEach(function(sec){
+      (sec.questions || []).forEach(function(qObj){
+        var spokenText = qObj.spoken || '';
+        if (!spokenText && qObj.conditional && qObj.conditional.branches) {
+          spokenText = qObj.conditional.branches.map(function(b){ return b.tag + ':
+' + b.text; }).join('
+
+');
+        }
+        flatQuestions.push({
+          num: qObj.num,
+          q: qObj.q,
+          spoken: spokenText,
+          secId: sec.id,
+          secTitle: sec.title,
+          subcat: qObj.subcat || '',
+          note: qObj.note || ''
+        });
+      });
+    });
+
+    // --- 2.2 EDITABLE HIGHLIGHTS PERSISTENCE ---
+    var highlightKeys = ['lwd', 'lwd_sub', 'ctc_current', 'ctc_current_sub', 'ctc_expected', 'ctc_expected_sub', 'exp', 'exp_sub', 'lead', 'lead_sub'];
+    var highlightDefaults = {
+      'lwd': '27 Nov',
+      'lwd_sub': 'Notice Active • Immediate Joiner',
+      'ctc_current': '₹29 LPA',
+      'ctc_current_sub': '₹26.5L Fixed + ₹2.5L Variable Component (~9%)',
+      'ctc_expected': '₹40–42 LPA',
+      'ctc_expected_sub': 'Justified by API latency drop (8s → 170ms) & lead role',
+      'exp': '8+ Years',
+      'exp_sub': 'Spring Boot • Microservices • Distributed Systems',
+      'lead': '8 / 10 Engineers',
+      'lead_sub': "8 at Lowe's India • 10 at IBM Kubernetes Control Plane"
+    };
+
+    function syncHighlightValues() {
+      highlightKeys.forEach(function(k){
+        var saved = localStorage.getItem('techno_hl_' + k);
+        var val = (saved !== null && saved.trim() !== '') ? saved : highlightDefaults[k];
+        var el = document.querySelector('[data-hkey="' + k + '"]');
+        if (el) el.innerText = val;
+      });
+
+      // Also sync values into Copilot mini cheatsheet
+      var elLwd = document.querySelector('.sync-lwd-val');
+      if (elLwd) elLwd.innerText = localStorage.getItem('techno_hl_lwd') || highlightDefaults['lwd'];
+      var elCur = document.querySelector('.sync-ctc-current-val');
+      if (elCur) elCur.innerText = localStorage.getItem('techno_hl_ctc_current') || highlightDefaults['ctc_current'];
+      var elExp = document.querySelector('.sync-ctc-expected-val');
+      if (elExp) elExp.innerText = localStorage.getItem('techno_hl_ctc_expected') || highlightDefaults['ctc_expected'];
+      var elLead = document.querySelector('.sync-lead-val');
+      if (elLead) elLead.innerText = localStorage.getItem('techno_hl_lead') || highlightDefaults['lead'];
+    }
+    syncHighlightValues();
+
+    // Auto-save on blur / input
+    document.querySelectorAll('.editable-highlight').forEach(function(el){
+      el.addEventListener('blur', function(){
+        var key = el.getAttribute('data-hkey');
+        if (key) {
+          localStorage.setItem('techno_hl_' + key, el.innerText.trim());
+          syncHighlightValues();
+          showToast('Highlight updated: ' + el.innerText.trim());
+        }
+      });
+      el.addEventListener('keydown', function(ev){
+        if (ev.key === 'Enter') {
+          ev.preventDefault();
+          el.blur();
+        }
+      });
+    });
+
+    var btnEditHl = document.getElementById('btn-edit-highlights');
+    if (btnEditHl) {
+      btnEditHl.addEventListener('click', function(){
+        var first = document.querySelector('.editable-highlight');
+        if (first) {
+          first.focus();
+          showToast('Click any number or title above to edit. Press Enter or click away to save!');
+        }
+      });
+    }
+
+    var btnResetHl = document.getElementById('btn-reset-highlights');
+    if (btnResetHl) {
+      btnResetHl.addEventListener('click', function(){
+        highlightKeys.forEach(function(k){
+          localStorage.removeItem('techno_hl_' + k);
+        });
+        syncHighlightValues();
+        showToast('Executive highlights reset to candidate defaults!');
+      });
+    }
+
+    // --- 2.3 SMART KEYWORD HINTS DICTIONARY ---
+    var TOPIC_HINTS = [
+      {
+        keys: ['offer holding', 'offer', 'competing', 'counteroffer', 'buyout', 'multiple offers'],
+        targetSec: 'section-04',
+        title: '💼 Competing Offers Strategy (Section 04: Q39–Q45)',
+        hint: 'Be transparent and truthful: acknowledge existing offers with confidence. Frame conversations around architectural scope, long-term technical ownership, and engineering impact rather than playing bidding wars.'
+      },
+      {
+        keys: ['change company', 'why change', 'why leave', 'stixis', 'cgi', 'gap', 'switch', 'career story', 'transition'],
+        targetSec: 'section-01',
+        title: '🏢 Career Progression Narrative (Section 01: Q01–Q12)',
+        hint: 'Frame transitions as intentional technical steps: STIXIS (Java foundation) → CGI (enterprise banking & REST APIs) → HCL/IBM (Kubernetes CI/CD) → Lowe's (distributed retail architecture & 170ms Redis latency drop). Now seeking alignment of responsibilities, title, and CTC.'
+      },
+      {
+        keys: ['leadership', 'engineer led', 'how many engineer', 'mentoring', 'team size', 'lead', 'delegation'],
+        targetSec: 'section-02',
+        title: '👥 Engineering Leadership & Mentorship (Section 02: Q14–Q17)',
+        hint: 'Support leadership claims with verified facts: Mentored 8 engineers at Lowe's India (design reviews, Java 17/21 best practices, Spring Boot 3) & led 10 engineers on IBM Kubernetes Control Plane. Maintain a 70% hands-on coding / 30% mentorship balance.'
+      },
+      {
+        keys: ['current ctc', 'ctc', 'salary', 'fixed', 'variable', 'compensation'],
+        targetSec: 'section-03',
+        title: '💰 Current Compensation Structure (Section 03: Q18–Q24)',
+        hint: 'State your verified numbers clearly: Total CTC: ₹29 LPA consisting of ₹26.5 LPA Fixed + ₹2.5 LPA Variable (~9%). Fixed pay is disbursed monthly without deferred vesting or retention lock-ins.'
+      },
+      {
+        keys: ['expected ctc', 'hike', '40', '42', 'salary expectation', 'budget'],
+        targetSec: 'section-03',
+        title: '🎯 Compensation Opening Ask (Section 03: Q19–Q20)',
+        hint: 'Open negotiation confidently at ₹40–42 LPA (40–45% hike). Justify with end-to-end architecture ownership, API p99 latency reduction from 8s to 170ms, and mentoring 8-10 engineers.'
+      },
+      {
+        keys: ['last working day', 'lwd', '27 nov', 'notice period', 'immediate joiner', 'joining date'],
+        targetSec: 'section-03',
+        title: '⏳ Official Notice Period & LWD: 27 Nov (Section 03: Q34, Q37)',
+        hint: 'Official notice period is actively served; Last Working Day is 27 November 2026. This qualifies you as an Immediate Joiner, providing a major competitive edge for year-end and Q4 hiring cycles!'
+      },
+      {
+        keys: ['production', 'incident', 'oom', 'bottleneck', 'hikaricp', 'kafka', 'redis', 'deadlock', '170ms', 'saga'],
+        targetSec: 'section-05',
+        title: '⚡ 15 Production Architecture Incidents (Section 05: Q46–Q60)',
+        hint: 'Structure incident answers using STAR: High-scale metric (8s p99 / thread dump) → Root Cause (HikariCP starvation, partition skew) → Architectural Solution (Redis distributed caching, Resilience4j bulkheads) → Verified outcome (170ms p99).'
+      }
+    ];
+
+    var hintBanner = document.getElementById('smart-search-hint');
+    var hintTitle = document.getElementById('hint-title');
+    var hintBody = document.getElementById('hint-body');
+    var hintJumpBtn = document.getElementById('hint-jump-btn');
+    var activeHintTarget = null;
+
+    function checkTopicHints(query) {
+      if (!query || query.length < 2) {
+        if (hintBanner) hintBanner.style.display = 'none';
+        return;
+      }
+      var matched = null;
+      for (var i = 0; i < TOPIC_HINTS.length; i++) {
+        var h = TOPIC_HINTS[i];
+        for (var j = 0; j < h.keys.length; j++) {
+          if (query.indexOf(h.keys[j]) !== -1) {
+            matched = h;
+            break;
+          }
+        }
+        if (matched) break;
+      }
+
+      if (matched && hintBanner) {
+        hintTitle.innerText = matched.title;
+        hintBody.innerText = matched.hint;
+        activeHintTarget = matched.targetSec;
+        hintBanner.style.display = 'block';
+      } else if (hintBanner) {
+        hintBanner.style.display = 'none';
+      }
+    }
+
+    if (hintJumpBtn) {
+      hintJumpBtn.addEventListener('click', function(){
+        if (activeHintTarget) {
+          var targetEl = document.getElementById(activeHintTarget);
+          if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    }
+
+    // --- 2.4 DEDICATED FAST ANSWER COPILOT HELPER LOGIC ---
+    var copilotInput = document.getElementById('copilot-search-input');
+    var copilotAskBtn = document.getElementById('copilot-ask-btn');
+    var copilotResultWrap = document.getElementById('copilot-result-container');
+    var copilotAnsQNum = document.getElementById('copilot-ans-qnum');
+    var copilotAnsSec = document.getElementById('copilot-ans-sectitle');
+    var copilotAnsQuestion = document.getElementById('copilot-ans-question');
+    var copilotSpeechText = document.getElementById('copilot-speech-text');
+    var copilotAnsScore = document.getElementById('copilot-ans-score');
+    var copilotCopyBtn = document.getElementById('copilot-copy-btn');
+    var copilotJumpPlaybookBtn = document.getElementById('copilot-jump-playbook-btn');
+    var copilotRelatedWrap = document.getElementById('copilot-related-wrap');
+    var copilotRelatedList = document.getElementById('copilot-related-list');
+    var activeCopilotQNum = null;
+
+    function answerWithCopilot(userQ) {
+      if (!userQ || userQ.trim().length === 0) return;
+      var cleanQ = userQ.toLowerCase().trim();
+
+      // Score every question in flatQuestions
+      var scored = [];
+      flatQuestions.forEach(function(item){
+        var score = 0;
+        var qText = item.q.toLowerCase();
+        var spText = item.spoken.toLowerCase();
+
+        // Exact substring
+        if (qText.indexOf(cleanQ) !== -1) score += 40;
+        if (spText.indexOf(cleanQ) !== -1) score += 20;
+
+        // Specific high-value keyword matches
+        if ((cleanQ.includes('last working day') || cleanQ.includes('lwd') || cleanQ.includes('27 nov') || cleanQ.includes('notice')) && (item.num === 'Q34' || item.num === 'Q37')) score += 80;
+        if ((cleanQ.includes('current ctc') || cleanQ.includes('current salary') || cleanQ.includes('fixed') || cleanQ.includes('29')) && item.num === 'Q18') score += 80;
+        if ((cleanQ.includes('expected ctc') || cleanQ.includes('expectations') || cleanQ.includes('hike') || cleanQ.includes('40')) && (item.num === 'Q19' || item.num === 'Q20')) score += 80;
+        if ((cleanQ.includes('change') || cleanQ.includes('leave lowe') || cleanQ.includes('why leave')) && (item.num === 'Q06' || item.num === 'Q05' || item.num === 'Q07')) score += 65;
+        if ((cleanQ.includes('leadership') || cleanQ.includes('how many engineer') || cleanQ.includes('mentor')) && item.num === 'Q14') score += 75;
+        if ((cleanQ.includes('offer') || cleanQ.includes('competing') || cleanQ.includes('counteroffer')) && (item.num === 'Q39' || item.num === 'Q40' || item.num === 'Q33')) score += 65;
+        if ((cleanQ.includes('170ms') || cleanQ.includes('latency') || cleanQ.includes('redis')) && (item.num === 'Q46' || item.num === 'Q01')) score += 70;
+        if ((cleanQ.includes('oom') || cleanQ.includes('memory leak') || cleanQ.includes('heap dump')) && item.num === 'Q47') score += 80;
+        if ((cleanQ.includes('kafka') || cleanQ.includes('lag') || cleanQ.includes('rebalance')) && item.num === 'Q48') score += 80;
+        if ((cleanQ.includes('deadlock') || cleanQ.includes('lock')) && item.num === 'Q49') score += 80;
+        if ((cleanQ.includes('circuit') || cleanQ.includes('cascading')) && item.num === 'Q50') score += 80;
+        if ((cleanQ.includes('idempot') || cleanQ.includes('duplicate payment')) && item.num === 'Q51') score += 80;
+        if ((cleanQ.includes('saga') || cleanQ.includes('transaction')) && item.num === 'Q53') score += 80;
+
+        // Word overlap
+        var words = cleanQ.split(/s+/);
+        words.forEach(function(w){
+          if (w.length > 2) {
+            if (qText.indexOf(w) !== -1) score += 6;
+            if (spText.indexOf(w) !== -1) score += 2;
+          }
+        });
+
+        scored.push({ item: item, score: score });
+      });
+
+      scored.sort(function(a, b){ return b.score - a.score; });
+
+      var best = scored[0];
+      if (best && best.item) {
+        var topItem = best.item;
+        activeCopilotQNum = topItem.num;
+        copilotAnsQNum.innerText = topItem.num;
+        copilotAnsSec.innerText = topItem.secTitle;
+        copilotAnsQuestion.innerText = topItem.q;
+        copilotSpeechText.innerText = topItem.spoken;
+        copilotAnsScore.innerHTML = '<i class="ti-check text-success mr-1"></i> ' + Math.min(99, Math.max(88, best.score)) + '% Match';
+        copilotResultWrap.style.display = 'block';
+
+        // Render next 3 related questions
+        var relatedHtml = '';
+        for (var k = 1; k <= 3 && k < scored.length; k++) {
+          var rel = scored[k].item;
+          relatedHtml += '<button type="button" class="copilot-related-btn" data-copilot-q="' + rel.q.replace(/"/g, '&quot;') + '"><strong>' + rel.num + ':</strong> ' + rel.q + '</button>';
+        }
+        if (relatedHtml && copilotRelatedList) {
+          copilotRelatedList.innerHTML = relatedHtml;
+          copilotRelatedWrap.style.display = 'block';
+        }
+
+        copilotResultWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    if (copilotAskBtn && copilotInput) {
+      copilotAskBtn.addEventListener('click', function(){
+        answerWithCopilot(copilotInput.value);
+      });
+      copilotInput.addEventListener('keydown', function(ev){
+        if (ev.key === 'Enter') {
+          ev.preventDefault();
+          answerWithCopilot(copilotInput.value);
+        }
+      });
+    }
+
+    // Copilot quick prompt pills
+    document.querySelectorAll('.copilot-prompt-pill').forEach(function(pill){
+      pill.addEventListener('click', function(){
+        var ask = pill.getAttribute('data-ask');
+        if (copilotInput) copilotInput.value = ask;
+        answerWithCopilot(ask);
+      });
+    });
+
+    // Copilot related question clicks
+    document.addEventListener('click', function(e){
+      var relBtn = e.target.closest('.copilot-related-btn');
+      if (relBtn) {
+        var text = relBtn.getAttribute('data-copilot-q');
+        if (copilotInput) copilotInput.value = text;
+        answerWithCopilot(text);
+      }
+    });
+
+    // Copy Copilot speech text
+    if (copilotCopyBtn && copilotSpeechText) {
+      copilotCopyBtn.addEventListener('click', function(){
+        navigator.clipboard.writeText(copilotSpeechText.innerText).then(function(){
+          showToast('Spoken response copied to clipboard!');
+        });
+      });
+    }
+
+    // Jump from Copilot to full card in playbook
+    if (copilotJumpPlaybookBtn) {
+      copilotJumpPlaybookBtn.addEventListener('click', function(){
+        if (activeCopilotQNum) {
+          var targetCard = document.querySelector('[data-qnum="' + activeCopilotQNum + '"]');
+          if (targetCard) {
+            targetCard.style.display = 'block';
+            targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            var cardInner = targetCard.querySelector('.interview-q-card');
+            if (cardInner) {
+              cardInner.style.outline = '3px solid #0284c7';
+              cardInner.style.boxShadow = '0 0 25px rgba(2, 132, 199, 0.4)';
+              setTimeout(function(){
+                cardInner.style.outline = 'none';
+                cardInner.style.boxShadow = '';
+              }, 3000);
+            }
+          }
+        }
+      });
+    }
+
+    // --- 2.5 SEARCH & FILTER WITH QUICK CHIPS ---
     var searchInput = document.getElementById('search-input');
+    var btnClearSearch = document.getElementById('btn-clear-search');
     var filterPills = document.querySelectorAll('.filter-tab-pill');
     var currentFilter = 'all';
 
@@ -4708,12 +5477,37 @@ I&#039;d prefer not to circulate another employer&#039;s confidential offer lett
       var qCards = document.querySelectorAll('.q-card-item');
       var visibleCount = 0;
 
+      // Show/hide clear button
+      if (btnClearSearch) {
+        btnClearSearch.style.display = query.length > 0 ? 'inline-flex' : 'none';
+      }
+
+      // Check smart hints
+      checkTopicHints(query);
+
       qCards.forEach(function(card){
         var secId = card.getAttribute('data-secid');
         var cardText = card.innerText.toLowerCase();
 
         var matchesSection = (currentFilter === 'all') || (secId === currentFilter);
-        var matchesSearch = !query || cardText.indexOf(query) !== -1;
+        
+        // Smart matching: query in text OR synonym mapping
+        var matchesSearch = false;
+        if (!query) {
+          matchesSearch = true;
+        } else if (cardText.indexOf(query) !== -1) {
+          matchesSearch = true;
+        } else if (query.includes('offer holding') && secId === 'section-04') {
+          matchesSearch = true;
+        } else if ((query.includes('change company') || query.includes('why leave')) && secId === 'section-01') {
+          matchesSearch = true;
+        } else if ((query.includes('leadership') || query.includes('engineer led')) && (secId === 'section-02' || cardText.includes('mentor'))) {
+          matchesSearch = true;
+        } else if ((query.includes('current ctc') || query.includes('expected ctc') || query.includes('last working day')) && secId === 'section-03') {
+          matchesSearch = true;
+        } else if (query.includes('production incident') && secId === 'section-05') {
+          matchesSearch = true;
+        }
 
         if (matchesSection && matchesSearch) {
           card.style.display = 'block';
@@ -4736,6 +5530,33 @@ I&#039;d prefer not to circulate another employer&#039;s confidential offer lett
 
       var countEl = document.getElementById('count-all');
       if (countEl) countEl.innerText = visibleCount;
+    }
+
+    // Quick filter chips event listeners
+    document.querySelectorAll('.quick-filter-chip[data-keyword]').forEach(function(chip){
+      chip.addEventListener('click', function(){
+        document.querySelectorAll('.quick-filter-chip').forEach(function(c){ c.classList.remove('active'); });
+        chip.classList.add('active');
+        var kw = chip.getAttribute('data-keyword');
+        var targetSec = chip.getAttribute('data-target');
+        if (searchInput) searchInput.value = kw;
+        applyFilter();
+        if (targetSec) {
+          var secEl = document.getElementById(targetSec);
+          if (secEl) {
+            secEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+
+    if (btnClearSearch) {
+      btnClearSearch.addEventListener('click', function(){
+        if (searchInput) searchInput.value = '';
+        document.querySelectorAll('.quick-filter-chip').forEach(function(c){ c.classList.remove('active'); });
+        if (hintBanner) hintBanner.style.display = 'none';
+        applyFilter();
+      });
     }
 
     if (searchInput) {
