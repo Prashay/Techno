@@ -10,7 +10,7 @@
   'use strict';
 
   // Global Theme Preference ('dark' or 'light')
-  var currentTheme = (typeof localStorage !== 'undefined' && localStorage.getItem('techno-compiler-theme')) || 'dark';
+  var currentTheme = (typeof localStorage !== 'undefined' && localStorage.getItem('techno-compiler-theme')) || 'light';
 
   function saveTheme(theme) {
     currentTheme = theme;

@@ -4,6 +4,7 @@
    ========================================================================== */
 
 :root {
+  color-scheme: light;
   --ti-bg-main: #f8fafc;
   --ti-bg-surface: #ffffff;
   --ti-bg-subtle: #f1f5f9;
@@ -38,12 +39,80 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--ti-text-primary) !important;
+  color: var(--ti-text-primary);
   letter-spacing: -0.3px;
 }
 
 p, .paragraph {
-  color: var(--ti-text-secondary) !important;
+  color: var(--ti-text-secondary);
+}
+
+/* Explicit High-Contrast Utilities for Dark Elements / Hero / Badges */
+.text-white,
+.text-white * {
+  color: #ffffff !important;
+}
+
+.text-light,
+.text-light * {
+  color: #f8fafc !important;
+}
+
+/* Ensure Dark Cards & Drawers retain crisp white & light typography in Light Mode */
+.lead-framework-card,
+.final-formula-card,
+.revision-box-hero,
+.section-divider-banner,
+.mobile-drawer-sheet,
+.mobile-bottom-dock {
+  color-scheme: dark;
+}
+
+.lead-framework-card h1, .lead-framework-card h2, .lead-framework-card h3, .lead-framework-card h4, .lead-framework-card h5, .lead-framework-card h6,
+.final-formula-card h1, .final-formula-card h2, .final-formula-card h3, .final-formula-card h4,
+.revision-box-hero h1, .revision-box-hero h2, .revision-box-hero h3, .revision-box-hero h4,
+.section-divider-banner h1, .section-divider-banner h2, .section-divider-banner h3, .section-divider-banner h4,
+.mobile-drawer-sheet h1, .mobile-drawer-sheet h2, .mobile-drawer-sheet h3, .mobile-drawer-sheet h4, .mobile-drawer-sheet h5, .mobile-drawer-sheet h6 {
+  color: #ffffff !important;
+}
+
+.lead-framework-card p,
+.lead-framework-card .lead-framework-sub,
+.final-formula-card p,
+.final-formula-card .formula-subtitle,
+.revision-box-hero p,
+.section-divider-banner p {
+  color: #cbd5e1 !important;
+}
+
+/* ==========================================================================
+   Modern Contrast Overrides for Legacy Style.css Utility Classes
+   Ensures WCAG AA compliance across light theme pages
+   ========================================================================== */
+.text-muted {
+  color: #64748b !important; /* Slate-500: 4.8:1 contrast on white */
+}
+
+.text-secondary {
+  color: #475569 !important; /* Slate-600: 7.0:1 contrast on white */
+}
+
+.text-lighten {
+  color: #475569 !important; /* Slate-600: replaces invisible #d6d6e0 */
+}
+
+.text-primary,
+i.text-primary {
+  color: #0284c7 !important; /* Deep Cyan-600: replaces low-contrast yellow */
+}
+
+.text-warning,
+i.text-warning {
+  color: #b45309 !important; /* Dark Amber: replaces bright yellow */
+}
+
+.text-color {
+  color: #334155 !important; /* Slate-700: replaces dull purple-gray */
 }
 
 /* Custom Clean Scrollbar */
@@ -1355,25 +1424,90 @@ p, .paragraph {
 }
 
 /* ==========================================================================
-   Page Title Section (Universal for Other Pages)
+   Page Title Section (Universal for Other Pages - Modern Light Mode)
    ========================================================================== */
 .page-title-section {
-  padding: 160px 0 60px !important;
-  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%) !important;
+  position: relative;
+  padding: 155px 0 55px !important;
+  background: 
+    radial-gradient(circle at 90% 20%, rgba(2, 132, 199, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 10% 80%, rgba(245, 158, 11, 0.06) 0%, transparent 35%),
+    linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%) !important;
   border-bottom: 1px solid #e2e8f0 !important;
+  overflow: hidden;
 }
 
-.page-title-section .custom-breadcrumb a {
+.page-title-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+}
+
+.page-title-section.overlay::before,
+.page-title-section::after {
+  display: none !important;
+}
+
+.page-title-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.page-title-section .custom-breadcrumb {
+  margin-bottom: 8px !important;
+  padding-left: 0 !important;
+}
+
+.page-title-section .custom-breadcrumb a,
+.page-title-section .custom-breadcrumb a.text-primary,
+.page-title-section .custom-breadcrumb a.h2 {
   color: var(--ti-cyan) !important;
-  font-weight: 700;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  transition: color 0.2s ease;
+}
+
+.page-title-section .custom-breadcrumb a:hover {
+  color: #0369a1 !important;
 }
 
 .page-title-section .custom-breadcrumb li {
   color: #0f172a !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
 }
 
-.page-title-section .text-lighten {
-  color: #64748b !important;
+.page-title-section .custom-breadcrumb li.nasted {
+  padding-left: 24px !important;
+}
+
+.page-title-section .custom-breadcrumb li.nasted::before {
+  color: #94a3b8 !important;
+  font-size: 14px !important;
+}
+
+.page-title-section .custom-breadcrumb li.text-white,
+.page-title-section .custom-breadcrumb li.h3,
+.page-title-section h1,
+.page-title-section h1.text-white,
+.page-title-section h2,
+.page-title-section h3 {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.4px !important;
+}
+
+.page-title-section .text-lighten,
+.page-title-section p {
+  color: #475569 !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  line-height: 1.6 !important;
 }
 
 /* Content cards on other pages */
@@ -2488,46 +2622,80 @@ pre[style*="border: 1px dashed"],
   margin-bottom: 20px !important;
 }
 
-/* Modern Comparison Tables (.poly) */
-.poly {
+/* Avoid wrapping course thumbnail banner in card padding */
+.section-sm .col-12.mb-4:has(> img.img-fluid),
+.section .col-12.mb-4:has(> img.img-fluid) {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.section-sm .col-12.mb-4:has(> img.img-fluid) img,
+.section .col-12.mb-4:has(> img.img-fluid) img {
+  border-radius: 16px !important;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Modern Comparison Tables (.poly & .containertable) */
+.poly,
+.containertable {
+  position: static !important;
+  transform: none !important;
+  margin: 18px 0 24px !important;
   border-radius: 16px !important;
   overflow: hidden !important;
   border: 1px solid #e2e8f0 !important;
   box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05) !important;
   background: #ffffff !important;
-  margin-bottom: 20px !important;
+  line-height: normal !important;
+  top: auto !important;
+  left: auto !important;
 }
 
-.poly table {
+.poly table,
+.containertable table {
   width: 100% !important;
   border-collapse: separate !important;
   border-spacing: 0 !important;
   margin-bottom: 0 !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
 }
 
-.poly table th {
+.poly table th,
+.containertable table th {
   background: linear-gradient(135deg, #0f172a, #1e293b) !important;
   color: #ffffff !important;
   padding: 14px 20px !important;
   font-weight: 700 !important;
-  font-size: 15px !important;
+  font-size: 14px !important;
+  letter-spacing: 0.3px;
   border: none !important;
   font-family: 'Poppins', sans-serif !important;
 }
 
-.poly table td {
+.poly table td,
+.containertable table td {
   padding: 14px 20px !important;
   border-top: 1px solid #f1f5f9 !important;
   border-bottom: none !important;
   border-left: none !important;
   border-right: none !important;
   color: #334155 !important;
+  background: #ffffff !important;
   font-size: 14px !important;
   line-height: 1.6 !important;
 }
 
-.poly table tr:nth-child(even) td {
+.poly table tr:nth-child(even) td,
+.containertable table tr:nth-child(even) td {
   background: #f8fafc !important;
+}
+
+.poly table tr:hover td,
+.containertable table tr:hover td {
+  background: #f1f5f9 !important;
 }
 
 /* Course Info Summary Header Bar */
@@ -2571,6 +2739,40 @@ pre[style*="border: 1px dashed"],
   color: #2563eb;
   border: 1px solid #bfdbfe;
   box-shadow: 0 2px 10px rgba(37, 99, 235, 0.12);
+}
+
+/* Light Mode Standard Badges */
+.badge-primary, .badge.badge-primary {
+  background: #0284c7 !important;
+  color: #ffffff !important;
+  border: 1px solid #0369a1 !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  padding: 4px 9px !important;
+}
+.badge-secondary, .badge.badge-secondary {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  border: 1px solid #cbd5e1 !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  padding: 4px 9px !important;
+}
+.badge-success, .badge.badge-success {
+  background: #ecfdf5 !important;
+  color: #047857 !important;
+  border: 1px solid #a7f3d0 !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  padding: 4px 9px !important;
+}
+.badge-warning, .badge.badge-warning {
+  background: #fffbeb !important;
+  color: #b45309 !important;
+  border: 1px solid #fde68a !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  padding: 4px 9px !important;
 }
 .level-heading {
   font-size: 26px;
@@ -2693,9 +2895,10 @@ pre[style*="border: 1px dashed"],
 }
 
 .interactive-compiler-widget.theme-light .compiler-editable-pre {
-  background: #f8fafc !important;
+  background: #ffffff !important;
   color: #0f172a !important;
-  caret-color: #2563eb;
+  caret-color: #0284c7;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .interactive-compiler-widget.theme-light .compiler-editable-pre:focus {
@@ -2703,18 +2906,19 @@ pre[style*="border: 1px dashed"],
 }
 
 .interactive-compiler-widget.theme-light .compiler-terminal {
-  background: #f1f5f9;
-  border-top: 1px solid #e2e8f0;
+  background: #0f172a !important;
+  border-top: 1px solid #1e293b !important;
 }
 
 .interactive-compiler-widget.theme-light .compiler-terminal-header {
-  background: #e2e8f0;
-  border-bottom: 1px solid #cbd5e1;
-  color: #334155;
+  background: #111827 !important;
+  border-bottom: 1px solid #1f2937 !important;
+  color: #94a3b8 !important;
 }
 
 .interactive-compiler-widget.theme-light .compiler-terminal-body {
-  color: #0369a1 !important;
+  background: #0f172a !important;
+  color: #38bdf8 !important;
 }
 
 .interactive-compiler-widget.theme-light .compiler-file-tab {
